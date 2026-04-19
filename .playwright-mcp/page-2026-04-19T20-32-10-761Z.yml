@@ -1,0 +1,86 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: 
+      - text: "Image Issue: Disabled Cameras"
+    - generic [ref=e9]:
+      - button "" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+      - button "" [ref=e12] [cursor=pointer]:
+        - generic [ref=e13]: 
+  - generic [ref=e14]:
+    - group [ref=e15]:
+      - generic "Menu" [ref=e16] [cursor=pointer]: 7 Cameras
+    - group [ref=e17]:
+      - generic "Camera image issues" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: 
+      - option "All camera issues"
+      - option "Disabled Cameras" [selected]
+      - option "Offline"
+      - option "Upside Down Cameras"
+      - option "Grayscale"
+      - option "Old Timestamp"
+      - option "POE Error"
+      - option "Poor Road View"
+    - group [ref=e20]:
+      - generic "Filters" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: 
+      - option "All regions" [selected]
+      - option "Region 1"
+      - option "Region 2"
+      - option "Region 3"
+      - option "Region 4"
+      - option "All counties" [selected]
+      - option "SALT LAKE"
+      - option "UTAH"
+      - option "WASHINGTON"
+      - option "WEBER"
+      - option "All cities" [selected]
+      - option "Provo"
+      - option "Saratoga Springs"
+      - option "South Jordan"
+      - option "Washington"
+      - option "West Valley City"
+      - option "All stations" [selected]
+      - option "1422 - Ogden"
+      - option "2427 - Salt Lake South (Draper)"
+      - option "2430 - Salt Lake Central"
+      - option "3427 - Orem/Provo"
+    - group [ref=e23]:
+      - generic "Routes" [ref=e24] [cursor=pointer]:
+        - generic [ref=e25]: 
+      - option "All routes" [selected]
+      - option "I-15 (Statewide)"
+    - group [ref=e26]:
+      - generic "Search" [ref=e27] [cursor=pointer]:
+        - generic [ref=e28]: 
+    - button "" [disabled]:
+      - generic: 
+    - button "" [ref=e29] [cursor=pointer]:
+      - generic [ref=e30]: 
+    - group [ref=e31]:
+      - generic "Gallery image size" [ref=e32] [cursor=pointer]:
+        - generic [ref=e33]: 
+        - generic [ref=e34]: 
+  - generic [ref=e36]:
+    - generic [ref=e38]:
+      - button "Camera at 820 N @ Independence Ave, PVO":
+        - img "Camera at 820 N @ Independence Ave, PVO" [ref=e39] [cursor=pointer]
+    - generic [ref=e41]:
+      - button "Camera at Constitution Blvd / 2700 W @ 3100 S, WVC":
+        - img "Camera at Constitution Blvd / 2700 W @ 3100 S, WVC" [ref=e42] [cursor=pointer]
+    - generic [ref=e44]:
+      - button "Camera at Crossroads Blvd @ Riverside Dr / 400 E, SSP":
+        - img "Camera at Crossroads Blvd @ Riverside Dr / 400 E, SSP" [ref=e45] [cursor=pointer]
+    - generic [ref=e47]:
+      - button "Camera at Freedom Blvd / 200 W @ 1100 N, PVO":
+        - img "Camera at Freedom Blvd / 200 W @ 1100 N, PVO" [ref=e48] [cursor=pointer]
+    - generic [ref=e50]:
+      - button "Camera at I-15 NB @ 4400 S / MP 340.1, RDL":
+        - img "Camera at I-15 NB @ 4400 S / MP 340.1, RDL" [ref=e51] [cursor=pointer]
+    - generic [ref=e53]:
+      - button "Camera at Jordan Gateway / 500 W @ 10000 S, SJO":
+        - img "Camera at Jordan Gateway / 500 W @ 10000 S, SJO" [ref=e54] [cursor=pointer]
+    - generic [ref=e56]:
+      - button "Camera at Washington Fields Rd @ 2000 S, WAS":
+        - img "Camera at Washington Fields Rd @ 2000 S, WAS" [ref=e57] [cursor=pointer]

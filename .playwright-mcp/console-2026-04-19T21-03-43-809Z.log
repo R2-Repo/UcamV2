@@ -1,0 +1,67 @@
+[     279ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/772/386
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     281ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/771/389
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     281ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/11/772/389
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     281ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/771/390
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     281ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/771/386
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     281ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/773/385
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     281ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/772/389
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     282ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/773/389
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     282ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/772/385
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     282ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/11/773/389
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     282ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/771/385
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     282ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/772/390
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     282ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/773/386
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     282ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/11/773/390
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     283ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/11/772/386
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     283ms] [ERROR] pt: AJAXError: Failed to fetch (0): https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/11/771/389
+    at http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:494:16
+    at Generator.throw (<anonymous>)
+    at a (http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:37:17) @ http://127.0.0.1:5175/node_modules/.vite/deps/maplibre-gl.js?v=2fc43f49:599
+[     402ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:5175/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:14337
+[     404ms] [WARNING] The keyword 'slider-vertical' specified to an 'appearance' property is not standardized. It will be removed in the future. Use <input type=range style="writing-mode: vertical-lr; direction: rtl"> instead. @ http://127.0.0.1:5175/@vite/client:1173
+[     405ms] [WARNING] The keyword 'slider-vertical' specified to an 'appearance' property is not standardized. It will be removed in the future. Use <input type=range style="writing-mode: vertical-lr; direction: rtl"> instead. @ http://127.0.0.1:5175/@vite/client:1173

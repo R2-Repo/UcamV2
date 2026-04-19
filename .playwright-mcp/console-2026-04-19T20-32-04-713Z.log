@@ -1,0 +1,46 @@
+[     176ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:14337
+[     178ms] [WARNING] The keyword 'slider-vertical' specified to an 'appearance' property is not standardized. It will be removed in the future. Use <input type=range style="writing-mode: vertical-lr; direction: rtl"> instead. @ http://127.0.0.1:5174/@vite/client:1173
+[     179ms] [WARNING] The keyword 'slider-vertical' specified to an 'appearance' property is not standardized. It will be removed in the future. Use <input type=range style="writing-mode: vertical-lr; direction: rtl"> instead. @ http://127.0.0.1:5174/@vite/client:1173
+[  828327ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5174/src/shared/data/useAppData.ts?t=1776631553004:0
+[  828328ms] [ERROR] [vite] Failed to reload /src/app/AppShell.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5174/@vite/client:904
+[  828733ms] [ERROR] [vite] SyntaxError: The requested module '/src/shared/lib/modalCamera.ts' does not provide an export named 'createCameraDetailsLookup' @ http://127.0.0.1:5174/@vite/client:904
+[  828733ms] [ERROR] [vite] Failed to reload /src/app/AppShell.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5174/@vite/client:904
+[  829057ms] [ERROR] React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ AppShell 1. useState                   useState
+2. useState                   useState
+3. useState                   useState
+4. useState                   useState
+5. useState                   useState
+6. useState                   useState
+7. useEffect                  useState
+ @ http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:4179
+[  829097ms] Error: Should have a queue. You are likely calling Hooks conditionally, which is not allowed. (https://react.dev/link/invalid-hook-call)
+    at updateReducerImpl (http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:4422:30)
+    at updateReducer (http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:4418:11)
+    at Object.useState (http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:13303:13)
+    at exports.useState (http://127.0.0.1:5174/node_modules/.vite/deps/react.js?v=2fc43f49:748:31)
+    at useAppData (http://127.0.0.1:5174/src/shared/data/useAppData.ts?t=1776631553666:19:46)
+    at AppShell (http://127.0.0.1:5174/src/app/AppShell.tsx?t=1776631553666:180:60)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:12868:12)
+    at renderWithHooks (http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:4213:19)
+    at updateFunctionComponent (http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:5569:16)
+    at beginWork (http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:6140:20)
+[  829087ms] [WARNING] %s
+
+%s
+ An error occurred in the <AppShell> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=2fc43f49:5257
+[ 1267728ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5174/src/app/AppShell.tsx?t=1776631992400:0
+[ 1267733ms] [ERROR] [vite] Failed to reload /src/app/AppShell.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5174/@vite/client:904
+[ 1267900ms] [WARNING] The keyword 'slider-vertical' specified to an 'appearance' property is not standardized. It will be removed in the future. Use <input type=range style="writing-mode: vertical-lr; direction: rtl"> instead. @ http://127.0.0.1:5174/@vite/client:1179
+[ 1267903ms] [WARNING] The keyword 'slider-vertical' specified to an 'appearance' property is not standardized. It will be removed in the future. Use <input type=range style="writing-mode: vertical-lr; direction: rtl"> instead. @ http://127.0.0.1:5174/@vite/client:1179
+[ 1268164ms] [ERROR] [vite] SyntaxError: The requested module '/src/features/modal/CameraModal.tsx' does not provide an export named 'CameraModal' @ http://127.0.0.1:5174/@vite/client:904
+[ 1268167ms] [ERROR] [vite] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5174/@vite/client:904
+[ 1268604ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5174/src/features/modal/CameraModal.tsx?t=1776631993198:0
+[ 1268607ms] [ERROR] [vite] Failed to reload /src/app/AppShell.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5174/@vite/client:904
+[ 1361045ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5174/src/features/modal/CameraModal.tsx?t=1776632085679:0
+[ 1361047ms] [ERROR] [vite] Failed to reload /src/app/AppShell.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5174/@vite/client:904

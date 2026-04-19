@@ -1,0 +1,685 @@
+details.dropdown > summary {
+  list-style: none;
+}
+
+details.dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.dropdown[open] > .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+details.dropdown[open] > summary.button,
+details#sizeControlContainer[open] > summary#sizeControlButton {
+  animation: button-glow 1.5s infinite ease-in-out !important;
+}
+
+.dropdown-menu button.dropdown-item {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.legacy-menu {
+  min-width: 240px;
+  padding: 0.75rem;
+}
+
+.legacy-menu-panel {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.legacy-field {
+  display: grid;
+  gap: 0.35rem;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.legacy-field-label {
+  display: block;
+}
+
+.legacy-inline-note {
+  color: white;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.legacy-menu-actions {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.legacy-disabled-button[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.legacy-menu-panel hr {
+  margin: 0;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.legacy-search-input {
+  min-width: min(240px, 58vw);
+}
+
+details#sizeControlContainer[open] .slider-dropdown {
+  max-height: 150px;
+  opacity: 1;
+}
+
+#imageGallery {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+#imageGallery .col {
+  min-width: 0;
+}
+
+#imageGallery .legacy-image-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+#imageGallery .legacy-image-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#imageGallery .aspect-ratio-box.is-selected {
+  box-shadow: inset 0 0 0 4px rgba(4, 170, 109, 0.82);
+  border-radius: 6px;
+}
+
+.legacy-empty-state {
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  font-weight: bold;
+}
+
+.vertical-slider {
+  appearance: auto;
+  writing-mode: vertical-lr;
+  direction: rtl;
+}
+
+.legacy-empty-state p {
+  margin: 0.5rem 0 0;
+  font-weight: normal;
+}
+
+.legacy-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.legacy-modal-dialog {
+  width: min(96vw, 1200px);
+}
+
+.legacy-modal-shell {
+  overflow: hidden;
+}
+
+.legacy-modal-header,
+.legacy-modal-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: white;
+}
+
+.legacy-modal-header {
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.legacy-modal-title,
+.legacy-modal-subtitle {
+  margin: 0;
+}
+
+.legacy-modal-title {
+  font-size: 1.15rem;
+}
+
+.legacy-modal-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.legacy-modal-body {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.legacy-modal-image {
+  display: block;
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  background: #000;
+}
+
+.legacy-modal-footer {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.legacy-modal-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.legacy-react-modal {
+  width: min(98vw, 1400px);
+  max-height: min(98vh, 98dvh);
+  overflow: hidden;
+}
+
+.legacy-react-modal .modal-header,
+.legacy-react-modal .modal-footer {
+  color: white;
+}
+
+.legacy-react-modal .modal-header {
+  justify-content: center;
+}
+
+.legacy-react-modal .modal-title {
+  max-width: calc(100% - 64px);
+}
+
+.legacy-react-modal .modal-carousel-wrapper {
+  flex: 1 1 min(760px, 100%);
+  min-width: 0;
+}
+
+.legacy-react-modal .carousel-card {
+  padding: 0;
+  text-align: left;
+}
+
+.legacy-react-modal button.carousel-card {
+  appearance: none;
+}
+
+.legacy-react-modal .carousel-card[disabled] {
+  cursor: default;
+}
+
+.legacy-react-modal .carousel-card--center {
+  min-width: min(56vw, 420px);
+}
+
+.legacy-react-modal .carousel-card--center img {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #050505;
+}
+
+.legacy-react-modal .modal-footer {
+  display: flex !important;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.legacy-modal-footer .legacy-modal-meta {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.legacy-react-modal .legacy-modal-actions {
+  justify-content: flex-end;
+}
+
+.legacy-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  min-width: 42px;
+  padding: 0.45rem 0.65rem;
+}
+
+.legacy-modal-topbar {
+  position: relative;
+}
+
+.legacy-modal-dialog {
+  width: min(98vw, 1480px);
+  max-width: 1480px;
+}
+
+.legacy-modal-shell {
+  width: 100%;
+}
+
+.legacy-react-modal {
+  width: 100%;
+  max-width: none;
+}
+
+.legacy-react-modal--desktop #modalBody.modal-body-flex {
+  width: 100%;
+  min-height: min(84vh, 920px);
+  max-height: calc(100dvh - 112px);
+  padding: clamp(10px, 1.4vh, 16px) clamp(12px, 1.75vw, 24px) clamp(14px, 2.2vh, 24px);
+}
+
+.legacy-react-modal--desktop .modal-carousel-wrapper {
+  flex: 1 1 min(920px, 100%);
+}
+
+.legacy-react-modal--desktop .carousel-card--center {
+  min-width: min(60vw, 560px);
+  max-width: clamp(700px, 58vw, 900px);
+}
+
+.legacy-react-modal--desktop .legacy-modal-map-panel {
+  flex: 0 0 min(30vw, 460px);
+  min-width: 320px;
+  max-width: 480px;
+  height: clamp(300px, 46vh, 620px);
+}
+
+.legacy-react-modal--desktop .modal-info-stack,
+.legacy-react-modal--desktop .modal-mini-map {
+  width: clamp(250px, 30vw, 500px);
+  height: clamp(150px, 17vw, 250px);
+}
+
+.legacy-react-modal--desktop .modal-footer {
+  align-items: center;
+  row-gap: 0.65rem;
+  padding: 0.6rem 0.9rem 0.75rem;
+}
+
+.legacy-react-modal--desktop .legacy-modal-actions .button {
+  min-height: 38px;
+}
+
+.legacy-react-modal--mobile {
+  width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  border-radius: 0;
+}
+
+.legacy-react-modal--mobile .modal-header {
+  justify-content: center;
+  padding: max(0.6rem, env(safe-area-inset-top, 0px) + 0.3rem) 0.75rem 0.2rem;
+}
+
+.legacy-react-modal--mobile .modal-title {
+  max-width: calc(100% - 72px);
+}
+
+.legacy-react-modal--mobile .legacy-modal-close {
+  top: max(10px, env(safe-area-inset-top, 0px) + 6px);
+  right: 10px;
+}
+
+.legacy-mobile-modal-body {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: calc(100dvh - 56px);
+  height: calc(100dvh - 56px);
+  max-height: calc(100dvh - 56px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0 max(1rem, env(safe-area-inset-bottom, 0px) + 0.9rem);
+  overflow: hidden;
+}
+
+.legacy-mobile-info-stack {
+  position: fixed;
+  top: clamp(52px, 7.5svh, 76px);
+  left: 50%;
+  width: min(94vw, 540px);
+  height: clamp(210px, 31svh, 380px);
+  transform: translateX(-50%);
+  z-index: 1060;
+}
+
+.legacy-mobile-info-stack .info-stack-controls {
+  top: auto;
+  bottom: -32px;
+}
+
+.legacy-mobile-info-stack .info-stack-arrow {
+  display: none;
+}
+
+.legacy-mobile-carousel-scene {
+  position: relative;
+  display: block;
+  bottom: auto;
+  left: auto;
+  width: min(96vw, 540px);
+  max-width: 540px;
+  height: clamp(250px, 38svh, 430px);
+  margin-top: auto;
+  margin-bottom: clamp(118px, 19svh, 182px);
+  overflow: visible;
+  transform: none;
+  touch-action: none;
+}
+
+.legacy-mobile-carousel-scene .mobile-gallery {
+  overflow: visible;
+}
+
+.legacy-mobile-carousel-scene .mobile-slide {
+  top: 50%;
+  left: 50%;
+  width: min(76vw, 392px);
+  max-width: 392px;
+  margin: 0;
+  transform-origin: center center;
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms ease,
+    filter 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.legacy-mobile-carousel-scene .mobile-slide img {
+  object-fit: cover;
+}
+
+.mobile-slide__label {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 0.45rem 0.55rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(4, 170, 109, 0.82), rgba(4, 170, 109, 0.42));
+  color: white;
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
+}
+
+.legacy-mobile-modal-meta {
+  position: absolute;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 126px);
+  width: min(92vw, 560px);
+  padding: 0.42rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.77rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  transform: translateX(-50%);
+  z-index: 1061;
+}
+
+.legacy-mobile-carousel-nav {
+  position: absolute;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 82px);
+  display: flex;
+  gap: 12px;
+  transform: translateX(-50%);
+  z-index: 1062;
+}
+
+.legacy-mobile-carousel-nav .button {
+  width: 52px;
+  min-width: 52px;
+  justify-content: center;
+}
+
+.legacy-mobile-modal-actions {
+  position: absolute;
+  left: 50%;
+  bottom: max(8px, env(safe-area-inset-bottom, 0px) + 8px);
+  display: grid;
+  width: min(94vw, 560px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  transform: translateX(-50%);
+  z-index: 1062;
+}
+
+.legacy-mobile-modal-actions .button {
+  min-height: 40px;
+  justify-content: center;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.8rem;
+  box-shadow: 0 4px #999;
+}
+
+.legacy-mobile-modal-actions .button:active,
+.legacy-mobile-carousel-nav .button:active {
+  box-shadow: 0 3px #666;
+}
+
+@media (max-width: 1180px) {
+  .legacy-react-modal--desktop .carousel-card--center {
+    min-width: min(54vw, 500px);
+    max-width: min(100%, 760px);
+  }
+
+  .legacy-react-modal--desktop .legacy-modal-map-panel {
+    flex-basis: min(34vw, 420px);
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 768px) and (max-height: 740px) {
+  .legacy-mobile-info-stack {
+    top: clamp(44px, 6.5svh, 64px);
+    height: clamp(180px, 28svh, 320px);
+  }
+
+  .legacy-mobile-carousel-scene {
+    height: clamp(210px, 34svh, 360px);
+    margin-bottom: clamp(110px, 18svh, 160px);
+  }
+}
+
+@media (max-width: 420px) {
+  .legacy-mobile-carousel-scene .mobile-slide {
+    width: min(82vw, 360px);
+  }
+
+  .legacy-mobile-modal-actions .button {
+    padding: 0.36rem 0.42rem;
+    font-size: 0.74rem;
+  }
+
+  .legacy-mobile-modal-meta {
+    font-size: 0.72rem;
+  }
+}
+
+.legacy-modal-map-panel {
+  flex: 1 1 min(34vw, 480px);
+  min-width: 320px;
+  max-width: 520px;
+  height: clamp(320px, 58vh, 68vh);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.legacy-modal-map-surface {
+  width: 100%;
+  height: 100%;
+}
+
+.legacy-modal-map-marker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fffdf7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.legacy-modal-map-marker.is-previous {
+  background: #00ff88;
+}
+
+.legacy-modal-map-marker.is-current {
+  width: 16px;
+  height: 16px;
+  background: #ffd700;
+}
+
+.legacy-modal-map-marker.is-next {
+  background: #ff4444;
+}
+
+.legacy-modal-placeholder {
+  display: flex;
+  width: 100%;
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.legacy-react-modal .info-stack-dot {
+  border: 0;
+  padding: 0;
+}
+
+.legacy-react-modal .info-card__embed {
+  border: 0;
+}
+
+.legacy-react-modal .maplibregl-ctrl-top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.legacy-react-modal .maplibregl-ctrl-group {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.legacy-splash-status {
+  position: absolute;
+  left: 50%;
+  bottom: max(16px, env(safe-area-inset-bottom, 0px) + 16px);
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .legacy-menu {
+    left: auto;
+    right: 0;
+    width: min(88vw, 280px);
+    min-width: 0;
+  }
+
+  .legacy-search-input {
+    min-width: 0;
+    width: min(72vw, 260px);
+  }
+
+  .legacy-modal-dialog {
+    width: 100vw;
+    height: 100dvh;
+  }
+
+  .legacy-modal-backdrop {
+    padding: 0;
+  }
+
+  .legacy-modal-shell {
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 0;
+    border: 0;
+  }
+
+  .legacy-react-modal {
+    width: 100vw;
+    max-height: 100dvh;
+  }
+
+  .legacy-react-modal .modal-carousel-wrapper {
+    display: block !important;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .legacy-react-modal .carousel-card--center {
+    min-width: 0;
+    width: 100%;
+    max-height: clamp(200px, 28svh, 360px);
+  }
+
+  .legacy-react-modal .modal-footer {
+    display: flex !important;
+    padding: 0.5rem 0.75rem 0.8rem;
+  }
+
+  .legacy-react-modal .legacy-modal-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .legacy-react-modal .legacy-modal-actions .button {
+    flex: 1 1 calc(50% - 8px);
+    justify-content: center;
+  }
+
+  .legacy-modal-close {
+    top: auto;
+    right: 8px;
+    bottom: auto;
+  }
+}
