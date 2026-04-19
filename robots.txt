@@ -1,0 +1,28 @@
+# robots.txt for udotcameras.com
+# Allow all search engines to crawl the entire site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://udotcameras.com/sitemap.xml
+
+# Crawl-delay (optional - only if needed)
+# Crawl-delay: 1
+
+# Specific rules for common bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Disallow access to specific files/folders if needed
+# Uncomment and modify as needed:
+# Disallow: /test/
+# Disallow: /backup-loader.js
+# Disallow: /validate-migration.js
+# Disallow: /route-debug.js
