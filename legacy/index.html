@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- The viewport-fit=cover makes sure your PWA can cover the full screen on devices with notches -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  
+  <!-- SEO Meta Tags -->
+  <title>UDOT Traffic Cameras | Live Utah Highway & Road Cameras | Utah road conditions</title>
+  <meta name="description" content="View live UDOT traffic cameras across Utah. Monitor real-time highway conditions on I-15, I-80, Parley's Canyon, and all major Utah roads. Free live traffic cams from Utah Department of Transportation." />
+  <meta name="keywords" content="UDOT cameras, Utah traffic cameras, Utah highway cameras, Utah DOT cameras, I-15 traffic, I-80 cameras, Parley's Canyon, Utah road conditions, live traffic Utah, Utah webcams, Salt Lake traffic, Utah road weather, UDOT road weather, Utah road conditions, Utah ski weather, Big Cottonwood Canyon, Little Cottonwood Canyon, UDOT, UDOT Live Stream, UDOT UPLAN, UPLAN, UDOT ArcGIS, Utah road construction, Utah crash, Utah Department of Transportation, Utah snow, Utah Road weather, Utah snow plow, UDOT snow plow, I-80, I-70, Utah road trip, Utah LiveView, UDOT LiveView, UDOT Traffic App, UDOT Traffic, UDOT Traffic map, UDOT Camera Map, udotcameras, UDOTCameras, Click and Fix, Utah accident, Utah wildfire, Utah Camera Grids, UDOT Camera Grids" />
+  <meta name="author" content="UDOT Cameras App" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="UDOT Traffic Cameras | Live Utah Highway Cameras" />
+  <meta property="og:description" content="View live UDOT traffic cameras across Utah. Monitor real-time highway conditions on I-15, I-80, and all major Utah roads." />
+  <meta property="og:image" content="Icongridbackground3.png" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="UDOT Cameras" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UDOT Traffic Cameras | Live Utah Highway Cameras" />
+  <meta name="twitter:description" content="View live UDOT traffic cameras across Utah. Monitor real-time highway conditions on I-15, I-80, and all major Utah roads." />
+  <meta name="twitter:image" content="Icongridbackground3.png" />
+  
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="US-UT" />
+  <meta name="geo.placename" content="Utah" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="camIcon1.png" type="image/png">
+  <!-- PWA Manifest & Theme Color -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4C4E52">
+  <!-- External CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="stylev11.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- LottieFiles player for animated weather icons -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
+  <!-- Structured Data / JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UDOT Cameras",
+    "alternateName": "UDOT Traffic Cameras",
+    "url": "",
+    "description": "View live UDOT traffic cameras across Utah. Monitor real-time highway conditions on I-15, I-80, Parley's Canyon, and all major Utah roads.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "browserRequirements": "Requires JavaScript. Modern browser recommended.",
+    "screenshot": "Icongridbackground3.png",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "150"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "40.7608",
+      "longitude": "-111.8910"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Utah"
+    },
+    "keywords": "UDOT cameras, Utah traffic cameras, Utah highway cameras, live traffic, road conditions, I-15, I-80, Utah DOT"
+  }
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <!-- first load rbush -->
+  <script src="https://unpkg.com/rbush@3.0.1/rbush.min.js"></script>
+  <!-- then load LabelGun -->
+  <script src="https://unpkg.com/labelgun@6.0.0/lib/labelgun.js"></script>
+  <!-- Migration validation (only in development) -->
+  <script type="module" src="validate-migration.js"></script>
+  <!-- Route debugging utility -->
+  <script type="module" src="route-debug.js"></script>
+  <!-- finally your app code -->
+  <!-- <script type="module" src="js/otherFilters.js"></script> -->
+  <script type="module" src="js/main.js"></script>
+
+  <!-- Leaflet for Route Overview Map -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src=""></script>
+  <script>
+
+  </script>
+
+</head>
+<body>
+  <!-- SEO Content (visually hidden but readable by search engines) -->
+  <header class="visually-hidden">
+    <h1>UDOT Traffic Cameras - Live Utah Highway Cameras</h1>
+    <p>Access live traffic cameras from the Utah Department of Transportation (UDOT). Monitor real-time road conditions across Utah including I-15, I-80, I-215, US-89, Parley's Canyon, Weber Canyon, and all major highways and roads throughout the state.</p>
+  </header>
+  
+  <main>
+  <!-- Splash Screen -->
+  <div id="splashScreen" class="splash-screen">
+    <!-- Desktop Splash Video -->
+    <video id="desktopVideo" class="splash-video desktop-video" autoplay muted playsinline preload="auto">
+      <source src="desktop-splash.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- Mobile Splash Image -->
+    <img id="mobileSplashImage" class="splash-image mobile-splash-image" src="images/mobileSplash.gif" alt="UDOT Traffic Cameras Splash Screen">
+  </div>
+
+  <!-- Selected Filters Container -->
+  <div id="selectedFilters" class="selected-filters"></div>  
+
+  <!-- Header Controls Container -->
+  <div class="header-controls hidden-on-load">
+    <!-- Camera Count Dropdown -->
+    <div class="dropdown">
+      <button id="cameraCount" class="dropdown-toggle button" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Menu">
+        0 Cameras
+      </button>
+      <ul class="dropdown-menu glass-dropdown p-2" aria-labelledby="cameraCount">
+        <li><a class="dropdown-item" href="#" data-modal="mobileAppModal"> Mobile App</a></li>
+        <li><a class="dropdown-item" href="#" data-modal="updateInfoModal"> Update Info</a></li>
+        <li><a class="dropdown-item" href="#" data-modal="aboutAppModal"> About This App</a></li>
+      </ul>
+    </div>
+
+    <!-- Camera Image Issues Dropdown -->
+    <div class="dropdown">
+      <button id="issueFilterButton" class="dropdown-toggle button" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Camera Image Issues">
+        <i class="fas fa-exclamation-triangle" style="color:#e74c3c;"></i>
+      </button>
+      <ul class="dropdown-menu glass-dropdown p-2" id="issueFilterMenu" aria-label="Camera Image Issues">
+        <li class="dropdown-header text-white fw-bold">Camera Image Issues</li>
+        <li><a class="dropdown-item" href="#" id="dashboardMenuItem">Dashboard</a></li>
+        <li><hr class="dropdown-divider" style="border-color: rgba(255,255,255,0.2);"></li>
+        <li><a class="dropdown-item issue-option" href="#" data-value="disabled">Disabled Cameras</a></li>
+        <li><a class="dropdown-item issue-option" href="#" data-value="offline">Offline</a></li>
+        <li><a class="dropdown-item issue-option" href="#" data-value="upside_down">Upside Down Cameras</a></li>
+        <li><a class="dropdown-item issue-option" href="#" data-value="grayscale">Grayscale</a></li>
+        <li><a class="dropdown-item issue-option" href="#" data-value="old_timestamp">Old Timestamp</a></li>
+        <li><a class="dropdown-item issue-option" href="#" data-value="poe_error">POE Error</a></li>
+        <li><a class="dropdown-item issue-option" href="#" data-value="poor_road">Poor Road View</a></li>
+      </ul>
+    </div>
+
+    <!-- Combined Filter Dropdown with Sub-dropdowns -->
+    <div class="dropdown">
+      <button id="filterDropdownButton" class="dropdown-toggle button" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="Filter">
+        <i class="fas fa-filter"></i>
+      </button>
+      <div class="dropdown-menu glass-dropdown p-3" aria-labelledby="filterDropdownButton" style="min-width:240px; max-width:280px; max-height:500px; overflow-y:auto;">
+        <!-- Region Filter Sub-Dropdown -->
+        <div class="mt-2">
+          <button class="dropdown-toggle button" type="button" data-bs-toggle="collapse" data-bs-target="#regionOptions" aria-expanded="false" aria-controls="regionOptions" style="width: 100%; text-align: left;">
+            <i class="fas fa-map"></i> Region
+          </button>
+          <div class="collapse" id="regionOptions">
+            <ul class="list-unstyled m-0" id="regionFilterMenu">
+              <!-- Options dynamically populated -->
+            </ul>
+          </div>
+        </div>
+        <!-- County Filter Sub-Dropdown -->
+        <div class="mt-2">
+          <button class="dropdown-toggle button" type="button" data-bs-toggle="collapse" data-bs-target="#countyOptions" aria-expanded="false" aria-controls="countyOptions" style="width: 100%; text-align: left;">
+            <i class="fas fa-building"></i> County
+          </button>
+          <div class="collapse" id="countyOptions">
+            <ul class="list-unstyled m-0" id="countyFilterMenu">
+              <!-- Options dynamically populated -->
+            </ul>
+          </div>
+        </div>
+        <!-- City Filter Sub-Dropdown -->
+        <div class="mt-2">
+          <button class="dropdown-toggle button" type="button" data-bs-toggle="collapse" data-bs-target="#cityOptions" aria-expanded="false" aria-controls="cityOptions" style="width: 100%; text-align: left;">
+            <i class="fas fa-city"></i> City
+          </button>
+          <div class="collapse" id="cityOptions">
+            <ul class="list-unstyled m-0" id="cityFilterMenu">
+              <!-- Options dynamically populated -->
+            </ul>
+          </div>
+        </div>
+        <!-- Maintenance Stations Filter Sub-Dropdown -->
+        <div class="mt-2">
+          <button class="dropdown-toggle button" type="button" data-bs-toggle="collapse" data-bs-target="#maintenanceOptions" aria-expanded="false" aria-controls="maintenanceOptions" style="width: 100%; text-align: left;">
+            <i class="fas fa-warehouse"></i> Maintenance Stations
+          </button>
+          <div class="collapse" id="maintenanceOptions">
+            <ul class="list-unstyled m-0" id="maintenanceStationMenu">
+              <!-- Options dynamically populated -->
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Curated Routes Dropdown -->
+    <div class="dropdown">
+      <button id="routeFilterButton" class="dropdown-toggle button" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Routes">
+        <i class="fas fa-road"></i>
+      </button>
+      <ul class="dropdown-menu glass-dropdown p-2" id="routeFilterMenu">
+      </ul>
+    </div>
+
+    <!-- Search Dropdown -->
+    <div class="dropdown">
+      <button id="searchDropdownButton" class="dropdown-toggle button" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Search">
+        <i class="fas fa-search"></i>
+      </button>
+      <div class="dropdown-menu glass-dropdown p-3" style="min-width: 250px;" aria-label="Search options">
+        <input type="text" id="searchInput" placeholder="Camera Name" class="form-control glass-dropdown-input" />
+      </div>
+    </div>
+
+    <!-- Nearest Camera Button -->
+    <button id="nearestButton" class="button" title="Show Nearest Camera">
+      <i class="fas fa-location-arrow"></i>
+    </button>
+
+
+
+    <button id="refreshButton" class="button" title="Refresh Images">
+      <i class="fas fa-sync"></i>
+    </button>
+
+          <!-- Image Size Slider -->
+    <div id="sizeControlContainer" class="dropdown-control">
+      <div id="sizeControlButton" class="button">
+        <i class="fas fa-compress"></i> <i class="fas fa-expand"></i>
+      </div>
+      <div id="sizeSliderContainer" class="slider-dropdown">
+        <input id="sizeSlider" type="range" min="80" max="380" value="180" step="2" class="vertical-slider">
+      </div>
+    </div>
+  </div>
+
+  <!-- Under Construction overlay for Camera Image Issues filter -->
+  <!-- (moved inside gallery below) -->
+
+  <!-- Issue Disclaimer (only shown for Camera Image Issues filter) -->
+  <div id="issueDisclaimer" style="display:none; color:#ffffff; text-align:center; padding:2px 4px; font-size:0.55rem; font-weight:500; background:rgba(0,0,0,0.35);"></div>
+
+  <!-- Image Gallery -->
+  <div class="container-fluid" style="position:relative;">
+    <div class="under-construction-overlay" id="issueOverlay" style="display:none;">
+      <img src="UnderConstruction.png" alt="Under Construction">
+    </div>
+    <div id="imageGallery" class="container-fluid hidden-on-load"></div>
+  </div>
+
+
+
+  <!-- Standard Image Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg draggable-modal">
+      <div class="modal-content glass-modal">
+        <div class="modal-header modal-header-tight">
+          <h5 class="modal-title" id="imageModalLabel">Camera Location</h5>
+          <button type="button" class="btn-close btn-close-white modal-close-top" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body-flex" id="modalBody">
+          <div id="modalCarouselWrapper" class="modal-carousel-wrapper">
+            <div class="carousel-3d" id="modalCarousel">
+              <div class="carousel-3d-track">
+                <div class="carousel-card carousel-card--left" id="carouselPrevCard">
+                  <img id="carouselPrevImage" alt="Previous camera" loading="lazy">
+                </div>
+                <div class="carousel-card carousel-card--center" id="modalImageContainer">
+                  <img id="modalImage" src="" alt="Camera Image">
+                </div>
+                <div class="carousel-card carousel-card--right" id="carouselNextCard">
+                  <img id="carouselNextImage" alt="Next camera" loading="lazy">
+                </div>
+              </div>
+              <div class="carousel-controls">
+                <button class="button ghost" id="carouselPrevButton" type="button" title="Previous camera neighbor">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-dot"></div>
+                <button class="button ghost" id="carouselNextButton" type="button" title="Next camera neighbor">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- The map container will be injected here dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Route Builder Modal -->
+<div class="modal fade" id="customRouteModal" tabindex="-1" aria-labelledby="customRouteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content glass-modal">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="customRouteModalLabel">Build Custom Route</h5>
+      </div>
+
+      <div class="modal-body">
+        <!-- Form container -->
+        <div id="customRouteFormContainer"></div>
+        <!-- Mini overview map -->
+        <div id="customRouteMap"></div>
+      </div>
+
+      <div class="modal-footer justify-content-end align-items-center">
+        <!-- action buttons -->
+        <button type="button" class="reset-button me-2" id="customRouteReset">Reset</button>
+        <button type="button" class="reset-button me-2" id="customRouteCopyUrl">Copy URL</button>
+        <button type="button" class="reset-button me-3" id="customRouteApply" disabled>Apply</button>
+
+        <!-- footer-only close, white “×” -->
+        <button type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+
+    </div> 
+  </div>   
+</div>     
+
+
+  <!-- Mobile App Modal -->
+  <div class="modal fade" id="mobileAppModal" tabindex="-1" aria-labelledby="mobileAppLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content glass-modal">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="mobileAppLabel">Mobile App</h5>
+        </div>
+        <div class="modal-body text-center p-4" style="max-width: 100%; overflow: hidden;">
+          <p id="mobileAppText" class="mb-3 text-white">
+            Add to Home Screen for a more app like experience!
+          </p>        
+        </div>
+        <div style="width: 100%; max-width: 600px; margin: 0 auto;">
+          <img src="WebAppHowTo.gif"
+               alt="How to Install UDOT Cameras Mobile App - Add to Home Screen Tutorial"
+               class="img-fluid rounded shadow"
+               style="width: 100%; height: auto;" />
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update Info Modal -->
+  <div class="modal fade" id="updateInfoModal" tabindex="-1" aria-labelledby="updateInfoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass-modal">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="updateInfoLabel">Update Info</h5>
+        </div>
+        <div class="modal-body text-white">
+          <ul class="update-list">
+            <li class="update-header">Last Camera List Update: 4/5/2025</li>
+            <li>06/22/2025 – Added a Custom Route Builder</li>
+            <li>05/12/2025 – Added Overview Maps on selected filters</li>
+            <li>04/04/2025 – New Maintenance Station filter!</li>
+            <li>03/30/2025 – Added bookmarkable views! With URL parameters, users can now copy and share a unique URL that preserves the current filter settings.</li>
+            <li>03/22/2025 – The Routes filter is created from a predefined list of routes and milepost extents.Images will be added to one of these routes automatically as often as UDOT updates their database and this app updates the main camera list.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About This App Modal -->
+  <div class="modal fade" id="aboutAppModal" tabindex="-1" aria-labelledby="aboutAppLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass-modal">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="aboutAppLabel">About This App</h5>
+        </div>
+        <div class="modal-body text-white">
+          <ul class="update-list">
+            <li class="update-header">View and explore UDOT Traffic cameras!</li>
+            <li>This Progressive Web App (PWA) can be viewed in a web browser or installed as an app.
+                A PWA is installed as an app within a web browser while viewing udotcameras.com, not in the App Store or Google Play.</li>
+            <li>This website is not associated with UDOT and is not a product of UDOT.
+                 udotcameras.com is independently developed as an experiment and a fun, convenient way to look at cameras. Please contact Ryan Romney for any feature request.</li>
+          </ul>
+        </div>
+       <div style="width: 100%; max-width: 60px; margin: 0 auto;">
+          <img src="camIcon2.png"
+               alt="UDOT Cameras App Icon - Utah Traffic Camera Application"
+               class="img-fluid rounded shadow"
+               style="width: 100%; height: auto;" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Overview Map Modal -->
+  <div class="modal fade" id="overviewMapModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" style="max-width: 90vw;">
+      <div class="modal-content glass-modal">
+        <div class="modal-header">
+          <h5 class="modal-title" id="overviewMapModalLabel">Route Overview</h5>
+        </div>
+        <div class="modal-body p-0">
+          <div id="overviewMap" style="width:100%;height:100%;"></div>
+        </div>
+        <div class="modal-footer justify-content-end">
+          <button id="openAllTips" type="button" class="button">Open All</button>
+          <button id="closeAllTips" type="button" class="button">Close All</button>
+          <button id="toggleAutoTooltips" class="button" type="button" aria-pressed="true">Auto Open/Close: ON</button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Camera Issues Dashboard Modal -->
+  <div class="modal fade" id="cameraIssuesDashboard" tabindex="-1" aria-labelledby="dashboardLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content" style="background: url('Dashboard/DashBackground.jpg') center/cover no-repeat; position: relative; overflow: hidden;">
+        
+          <!-- Dashboard Header -->
+          <div class="dashboard-header">
+            <div class="liquidGlass-effect"></div>
+            <div class="liquidGlass-tint"></div>
+            <div class="liquidGlass-shine"></div>
+            <div class="dashboard-header-wrapper">
+              <!-- Mobile Menu Button -->
+              <div class="dropdown dashboard-mobile-menu">
+                <button class="button dashboard-menu-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-bars"></i>
+                </button>
+                <ul class="dropdown-menu glass-dropdown">
+                  <li><a class="dropdown-item dashboard-mobile-nav-item" href="#" data-page="issues">Image Issues</a></li>
+                  <li><a class="dropdown-item dashboard-mobile-nav-item" href="#" data-page="quality">Data Issues</a></li>
+                  <li><a class="dropdown-item dashboard-mobile-nav-item" href="#" data-page="stats">Stats/Counts</a></li>
+                </ul>
+              </div>
+              <div class="dashboard-header-content">
+                <img src="gifLogo.gif" alt="UDOT Cameras Logo" class="dashboard-logo">
+                <h5 class="dashboard-title" id="dashboardLabel">UDOTCameras.com</h5>
+              </div>
+              <!-- Dashboard Navigation in Header (Desktop) -->
+              <div class="dashboard-nav-header">
+                <button id="dashNavIssues" class="button active">Image Issues</button>
+                <button id="dashNavQuality" class="button">Data Issues</button>
+                <button id="dashNavStats" class="button">Stats/Counts</button>
+              </div>
+              <button type="button" class="btn-close btn-close-white dashboard-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+          </div>
+
+          <!-- Dashboard Content (scrollable) -->
+          <div class="dashboard-content" style="position:relative;">
+            <div class="under-construction-overlay" id="ucOverlayDash" style="display:none;">
+              <img src="UnderConstruction.png" alt="Under Construction">
+            </div>
+            
+            <!-- Page 1: Image Issues (GeoJSON Classifications) -->
+            <div id="dashPageIssues" class="dashboard-page">
+              <div class="container-fluid">
+                
+                <div class="row g-4">
+                  <!-- Left Column: Metric Cards -->
+                  <div class="col-lg-6">
+                    <div class="row g-4" id="dashboardIssuesContainer">
+                      <!-- Cards will be dynamically generated from GeoJSON data -->
+                    </div>
+                  </div>
+                  
+                  <!-- Right Column: Charts -->
+                  <div class="col-lg-6">
+                    <div class="row g-4">
+                      <div class="col-12">
+                        <div class="dashboard-card dashboard-card-chart">
+                          <div class="liquidGlass-effect"></div>
+                          <div class="liquidGlass-tint"></div>
+                          <div class="liquidGlass-shine"></div>
+                          <div class="liquidGlass-content">
+                            <canvas id="dashIssuesChart0"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="dashboard-card dashboard-card-chart">
+                          <div class="liquidGlass-effect"></div>
+                          <div class="liquidGlass-tint"></div>
+                          <div class="liquidGlass-shine"></div>
+                          <div class="liquidGlass-content">
+                            <canvas id="dashIssuesChart1"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <!-- Page 2: Data Issues (CSV Data) -->
+            <div id="dashPageQuality" class="dashboard-page" style="display: none;">
+              <div class="container-fluid">
+                
+                <!-- Dynamic Metric Cards Container -->
+                <div class="row g-4 mb-4" id="dashboardMetricsContainer">
+                  <!-- Cards will be dynamically generated from CSV data -->
+                </div>
+                
+              </div>
+            </div>
+
+            <!-- Page 3: Stats/Counts (Charts from CSV) -->
+            <div id="dashPageStats" class="dashboard-page" style="display: none;">
+              <div class="container-fluid">
+                
+                <!-- Total Cameras Card -->
+                <div class="row g-4 mb-4" id="dashboardStatsCardsContainer">
+                  <!-- Total Cameras card will be dynamically generated -->
+                </div>
+                
+                <!-- Charts Section -->
+                <div class="row g-4">
+                  <!-- Regional Distribution Chart -->
+                  <div class="col-lg-4 col-md-6">
+                    <div class="dashboard-card dashboard-card-chart">
+                      <div class="liquidGlass-effect"></div>
+                      <div class="liquidGlass-tint"></div>
+                      <div class="liquidGlass-shine"></div>
+                      <div class="liquidGlass-content">
+                        <canvas id="dashChart0"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- County Distribution Chart -->
+                  <div class="col-lg-4 col-md-6">
+                    <div class="dashboard-card dashboard-card-chart">
+                      <div class="liquidGlass-effect"></div>
+                      <div class="liquidGlass-tint"></div>
+                      <div class="liquidGlass-shine"></div>
+                      <div class="liquidGlass-content">
+                        <canvas id="dashChart1"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- City Distribution Chart -->
+                  <div class="col-lg-4 col-md-12">
+                    <div class="dashboard-card dashboard-card-chart">
+                      <div class="liquidGlass-effect"></div>
+                      <div class="liquidGlass-tint"></div>
+                      <div class="liquidGlass-shine"></div>
+                      <div class="liquidGlass-content">
+                        <canvas id="dashChart2"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+          </div>
+          <!-- End Dashboard Content -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Weather Modal -->
+<div class="modal fade" id="weatherModal" tabindex="-1" aria-labelledby="weatherModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="weatherModalLabel">Springdale Weather</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-0">
+        <iframe 
+          src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=in&metricTemp=°F&metricWind=mph&zoom=11&overlay=rain&product=ecmwf&level=surface&lat=37.108&lon=-113.024&message=true" 
+          frameborder="0" 
+          style="width:100%; height:80vh; border:none;">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- External JavaScript Files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+
+
+  <script>
+  (function(){
+    function setVh() {
+      document.documentElement.style.setProperty(
+        '--vh',
+        `${window.innerHeight * 0.01}px`
+      );
+    }
+    // run at load and on any resize/orientation change
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', setVh);
+    document.addEventListener('DOMContentLoaded', setVh);
+  })();
+</script>
+  <!-- Dashboard Menu Item Handler -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dashboardMenuItem = document.getElementById('dashboardMenuItem');
+    const dashboardModalEl = document.getElementById('cameraIssuesDashboard');
+    
+    if (dashboardMenuItem) {
+      dashboardMenuItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.isDashboardOpen = true;
+        window.updateURLParameters();
+        const dashboardModal = new bootstrap.Modal(dashboardModalEl);
+        dashboardModal.show();
+      });
+    }
+    
+    // Clear dashboard state when modal is closed
+    if (dashboardModalEl) {
+      dashboardModalEl.addEventListener('hidden.bs.modal', () => {
+        window.isDashboardOpen = false;
+        window.updateURLParameters();
+      });
+    }
+    
+    // Mobile menu navigation handlers
+    document.querySelectorAll('.dashboard-mobile-nav-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = e.target.dataset.page;
+        
+        // Trigger the switchDashboardPage function
+        if (page === 'quality') {
+          document.getElementById('dashNavQuality')?.click();
+        } else if (page === 'issues') {
+          document.getElementById('dashNavIssues')?.click();
+        } else if (page === 'stats') {
+          document.getElementById('dashNavStats')?.click();
+        }
+      });
+    });
+  });
+  </script>
+
+  <!-- Service Worker Registration -->
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => {
+          console.log('Service Worker registered with scope:', reg.scope);
+
+          // Listen for a new SW installation
+          reg.addEventListener('updatefound', () => {
+            const newSW = reg.installing;
+            newSW.addEventListener('statechange', () => {
+              // When the new SW is installed and controlling a page...
+              if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('New Service Worker installed – reloading page');
+                window.location.reload();
+              }
+            });
+          });
+        })
+        .catch(err => {
+          console.error('Service Worker registration failed:', err);
+        });
+    });
+  }
+</script>
+
+  </main>
+  <!-- SVG Filter for Liquid Glass Distortion Effect -->
+  <svg style="display: none">
+    <filter
+      id="glass-distortion"
+      x="0%"
+      y="0%"
+      width="100%"
+      height="100%"
+      filterUnits="objectBoundingBox"
+    >
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.01 0.01"
+        numOctaves="1"
+        seed="5"
+        result="turbulence"
+      />
+
+      <feComponentTransfer in="turbulence" result="mapped">
+        <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+        <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+        <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+      </feComponentTransfer>
+
+      <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+
+      <feSpecularLighting
+        in="softMap"
+        surfaceScale="5"
+        specularConstant="1"
+        specularExponent="100"
+        lighting-color="white"
+        result="specLight"
+      >
+        <fePointLight x="-200" y="-200" z="300" />
+      </feSpecularLighting>
+
+      <feComposite
+        in="specLight"
+        operator="arithmetic"
+        k1="0"
+        k2="1"
+        k3="1"
+        k4="0"
+        result="litImage"
+      />
+
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="softMap"
+        scale="30"
+        xChannelSelector="R"
+        yChannelSelector="G"
+      />
+    </filter>
+  </svg>
+</body>
+</html>

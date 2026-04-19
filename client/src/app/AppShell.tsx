@@ -1,4 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import clsx from 'clsx'
 import { useSearchParams } from 'react-router-dom'
 import { FilterBar } from '../features/filters/FilterBar'
 import { ISSUE_FILTER_LABELS } from '../features/filters/issueFilters'
@@ -37,6 +38,12 @@ function getActiveBadges(filters: FilterState, routeLabel: string | null) {
   ].filter(Boolean) as Array<{ icon: string; label: string }>
 }
 
+function getScrollTop() {
+  return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0
+}
+
+const HEADER_SCROLL_IDLE_MS = 220
+
 export function AppShell() {
   const { cameras, cameraDetailsById, routes, isLoading, showSplash, error } = useAppData()
   const filters = useAppStore((state) => state.filters)
@@ -51,10 +58,15 @@ export function AppShell() {
   const [imageSize, setImageSize] = useState(180)
   const [refreshNonce, setRefreshNonce] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [hasGalleryScrolled, setHasGalleryScrolled] = useState(false)
+  const [isGalleryScrollActive, setIsGalleryScrollActive] = useState(false)
+  const [galleryScrollTop, setGalleryScrollTop] = useState(0)
+  const [hasOpenHeaderMenu, setHasOpenHeaderMenu] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
   const lastAppliedSearch = useRef('')
   const hasHydratedUrlState = useRef(false)
   const skipNextUrlSync = useRef(false)
+  const scrollStopTimerRef = useRef<number | null>(null)
 
   const routeLookup = useMemo(() => createRouteSelectors(routes), [routes])
   const filteredCameras = useMemo(
@@ -142,6 +154,53 @@ export function AppShell() {
     }
   }, [viewMode])
 
+  useEffect(() => {
+    if (scrollStopTimerRef.current !== null) {
+      window.clearTimeout(scrollStopTimerRef.current)
+      scrollStopTimerRef.current = null
+    }
+
+    if (viewMode !== 'gallery') {
+      setHasGalleryScrolled(false)
+      setIsGalleryScrollActive(false)
+      setGalleryScrollTop(0)
+      setHasOpenHeaderMenu(false)
+      return
+    }
+
+    const handleScroll = () => {
+      const nextScrollTop = getScrollTop()
+
+      setGalleryScrollTop(nextScrollTop)
+      if (nextScrollTop > 0) {
+        setHasGalleryScrolled(true)
+      }
+
+      setIsGalleryScrollActive(true)
+
+      if (scrollStopTimerRef.current !== null) {
+        window.clearTimeout(scrollStopTimerRef.current)
+      }
+
+      scrollStopTimerRef.current = window.setTimeout(() => {
+        setIsGalleryScrollActive(false)
+      }, HEADER_SCROLL_IDLE_MS)
+    }
+
+    setGalleryScrollTop(getScrollTop())
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+
+      if (scrollStopTimerRef.current !== null) {
+        window.clearTimeout(scrollStopTimerRef.current)
+        scrollStopTimerRef.current = null
+      }
+    }
+  }, [viewMode])
+
   const handleFilterChange = useCallback(
     (key: keyof FilterState, value: string) => {
       setFilter(key, value)
@@ -200,6 +259,18 @@ export function AppShell() {
 
   const totalCount = cameras.length
   const filteredCount = filteredCameras.length
+  const shouldHideHeaderChrome =
+    viewMode === 'gallery' &&
+    hasGalleryScrolled &&
+    !isGalleryScrollActive &&
+    !hasOpenHeaderMenu &&
+    galleryScrollTop > 12
+
+  const handleHeaderInteraction = useCallback(() => {
+    window.requestAnimationFrame(() => {
+      setHasOpenHeaderMenu(Boolean(document.querySelector('.header-chrome details[open]')))
+    })
+  }, [])
 
   if (showSplash) {
     return <SplashScreen isReady={!isLoading && !error} />
@@ -208,42 +279,52 @@ export function AppShell() {
   return (
     <>
       <div
-        id="selectedFilters"
-        className="selected-filters"
-        style={{ display: activeBadges.length ? 'flex' : 'none' }}
+        className={clsx('header-chrome', {
+          'is-hidden': shouldHideHeaderChrome,
+          'is-scroll-active': isGalleryScrollActive,
+          'has-gallery-scrolled': hasGalleryScrolled,
+        })}
+        onClickCapture={handleHeaderInteraction}
+        onKeyUpCapture={handleHeaderInteraction}
       >
-        <div className="badges">
-          {activeBadges.map((badge) => (
-            <div key={badge.label} className="filter-item">
-              <i className={badge.icon}></i> {badge.label}
-            </div>
-          ))}
+        <div
+          id="selectedFilters"
+          className="selected-filters"
+          style={{ display: activeBadges.length ? 'flex' : 'none' }}
+        >
+          <div className="badges">
+            {activeBadges.map((badge) => (
+              <div key={badge.label} className="filter-item">
+                <i className={badge.icon}></i> {badge.label}
+              </div>
+            ))}
+          </div>
+          <div className="action-buttons">
+            <button className="reset-button" type="button" title="Reset Filters" onClick={resetFilters}>
+              <i className="fas fa-undo"></i>
+            </button>
+            <button className="reset-button" type="button" title="Copy Link" onClick={() => handleCopyLink()}>
+              <i className="fas fa-link"></i>
+            </button>
+          </div>
         </div>
-        <div className="action-buttons">
-          <button className="reset-button" type="button" title="Reset Filters" onClick={resetFilters}>
-            <i className="fas fa-undo"></i>
-          </button>
-          <button className="reset-button" type="button" title="Copy Link" onClick={() => handleCopyLink()}>
-            <i className="fas fa-link"></i>
-          </button>
-        </div>
-      </div>
 
-      <div className="header-controls fade-in">
-        <FilterBar
-          filters={filters}
-          filteredCount={filteredCount}
-          imageSize={imageSize}
-          options={filterOptions}
-          totalCount={totalCount}
-          viewMode={viewMode}
-          onCopyLink={handleCopyLink}
-          onFilterChange={handleFilterChange}
-          onImageSizeChange={setImageSize}
-          onRefresh={handleRefresh}
-          onReset={resetFilters}
-          onViewModeChange={handleViewModeChange}
-        />
+        <div className="header-controls fade-in">
+          <FilterBar
+            filters={filters}
+            filteredCount={filteredCount}
+            imageSize={imageSize}
+            options={filterOptions}
+            totalCount={totalCount}
+            viewMode={viewMode}
+            onCopyLink={handleCopyLink}
+            onFilterChange={handleFilterChange}
+            onImageSizeChange={setImageSize}
+            onRefresh={handleRefresh}
+            onReset={resetFilters}
+            onViewModeChange={handleViewModeChange}
+          />
+        </div>
       </div>
 
       {error ? (

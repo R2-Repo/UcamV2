@@ -1,0 +1,82 @@
+.card {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius-m) + 0.1rem);
+  overflow: hidden;
+  background: var(--surface-strong);
+  text-align: left;
+  padding: 0;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(15, 118, 110, 0.28);
+}
+
+.isSelected {
+  border-color: rgba(15, 118, 110, 0.48);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12), var(--shadow-soft);
+}
+
+.imageFrame {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(198, 116, 22, 0.14));
+}
+
+.imageFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body {
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.metaRow {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.routePill,
+.regionPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.routePill {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.regionPill {
+  background: rgba(24, 33, 26, 0.08);
+  color: var(--muted-strong);
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.title {
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--ink-strong);
+}
+
+.subtitle {
+  color: var(--muted);
+}
