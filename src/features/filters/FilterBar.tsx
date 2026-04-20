@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import type { FilterState, FilterOptions, ViewMode } from '../../shared/types'
 
 interface FilterBarProps {
@@ -29,6 +30,41 @@ export function FilterBar({
   onReset,
   onViewModeChange,
 }: FilterBarProps) {
+  const [isSizeControlOpen, setIsSizeControlOpen] = useState(false)
+  const sizeControlContainerRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!isSizeControlOpen) {
+      return
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target
+
+      if (!(target instanceof Node)) {
+        return
+      }
+
+      if (!sizeControlContainerRef.current?.contains(target)) {
+        setIsSizeControlOpen(false)
+      }
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsSizeControlOpen(false)
+      }
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isSizeControlOpen])
+
   const selectedRouteLabel =
     options.routes.find((route) => route.id === filters.routeId)?.displayName ?? 'All routes'
 
@@ -36,7 +72,7 @@ export function FilterBar({
     <div className="app-filterbar">
       <div className="app-filterbar__cluster app-filterbar__cluster--status">
         <details className="dropdown app-dropdown">
-          <summary id="cameraCount" className="dropdown-toggle button" aria-label="Menu">
+          <summary id="cameraCount" className="app-filterbar__control dropdown-toggle button" aria-label="Menu">
             {filteredCount} Cameras
           </summary>
           <div className="dropdown-menu app-menu">
@@ -63,7 +99,7 @@ export function FilterBar({
 
       <div className="app-filterbar__cluster app-filterbar__cluster--filters">
         <details className="dropdown app-dropdown">
-          <summary className="dropdown-toggle button" aria-label="Filters">
+          <summary className="app-filterbar__control app-filterbar__control--icon dropdown-toggle button" aria-label="Filters">
             <i className="fas fa-filter"></i>
           </summary>
           <div className="dropdown-menu app-menu">
@@ -123,7 +159,7 @@ export function FilterBar({
         </details>
 
         <details className="dropdown app-dropdown">
-          <summary className="dropdown-toggle button" aria-label="Routes">
+          <summary className="app-filterbar__control app-filterbar__control--icon dropdown-toggle button" aria-label="Routes">
             <i className="fas fa-road"></i>
           </summary>
           <div className="dropdown-menu app-menu">
@@ -145,7 +181,7 @@ export function FilterBar({
         </details>
 
         <details className="dropdown app-dropdown">
-          <summary className="dropdown-toggle button" aria-label="Search">
+          <summary className="app-filterbar__control app-filterbar__control--icon dropdown-toggle button" aria-label="Search">
             <i className="fas fa-search"></i>
           </summary>
           <div className="dropdown-menu app-menu app-search-input">
@@ -163,14 +199,31 @@ export function FilterBar({
       </div>
 
       <div className="app-filterbar__cluster app-filterbar__cluster--actions">
-        <button className="button" type="button" title="Refresh Images" onClick={onRefresh}>
+        <button
+          className="app-filterbar__control app-filterbar__control--icon button"
+          type="button"
+          title="Refresh Images"
+          aria-label="Refresh images"
+          onClick={onRefresh}
+        >
           <i className="fas fa-sync"></i>
         </button>
 
-        <details id="sizeControlContainer">
-          <summary id="sizeControlButton" aria-label="Gallery image size">
+        <div
+          id="sizeControlContainer"
+          ref={sizeControlContainerRef}
+          className={isSizeControlOpen ? 'is-open' : undefined}
+        >
+          <button
+            id="sizeControlButton"
+            className="app-filterbar__control app-filterbar__control--icon button"
+            type="button"
+            aria-label="Gallery image size"
+            aria-expanded={isSizeControlOpen}
+            onClick={() => setIsSizeControlOpen((isOpen) => !isOpen)}
+          >
             <i className="fas fa-compress"></i> <i className="fas fa-expand"></i>
-          </summary>
+          </button>
           <div className="slider-dropdown">
             <input
               id="sizeSlider"
@@ -183,7 +236,7 @@ export function FilterBar({
               onChange={(event) => onImageSizeChange(Number(event.target.value))}
             />
           </div>
-        </details>
+        </div>
       </div>
     </div>
   )
