@@ -62,7 +62,6 @@ export function FilterBar({
       </div>
 
       <div className="app-filterbar__cluster app-filterbar__cluster--filters">
-
         <details className="dropdown app-dropdown">
           <summary className="dropdown-toggle button" aria-label="Filters">
             <i className="fas fa-filter"></i>
