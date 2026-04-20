@@ -8,7 +8,6 @@ export const defaultFilters: FilterState = {
   city: '',
   maintenance: '',
   routeId: '',
-  issueFilter: '',
 }
 
 interface AppStore {

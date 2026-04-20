@@ -23,9 +23,6 @@ export interface CameraSummary {
   routeRefs: CameraRouteRef[]
   status: string
   sortOrder: number
-  classification: string | null
-  poeFailure: boolean
-  timestampIsStale: boolean
   searchText: string
 }
 
@@ -56,12 +53,6 @@ export interface CameraDetailLocation {
   region: string
 }
 
-export interface CameraDetailQuality {
-  classification: string | null
-  poeFailure: boolean
-  timestampIsStale: boolean
-}
-
 export interface CameraDetails {
   id: string
   description: string | null
@@ -77,7 +68,6 @@ export interface CameraDetails {
     previous: CameraDetailNeighbor
     next: CameraDetailNeighbor
   }
-  quality: CameraDetailQuality
 }
 
 export interface RouteSegment {
@@ -100,7 +90,6 @@ export interface FilterState {
   city: string
   maintenance: string
   routeId: string
-  issueFilter: string
 }
 
 export interface FilterOptions {

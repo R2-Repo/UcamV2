@@ -1,5 +1,4 @@
 import type { CameraSummary, CuratedRoute, FilterOptions, FilterState } from '../../shared/types'
-import { matchesIssueFilter } from './issueFilters'
 import { cameraMatchesRoute, createRouteLookup, getRouteSortValue } from '../../shared/lib/routes'
 
 function uniqueSorted(values: Array<string | null>) {
@@ -59,10 +58,6 @@ function matchesCamera(camera: CameraSummary, filters: FilterState, routeLookup:
   }
 
   if (query && !camera.searchText.includes(query)) {
-    return false
-  }
-
-  if (!matchesIssueFilter(camera, filters.issueFilter)) {
     return false
   }
 

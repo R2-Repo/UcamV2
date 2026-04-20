@@ -24,9 +24,6 @@ function createCamera(id: string): CameraSummary {
     routeRefs: [],
     status: 'Enabled',
     sortOrder: 0,
-    classification: null,
-    poeFailure: false,
-    timestampIsStale: false,
     searchText: id,
   }
 }
@@ -76,11 +73,6 @@ function createDetails(id: string, previousCameraId: string | null, nextCameraId
         name: nextCameraId ? `Camera ${nextCameraId}` : null,
         imageUrl: nextCameraId ? `https://example.com/${nextCameraId}.jpg` : null,
       },
-    },
-    quality: {
-      classification: null,
-      poeFailure: false,
-      timestampIsStale: false,
     },
   }
 }

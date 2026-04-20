@@ -27,10 +27,6 @@ export function parseSearchParams(searchParams: URLSearchParams): UrlState {
     filters.routeId = searchParams.get('route') ?? ''
   }
 
-  if (searchParams.has('issue')) {
-    filters.issueFilter = searchParams.get('issue') ?? ''
-  }
-
   return {
     viewMode: searchParams.get('view') === 'map' ? 'map' : 'gallery',
     selectedCameraId: searchParams.get('camera'),
@@ -75,10 +71,6 @@ export function buildSearchParams({
 
   if (filters.routeId) {
     searchParams.set('route', filters.routeId)
-  }
-
-  if (filters.issueFilter) {
-    searchParams.set('issue', filters.issueFilter)
   }
 
   if (selectedCameraId) {

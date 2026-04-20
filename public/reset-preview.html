@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Refreshing Preview</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #1e2329;
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+
+      main {
+        width: min(32rem, calc(100vw - 2rem));
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: 1.25rem;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      a {
+        color: #7ee7b4;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Refreshing preview...</h1>
+      <p id="status">Clearing stale browser caches and service workers before opening the current app.</p>
+      <p style="margin-top: 1rem;">If this page does not continue automatically, <a id="fallbackLink" href="/">open the app directly</a>.</p>
+    </main>
+    <script>
+      (async () => {
+        const status = document.getElementById('status')
+        const nextUrl = new URL('/', window.location.origin)
+        nextUrl.searchParams.set('v', String(Date.now()))
+
+        try {
+          if ('serviceWorker' in navigator) {
+            const registrations = await navigator.serviceWorker.getRegistrations()
+            await Promise.all(registrations.map((registration) => registration.unregister()))
+          }
+
+          if ('caches' in window) {
+            const cacheKeys = await caches.keys()
+            await Promise.all(cacheKeys.map((cacheKey) => caches.delete(cacheKey)))
+          }
+
+          status.textContent = 'Preview cache cleared. Opening the latest app now.'
+        } catch (error) {
+          console.error('Failed to clear preview cache', error)
+          status.textContent = 'Cache cleanup hit an error. Opening the latest app anyway.'
+        }
+
+        setTimeout(() => {
+          window.location.replace(nextUrl.toString())
+        }, 150)
+      })()
+    </script>
+  </body>
+  </html>

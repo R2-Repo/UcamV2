@@ -2,7 +2,6 @@ import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } fro
 import clsx from 'clsx'
 import { useSearchParams } from 'react-router-dom'
 import { FilterBar } from '../features/filters/FilterBar'
-import { ISSUE_FILTER_LABELS } from '../features/filters/issueFilters'
 import { createRouteSelectors, deriveFilterOptions, filterCameras } from '../features/filters/selectors'
 import { CameraModal } from '../features/modal/CameraModal'
 import { useAppStore } from '../features/filters/store'
@@ -21,10 +20,6 @@ const LazyMapView = lazy(async () => {
 })
 
 function getActiveBadges(filters: FilterState, routeLabel: string | null) {
-  const issueLabel = filters.issueFilter
-    ? ISSUE_FILTER_LABELS[filters.issueFilter as keyof typeof ISSUE_FILTER_LABELS] ?? filters.issueFilter
-    : null
-
   return [
     filters.region ? { icon: 'fas fa-map', label: `Region: ${filters.region}` } : null,
     filters.county ? { icon: 'fas fa-building', label: `County: ${filters.county}` } : null,
@@ -33,7 +28,6 @@ function getActiveBadges(filters: FilterState, routeLabel: string | null) {
       ? { icon: 'fas fa-tools', label: `Maintenance: ${filters.maintenance}` }
       : null,
     routeLabel ? { icon: 'fas fa-road', label: `Route: ${routeLabel}` } : null,
-    issueLabel ? { icon: 'fas fa-exclamation-triangle', label: `Image Issue: ${issueLabel}` } : null,
     filters.searchQuery ? { icon: 'fas fa-search', label: `Search: ${filters.searchQuery}` } : null,
   ].filter(Boolean) as Array<{ icon: string; label: string }>
 }

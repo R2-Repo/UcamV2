@@ -204,9 +204,6 @@ async function main() {
     const direction = asNull(props.Direction ?? props.Side_Of_Road_1)
     const sourceId = String(asNull(props.SourceId) ?? id)
     const status = asNull(props.Status) ?? 'Enabled'
-    const classification = asNull(props.classification)
-    const poeFailure = props.poe_failure === true
-    const timestampIsStale = props.timestamp_is_stale === true
     const description = asNull(props.Description)
     const googleMapsUrl =
       asNull(props.GoogleMaps_Embed) ??
@@ -228,9 +225,6 @@ async function main() {
       routeRefs,
       status,
       sortOrder: parseNumber(props.SortOrder) ?? 0,
-      classification,
-      poeFailure,
-      timestampIsStale,
       searchText: buildSearchText([
         id,
         sourceId,
@@ -287,11 +281,6 @@ async function main() {
           props.ROUTE_1_POS_NEIGHBOR_NAME,
           props.ROUTE_1_POS_NEIGHBOR_IMAGE_URL,
         ),
-      },
-      quality: {
-        classification,
-        poeFailure,
-        timestampIsStale,
       },
     })
   }

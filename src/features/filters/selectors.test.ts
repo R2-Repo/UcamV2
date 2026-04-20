@@ -35,9 +35,6 @@ const cameras: CameraSummary[] = [
     routeRefs: [{ routeKey: '80P', milepost: 132 }],
     status: 'Enabled',
     sortOrder: 1,
-    classification: null,
-    poeFailure: false,
-    timestampIsStale: false,
     searchText: 'foothill drive salt lake city 80p',
   },
   {
@@ -56,9 +53,6 @@ const cameras: CameraSummary[] = [
     routeRefs: [{ routeKey: '6P', milepost: 190 }],
     status: 'Enabled',
     sortOrder: 2,
-    classification: null,
-    poeFailure: false,
-    timestampIsStale: false,
     searchText: 'spanish fork canyon utah 6p',
   },
 ]
@@ -85,25 +79,5 @@ describe('filter selectors', () => {
 
     expect(options.counties).toEqual(['Salt Lake'])
     expect(options.routes.map((route) => route.id)).toEqual(['parleys-canyon-1'])
-  })
-
-  it('keeps disabled cameras out of the default results unless explicitly requested', () => {
-    const routeLookup = createRouteSelectors(routes)
-    const disabledCamera: CameraSummary = {
-      ...cameras[1],
-      id: 'cam-disabled',
-      status: 'Disabled',
-      classification: 'offline',
-      searchText: 'disabled camera offline',
-    }
-
-    const hiddenByDefault = filterCameras([...cameras, disabledCamera], routeLookup, defaultFilters)
-    const shownForIssueFilter = filterCameras([...cameras, disabledCamera], routeLookup, {
-      ...defaultFilters,
-      issueFilter: 'disabled',
-    })
-
-    expect(hiddenByDefault.map((camera) => camera.id)).not.toContain('cam-disabled')
-    expect(shownForIssueFilter.map((camera) => camera.id)).toEqual(['cam-disabled'])
   })
 })

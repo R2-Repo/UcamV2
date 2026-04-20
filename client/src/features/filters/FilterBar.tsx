@@ -1,5 +1,4 @@
 import type { FilterState, FilterOptions, ViewMode } from '../../shared/types'
-import { ISSUE_FILTER_OPTIONS, ISSUE_FILTER_LABELS } from './issueFilters'
 
 interface FilterBarProps {
   filters: FilterState
@@ -63,33 +62,6 @@ export function FilterBar({
       </div>
 
       <div className="legacy-filterbar__cluster legacy-filterbar__cluster--filters">
-        <details className="dropdown legacy-dropdown">
-          <summary className="dropdown-toggle button" aria-label="Camera image issues">
-            <i className="fas fa-exclamation-triangle" style={{ color: '#e74c3c' }}></i>
-          </summary>
-          <div className="dropdown-menu legacy-menu">
-            <div className="legacy-menu-panel">
-              <p className="legacy-inline-note">
-                {filters.issueFilter ? ISSUE_FILTER_LABELS[filters.issueFilter as keyof typeof ISSUE_FILTER_LABELS] : 'All camera issues'}
-              </p>
-              <label className="legacy-field">
-                <span className="legacy-field-label">Image Issue</span>
-                <select
-                  value={filters.issueFilter}
-                  onChange={(event) => onFilterChange('issueFilter', event.target.value)}
-                >
-                  <option value="">All camera issues</option>
-                  {ISSUE_FILTER_OPTIONS.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </div>
-          </div>
-        </details>
-
         <details className="dropdown legacy-dropdown">
           <summary className="dropdown-toggle button" aria-label="Filters">
             <i className="fas fa-filter"></i>
