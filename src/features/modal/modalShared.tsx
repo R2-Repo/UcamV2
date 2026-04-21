@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import clsx from 'clsx'
-import { getCameraSubtitle } from '../../shared/lib/cameras'
+import { getCameraSubtitle, resolveCameraImageUrl } from '../../shared/lib/cameras'
 import {
   createCameraLookup,
   resolveModalCameraWindow,
@@ -15,6 +15,7 @@ export interface CameraModalProps {
   cameras: CameraSummary[]
   orderedCameraIds: string[]
   cameraDetailsById: ReadonlyMap<string, CameraDetails>
+  refreshTokensByCameraId: Readonly<Record<string, number>>
   onClose: () => void
   onCopyLink: (cameraId?: string | null) => void
   onOpenMap: (cameraId: string) => void
@@ -40,11 +41,13 @@ export interface ModalMapCamera {
 
 export interface MobileCarouselEntry {
   camera: CameraSummary
+  imageUrl: string
   relativeOffset: number
 }
 
 export interface CameraModalController {
   displayedCamera: CameraSummary
+  displayedImageUrl: string
   cameraDetails: CameraDetails | null
   previousCard: NeighborCardData
   nextCard: NeighborCardData
@@ -110,14 +113,22 @@ function createNeighborCard(
   cameraId: string | null,
   cameraLookup: ReadonlyMap<string, CameraSummary>,
   fallback: CameraDetails['neighbors']['previous'] | CameraDetails['neighbors']['next'] | null,
+  refreshTokensByCameraId: Readonly<Record<string, number>>,
   labelFallback: string,
 ) {
   const camera = cameraId ? cameraLookup.get(cameraId) ?? null : null
+  const resolvedCameraId = camera?.id ?? fallback?.cameraId ?? null
+  const baseImageUrl = camera?.imageUrl ?? fallback?.imageUrl ?? null
 
   return {
-    cameraId: camera?.id ?? fallback?.cameraId ?? null,
+    cameraId: resolvedCameraId,
     camera,
-    imageUrl: camera?.imageUrl ?? fallback?.imageUrl ?? null,
+    imageUrl: baseImageUrl
+      ? resolveCameraImageUrl(
+          baseImageUrl,
+          resolvedCameraId ? refreshTokensByCameraId[resolvedCameraId] : undefined,
+        )
+      : null,
     label: camera?.location ?? fallback?.name ?? labelFallback,
   } satisfies NeighborCardData
 }
@@ -139,6 +150,7 @@ export function useCameraModalController({
   cameras,
   orderedCameraIds,
   cameraDetailsById,
+  refreshTokensByCameraId,
   onSelectCamera,
   isMobile,
 }: Omit<CameraModalProps, 'onClose' | 'onCopyLink' | 'onOpenMap'> & { isMobile: boolean }): CameraModalController {
@@ -148,6 +160,10 @@ export function useCameraModalController({
 
   const displayedCamera = cameraLookup.get(displayedCameraId) ?? activeCamera
   const cameraDetails = cameraDetailsById.get(displayedCamera.id) ?? null
+  const displayedImageUrl = useMemo(
+    () => resolveCameraImageUrl(displayedCamera.imageUrl, refreshTokensByCameraId[displayedCamera.id]),
+    [displayedCamera.id, displayedCamera.imageUrl, refreshTokensByCameraId],
+  )
 
   const neighborIds = useMemo(
     () =>
@@ -165,9 +181,10 @@ export function useCameraModalController({
         neighborIds.previousCameraId,
         cameraLookup,
         cameraDetails?.neighbors.previous ?? null,
+        refreshTokensByCameraId,
         'Previous camera',
       ),
-    [cameraDetails?.neighbors.previous, cameraLookup, neighborIds.previousCameraId],
+    [cameraDetails?.neighbors.previous, cameraLookup, neighborIds.previousCameraId, refreshTokensByCameraId],
   )
 
   const nextCard = useMemo(
@@ -176,9 +193,10 @@ export function useCameraModalController({
         neighborIds.nextCameraId,
         cameraLookup,
         cameraDetails?.neighbors.next ?? null,
+        refreshTokensByCameraId,
         'Next camera',
       ),
-    [cameraDetails?.neighbors.next, cameraLookup, neighborIds.nextCameraId],
+    [cameraDetails?.neighbors.next, cameraLookup, neighborIds.nextCameraId, refreshTokensByCameraId],
   )
 
   const deckCards = useMemo(() => {
@@ -230,11 +248,12 @@ export function useCameraModalController({
 
         return {
           camera,
+          imageUrl: resolveCameraImageUrl(camera.imageUrl, refreshTokensByCameraId[camera.id]),
           relativeOffset: activeIndex === -1 ? 0 : index - activeIndex,
         }
       })
       .filter((entry): entry is MobileCarouselEntry => entry !== null)
-  }, [cameraLookup, displayedCamera, mobileCarouselIds])
+  }, [cameraLookup, displayedCamera, mobileCarouselIds, refreshTokensByCameraId])
 
   useEffect(() => {
     setDisplayedCameraId(activeCamera.id)
@@ -295,6 +314,7 @@ export function useCameraModalController({
 
   return {
     displayedCamera,
+    displayedImageUrl,
     cameraDetails,
     previousCard,
     nextCard,

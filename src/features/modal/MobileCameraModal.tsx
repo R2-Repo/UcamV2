@@ -181,7 +181,7 @@ export function MobileCameraModal({
                       style={presentation.style}
                       onClick={() => slot !== 0 && controller.selectCamera(entry.camera.id)}
                     >
-                      <img src={entry.camera.imageUrl} alt={`Camera at ${entry.camera.location}`} loading="lazy" />
+                      <img src={entry.imageUrl} alt={`Camera at ${entry.camera.location}`} loading="lazy" />
                     </button>
                   )
                 })}

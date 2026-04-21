@@ -152,7 +152,7 @@ export function DesktopCameraModal({
                   >
                     <img
                       id="modalImage"
-                      src={controller.displayedCamera.imageUrl}
+                      src={controller.displayedImageUrl}
                       alt={`Camera at ${controller.displayedCamera.location}`}
                     />
                   </div>

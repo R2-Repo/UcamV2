@@ -5,7 +5,7 @@ interface GalleryViewProps {
   cameras: CameraSummary[]
   selectedCameraId: string | null
   imageSize: number
-  refreshNonce: number
+  refreshTokensByCameraId: Readonly<Record<string, number>>
   onSelectCamera: (cameraId: string, source: SelectionSource) => void
 }
 
@@ -13,7 +13,7 @@ export function GalleryView({
   cameras,
   selectedCameraId,
   imageSize,
-  refreshNonce,
+  refreshTokensByCameraId,
   onSelectCamera,
 }: GalleryViewProps) {
   if (!cameras.length) {
@@ -39,7 +39,7 @@ export function GalleryView({
             key={camera.id}
             camera={camera}
             isSelected={camera.id === selectedCameraId}
-            refreshNonce={refreshNonce}
+            sharedRefreshToken={refreshTokensByCameraId[camera.id]}
             onSelect={() => onSelectCamera(camera.id, 'gallery')}
           />
         ))}

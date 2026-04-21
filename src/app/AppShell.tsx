@@ -15,6 +15,7 @@ import { buildSearchParams, parseSearchParams } from '../features/filters/url-st
 import { GalleryView } from '../features/gallery/GalleryView'
 import { useAppData } from '../shared/data/useAppData'
 import { useElementSize } from '../shared/hooks/useElementSize'
+import { IMAGE_REFRESH_INTERVAL_MS } from '../shared/lib/cameras'
 import type { FilterState, SelectionSource, ViewMode } from '../shared/types'
 import styles from './AppShell.module.css'
 import { SplashScreen } from './SplashScreen'
@@ -56,7 +57,7 @@ export function AppShell() {
   const setSelectedCamera = useAppStore((state) => state.setSelectedCamera)
   const hydrateFromUrl = useAppStore((state) => state.hydrateFromUrl)
   const [imageSize, setImageSize] = useState(180)
-  const [refreshNonce, setRefreshNonce] = useState(0)
+  const [refreshTokensByCameraId, setRefreshTokensByCameraId] = useState<Record<string, number>>({})
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [galleryScrollTop, setGalleryScrollTop] = useState(0)
   const [isGalleryScrollingUp, setIsGalleryScrollingUp] = useState(false)
@@ -89,6 +90,9 @@ export function AppShell() {
     [availableCameraIds, filteredCameraIds, selectedCameraId],
   )
   const syncedSelectedCameraId = isLoading ? selectedCameraId : validSelectedCameraId
+  const isSelectedCameraRefreshEnabled = Boolean(
+    syncedSelectedCameraId && refreshTokensByCameraId[syncedSelectedCameraId] !== undefined,
+  )
   const selectedCamera = useMemo(
     () => filteredCameras.find((camera) => camera.id === validSelectedCameraId) ?? null,
     [filteredCameras, validSelectedCameraId],
@@ -192,6 +196,33 @@ export function AppShell() {
       setIsModalOpen(false)
     }
   }, [viewMode])
+
+  useEffect(() => {
+    if (!syncedSelectedCameraId) {
+      return undefined
+    }
+
+    if (!isModalOpen && !isSelectedCameraRefreshEnabled) {
+      return undefined
+    }
+
+    const refreshSelectedCamera = () => {
+      setRefreshTokensByCameraId((currentTokens) => ({
+        ...currentTokens,
+        [syncedSelectedCameraId]: Date.now(),
+      }))
+    }
+
+    if (isModalOpen) {
+      refreshSelectedCamera()
+    }
+
+    const intervalId = window.setInterval(refreshSelectedCamera, IMAGE_REFRESH_INTERVAL_MS)
+
+    return () => {
+      window.clearInterval(intervalId)
+    }
+  }, [isModalOpen, isSelectedCameraRefreshEnabled, syncedSelectedCameraId])
 
   useEffect(() => {
     if (viewMode !== 'map') {
@@ -303,10 +334,6 @@ export function AppShell() {
     [filters, isModalOpen, validSelectedCameraId, viewMode],
   )
 
-  const handleRefresh = useCallback(() => {
-    setRefreshNonce(Date.now())
-  }, [])
-
   const handleOpenMap = useCallback(
     (cameraId: string) => {
       setSelectedCamera(cameraId, 'gallery')
@@ -375,7 +402,6 @@ export function AppShell() {
                   onCopyLink={handleCopyLink}
                   onFilterChange={handleFilterChange}
                   onImageSizeChange={setImageSize}
-                  onRefresh={handleRefresh}
                   onReset={resetFilters}
                   onViewModeChange={handleViewModeChange}
                 />
@@ -385,7 +411,7 @@ export function AppShell() {
             <GalleryView
               cameras={filteredCameras}
               imageSize={imageSize}
-              refreshNonce={refreshNonce}
+              refreshTokensByCameraId={refreshTokensByCameraId}
               selectedCameraId={validSelectedCameraId}
               onSelectCamera={handleGallerySelection}
             />
@@ -402,6 +428,7 @@ export function AppShell() {
             >
               <LazyMapView
                 cameras={filteredCameras}
+                refreshTokensByCameraId={refreshTokensByCameraId}
                 selectedCamera={selectedCamera}
                 selectionSource={selectionSource}
                 isFullscreen
@@ -415,13 +442,11 @@ export function AppShell() {
                           imageSize={imageSize}
                           options={filterOptions}
                           showImageSizeControl={false}
-                          showRefreshButton={false}
                           totalCount={totalCount}
                           viewMode={viewMode}
                           onCopyLink={handleCopyLink}
                           onFilterChange={handleFilterChange}
                           onImageSizeChange={setImageSize}
-                          onRefresh={handleRefresh}
                           onReset={resetFilters}
                           onViewModeChange={handleViewModeChange}
                         />
@@ -442,6 +467,7 @@ export function AppShell() {
           activeCamera={selectedCamera}
           cameraDetailsById={cameraDetailsById}
           cameras={cameras}
+          refreshTokensByCameraId={refreshTokensByCameraId}
           onClose={handleClearSelection}
           onCopyLink={handleCopyLink}
           onOpenMap={handleOpenMap}

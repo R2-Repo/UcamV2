@@ -3,6 +3,7 @@ import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { FeatureCollection, Point } from 'geojson'
 import type { CameraSummary, SelectionSource } from '../../shared/types'
+import { resolveCameraImageUrl } from '../../shared/lib/cameras'
 import { getPrimaryRouteLabel } from '../../shared/lib/routes'
 import { DEFAULT_MAP_STYLE, UTAH_VIEW } from './mapStyle'
 import { buildPopupLayouts, createRect, type PopupLayout } from './popup-layout'
@@ -12,6 +13,7 @@ interface MapViewProps {
   cameras: CameraSummary[]
   selectedCamera: CameraSummary | null
   selectionSource: SelectionSource
+  refreshTokensByCameraId: Readonly<Record<string, number>>
   isFullscreen?: boolean
   overlay?: ReactNode
   overlayHeight?: number
@@ -109,6 +111,7 @@ export function MapView({
   cameras,
   selectedCamera,
   selectionSource,
+  refreshTokensByCameraId,
   isFullscreen = false,
   overlay,
   overlayHeight = 0,
@@ -126,6 +129,13 @@ export function MapView({
   const selectedCollection = useMemo(
     () => createFeatureCollection(selectedCamera ? [selectedCamera] : []),
     [selectedCamera],
+  )
+  const selectedCameraImageSrc = useMemo(
+    () =>
+      selectedCamera
+        ? resolveCameraImageUrl(selectedCamera.imageUrl, refreshTokensByCameraId[selectedCamera.id])
+        : null,
+    [refreshTokensByCameraId, selectedCamera],
   )
   const viewportPadding = useMemo<maplibregl.PaddingOptions>(
     () =>
@@ -459,7 +469,7 @@ export function MapView({
           </svg>
 
           <div ref={popupThumbRef} className={styles.popupThumb}>
-            <img alt="" loading="lazy" src={selectedCamera.imageUrl} />
+            <img alt="" loading="lazy" src={selectedCameraImageSrc ?? selectedCamera.imageUrl} />
           </div>
         </div>
       ) : null}

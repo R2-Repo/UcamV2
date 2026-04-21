@@ -13,12 +13,10 @@ interface FilterBarProps {
   viewMode: ViewMode
   imageSize: number
   showImageSizeControl?: boolean
-  showRefreshButton?: boolean
   showViewToggleButton?: boolean
   onFilterChange: (key: keyof FilterState, value: string) => void
   onCopyLink: () => void
   onImageSizeChange: (value: number) => void
-  onRefresh: () => void
   onReset: () => void
   onViewModeChange: (viewMode: ViewMode) => void
 }
@@ -31,12 +29,10 @@ export function FilterBar({
   viewMode,
   imageSize,
   showImageSizeControl = true,
-  showRefreshButton = true,
   showViewToggleButton = true,
   onFilterChange,
   onCopyLink,
   onImageSizeChange,
-  onRefresh,
   onReset,
   onViewModeChange,
 }: FilterBarProps) {
@@ -110,7 +106,7 @@ export function FilterBar({
 
   const selectedRouteLabel =
     options.routes.find((route) => route.id === filters.routeId)?.displayName ?? 'All routes'
-  const showActionControls = showViewToggleButton || showRefreshButton || showImageSizeControl
+  const showActionControls = showViewToggleButton || showImageSizeControl
   const viewToggleLabel = viewMode === 'map' ? 'Go Back to Gallery' : 'Open Full Map'
   const viewToggleText = viewMode === 'map' ? 'Go Back to Gallery' : 'Full Map'
 
@@ -277,18 +273,6 @@ export function FilterBar({
             >
               <i className={`fas ${viewMode === 'map' ? 'fa-images' : 'fa-map-marked-alt'}`}></i>
               <span>{viewToggleText}</span>
-            </button>
-          ) : null}
-
-          {showRefreshButton ? (
-            <button
-              className="app-filterbar__control app-filterbar__control--icon button"
-              type="button"
-              title="Refresh Images"
-              aria-label="Refresh images"
-              onClick={onRefresh}
-            >
-              <i className="fas fa-sync"></i>
             </button>
           ) : null}
 

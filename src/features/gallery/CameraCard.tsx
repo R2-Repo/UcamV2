@@ -1,30 +1,33 @@
 import { useEffect, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { useInViewport } from '../../shared/hooks/useInViewport'
-import { buildRefreshedImageUrl } from '../../shared/lib/cameras'
+import {
+  IMAGE_REFRESH_INTERVAL_MS,
+  buildRefreshedImageUrl,
+  resolveCameraImageUrl,
+} from '../../shared/lib/cameras'
 import type { CameraSummary } from '../../shared/types'
-
-const REFRESH_INTERVAL_MS = 90000
 
 interface CameraCardProps {
   camera: CameraSummary
   isSelected: boolean
-  refreshNonce: number
+  sharedRefreshToken?: number
   onSelect: () => void
 }
 
-export function CameraCard({ camera, isSelected, refreshNonce, onSelect }: CameraCardProps) {
+export function CameraCard({ camera, isSelected, sharedRefreshToken, onSelect }: CameraCardProps) {
   const { ref, isInViewport } = useInViewport<HTMLButtonElement>()
   const [refreshToken, setRefreshToken] = useState(() => Date.now())
+  const isSharedRefreshControlled = isSelected && sharedRefreshToken !== undefined
 
   useEffect(() => {
-    if (refreshNonce > 0) {
-      setRefreshToken(refreshNonce)
+    if (isSharedRefreshControlled) {
+      setRefreshToken(sharedRefreshToken)
     }
-  }, [refreshNonce])
+  }, [isSharedRefreshControlled, sharedRefreshToken])
 
   useEffect(() => {
-    if (!isInViewport) {
+    if (!isInViewport || isSharedRefreshControlled) {
       return undefined
     }
 
@@ -34,19 +37,22 @@ export function CameraCard({ camera, isSelected, refreshNonce, onSelect }: Camer
       }
     }
 
-    const intervalId = window.setInterval(refreshImage, REFRESH_INTERVAL_MS)
+    const intervalId = window.setInterval(refreshImage, IMAGE_REFRESH_INTERVAL_MS)
     document.addEventListener('visibilitychange', refreshImage)
 
     return () => {
       window.clearInterval(intervalId)
       document.removeEventListener('visibilitychange', refreshImage)
     }
-  }, [isInViewport])
+  }, [isInViewport, isSharedRefreshControlled])
 
-  const imageSrc = useMemo(
-    () => (isInViewport ? buildRefreshedImageUrl(camera.imageUrl, refreshToken) : camera.imageUrl),
-    [camera.imageUrl, isInViewport, refreshToken],
-  )
+  const imageSrc = useMemo(() => {
+    if (isSharedRefreshControlled) {
+      return resolveCameraImageUrl(camera.imageUrl, sharedRefreshToken)
+    }
+
+    return isInViewport ? buildRefreshedImageUrl(camera.imageUrl, refreshToken) : camera.imageUrl
+  }, [camera.imageUrl, isInViewport, isSharedRefreshControlled, refreshToken, sharedRefreshToken])
 
   return (
     <div className="col">

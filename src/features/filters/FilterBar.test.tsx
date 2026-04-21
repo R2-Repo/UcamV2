@@ -22,7 +22,6 @@ function renderFilterBar(filterOverrides: Partial<FilterState> = {}) {
   const onFilterChange = vi.fn()
   const onCopyLink = vi.fn()
   const onImageSizeChange = vi.fn()
-  const onRefresh = vi.fn()
   const onReset = vi.fn()
   const onViewModeChange = vi.fn()
 
@@ -37,7 +36,6 @@ function renderFilterBar(filterOverrides: Partial<FilterState> = {}) {
       onFilterChange={onFilterChange}
       onCopyLink={onCopyLink}
       onImageSizeChange={onImageSizeChange}
-      onRefresh={onRefresh}
       onReset={onReset}
       onViewModeChange={onViewModeChange}
     />, 
@@ -125,7 +123,6 @@ describe('FilterBar', () => {
         onFilterChange={vi.fn()}
         onCopyLink={vi.fn()}
         onImageSizeChange={vi.fn()}
-        onRefresh={vi.fn()}
         onReset={vi.fn()}
         onViewModeChange={onViewModeChange}
       />,
@@ -134,5 +131,11 @@ describe('FilterBar', () => {
     fireEvent.click(screen.getByTitle('Open Full Map'))
 
     expect(onViewModeChange).toHaveBeenCalledWith('map')
+  })
+
+  it('does not render a refresh button in the header controls', () => {
+    renderFilterBar()
+
+    expect(screen.queryByRole('button', { name: /refresh images/i })).not.toBeInTheDocument()
   })
 })
