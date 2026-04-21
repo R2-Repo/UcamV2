@@ -20,8 +20,6 @@ export function CameraModal(props: CameraModalProps) {
     <DesktopCameraModal
       controller={controller}
       onClose={props.onClose}
-      onCopyLink={props.onCopyLink}
-      onOpenMap={props.onOpenMap}
     />
   )
 }

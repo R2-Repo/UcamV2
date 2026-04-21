@@ -179,6 +179,15 @@ details.dropdown[open] > summary.app-filterbar__control,
   padding-inline: 0.7rem;
 }
 
+.header-chrome .app-filterbar__control--view {
+  min-width: 0;
+  padding-inline: 0.9rem 1rem;
+}
+
+.header-chrome .app-filterbar__control--view span {
+  white-space: nowrap;
+}
+
 .header-chrome .app-filterbar__control--icon i {
   font-size: 0.95rem;
 }
@@ -222,6 +231,42 @@ details.dropdown[open] > summary.app-filterbar__control,
 .app-menu {
   min-width: 240px;
   padding: 0.75rem;
+}
+
+.app-menu .dropdown-item {
+  color: #162018 !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid rgba(22, 32, 24, 0.12);
+  box-sizing: border-box;
+}
+
+.app-menu .dropdown-item:hover,
+.app-menu .dropdown-item:focus-visible {
+  background: rgba(235, 245, 239, 0.98) !important;
+  color: #0f1812 !important;
+}
+
+.app-menu select,
+.app-menu input {
+  color-scheme: light;
+  background: rgba(255, 255, 255, 0.96) !important;
+  color: #162018 !important;
+  border: 1px solid rgba(22, 32, 24, 0.18);
+}
+
+.app-menu select:focus,
+.app-menu input:focus {
+  background: white !important;
+  color: #162018 !important;
+}
+
+.app-menu select option {
+  background: white;
+  color: #162018;
+}
+
+.app-menu input::placeholder {
+  color: rgba(22, 32, 24, 0.72);
 }
 
 .app-menu-panel {
@@ -466,8 +511,9 @@ details.dropdown[open] > summary.app-filterbar__control,
 }
 
 .app-modal-dialog {
-  width: min(98vw, 1480px);
-  max-width: 1480px;
+  width: min(99vw, 1520px);
+  max-width: 1520px;
+  margin: 8px auto;
 }
 
 .app-modal-shell {
@@ -479,43 +525,193 @@ details.dropdown[open] > summary.app-filterbar__control,
   max-width: none;
 }
 
+.app-react-modal--desktop {
+  max-height: calc(100dvh - 16px);
+}
+
+.app-react-modal--desktop .modal-header {
+  padding: 0.2rem 0.55rem 0.1rem;
+}
+
 .app-react-modal--desktop #modalBody.modal-body-flex {
+  box-sizing: border-box;
   width: 100%;
-  min-height: min(84vh, 920px);
-  max-height: calc(100dvh - 112px);
-  padding: clamp(10px, 1.4vh, 16px) clamp(12px, 1.75vw, 24px) clamp(14px, 2.2vh, 24px);
+  min-width: 0;
+  flex: 1 1 auto;
+  min-height: min(86vh, 920px);
+  max-height: calc(100dvh - 40px);
+  padding: clamp(2px, 0.45vh, 6px) clamp(10px, 1.3vw, 18px) clamp(8px, 1.2vh, 14px);
 }
 
 .app-react-modal--desktop .modal-carousel-wrapper {
   flex: 1 1 min(920px, 100%);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: clamp(8px, 1vh, 14px) clamp(12px, 1.25vw, 18px) 0;
+}
+
+.app-react-modal--desktop .carousel-3d {
+  --carousel-gap: clamp(14px, 1.4vw, 20px);
+  --carousel-side-width: clamp(230px, 23vw, 308px);
+  --carousel-center-width: clamp(420px, 45vw, 584px);
+}
+
+.app-react-modal--desktop .carousel-3d-track {
+  gap: var(--carousel-gap);
+  padding-inline: clamp(8px, 0.8vw, 14px);
+  box-sizing: border-box;
+}
+
+.app-react-modal--desktop .carousel-card {
+  flex-shrink: 1;
 }
 
 .app-react-modal--desktop .carousel-card--center {
-  min-width: min(60vw, 560px);
-  max-width: clamp(700px, 58vw, 900px);
+  flex: 1 1 var(--carousel-center-width);
+  min-width: clamp(408px, 43vw, 552px);
+  max-width: var(--carousel-center-width);
+  max-height: clamp(248px, 43vh, 344px);
 }
 
-.app-react-modal--desktop .app-modal-map-panel {
-  flex: 0 0 min(30vw, 460px);
-  min-width: 320px;
-  max-width: 480px;
-  height: clamp(300px, 46vh, 620px);
+.app-react-modal--desktop .carousel-card--left,
+.app-react-modal--desktop .carousel-card--right {
+  flex: 0 0 var(--carousel-side-width);
+  min-width: var(--carousel-side-width);
+  max-width: var(--carousel-side-width);
+  max-height: clamp(156px, 26vh, 224px);
+  z-index: 2;
+}
+
+.app-react-modal--desktop .carousel-card--left {
+  transform: rotateY(16deg) scale(0.98);
+  transform-origin: right center;
+}
+
+.app-react-modal--desktop .carousel-card--right {
+  transform: rotateY(-16deg) scale(0.98);
+  transform-origin: left center;
+}
+
+.app-react-modal--desktop .carousel-hit-zone {
+  position: absolute;
+  top: 0;
+  bottom: 52px;
+  width: calc(var(--carousel-side-width) + clamp(14px, 1.5vw, 26px));
+  padding: 0;
+  border: 0;
+  background: transparent;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.app-react-modal--desktop .carousel-hit-zone--left {
+  left: clamp(2px, 0.4vw, 8px);
+}
+
+.app-react-modal--desktop .carousel-hit-zone--right {
+  right: clamp(2px, 0.4vw, 8px);
+}
+
+.app-react-modal--desktop .carousel-hit-zone[disabled] {
+  pointer-events: none;
+  cursor: default;
 }
 
 .app-react-modal--desktop .modal-info-stack,
 .app-react-modal--desktop .modal-mini-map {
-  width: clamp(250px, 30vw, 500px);
-  height: clamp(150px, 17vw, 250px);
+  width: clamp(304px, 35vw, 438px);
+  height: clamp(176px, 18vw, 220px);
 }
 
-.app-react-modal--desktop .modal-footer {
-  align-items: center;
-  row-gap: 0.65rem;
-  padding: 0.6rem 0.9rem 0.75rem;
+.app-react-modal--desktop .info-card {
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 8px;
+  padding: 10px;
+  overflow: hidden;
 }
 
-.app-react-modal--desktop .app-modal-actions .button {
-  min-height: 38px;
+.app-react-modal--desktop .info-card.is-active {
+  transform: translateZ(0) scale(1);
+}
+
+.app-react-modal--desktop .info-card.is-left {
+  transform: translateX(-12%) scale(0.94);
+}
+
+.app-react-modal--desktop .info-card.is-right {
+  transform: translateX(12%) scale(0.94);
+}
+
+.app-react-modal--desktop .info-card__columns {
+  min-height: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.app-react-modal--desktop .info-card__column {
+  min-width: 0;
+  gap: 5px;
+  padding: 8px 10px;
+}
+
+.app-react-modal--desktop .info-card__title {
+  font-size: 0.86rem;
+}
+
+.app-react-modal--desktop .info-field {
+  min-width: 0;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.78rem;
+}
+
+.app-react-modal--desktop .info-field .label {
+  flex: 0 0 auto;
+}
+
+.app-react-modal--desktop .info-field .value {
+  min-width: 0;
+  text-align: right;
+}
+
+.app-react-modal--desktop .info-card__footer {
+  min-height: 22px;
+  padding: 2px 4px 0;
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+
+.app-react-modal--desktop .info-stack-arrow {
+  width: 28px;
+  font-size: 2rem;
+}
+
+.app-react-modal--desktop .info-stack-arrow-left {
+  left: 6px;
+}
+
+.app-react-modal--desktop .info-stack-arrow-right {
+  right: 6px;
+}
+
+.app-react-modal--desktop .modal-logo-container {
+  position: absolute;
+  bottom: clamp(4px, 0.8vh, 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+.app-react-modal--desktop .modal-logo {
+  max-width: 76px;
+  margin-bottom: -6px;
+}
+
+.app-react-modal--desktop .modal-logo-text {
+  margin-top: -4px;
+  font-size: 0.74rem;
+  letter-spacing: 0.7px;
 }
 
 .app-react-modal--mobile {
@@ -611,22 +807,6 @@ details.dropdown[open] > summary.app-filterbar__control,
   object-fit: cover;
 }
 
-.mobile-slide__label {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  padding: 0.45rem 0.55rem;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(4, 170, 109, 0.82), rgba(4, 170, 109, 0.42));
-  color: white;
-  font-size: 0.74rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: left;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
-}
-
 .app-mobile-modal-meta {
   position: absolute;
   left: 50%;
@@ -687,14 +867,35 @@ details.dropdown[open] > summary.app-filterbar__control,
 }
 
 @media (max-width: 1180px) {
-  .app-react-modal--desktop .carousel-card--center {
-    min-width: min(54vw, 500px);
-    max-width: min(100%, 760px);
+  .app-react-modal--desktop .carousel-3d {
+    --carousel-side-width: clamp(206px, 22vw, 272px);
+    --carousel-center-width: clamp(396px, 44vw, 540px);
   }
 
-  .app-react-modal--desktop .app-modal-map-panel {
-    flex-basis: min(34vw, 420px);
-    min-width: 280px;
+  .app-react-modal--desktop .carousel-card--center {
+    min-width: clamp(384px, 42vw, 520px);
+  }
+
+  .app-react-modal--desktop .modal-info-stack,
+  .app-react-modal--desktop .modal-mini-map {
+    width: clamp(276px, 34vw, 392px);
+    height: clamp(172px, 18vw, 214px);
+  }
+}
+
+@media (max-width: 980px) {
+  .app-react-modal--desktop .carousel-3d {
+    --carousel-side-width: clamp(170px, 19vw, 222px);
+    --carousel-center-width: clamp(344px, 42vw, 460px);
+  }
+
+  .app-react-modal--desktop .modal-carousel-wrapper {
+    padding-inline: clamp(8px, 0.8vw, 12px);
+  }
+
+  .app-react-modal--desktop .modal-info-stack {
+    width: clamp(250px, 35vw, 344px);
+    height: clamp(170px, 22vw, 212px);
   }
 }
 
@@ -723,18 +924,6 @@ details.dropdown[open] > summary.app-filterbar__control,
   .app-mobile-modal-meta {
     font-size: 0.72rem;
   }
-}
-
-.app-modal-map-panel {
-  flex: 1 1 min(34vw, 480px);
-  min-width: 320px;
-  max-width: 520px;
-  height: clamp(320px, 58vh, 68vh);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 0.3);
 }
 
 .app-modal-map-surface {
@@ -878,6 +1067,10 @@ details.dropdown[open] > summary.app-filterbar__control,
   .header-chrome .app-filterbar__control--icon {
     min-width: 44px;
     padding-inline: 0.58rem;
+  }
+
+  .header-chrome .app-filterbar__control--view {
+    padding-inline: 0.85rem;
   }
 
   .header-chrome .app-filterbar #sizeControlButton.app-filterbar__control {

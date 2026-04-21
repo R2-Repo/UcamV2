@@ -378,20 +378,6 @@ html, body {
   cursor: default;
 }
 
-.carousel-caption {
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  padding: 6px 10px;
-  font-size: 0.75rem;
-  color: #fff;
-  background: linear-gradient(135deg, rgba(4, 170, 109, 0.85), rgba(4, 170, 109, 0.55));
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-}
-
 .carousel-controls {
   margin-top: 10px;
   display: flex;
@@ -911,6 +897,7 @@ html, body {
 .info-card {
   position: absolute;
   inset: 0;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr minmax(20px, auto);

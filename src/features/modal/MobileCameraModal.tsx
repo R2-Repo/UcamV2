@@ -182,7 +182,6 @@ export function MobileCameraModal({
                       onClick={() => slot !== 0 && controller.selectCamera(entry.camera.id)}
                     >
                       <img src={entry.camera.imageUrl} alt={`Camera at ${entry.camera.location}`} loading="lazy" />
-                      <div className="mobile-slide__label">{entry.camera.location}</div>
                     </button>
                   )
                 })}

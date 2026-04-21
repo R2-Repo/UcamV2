@@ -1,33 +1,27 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { createRoot, type Root } from 'react-dom/client'
+import { type ReactNode, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { FeatureCollection, Point } from 'geojson'
 import type { CameraSummary, SelectionSource } from '../../shared/types'
-import { getCameraSubtitle } from '../../shared/lib/cameras'
 import { getPrimaryRouteLabel } from '../../shared/lib/routes'
 import { DEFAULT_MAP_STYLE, UTAH_VIEW } from './mapStyle'
+import { buildPopupLayouts, createRect, type PopupLayout } from './popup-layout'
 import styles from './MapView.module.css'
 
 interface MapViewProps {
   cameras: CameraSummary[]
   selectedCamera: CameraSummary | null
   selectionSource: SelectionSource
+  isFullscreen?: boolean
+  overlay?: ReactNode
+  overlayHeight?: number
   onSelectCamera: (cameraId: string | null, source: SelectionSource) => void
-  onOpenGallery: () => void
 }
 
 type CameraFeatureCollection = FeatureCollection<Point, { id: string; location: string; routeLabel: string }>
 
-function disposePopupRoot(root: Root | null) {
-  if (!root) {
-    return
-  }
-
-  queueMicrotask(() => {
-    root.unmount()
-  })
-}
+const CAMERA_FOCUS_ZOOM = 13
+const POPUP_MARKER_PADDING = 12
 
 function createFeatureCollection(cameras: CameraSummary[]): CameraFeatureCollection {
   return {
@@ -47,7 +41,11 @@ function createFeatureCollection(cameras: CameraSummary[]): CameraFeatureCollect
   }
 }
 
-function fitMapToCameras(map: maplibregl.Map, cameras: CameraSummary[]) {
+function fitMapToCameras(
+  map: maplibregl.Map,
+  cameras: CameraSummary[],
+  padding: maplibregl.PaddingOptions,
+) {
   if (!cameras.length) {
     map.easeTo({ center: UTAH_VIEW.center, zoom: UTAH_VIEW.zoom, duration: 450 })
     return
@@ -56,56 +54,72 @@ function fitMapToCameras(map: maplibregl.Map, cameras: CameraSummary[]) {
   const bounds = new maplibregl.LngLatBounds()
   cameras.forEach((camera) => bounds.extend([camera.longitude, camera.latitude]))
   map.fitBounds(bounds, {
-    padding: 72,
+    padding,
     duration: 550,
     maxZoom: 11,
   })
 }
 
-function MapPopupCard({
-  camera,
-  onClearSelection,
-  onOpenGallery,
-}: {
-  camera: CameraSummary
-  onClearSelection: () => void
-  onOpenGallery: () => void
-}) {
-  return (
-    <div className={styles.popupCard}>
-      <div className={styles.popupImageFrame}>
-        <img alt={camera.location} loading="lazy" src={camera.imageUrl} />
-      </div>
+function getRenderedFeatureRadius(feature: maplibregl.MapGeoJSONFeature) {
+  const pointCount = Number(feature.properties?.point_count)
 
-      <div className={styles.popupBody}>
-        <span className={styles.popupRoute}>{getPrimaryRouteLabel(camera)}</span>
-        <strong>{camera.location}</strong>
-        <p>{getCameraSubtitle(camera)}</p>
+  if (Number.isFinite(pointCount)) {
+    if (pointCount >= 120) {
+      return 34
+    }
 
-        <div className={styles.popupActions}>
-          <button type="button" onClick={onOpenGallery}>
-            Open gallery
-          </button>
-          <button type="button" onClick={onClearSelection}>
-            Clear
-          </button>
-        </div>
-      </div>
-    </div>
-  )
+    if (pointCount >= 40) {
+      return 28
+    }
+
+    if (pointCount >= 12) {
+      return 22
+    }
+
+    return 18
+  }
+
+  return 12
+}
+
+function getRenderedMarkerRects(map: maplibregl.Map, selectedCameraIds: Set<string>) {
+  const features = map.queryRenderedFeatures(undefined, {
+    layers: ['camera-clusters', 'camera-points'],
+  }) as maplibregl.MapGeoJSONFeature[]
+
+  return features.flatMap((feature) => {
+    if (feature.geometry.type !== 'Point') {
+      return []
+    }
+
+    const featureId = typeof feature.properties?.id === 'string' ? feature.properties.id : null
+
+    if (featureId && selectedCameraIds.has(featureId)) {
+      return []
+    }
+
+    const point = map.project(feature.geometry.coordinates as [number, number])
+    const radius = getRenderedFeatureRadius(feature) + POPUP_MARKER_PADDING
+
+    return [createRect(point.x - radius, point.y - radius, radius * 2, radius * 2)]
+  })
 }
 
 export function MapView({
   cameras,
   selectedCamera,
   selectionSource,
+  isFullscreen = false,
+  overlay,
+  overlayHeight = 0,
   onSelectCamera,
-  onOpenGallery,
 }: MapViewProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
-  const popupRef = useRef<maplibregl.Popup | null>(null)
-  const popupRootRef = useRef<Root | null>(null)
+  const popupLayerRef = useRef<HTMLDivElement | null>(null)
+  const popupThumbRef = useRef<HTMLDivElement | null>(null)
+  const popupConnectorRef = useRef<SVGLineElement | null>(null)
+  const popupLayoutsRef = useRef<PopupLayout[]>([])
   const [isReady, setIsReady] = useState(false)
 
   const cameraCollection = useMemo(() => createFeatureCollection(cameras), [cameras])
@@ -113,6 +127,43 @@ export function MapView({
     () => createFeatureCollection(selectedCamera ? [selectedCamera] : []),
     [selectedCamera],
   )
+  const viewportPadding = useMemo<maplibregl.PaddingOptions>(
+    () =>
+      isFullscreen
+        ? {
+            top: Math.max(overlayHeight + 18, 104),
+            right: 28,
+            bottom: 28,
+            left: 28,
+          }
+        : {
+            top: 72,
+            right: 72,
+            bottom: 72,
+            left: 72,
+          },
+    [isFullscreen, overlayHeight],
+  )
+  const cameraCollectionRef = useRef(cameraCollection)
+  const selectedCollectionRef = useRef(selectedCollection)
+  const viewportPaddingRef = useRef(viewportPadding)
+  const onSelectCameraRef = useRef(onSelectCamera)
+
+  useEffect(() => {
+    cameraCollectionRef.current = cameraCollection
+  }, [cameraCollection])
+
+  useEffect(() => {
+    selectedCollectionRef.current = selectedCollection
+  }, [selectedCollection])
+
+  useEffect(() => {
+    viewportPaddingRef.current = viewportPadding
+  }, [viewportPadding])
+
+  useEffect(() => {
+    onSelectCameraRef.current = onSelectCamera
+  }, [onSelectCamera])
 
   useEffect(() => {
     if (!mapContainerRef.current || mapRef.current) {
@@ -126,6 +177,7 @@ export function MapView({
       zoom: UTAH_VIEW.zoom,
       attributionControl: false,
       cooperativeGestures: true,
+      fadeDuration: 0,
     })
 
     mapRef.current = map
@@ -134,35 +186,70 @@ export function MapView({
     const handleLoad = () => {
       map.addSource('cameras', {
         type: 'geojson',
-        data: cameraCollection,
+        data: cameraCollectionRef.current,
+        cluster: true,
+        clusterMaxZoom: 12,
+        clusterRadius: 56,
+      })
+
+      map.addLayer({
+        id: 'camera-clusters',
+        type: 'circle',
+        source: 'cameras',
+        filter: ['has', 'point_count'],
+        paint: {
+          'circle-color': [
+            'step',
+            ['get', 'point_count'],
+            '#0f8b63',
+            12,
+            '#188460',
+            40,
+            '#c17a15',
+            120,
+            '#9d4614',
+          ],
+          'circle-radius': ['step', ['get', 'point_count'], 18, 12, 22, 40, 28, 120, 34],
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#fefdf8',
+          'circle-opacity': 0.92,
+        },
+      })
+
+      map.addLayer({
+        id: 'camera-cluster-count',
+        type: 'symbol',
+        source: 'cameras',
+        filter: ['has', 'point_count'],
+        layout: {
+          'text-field': '{point_count_abbreviated}',
+          'text-font': ['Noto Sans Regular'],
+          'text-size': 12,
+        },
+        paint: {
+          'text-color': '#fffdf7',
+          'text-halo-color': 'rgba(0, 0, 0, 0.22)',
+          'text-halo-width': 1.2,
+        },
       })
 
       map.addLayer({
         id: 'camera-points',
         type: 'circle',
         source: 'cameras',
+        filter: ['!', ['has', 'point_count']],
         paint: {
-          'circle-radius': [
-            'interpolate',
-            ['linear'],
-            ['zoom'],
-            5,
-            4,
-            8,
-            6,
-            11,
-            8,
-          ],
+          'circle-radius': ['interpolate', ['linear'], ['zoom'], 5, 4, 8, 6, 11, 8, 14, 10],
           'circle-color': '#ff7800',
           'circle-stroke-width': 1.5,
           'circle-stroke-color': '#fefdf8',
-          'circle-opacity': 0.85,
+          'circle-opacity': 0.88,
         },
       })
 
       map.addSource('selected-camera', {
         type: 'geojson',
-        data: selectedCollection,
+        data: selectedCollectionRef.current,
       })
 
       map.addLayer({
@@ -188,16 +275,48 @@ export function MapView({
         },
       })
 
+      map.on('click', 'camera-clusters', async (event) => {
+        const feature = event.features?.[0]
+        const geometry = feature?.geometry
+        const clusterId = Number(feature?.properties?.cluster_id)
+
+        if (!feature || !Number.isFinite(clusterId) || geometry?.type !== 'Point') {
+          return
+        }
+
+        const source = map.getSource('cameras') as maplibregl.GeoJSONSource | undefined
+        const zoom = await source?.getClusterExpansionZoom(clusterId)
+
+        if (!source || typeof zoom !== 'number') {
+          return
+        }
+
+        map.easeTo({
+          center: geometry.coordinates as [number, number],
+          zoom,
+          duration: 450,
+          padding: viewportPaddingRef.current,
+        })
+      })
+
       map.on('click', 'camera-points', (event) => {
         const id = event.features?.[0]?.properties?.id
 
         if (typeof id === 'string') {
-          onSelectCamera(id, 'map')
+          onSelectCameraRef.current(id, 'map')
         }
+      })
+
+      map.on('mouseenter', 'camera-clusters', () => {
+        map.getCanvas().style.cursor = 'pointer'
       })
 
       map.on('mouseenter', 'camera-points', () => {
         map.getCanvas().style.cursor = 'pointer'
+      })
+
+      map.on('mouseleave', 'camera-clusters', () => {
+        map.getCanvas().style.cursor = ''
       })
 
       map.on('mouseleave', 'camera-points', () => {
@@ -210,15 +329,40 @@ export function MapView({
     map.on('load', handleLoad)
 
     return () => {
-      disposePopupRoot(popupRootRef.current)
-      popupRootRef.current = null
-      popupRef.current?.remove()
-      popupRef.current = null
+      map.off('load', handleLoad)
       map.remove()
       mapRef.current = null
       setIsReady(false)
+      popupLayoutsRef.current = []
     }
-  }, [cameraCollection, onSelectCamera, selectedCollection])
+  }, [])
+
+  const applyPopupLayout = (layout: PopupLayout | null) => {
+    const popupLayer = popupLayerRef.current
+    const popupThumb = popupThumbRef.current
+    const popupConnector = popupConnectorRef.current
+
+    if (!popupLayer || !popupThumb || !popupConnector) {
+      return
+    }
+
+    if (!layout) {
+      popupLayer.dataset.visible = 'false'
+      popupThumb.style.visibility = 'hidden'
+      popupThumb.style.transform = 'translate3d(-9999px, -9999px, 0)'
+      popupConnector.setAttribute('visibility', 'hidden')
+      return
+    }
+
+    popupLayer.dataset.visible = 'true'
+    popupThumb.style.visibility = 'visible'
+    popupThumb.style.transform = `translate3d(${layout.left}px, ${layout.top}px, 0)`
+    popupConnector.setAttribute('visibility', 'visible')
+    popupConnector.setAttribute('x1', String(layout.markerX))
+    popupConnector.setAttribute('y1', String(layout.markerY))
+    popupConnector.setAttribute('x2', String(layout.anchorX))
+    popupConnector.setAttribute('y2', String(layout.anchorY))
+  }
 
   useEffect(() => {
     if (!mapRef.current || !isReady) {
@@ -246,67 +390,88 @@ export function MapView({
     if (selectedCamera && (selectionSource === 'gallery' || selectionSource === 'url')) {
       mapRef.current.easeTo({
         center: [selectedCamera.longitude, selectedCamera.latitude],
-        zoom: Math.max(mapRef.current.getZoom(), 10),
+        zoom: Math.max(mapRef.current.getZoom(), CAMERA_FOCUS_ZOOM),
         duration: 650,
+        padding: viewportPadding,
       })
       return
     }
 
     if (!selectedCamera) {
-      fitMapToCameras(mapRef.current, cameras)
+      fitMapToCameras(mapRef.current, cameras, viewportPadding)
     }
-  }, [cameras, isReady, selectedCamera, selectionSource])
+  }, [cameras, isReady, selectedCamera, selectionSource, viewportPadding])
+
+  useLayoutEffect(() => {
+    if (!selectedCamera) {
+      popupLayoutsRef.current = []
+      applyPopupLayout(null)
+    }
+  }, [selectedCamera])
 
   useEffect(() => {
-    disposePopupRoot(popupRootRef.current)
-    popupRootRef.current = null
-    popupRef.current?.remove()
-    popupRef.current = null
-
     if (!mapRef.current || !isReady || !selectedCamera) {
+      popupLayoutsRef.current = []
+      applyPopupLayout(null)
       return undefined
     }
 
-    const popupNode = document.createElement('div')
-    const popupRoot = createRoot(popupNode)
-    popupRoot.render(
-      <MapPopupCard
-        camera={selectedCamera}
-        onClearSelection={() => onSelectCamera(null, 'map')}
-        onOpenGallery={onOpenGallery}
-      />,
-    )
+    const map = mapRef.current
 
-    const popup = new maplibregl.Popup({
-      className: styles.popupShell,
-      closeButton: false,
-      closeOnMove: false,
-      offset: 18,
-      maxWidth: '320px',
-    })
-      .setLngLat([selectedCamera.longitude, selectedCamera.latitude])
-      .setDOMContent(popupNode)
-      .addTo(mapRef.current)
+    const updateLayouts = () => {
+      const selectedCameraIds = new Set([selectedCamera.id])
+      const nextLayouts = buildPopupLayouts({
+        items: [
+          {
+            camera: selectedCamera,
+            point: map.project([selectedCamera.longitude, selectedCamera.latitude]),
+          },
+        ],
+        blockedRects: getRenderedMarkerRects(map, selectedCameraIds),
+        blockedTop: isFullscreen ? overlayHeight : 0,
+        width: map.getContainer().clientWidth,
+        height: map.getContainer().clientHeight,
+        previousLayouts: new Map(popupLayoutsRef.current.map((layout) => [layout.camera.id, layout])),
+      })
 
-    popupRef.current = popup
-    popupRootRef.current = popupRoot
+      popupLayoutsRef.current = nextLayouts
+      applyPopupLayout(nextLayouts[0] ?? null)
+    }
+
+    updateLayouts()
+    map.on('render', updateLayouts)
+    map.on('resize', updateLayouts)
 
     return () => {
-      popup.remove()
-      disposePopupRoot(popupRoot)
+      map.off('render', updateLayouts)
+      map.off('resize', updateLayouts)
     }
-  }, [isReady, onOpenGallery, onSelectCamera, selectedCamera])
+  }, [cameras, isFullscreen, isReady, overlayHeight, selectedCamera])
 
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${isFullscreen ? styles.isFullscreen : ''}`.trim()}>
       <div ref={mapContainerRef} className={styles.mapCanvas} />
+
+      {selectedCamera ? (
+        <div ref={popupLayerRef} className={styles.popupLayer} aria-hidden="true" key={selectedCamera.id}>
+          <svg className={styles.popupConnectorLayer} width="100%" height="100%" preserveAspectRatio="none">
+            <line ref={popupConnectorRef} className={styles.popupConnector} visibility="hidden" />
+          </svg>
+
+          <div ref={popupThumbRef} className={styles.popupThumb}>
+            <img alt="" loading="lazy" src={selectedCamera.imageUrl} />
+          </div>
+        </div>
+      ) : null}
 
       {!cameras.length && (
         <div className={styles.emptyState}>
-          <h3>No points in the current map window</h3>
-          <p>Clear a route or regional filter to bring cameras back into the shared dataset.</p>
+          <h3>No cameras match the active map filters</h3>
+          <p>Clear a route, county, city, or maintenance filter to bring cameras back into view.</p>
         </div>
       )}
+
+      {overlay}
     </div>
   )
 }

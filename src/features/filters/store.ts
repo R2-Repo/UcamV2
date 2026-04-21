@@ -44,14 +44,19 @@ export const useAppStore = create<AppStore>((set) => ({
   setSelectedCamera: (selectedCameraId, selectionSource) =>
     set({
       selectedCameraId,
-      selectionSource,
+      selectionSource: selectedCameraId ? selectionSource : null,
     }),
   hydrateFromUrl: (urlState) =>
     set((state) => ({
       viewMode: urlState.viewMode ?? state.viewMode,
       selectedCameraId:
         urlState.selectedCameraId === undefined ? state.selectedCameraId : urlState.selectedCameraId,
-      selectionSource: urlState.selectedCameraId === undefined ? state.selectionSource : 'url',
+      selectionSource:
+        urlState.selectedCameraId === undefined
+          ? state.selectionSource
+          : urlState.selectedCameraId
+            ? 'url'
+            : null,
       filters: {
         ...state.filters,
         ...urlState.filters,

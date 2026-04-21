@@ -2,6 +2,7 @@ import type { StyleSpecification } from 'maplibre-gl'
 
 export const DEFAULT_MAP_STYLE: StyleSpecification = {
   version: 8,
+  glyphs: '/map-glyphs/{fontstack}/{range}.pbf',
   sources: {
     esriImagery: {
       type: 'raster',

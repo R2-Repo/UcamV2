@@ -11,15 +11,11 @@ const SWIPE_THRESHOLD = 48
 interface DesktopCameraModalProps {
   controller: CameraModalController
   onClose: () => void
-  onCopyLink: (cameraId?: string | null) => void
-  onOpenMap: (cameraId: string) => void
 }
 
 export function DesktopCameraModal({
   controller,
   onClose,
-  onCopyLink,
-  onOpenMap,
 }: DesktopCameraModalProps) {
   const [animationClass, setAnimationClass] = useState('')
   const timersRef = useRef<number[]>([])
@@ -132,30 +128,21 @@ export function DesktopCameraModal({
             <div className="modal-carousel-wrapper" id="modalCarouselWrapper">
               <div className="carousel-3d">
                 <div className={clsx('carousel-3d-track', animationClass)}>
-                  <button
+                  <div
                     className={clsx('carousel-card', 'carousel-card--left', {
                       'is-empty': !controller.previousCard.imageUrl,
                     })}
-                    type="button"
-                    disabled={!controller.previousCard.cameraId}
-                    onClick={() =>
-                      controller.previousCard.cameraId &&
-                      navigateToNeighbor(controller.previousCard.cameraId, 'previous')
-                    }
                   >
                     {controller.previousCard.imageUrl ? (
-                      <>
-                        <img
-                          src={controller.previousCard.imageUrl}
-                          alt={controller.previousCard.label}
-                          loading="lazy"
-                        />
-                        <div className="carousel-caption">{controller.previousCard.label}</div>
-                      </>
+                      <img
+                        src={controller.previousCard.imageUrl}
+                        alt={controller.previousCard.label}
+                        loading="lazy"
+                      />
                     ) : (
                       <div className="app-modal-placeholder">No previous camera</div>
                     )}
-                  </button>
+                  </div>
 
                   <div
                     className="carousel-card carousel-card--center"
@@ -170,27 +157,42 @@ export function DesktopCameraModal({
                     />
                   </div>
 
-                  <button
+                  <div
                     className={clsx('carousel-card', 'carousel-card--right', {
                       'is-empty': !controller.nextCard.imageUrl,
                     })}
-                    type="button"
-                    disabled={!controller.nextCard.cameraId}
-                    onClick={() =>
-                      controller.nextCard.cameraId &&
-                      navigateToNeighbor(controller.nextCard.cameraId, 'next')
-                    }
                   >
                     {controller.nextCard.imageUrl ? (
-                      <>
-                        <img src={controller.nextCard.imageUrl} alt={controller.nextCard.label} loading="lazy" />
-                        <div className="carousel-caption">{controller.nextCard.label}</div>
-                      </>
+                      <img src={controller.nextCard.imageUrl} alt={controller.nextCard.label} loading="lazy" />
                     ) : (
                       <div className="app-modal-placeholder">No next camera</div>
                     )}
-                  </button>
+                  </div>
                 </div>
+
+                <button
+                  className="carousel-hit-zone carousel-hit-zone--left"
+                  type="button"
+                  aria-label="Open previous camera"
+                  tabIndex={-1}
+                  disabled={!controller.previousCard.cameraId}
+                  onClick={() =>
+                    controller.previousCard.cameraId &&
+                    navigateToNeighbor(controller.previousCard.cameraId, 'previous')
+                  }
+                />
+
+                <button
+                  className="carousel-hit-zone carousel-hit-zone--right"
+                  type="button"
+                  aria-label="Open next camera"
+                  tabIndex={-1}
+                  disabled={!controller.nextCard.cameraId}
+                  onClick={() =>
+                    controller.nextCard.cameraId &&
+                    navigateToNeighbor(controller.nextCard.cameraId, 'next')
+                  }
+                />
 
                 <div className="carousel-controls">
                   <button
@@ -222,12 +224,6 @@ export function DesktopCameraModal({
               </div>
             </div>
 
-            {controller.showInlineMap && (
-              <div id="modalMapContainer" className="app-modal-map-panel">
-                <ModalMapCanvas cameras={controller.mapCameras} className="app-modal-map-surface" />
-              </div>
-            )}
-
             <CameraInfoDeck
               deckCards={controller.deckCards}
               activeInfoCardIndex={controller.activeInfoCardIndex}
@@ -245,29 +241,6 @@ export function DesktopCameraModal({
             <div className="modal-logo-container">
               <img src={modalLogoAsset} alt="UDOT Cameras" className="modal-logo" />
               <div className="modal-logo-text">udotcameras.com</div>
-            </div>
-          </div>
-
-          <div className="modal-footer app-modal-footer">
-            <div className="app-modal-meta">{controller.footerMeta}</div>
-
-            <div className="app-modal-actions">
-              <button
-                className={clsx('button', { off: controller.showInlineMap })}
-                type="button"
-                onClick={controller.handleMapAction}
-              >
-                {controller.showInlineMap ? 'Hide Map' : 'Map'}
-              </button>
-              <button className="button" type="button" onClick={() => onOpenMap(controller.displayedCamera.id)}>
-                Open Full Map
-              </button>
-              <button className="button" type="button" onClick={() => onCopyLink(controller.displayedCamera.id)}>
-                Copy URL
-              </button>
-              <button className="button" type="button" onClick={onClose}>
-                Done
-              </button>
             </div>
           </div>
         </div>

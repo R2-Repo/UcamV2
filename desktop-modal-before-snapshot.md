@@ -1,0 +1,6052 @@
+- generic [ref=e5]:
+  - generic [ref=e6]:
+    - text:  
+    - generic [ref=e8]:
+      - group [ref=e10]:
+        - generic "Menu" [ref=e11] [cursor=pointer]: 2004 Cameras
+      - generic [ref=e12]:
+        - group [ref=e13]
+        - group [ref=e16]
+        - group [ref=e19]
+      - generic [ref=e22]:
+        - button "Refresh images" [ref=e23] [cursor=pointer]
+        - generic [ref=e25]
+  - generic [ref=e32]:
+    - generic [ref=e34]:
+      - button "Camera at 100 E / Alpine Hwy / SR-74 @ 100 N, AFK" [active]:
+        - img "Camera at 100 E / Alpine Hwy / SR-74 @ 100 N, AFK" [ref=e35] [cursor=pointer]
+    - generic [ref=e37]:
+      - button "Camera at 100 E / Alpine Hwy / SR-74 @ 1120 N, AFK":
+        - img "Camera at 100 E / Alpine Hwy / SR-74 @ 1120 N, AFK" [ref=e38] [cursor=pointer]
+    - generic [ref=e40]:
+      - button "Camera at 100 E / Alpine Hwy / SR-74 @ 300 N, AFK":
+        - img "Camera at 100 E / Alpine Hwy / SR-74 @ 300 N, AFK" [ref=e41] [cursor=pointer]
+    - generic [ref=e43]:
+      - button "Camera at 100 E / Canyon Rd @ 1800 N / Murdock Dr, PLG":
+        - img "Camera at 100 E / Canyon Rd @ 1800 N / Murdock Dr, PLG" [ref=e44] [cursor=pointer]
+    - generic [ref=e46]:
+      - button "Camera at 100 N / SR-198 @ 1000 E, PSN":
+        - img "Camera at 100 N / SR-198 @ 1000 E, PSN" [ref=e47] [cursor=pointer]
+    - generic [ref=e49]:
+      - button "Camera at 100 N / SR-198 @ 600 E, PSN":
+        - img "Camera at 100 N / SR-198 @ 600 E, PSN" [ref=e50] [cursor=pointer]
+    - generic [ref=e52]:
+      - button "Camera at 100 N / SR-198 @ Main St / SR-115, PSN":
+        - img "Camera at 100 N / SR-198 @ Main St / SR-115, PSN" [ref=e53] [cursor=pointer]
+    - generic [ref=e55]:
+      - button "Camera at 100 N / SR-218 @ 600 W, SMF":
+        - img "Camera at 100 N / SR-218 @ 600 W, SMF" [ref=e56] [cursor=pointer]
+    - generic [ref=e58]:
+      - button "Camera at 100 N / SR-55 @ 300 E, PRC":
+        - img "Camera at 100 N / SR-55 @ 300 E, PRC" [ref=e59] [cursor=pointer]
+    - generic [ref=e61]:
+      - button "Camera at 100 N / SR-55 @ Carbon Ave / SR-10, PRC":
+        - img "Camera at 100 N / SR-55 @ Carbon Ave / SR-10, PRC" [ref=e62] [cursor=pointer]
+    - generic [ref=e64]:
+      - button "Camera at 100 N / SR-55 @ Main St / Price River Dr, PRC":
+        - img "Camera at 100 N / SR-55 @ Main St / Price River Dr, PRC" [ref=e65] [cursor=pointer]
+    - generic [ref=e67]:
+      - button "Camera at 100 S @ Flood St / 400 E, STG":
+        - img "Camera at 100 S @ Flood St / 400 E, STG" [ref=e68] [cursor=pointer]
+    - generic [ref=e70]:
+      - button "Camera at 100 S @ University Ave / 700 E, STG":
+        - img "Camera at 100 S @ University Ave / 700 E, STG" [ref=e71] [cursor=pointer]
+    - generic [ref=e73]:
+      - button "Camera at 100 S / SR-113 @ 300 W, HBR":
+        - img "Camera at 100 S / SR-113 @ 300 W, HBR" [ref=e74] [cursor=pointer]
+    - generic [ref=e76]:
+      - button "Camera at 100 W / SR-198 @ Utah Ave, PSN":
+        - img "Camera at 100 W / SR-198 @ Utah Ave, PSN" [ref=e77] [cursor=pointer]
+    - generic [ref=e79]:
+      - button "Camera at 100 W / US-191 @ 400 S / MP 294.73, DCH":
+        - img "Camera at 100 W / US-191 @ 400 S / MP 294.73, DCH" [ref=e80] [cursor=pointer]
+    - generic [ref=e82]:
+      - button "Camera at 1000 N @ 400 E, SPF":
+        - img "Camera at 1000 N @ 400 E, SPF" [ref=e83] [cursor=pointer]
+    - generic [ref=e85]:
+      - button "Camera at 1000 N / SR-112 @ 200 W, TLE":
+        - img "Camera at 1000 N / SR-112 @ 200 W, TLE" [ref=e86] [cursor=pointer]
+    - generic [ref=e88]:
+      - button "Camera at 1000 W / SR-252 @ 1000 N, LGN":
+        - img "Camera at 1000 W / SR-252 @ 1000 N, LGN" [ref=e89] [cursor=pointer]
+    - generic [ref=e91]:
+      - button "Camera at 1000 W / SR-252 @ 1800 N, LGN":
+        - img "Camera at 1000 W / SR-252 @ 1800 N, LGN" [ref=e92] [cursor=pointer]
+    - generic [ref=e94]:
+      - button "Camera at 1000 W / SR-252 @ 200 N / SR-30, LGN":
+        - img "Camera at 1000 W / SR-252 @ 200 N / SR-30, LGN" [ref=e95] [cursor=pointer]
+    - generic [ref=e97]:
+      - button "Camera at 1000 W / SR-252 @ 200 S, LGN":
+        - img "Camera at 1000 W / SR-252 @ 200 S, LGN" [ref=e98] [cursor=pointer]
+    - generic [ref=e100]:
+      - button "Camera at 1000 W / SR-252 @ 600 S / Mendon Rd, LGN":
+        - img "Camera at 1000 W / SR-252 @ 600 S / Mendon Rd, LGN" [ref=e101] [cursor=pointer]
+    - generic [ref=e103]:
+      - button "Camera at 1000 W / SR-252 @ Airport Rd / 2500 N / SR-252, LGN":
+        - img "Camera at 1000 W / SR-252 @ Airport Rd / 2500 N / SR-252, LGN" [ref=e104] [cursor=pointer]
+    - generic [ref=e106]:
+      - button "Camera at 10000 S @ 375 W, SJO":
+        - img "Camera at 10000 S @ 375 W, SJO" [ref=e107] [cursor=pointer]
+    - generic [ref=e109]:
+      - button "Camera at 10400 S / South Jordan Pkwy / SR-151 @ 1300 W / Temple Dr, SJO":
+        - img "Camera at 10400 S / South Jordan Pkwy / SR-151 @ 1300 W / Temple Dr, SJO" [ref=e110] [cursor=pointer]
+    - generic [ref=e112]:
+      - button "Camera at 10600 S / South Jordan Pkwy / SR-151 @ 400 W / Jordan Gateway, SJO":
+        - img "Camera at 10600 S / South Jordan Pkwy / SR-151 @ 400 W / Jordan Gateway, SJO" [ref=e113] [cursor=pointer]
+    - generic [ref=e115]:
+      - button "Camera at 10600 S / South Jordan Pkwy / SR-151 @ River Front Pkwy / 700 W, SJO":
+        - img "Camera at 10600 S / South Jordan Pkwy / SR-151 @ River Front Pkwy / 700 W, SJO" [ref=e116] [cursor=pointer]
+    - generic [ref=e118]:
+      - button "Camera at 1100 S / US-89/91 @ Main St / US-89 / SR-13, BRC":
+        - img "Camera at 1100 S / US-89/91 @ Main St / US-89 / SR-13, BRC" [ref=e119] [cursor=pointer]
+    - generic [ref=e121]:
+      - button "Camera at 11400 S @ 1000 E, SND":
+        - img "Camera at 11400 S @ 1000 E, SND" [ref=e122] [cursor=pointer]
+    - generic [ref=e124]:
+      - button "Camera at 11400 S / Daybreak Pkwy @ 4000 W,SJO":
+        - img "Camera at 11400 S / Daybreak Pkwy @ 4000 W,SJO" [ref=e125] [cursor=pointer]
+    - generic [ref=e127]:
+      - button "Camera at 11400 S / SR-175 @ Andover Rd / 1500 W, SJO":
+        - img "Camera at 11400 S / SR-175 @ Andover Rd / 1500 W, SJO" [ref=e128] [cursor=pointer]
+    - generic [ref=e130]:
+      - button "Camera at 11800 S @ 4000 W, SJO":
+        - img "Camera at 11800 S @ 4000 W, SJO" [ref=e131] [cursor=pointer]
+    - generic [ref=e133]:
+      - button "Camera at 1200 E @ 3200 N, LHI":
+        - img "Camera at 1200 E @ 3200 N, LHI" [ref=e134] [cursor=pointer]
+    - generic [ref=e136]:
+      - button "Camera at 1200 E @ 900 N, LHI":
+        - img "Camera at 1200 E @ 900 N, LHI" [ref=e137] [cursor=pointer]
+    - generic [ref=e139]:
+      - button "Camera at 1200 N @ 400 E, ORM":
+        - img "Camera at 1200 N @ 400 E, ORM" [ref=e140] [cursor=pointer]
+    - generic [ref=e142]:
+      - button "Camera at 1200 W @ 2100 N, LHI":
+        - img "Camera at 1200 W @ 2100 N, LHI" [ref=e143] [cursor=pointer]
+    - generic [ref=e145]:
+      - button "Camera at 1200 W @ 3200 N, LHI":
+        - img "Camera at 1200 W @ 3200 N, LHI" [ref=e146] [cursor=pointer]
+    - generic [ref=e148]:
+      - button "Camera at 1200 W @ 400 S, ORM":
+        - img "Camera at 1200 W @ 400 S, ORM" [ref=e149] [cursor=pointer]
+    - generic [ref=e151]:
+      - button "Camera at 1200 W @ Deer Meadow Dr / 2775 N, LHI":
+        - img "Camera at 1200 W @ Deer Meadow Dr / 2775 N, LHI" [ref=e152] [cursor=pointer]
+    - generic [ref=e154]:
+      - button "Camera at 1200 W / College Dr @ 800 S, ORM":
+        - img "Camera at 1200 W / College Dr @ 800 S, ORM" [ref=e155] [cursor=pointer]
+    - generic [ref=e157]:
+      - button "Camera at 1200 W / College Dr @ UVU Event Center Dr / 1000 S, ORM":
+        - img "Camera at 1200 W / College Dr @ UVU Event Center Dr / 1000 S, ORM" [ref=e158] [cursor=pointer]
+    - generic [ref=e160]:
+      - button "Camera at 12300 S / SR-71 @ 150 E, DPR":
+        - img "Camera at 12300 S / SR-71 @ 150 E, DPR" [ref=e161] [cursor=pointer]
+    - generic [ref=e163]:
+      - button "Camera at 12300 S / SR-71 @ 265 W, DPR":
+        - img "Camera at 12300 S / SR-71 @ 265 W, DPR" [ref=e164] [cursor=pointer]
+    - generic [ref=e166]:
+      - button "Camera at 12300 S / SR-71 @ 450 E, DPR":
+        - img "Camera at 12300 S / SR-71 @ 450 E, DPR" [ref=e167] [cursor=pointer]
+    - generic [ref=e169]:
+      - button "Camera at 12300 S / SR-71 @ 700 E / SR-71, DPR":
+        - img "Camera at 12300 S / SR-71 @ 700 E / SR-71, DPR" [ref=e170] [cursor=pointer]
+    - generic [ref=e172]:
+      - button "Camera at 12600 S @ 4150 W, RVT":
+        - img "Camera at 12600 S @ 4150 W, RVT" [ref=e173] [cursor=pointer]
+    - generic [ref=e175]:
+      - button "Camera at 12600 S @ Legacy Ranch Blvd / 4570 W, RVT":
+        - img "Camera at 12600 S @ Legacy Ranch Blvd / 4570 W, RVT" [ref=e176] [cursor=pointer]
+    - generic [ref=e178]:
+      - button "Camera at 12600 S / Herriman Blvd @ Main St / 5040 W, HRR":
+        - img "Camera at 12600 S / Herriman Blvd @ Main St / 5040 W, HRR" [ref=e179] [cursor=pointer]
+    - generic [ref=e181]:
+      - button "Camera at 12600 S / SR-71 @ 2700 W / Silverwolf Blvd, RVT":
+        - img "Camera at 12600 S / SR-71 @ 2700 W / Silverwolf Blvd, RVT" [ref=e182] [cursor=pointer]
+    - generic [ref=e184]:
+      - button "Camera at 12th St / SR-39 @ Depot Dr / 700 W, OGD":
+        - img "Camera at 12th St / SR-39 @ Depot Dr / 700 W, OGD" [ref=e185] [cursor=pointer]
+    - generic [ref=e187]:
+      - button "Camera at 1300 E @ 10600 S, SND":
+        - img "Camera at 1300 E @ 10600 S, SND" [ref=e188] [cursor=pointer]
+    - generic [ref=e190]:
+      - button "Camera at 1300 E @ 11400 S, SND":
+        - img "Camera at 1300 E @ 11400 S, SND" [ref=e191] [cursor=pointer]
+    - generic [ref=e193]:
+      - button "Camera at 1300 E @ 400 S, SLC":
+        - img "Camera at 1300 E @ 400 S, SLC" [ref=e194] [cursor=pointer]
+    - generic [ref=e196]:
+      - button "Camera at 1300 E @ 8600 S, SND":
+        - img "Camera at 1300 E @ 8600 S, SND" [ref=e197] [cursor=pointer]
+    - generic [ref=e199]:
+      - button "Camera at 1300 E @ Highland Dr, SLC":
+        - img "Camera at 1300 E @ Highland Dr, SLC" [ref=e200] [cursor=pointer]
+    - generic [ref=e202]:
+      - button "Camera at 1300 E / Leopard Ln @ 800 S, SLC":
+        - img "Camera at 1300 E / Leopard Ln @ 800 S, SLC" [ref=e203] [cursor=pointer]
+    - generic [ref=e205]:
+      - button "Camera at 1300 S @ 300 W, SLC":
+        - img "Camera at 1300 S @ 300 W, SLC" [ref=e206] [cursor=pointer]
+    - generic [ref=e208]:
+      - button "Camera at 1300 S / SR-120 @ Technology Dr / College Ave, RFD":
+        - img "Camera at 1300 S / SR-120 @ Technology Dr / College Ave, RFD" [ref=e209] [cursor=pointer]
+    - generic [ref=e211]:
+      - button "Camera at 13400 S @ Eagle Flight Rd / Sentinal Ridge Blvd / 4500 W, RVT":
+        - img "Camera at 13400 S @ Eagle Flight Rd / Sentinal Ridge Blvd / 4500 W, RVT" [ref=e212] [cursor=pointer]
+    - generic [ref=e214]:
+      - button "Camera at 13400 S @ Old Liberty Way / 4050 W, RVT":
+        - img "Camera at 13400 S @ Old Liberty Way / 4050 W, RVT" [ref=e215] [cursor=pointer]
+    - generic [ref=e217]:
+      - button "Camera at 13400 S @ Rosecrest Rd / 5600 W, HRR":
+        - img "Camera at 13400 S @ Rosecrest Rd / 5600 W, HRR" [ref=e218] [cursor=pointer]
+    - generic [ref=e220]:
+      - button "Camera at 1400 N @ 400 E, LGN":
+        - img "Camera at 1400 N @ 400 E, LGN" [ref=e221] [cursor=pointer]
+    - generic [ref=e223]:
+      - button "Camera at 1400 N / SR-75 @ Mountain Springs Pkwy / 1100 W, SPV":
+        - img "Camera at 1400 N / SR-75 @ Mountain Springs Pkwy / 1100 W, SPV" [ref=e224] [cursor=pointer]
+    - generic [ref=e226]:
+      - button "Camera at 14600 S / Highland Dr / SR-140 @ Minuteman Dr, DPR":
+        - img "Camera at 14600 S / Highland Dr / SR-140 @ Minuteman Dr, DPR" [ref=e227] [cursor=pointer]
+    - generic [ref=e229]:
+      - button "Camera at 14600 S / SR-140 @ Pony Express Rd / SR-287, DPR":
+        - img "Camera at 14600 S / SR-140 @ Pony Express Rd / SR-287, DPR" [ref=e230] [cursor=pointer]
+    - generic [ref=e232]:
+      - button "Camera at 1500 E / US-40 @ 1000 S / MP 146.4, NPL":
+        - img "Camera at 1500 E / US-40 @ 1000 S / MP 146.4, NPL" [ref=e233] [cursor=pointer]
+    - generic [ref=e235]:
+      - button "Camera at 1500 E / US-40 @ 1500 E / SR-45 / MP 148.6, NPL":
+        - img "Camera at 1500 E / US-40 @ 1500 E / SR-45 / MP 148.6, NPL" [ref=e236] [cursor=pointer]
+    - generic [ref=e238]:
+      - button "Camera at 1500 E / US-40 @ 2500 S / MP 147.9, NPL":
+        - img "Camera at 1500 E / US-40 @ 2500 S / MP 147.9, NPL" [ref=e239] [cursor=pointer]
+    - generic [ref=e241]:
+      - button "Camera at 1500 S @ 800 W, WXS":
+        - img "Camera at 1500 S @ 800 W, WXS" [ref=e242] [cursor=pointer]
+    - generic [ref=e244]:
+      - button "Camera at 15200 N / SR-30 @ Garland Rd / 4400 W / SR-81, BE":
+        - img "Camera at 15200 N / SR-30 @ Garland Rd / 4400 W / SR-81, BE" [ref=e245] [cursor=pointer]
+    - generic [ref=e247]:
+      - button "Camera at 1600 E / SR-13 @ Main St / SR-102 / MP 11.17, TRE":
+        - img "Camera at 1600 E / SR-13 @ Main St / SR-102 / MP 11.17, TRE" [ref=e248] [cursor=pointer]
+    - generic [ref=e250]:
+      - button "Camera at 1600 N @ 400 E, ORM":
+        - img "Camera at 1600 N @ 400 E, ORM" [ref=e251] [cursor=pointer]
+    - generic [ref=e253]:
+      - button "Camera at 1600 N @ 400 W, ORM":
+        - img "Camera at 1600 N @ 400 W, ORM" [ref=e254] [cursor=pointer]
+    - generic [ref=e256]:
+      - button "Camera at 1600 N @ 800 W, ORM":
+        - img "Camera at 1600 N @ 800 W, ORM" [ref=e257] [cursor=pointer]
+    - generic [ref=e259]:
+      - button "Camera at 1600 N @ Main St, ORM":
+        - img "Camera at 1600 N @ Main St, ORM" [ref=e260] [cursor=pointer]
+    - generic [ref=e262]:
+      - button "Camera at 1600 N ORM / 600 S LDN @ 1200 W ORM / 400 W LDN, ORM":
+        - img "Camera at 1600 N ORM / 600 S LDN @ 1200 W ORM / 400 W LDN, ORM" [ref=e263] [cursor=pointer]
+    - generic [ref=e265]:
+      - button "Camera at 1600 N/ORM / 600 S/LDN / SR-241 @ Lindon Park Dr, ORM":
+        - img "Camera at 1600 N/ORM / 600 S/LDN / SR-241 @ Lindon Park Dr, ORM" [ref=e266] [cursor=pointer]
+    - generic [ref=e268]:
+      - button "Camera at 1600 W / US-89 @ 1600 S / SR-147, MPL":
+        - img "Camera at 1600 W / US-89 @ 1600 S / SR-147, MPL" [ref=e269] [cursor=pointer]
+    - generic [ref=e271]:
+      - button "Camera at 1600 W / US-89 @ Maple St / SR-147, MPL":
+        - img "Camera at 1600 W / US-89 @ Maple St / SR-147, MPL" [ref=e272] [cursor=pointer]
+    - generic [ref=e274]:
+      - button "Camera at 1800 N / SR-37 @ 2000 W / Midland Dr / SR-108, CTN":
+        - img "Camera at 1800 N / SR-37 @ 2000 W / Midland Dr / SR-108, CTN" [ref=e275] [cursor=pointer]
+    - generic [ref=e277]:
+      - button "Camera at 1900 W / SR-126 @ 12th St / SR-39, MSV":
+        - img "Camera at 1900 W / SR-126 @ 12th St / SR-39, MSV" [ref=e278] [cursor=pointer]
+    - generic [ref=e280]:
+      - button "Camera at 1900 W / SR-126 @ 2550 S, WHV":
+        - img "Camera at 1900 W / SR-126 @ 2550 S, WHV" [ref=e281] [cursor=pointer]
+    - generic [ref=e283]:
+      - button "Camera at 1900 W / SR-126 @ 4800 S, ROY":
+        - img "Camera at 1900 W / SR-126 @ 4800 S, ROY" [ref=e284] [cursor=pointer]
+    - generic [ref=e286]:
+      - button "Camera at 1900 W / SR-126 @ 5600 S / SR-97, ROY":
+        - img "Camera at 1900 W / SR-126 @ 5600 S / SR-97, ROY" [ref=e287] [cursor=pointer]
+    - generic [ref=e289]:
+      - button "Camera at 1900 W / SR-126 @ 6000 S, ROY":
+        - img "Camera at 1900 W / SR-126 @ 6000 S, ROY" [ref=e290] [cursor=pointer]
+    - generic [ref=e292]:
+      - button "Camera at 1900 W / SR-126 @ Hinckley Dr / SR-79, ROY":
+        - img "Camera at 1900 W / SR-126 @ Hinckley Dr / SR-79, ROY" [ref=e293] [cursor=pointer]
+    - generic [ref=e295]:
+      - button "Camera at 1900 W / SR-126 @ Midland Dr / SR-108, WHV":
+        - img "Camera at 1900 W / SR-126 @ Midland Dr / SR-108, WHV" [ref=e296] [cursor=pointer]
+    - generic [ref=e298]:
+      - button "Camera at 1900 W / SR-126 @ Riverdale Rd / 5300 S / SR-26, ROY":
+        - img "Camera at 1900 W / SR-126 @ Riverdale Rd / 5300 S / SR-26, ROY" [ref=e299] [cursor=pointer]
+    - generic [ref=e301]:
+      - button "Camera at 1900 W / SR-126 @ Wilson Ln / 21st St / SR-104, WHV":
+        - img "Camera at 1900 W / SR-126 @ Wilson Ln / 21st St / SR-104, WHV" [ref=e302] [cursor=pointer]
+    - generic [ref=e304]:
+      - button "Camera at 200 E / US-40 @ 200 N / US-40 / SR-121 / MP 114.58, RSV":
+        - img "Camera at 200 E / US-40 @ 200 N / US-40 / SR-121 / MP 114.58, RSV" [ref=e305] [cursor=pointer]
+    - generic [ref=e307]:
+      - button "Camera at 200 N / Freedom Blvd @ 1400 W, CDC":
+        - img "Camera at 200 N / Freedom Blvd @ 1400 W, CDC" [ref=e308] [cursor=pointer]
+    - generic [ref=e310]:
+      - button "Camera at 200 N / Freedom Blvd / SR-56 @ 1225 W / I-15 NB Ramps, CDC":
+        - img "Camera at 200 N / Freedom Blvd / SR-56 @ 1225 W / I-15 NB Ramps, CDC" [ref=e311] [cursor=pointer]
+    - generic [ref=e313]:
+      - button "Camera at 200 N / Freedom Blvd / SR-56 @ 300 W, CDC":
+        - img "Camera at 200 N / Freedom Blvd / SR-56 @ 300 W, CDC" [ref=e314] [cursor=pointer]
+    - generic [ref=e316]:
+      - button "Camera at 200 N / SR-121 @ 300 W, RSV":
+        - img "Camera at 200 N / SR-121 @ 300 W, RSV" [ref=e317] [cursor=pointer]
+    - generic [ref=e319]:
+      - button "Camera at 200 N / SR-273 @ Main St / SR-273, KAY":
+        - img "Camera at 200 N / SR-273 @ Main St / SR-273, KAY" [ref=e320] [cursor=pointer]
+    - generic [ref=e322]:
+      - button "Camera at 200 N / SR-56 @ Airport Rd / College Way, CDC":
+        - img "Camera at 200 N / SR-56 @ Airport Rd / College Way, CDC" [ref=e323] [cursor=pointer]
+    - generic [ref=e325]:
+      - button "Camera at 200 N / SR-56 @ Cove Dr, CDC":
+        - img "Camera at 200 N / SR-56 @ Cove Dr, CDC" [ref=e326] [cursor=pointer]
+    - generic [ref=e328]:
+      - button "Camera at 200 N / US-40 @ 1500 E / MP 115.42, BAL":
+        - img "Camera at 200 N / US-40 @ 1500 E / MP 115.42, BAL" [ref=e329] [cursor=pointer]
+    - generic [ref=e331]:
+      - button "Camera at 200 N / US-40 @ 5750 E / Whiterocks Hwy / MP 119.66, FTD":
+        - img "Camera at 200 N / US-40 @ 5750 E / Whiterocks Hwy / MP 119.66, FTD" [ref=e332] [cursor=pointer]
+    - generic [ref=e334]:
+      - button "Camera at 200 N / US-40 @ 7500 E / MP 121.41, FTD":
+        - img "Camera at 200 N / US-40 @ 7500 E / MP 121.41, FTD" [ref=e335] [cursor=pointer]
+    - generic [ref=e337]:
+      - button "Camera at 200 S @ Main St, SLC":
+        - img "Camera at 200 S @ Main St, SLC" [ref=e338] [cursor=pointer]
+    - generic [ref=e340]:
+      - button "Camera at 200 S @ West Temple St, SLC":
+        - img "Camera at 200 S @ West Temple St, SLC" [ref=e341] [cursor=pointer]
+    - generic [ref=e343]:
+      - button "Camera at 200 S / SR-289 @ 300 W, CDC":
+        - img "Camera at 200 S / SR-289 @ 300 W, CDC" [ref=e344] [cursor=pointer]
+    - generic [ref=e346]:
+      - button "Camera at 200 W / US-91 @ Main St / SR-142, RMD":
+        - img "Camera at 200 W / US-91 @ Main St / SR-142, RMD" [ref=e347] [cursor=pointer]
+    - generic [ref=e349]:
+      - button "Camera at 200 W / US-91 RWIS NB @ 700 S / MP 39.05, RMD":
+        - img "Camera at 200 W / US-91 RWIS NB @ 700 S / MP 39.05, RMD" [ref=e350] [cursor=pointer]
+    - generic [ref=e352]:
+      - button "Camera at 2000 W / Midland Dr / SR-108 @ 300 N / SR-107, WPT":
+        - img "Camera at 2000 W / Midland Dr / SR-108 @ 300 N / SR-107, WPT" [ref=e353] [cursor=pointer]
+    - generic [ref=e355]:
+      - button "Camera at 205 S / SR-193 @ 2000 W / SR-108, SYR":
+        - img "Camera at 205 S / SR-193 @ 2000 W / SR-108, SYR" [ref=e356] [cursor=pointer]
+    - generic [ref=e358]:
+      - button "Camera at 205 S / SR-193 @ 3000 W, SYR":
+        - img "Camera at 205 S / SR-193 @ 3000 W, SYR" [ref=e359] [cursor=pointer]
+    - generic [ref=e361]:
+      - button "Camera at 205 S / SR-193 @ Center St, CFD":
+        - img "Camera at 205 S / SR-193 @ Center St, CFD" [ref=e362] [cursor=pointer]
+    - generic [ref=e364]:
+      - button "Camera at 2100 N / SR-194 @ 3600 W, LHI":
+        - img "Camera at 2100 N / SR-194 @ 3600 W, LHI" [ref=e365] [cursor=pointer]
+    - generic [ref=e367]:
+      - button "Camera at 2100 N / SR-194 EB @ 1400 W / I-15 SB Exit, LHI":
+        - img "Camera at 2100 N / SR-194 EB @ 1400 W / I-15 SB Exit, LHI" [ref=e368] [cursor=pointer]
+    - generic [ref=e370]:
+      - button "Camera at 2100 N / SR-194 EB @ Redwood Rd, LHI":
+        - img "Camera at 2100 N / SR-194 EB @ Redwood Rd, LHI" [ref=e371] [cursor=pointer]
+    - generic [ref=e373]:
+      - button "Camera at 2100 N / SR-194 WB @ 2300 W, LHI":
+        - img "Camera at 2100 N / SR-194 WB @ 2300 W, LHI" [ref=e374] [cursor=pointer]
+    - generic [ref=e376]:
+      - button "Camera at 2100 S @ 1300 E, SLC":
+        - img "Camera at 2100 S @ 1300 E, SLC" [ref=e377] [cursor=pointer]
+    - generic [ref=e379]:
+      - button "Camera at 2100 S / SR-201 @ 300 W, SLC":
+        - img "Camera at 2100 S / SR-201 @ 300 W, SLC" [ref=e380] [cursor=pointer]
+    - generic [ref=e382]:
+      - button "Camera at 2100 S / SR-201 @ 400 W / I-15 NB / MP 17.46, SLC":
+        - img "Camera at 2100 S / SR-201 @ 400 W / I-15 NB / MP 17.46, SLC" [ref=e383] [cursor=pointer]
+    - generic [ref=e385]:
+      - button "Camera at 2100 S / SR-201 @ 650 W / MP 17.1, SLC":
+        - img "Camera at 2100 S / SR-201 @ 650 W / MP 17.1, SLC" [ref=e386] [cursor=pointer]
+    - generic [ref=e388]:
+      - button "Camera at 2200 N @ Timpview Dr / 650 E, PVO":
+        - img "Camera at 2200 N @ Timpview Dr / 650 E, PVO" [ref=e389] [cursor=pointer]
+    - generic [ref=e391]:
+      - button "Camera at 2230 N @ Canyon Rd, PVO":
+        - img "Camera at 2230 N @ Canyon Rd, PVO" [ref=e392] [cursor=pointer]
+    - generic [ref=e394]:
+      - button "Camera at 2230 N @ Freedom Blvd / 200 W, PVO":
+        - img "Camera at 2230 N @ Freedom Blvd / 200 W, PVO" [ref=e395] [cursor=pointer]
+    - generic [ref=e397]:
+      - button "Camera at 2300 W @ 1500 N, LHI":
+        - img "Camera at 2300 W @ 1500 N, LHI" [ref=e398] [cursor=pointer]
+    - generic [ref=e400]:
+      - button "Camera at 2700 W / Constitution Blvd @ Lehman Ave / 3590 S, WVC":
+        - img "Camera at 2700 W / Constitution Blvd @ Lehman Ave / 3590 S, WVC" [ref=e401] [cursor=pointer]
+    - generic [ref=e403]:
+      - button "Camera at 300 S / State St / US-89 @ 700 E, PVO":
+        - img "Camera at 300 S / State St / US-89 @ 700 E, PVO" [ref=e404] [cursor=pointer]
+    - generic [ref=e406]:
+      - button "Camera at 300 S / US-89 @ 100 E / US-89/US-89A, KNB":
+        - img "Camera at 300 S / US-89 @ 100 E / US-89/US-89A, KNB" [ref=e407] [cursor=pointer]
+    - generic [ref=e409]:
+      - button "Camera at 300 S / US-89 @ 200 E, PVO":
+        - img "Camera at 300 S / US-89 @ 200 E, PVO" [ref=e410] [cursor=pointer]
+    - generic [ref=e412]:
+      - button "Camera at 300 S / US-89 @ 400 E, PVO":
+        - img "Camera at 300 S / US-89 @ 400 E, PVO" [ref=e413] [cursor=pointer]
+    - generic [ref=e415]:
+      - button "Camera at 300 S / US-89 @ Freedom Blvd / 200 W, PVO":
+        - img "Camera at 300 S / US-89 @ Freedom Blvd / 200 W, PVO" [ref=e416] [cursor=pointer]
+    - generic [ref=e418]:
+      - button "Camera at 300 W / John Stockton Dr @ 600 S, SLC":
+        - img "Camera at 300 W / John Stockton Dr @ 600 S, SLC" [ref=e419] [cursor=pointer]
+    - generic [ref=e421]:
+      - button "Camera at 300 W / John Stockton Dr / US-89 @ 600 N / SR-268, SLC":
+        - img "Camera at 300 W / John Stockton Dr / US-89 @ 600 N / SR-268, SLC" [ref=e422] [cursor=pointer]
+    - generic [ref=e424]:
+      - button "Camera at 3000 E @ 1450 S, STG":
+        - img "Camera at 3000 E @ 1450 S, STG" [ref=e425] [cursor=pointer]
+    - generic [ref=e427]:
+      - button "Camera at 3000 E @ 2000 S, STG":
+        - img "Camera at 3000 E @ 2000 S, STG" [ref=e428] [cursor=pointer]
+    - generic [ref=e430]:
+      - button "Camera at 3000 E @ 2450 S, STG":
+        - img "Camera at 3000 E @ 2450 S, STG" [ref=e431] [cursor=pointer]
+    - generic [ref=e433]:
+      - button "Camera at 3000 N / SR-193 @ Church St, LTN":
+        - img "Camera at 3000 N / SR-193 @ Church St, LTN" [ref=e434] [cursor=pointer]
+    - generic [ref=e436]:
+      - button "Camera at 3050 E @ 850 N, STG":
+        - img "Camera at 3050 E @ 850 N, STG" [ref=e437] [cursor=pointer]
+    - generic [ref=e439]:
+      - button "Camera at 3050 E @ Deseret Dr / 450 N, STG":
+        - img "Camera at 3050 E @ Deseret Dr / 450 N, STG" [ref=e440] [cursor=pointer]
+    - generic [ref=e442]:
+      - button "Camera at 3300 S / SR-171 @ 1300 E, MCK":
+        - img "Camera at 3300 S / SR-171 @ 1300 E, MCK" [ref=e443] [cursor=pointer]
+    - generic [ref=e445]:
+      - button "Camera at 3300 S / SR-171 @ 2940 E, MCK":
+        - img "Camera at 3300 S / SR-171 @ 2940 E, MCK" [ref=e446] [cursor=pointer]
+    - generic [ref=e448]:
+      - button "Camera at 3300 S / SR-171 @ 300 W, SSL":
+        - img "Camera at 3300 S / SR-171 @ 300 W, SSL" [ref=e449] [cursor=pointer]
+    - generic [ref=e451]:
+      - button "Camera at 3300 S / SR-171 @ 900 W, SSL":
+        - img "Camera at 3300 S / SR-171 @ 900 W, SSL" [ref=e452] [cursor=pointer]
+    - generic [ref=e454]:
+      - button "Camera at 3300 S / SR-171 @ Cultural Center Dr / 1200 W, WVC":
+        - img "Camera at 3300 S / SR-171 @ Cultural Center Dr / 1200 W, WVC" [ref=e455] [cursor=pointer]
+    - generic [ref=e457]:
+      - button "Camera at 3300 S / SR-171 @ Highland Dr, MCK":
+        - img "Camera at 3300 S / SR-171 @ Highland Dr, MCK" [ref=e458] [cursor=pointer]
+    - generic [ref=e460]:
+      - button "Camera at 3300 S / SR-171 @ Main St, SSL":
+        - img "Camera at 3300 S / SR-171 @ Main St, SSL" [ref=e461] [cursor=pointer]
+    - generic [ref=e463]:
+      - button "Camera at 3300 S / SR-171 @ West Temple St, SSL":
+        - img "Camera at 3300 S / SR-171 @ West Temple St, SSL" [ref=e464] [cursor=pointer]
+    - generic [ref=e466]:
+      - button "Camera at 3500 S / SR-171 @ 2700 W / Constitution Blvd, WVC":
+        - img "Camera at 3500 S / SR-171 @ 2700 W / Constitution Blvd, WVC" [ref=e467] [cursor=pointer]
+    - generic [ref=e469]:
+      - button "Camera at 3500 S / SR-171 @ 3200 W, WVC":
+        - img "Camera at 3500 S / SR-171 @ 3200 W, WVC" [ref=e470] [cursor=pointer]
+    - generic [ref=e472]:
+      - button "Camera at 3500 S / SR-171 @ Decker Lake Dr / 2200 W, WVC":
+        - img "Camera at 3500 S / SR-171 @ Decker Lake Dr / 2200 W, WVC" [ref=e473] [cursor=pointer]
+    - generic [ref=e475]:
+      - button "Camera at 3500 W / SR-108 @ 5600 S / SR-97, ROY":
+        - img "Camera at 3500 W / SR-108 @ 5600 S / SR-97, ROY" [ref=e476] [cursor=pointer]
+    - generic [ref=e478]:
+      - button "Camera at 3700 N @ 300 W, PVO":
+        - img "Camera at 3700 N @ 300 W, PVO" [ref=e479] [cursor=pointer]
+    - generic [ref=e481]:
+      - button "Camera at 3900 S @ 1300 E, MCK":
+        - img "Camera at 3900 S @ 1300 E, MCK" [ref=e482] [cursor=pointer]
+    - generic [ref=e484]:
+      - button "Camera at 3900 S @ 210 W / Howick St, SSL":
+        - img "Camera at 3900 S @ 210 W / Howick St, SSL" [ref=e485] [cursor=pointer]
+    - generic [ref=e487]:
+      - button "Camera at 3900 S @ 2300 E, HDY":
+        - img "Camera at 3900 S @ 2300 E, HDY" [ref=e488] [cursor=pointer]
+    - generic [ref=e490]:
+      - button "Camera at 3900 S @ 2700 E, HDY":
+        - img "Camera at 3900 S @ 2700 E, HDY" [ref=e491] [cursor=pointer]
+    - generic [ref=e493]:
+      - button "Camera at 3900 S @ 500 W, SSL":
+        - img "Camera at 3900 S @ 500 W, SSL" [ref=e494] [cursor=pointer]
+    - generic [ref=e496]:
+      - button "Camera at 400 N @ 1200 W, ORM":
+        - img "Camera at 400 N @ 1200 W, ORM" [ref=e497] [cursor=pointer]
+    - generic [ref=e499]:
+      - button "Camera at 400 N @ 400 W, ORM":
+        - img "Camera at 400 N @ 400 W, ORM" [ref=e500] [cursor=pointer]
+    - generic [ref=e502]:
+      - button "Camera at 400 N @ 800 W, ORM":
+        - img "Camera at 400 N @ 800 W, ORM" [ref=e503] [cursor=pointer]
+    - generic [ref=e505]:
+      - button "Camera at 400 N @ Orem Blvd, ORM":
+        - img "Camera at 400 N @ Orem Blvd, ORM" [ref=e506] [cursor=pointer]
+    - generic [ref=e508]:
+      - button "Camera at 400 N / SR-106 @ Main St, BTF":
+        - img "Camera at 400 N / SR-106 @ Main St, BTF" [ref=e509] [cursor=pointer]
+    - generic [ref=e511]:
+      - button "Camera at 400 N / SR-147 @ Spanish Fork Pkwy / 2550 E, SPF":
+        - img "Camera at 400 N / SR-147 @ Spanish Fork Pkwy / 2550 E, SPF" [ref=e512] [cursor=pointer]
+    - generic [ref=e514]:
+      - button "Camera at 400 N / SR-56 @ Cross Hollow Rd / Aviation Way, CDC":
+        - img "Camera at 400 N / SR-56 @ Cross Hollow Rd / Aviation Way, CDC" [ref=e515] [cursor=pointer]
+    - generic [ref=e517]:
+      - button "Camera at 400 N / SR-56 @ Westview Dr / Lund Hwy / 3100 W, CDC":
+        - img "Camera at 400 N / SR-56 @ Westview Dr / Lund Hwy / 3100 W, CDC" [ref=e518] [cursor=pointer]
+    - generic [ref=e520]:
+      - button "Camera at 400 N / US-89 @ 600 E, LGN":
+        - img "Camera at 400 N / US-89 @ 600 E, LGN" [ref=e521] [cursor=pointer]
+    - generic [ref=e523]:
+      - button "Camera at 400 S / SR-77 @ 2200 W, SPV":
+        - img "Camera at 400 S / SR-77 @ 2200 W, SPV" [ref=e524] [cursor=pointer]
+    - generic [ref=e526]:
+      - button "Camera at 400 S / SR-77 @ 950 W, SPV":
+        - img "Camera at 400 S / SR-77 @ 950 W, SPV" [ref=e527] [cursor=pointer]
+    - generic [ref=e529]:
+      - button "Camera at 400 S / University Blvd / SR-186 @ 300 E, SLC":
+        - img "Camera at 400 S / University Blvd / SR-186 @ 300 E, SLC" [ref=e530] [cursor=pointer]
+    - generic [ref=e532]:
+      - button "Camera at 400 S / University Blvd / SR-186 @ 500 E, SLC":
+        - img "Camera at 400 S / University Blvd / SR-186 @ 500 E, SLC" [ref=e533] [cursor=pointer]
+    - generic [ref=e535]:
+      - button "Camera at 400 S / University Blvd / SR-186 @ 700 E / SR-71, SLC":
+        - img "Camera at 400 S / University Blvd / SR-186 @ 700 E / SR-71, SLC" [ref=e536] [cursor=pointer]
+    - generic [ref=e538]:
+      - button "Camera at 400 S / University Blvd / SR-186 @ 900 E, SLC":
+        - img "Camera at 400 S / University Blvd / SR-186 @ 900 E, SLC" [ref=e539] [cursor=pointer]
+    - generic [ref=e541]:
+      - button "Camera at 400 S / US-89 @ 300 W / John Stockton Dr / US-89, SLC":
+        - img "Camera at 400 S / US-89 @ 300 W / John Stockton Dr / US-89, SLC" [ref=e542] [cursor=pointer]
+    - generic [ref=e544]:
+      - button "Camera at 400 S / US-89 @ Main St, SLC":
+        - img "Camera at 400 S / US-89 @ Main St, SLC" [ref=e545] [cursor=pointer]
+    - generic [ref=e547]:
+      - button "Camera at 400 W @ 960 S, ORM":
+        - img "Camera at 400 W @ 960 S, ORM" [ref=e548] [cursor=pointer]
+    - generic [ref=e550]:
+      - button "Camera at 400 W / SR-23 @ Main St / SR-142 / MP 24.32, TNT":
+        - img "Camera at 400 W / SR-23 @ Main St / SR-142 / MP 24.32, TNT" [ref=e551] [cursor=pointer]
+    - generic [ref=e553]:
+      - button "Camera at 4000 S / SR-37 @ 3500 W, WHV":
+        - img "Camera at 4000 S / SR-37 @ 3500 W, WHV" [ref=e554] [cursor=pointer]
+    - generic [ref=e556]:
+      - button "Camera at 4000 S / SR-37 @ 4700 W / SR-134, WHV":
+        - img "Camera at 4000 S / SR-37 @ 4700 W / SR-134, WHV" [ref=e557] [cursor=pointer]
+    - generic [ref=e559]:
+      - button "Camera at 4000 S / SR-37 @ Midland Dr / SR-108, ROY":
+        - img "Camera at 4000 S / SR-37 @ Midland Dr / SR-108, ROY" [ref=e560] [cursor=pointer]
+    - generic [ref=e562]:
+      - button "Camera at 40769410":
+        - img "Camera at 40769410" [ref=e563] [cursor=pointer]
+    - generic [ref=e565]:
+      - button "Camera at 4100 S @ 2700 W / Constitution Blvd, WVC":
+        - img "Camera at 4100 S @ 2700 W / Constitution Blvd, WVC" [ref=e566] [cursor=pointer]
+    - generic [ref=e568]:
+      - button "Camera at 4100 S @ 3200 W, WVC":
+        - img "Camera at 4100 S @ 3200 W, WVC" [ref=e569] [cursor=pointer]
+    - generic [ref=e571]:
+      - button "Camera at 4100 S @ 4000 W, WVC":
+        - img "Camera at 4100 S @ 4000 W, WVC" [ref=e572] [cursor=pointer]
+    - generic [ref=e574]:
+      - button "Camera at 4100 S @ 4400 W, WVC":
+        - img "Camera at 4100 S @ 4400 W, WVC" [ref=e575] [cursor=pointer]
+    - generic [ref=e577]:
+      - button "Camera at 4100 S @ 4800 W, WVC":
+        - img "Camera at 4100 S @ 4800 W, WVC" [ref=e578] [cursor=pointer]
+    - generic [ref=e580]:
+      - button "Camera at 4500 S / SR-266 @ Atwood Blvd / 300 E, MUR":
+        - img "Camera at 4500 S / SR-266 @ Atwood Blvd / 300 E, MUR" [ref=e581] [cursor=pointer]
+    - generic [ref=e583]:
+      - button "Camera at 4500 S / SR-266 @ Highland Dr, HDY":
+        - img "Camera at 4500 S / SR-266 @ Highland Dr, HDY" [ref=e584] [cursor=pointer]
+    - generic [ref=e586]:
+      - button "Camera at 4500 S / SR-266 @ Wasatch Blvd / 3200 E, MCK":
+        - img "Camera at 4500 S / SR-266 @ Wasatch Blvd / 3200 E, MCK" [ref=e587] [cursor=pointer]
+    - generic [ref=e589]:
+      - button "Camera at 4700 S @ 2700 W, TAY":
+        - img "Camera at 4700 S @ 2700 W, TAY" [ref=e590] [cursor=pointer]
+    - generic [ref=e592]:
+      - button "Camera at 4700 S @ 4000 W, WVC":
+        - img "Camera at 4700 S @ 4000 W, WVC" [ref=e593] [cursor=pointer]
+    - generic [ref=e595]:
+      - button "Camera at 4715 S @ 4800 W, WVC":
+        - img "Camera at 4715 S @ 4800 W, WVC" [ref=e596] [cursor=pointer]
+    - generic [ref=e598]:
+      - button "Camera at 4800 N @ 300 W / Riverbottom Rd, PVO":
+        - img "Camera at 4800 N @ 300 W / Riverbottom Rd, PVO" [ref=e599] [cursor=pointer]
+    - generic [ref=e601]:
+      - button "Camera at 500 E / SR-180 @ 400 S, AFK":
+        - img "Camera at 500 E / SR-180 @ 400 S, AFK" [ref=e602] [cursor=pointer]
+    - generic [ref=e604]:
+      - button "Camera at 500 N @ 400 E, PVO":
+        - img "Camera at 500 N @ 400 E, PVO" [ref=e605] [cursor=pointer]
+    - generic [ref=e607]:
+      - button "Camera at 500 N / SR-121 @ 2000 W / Aggie Blvd / MP 38.32, MAE":
+        - img "Camera at 500 N / SR-121 @ 2000 W / Aggie Blvd / MP 38.32, MAE" [ref=e608] [cursor=pointer]
+    - generic [ref=e610]:
+      - button "Camera at 500 S @ 400 W, SLC":
+        - img "Camera at 500 S @ 400 W, SLC" [ref=e611] [cursor=pointer]
+    - generic [ref=e613]:
+      - button "Camera at 500 S @ Main St, BTF":
+        - img "Camera at 500 S @ Main St, BTF" [ref=e614] [cursor=pointer]
+    - generic [ref=e616]:
+      - button "Camera at 500 S @ Redwood Rd / SR-68, WXS":
+        - img "Camera at 500 S @ Redwood Rd / SR-68, WXS" [ref=e617] [cursor=pointer]
+    - generic [ref=e619]:
+      - button "Camera at 500 S / Cesar E Chavez Blvd / SR-269 @ Main St, SLC":
+        - img "Camera at 500 S / Cesar E Chavez Blvd / SR-269 @ Main St, SLC" [ref=e620] [cursor=pointer]
+    - generic [ref=e622]:
+      - button "Camera at 500 S / University Blvd / SR-186 @ 1300 E, SLC":
+        - img "Camera at 500 S / University Blvd / SR-186 @ 1300 E, SLC" [ref=e623] [cursor=pointer]
+    - generic [ref=e625]:
+      - button "Camera at 500 S / University Blvd / SR-186 @ 1580 E / Guardsman Way, SLC":
+        - img "Camera at 500 S / University Blvd / SR-186 @ 1580 E / Guardsman Way, SLC" [ref=e626] [cursor=pointer]
+    - generic [ref=e628]:
+      - button "Camera at 500 W @ 920 S, PVO":
+        - img "Camera at 500 W @ 920 S, PVO" [ref=e629] [cursor=pointer]
+    - generic [ref=e631]:
+      - button "Camera at 500 W / State St / US-89 @ Cougar Blvd / Columbia Ln / 1230 N, PVO":
+        - img "Camera at 500 W / State St / US-89 @ Cougar Blvd / Columbia Ln / 1230 N, PVO" [ref=e632] [cursor=pointer]
+    - generic [ref=e634]:
+      - button "Camera at 500 W / US-89 @ 300 N, PVO":
+        - img "Camera at 500 W / US-89 @ 300 N, PVO" [ref=e635] [cursor=pointer]
+    - generic [ref=e637]:
+      - button "Camera at 500 W / US-89 @ 300 S / US-89, PVO":
+        - img "Camera at 500 W / US-89 @ 300 S / US-89, PVO" [ref=e638] [cursor=pointer]
+    - generic [ref=e640]:
+      - button "Camera at 500 W / US-89 @ 400 N / SR-106, BTF":
+        - img "Camera at 500 W / US-89 @ 400 N / SR-106, BTF" [ref=e641] [cursor=pointer]
+    - generic [ref=e643]:
+      - button "Camera at 500 W / US-89 @ 500 N, PVO":
+        - img "Camera at 500 W / US-89 @ 500 N, PVO" [ref=e644] [cursor=pointer]
+    - generic [ref=e646]:
+      - button "Camera at 500 W / US-89 @ 500 S / SR-68, BTF":
+        - img "Camera at 500 W / US-89 @ 500 S / SR-68, BTF" [ref=e647] [cursor=pointer]
+    - generic [ref=e649]:
+      - button "Camera at 500 W / US-89 @ 800 N, PVO":
+        - img "Camera at 500 W / US-89 @ 800 N, PVO" [ref=e650] [cursor=pointer]
+    - generic [ref=e652]:
+      - button "Camera at 500 W / US-89 @ Center St / SR-114, PVO":
+        - img "Camera at 500 W / US-89 @ Center St / SR-114, PVO" [ref=e653] [cursor=pointer]
+    - generic [ref=e655]:
+      - button "Camera at 5300 S / SR-173 @ 320 W / Commerce Dr, MUR":
+        - img "Camera at 5300 S / SR-173 @ 320 W / Commerce Dr, MUR" [ref=e656] [cursor=pointer]
+    - generic [ref=e658]:
+      - button "Camera at 5400 S / SR-173 @ 2200 W, TAY":
+        - img "Camera at 5400 S / SR-173 @ 2200 W, TAY" [ref=e659] [cursor=pointer]
+    - generic [ref=e661]:
+      - button "Camera at 5400 S / SR-173 @ 2700 W, TAY":
+        - img "Camera at 5400 S / SR-173 @ 2700 W, TAY" [ref=e662] [cursor=pointer]
+    - generic [ref=e664]:
+      - button "Camera at 5400 S / SR-173 @ 3200 W, TAY":
+        - img "Camera at 5400 S / SR-173 @ 3200 W, TAY" [ref=e665] [cursor=pointer]
+    - generic [ref=e667]:
+      - button "Camera at 5400 S / SR-173 @ 3600 W / Whitewood Dr, TAY":
+        - img "Camera at 5400 S / SR-173 @ 3600 W / Whitewood Dr, TAY" [ref=e668] [cursor=pointer]
+    - generic [ref=e670]:
+      - button "Camera at 5400 S / SR-173 @ 3700 W, TAY":
+        - img "Camera at 5400 S / SR-173 @ 3700 W, TAY" [ref=e671] [cursor=pointer]
+    - generic [ref=e673]:
+      - button "Camera at 5400 S / SR-173 @ 4015 W, TAY":
+        - img "Camera at 5400 S / SR-173 @ 4015 W, TAY" [ref=e674] [cursor=pointer]
+    - generic [ref=e676]:
+      - button "Camera at 5400 S / SR-173 @ 4800 W / Charlotte Ave, KRN":
+        - img "Camera at 5400 S / SR-173 @ 4800 W / Charlotte Ave, KRN" [ref=e677] [cursor=pointer]
+    - generic [ref=e679]:
+      - button "Camera at 5400 S / SR-173 @ 6055 W / Upper Ridge Rd, WVC":
+        - img "Camera at 5400 S / SR-173 @ 6055 W / Upper Ridge Rd, WVC" [ref=e680] [cursor=pointer]
+    - generic [ref=e682]:
+      - button "Camera at 5400 S / SR-173 @ 700 W / Murray Blvd, MUR":
+        - img "Camera at 5400 S / SR-173 @ 700 W / Murray Blvd, MUR" [ref=e683] [cursor=pointer]
+    - generic [ref=e685]:
+      - button "Camera at 5400 S / SR-173 @ Riverside Dr / 1070 W, MUR":
+        - img "Camera at 5400 S / SR-173 @ Riverside Dr / 1070 W, MUR" [ref=e686] [cursor=pointer]
+    - generic [ref=e688]:
+      - button "Camera at 5415 S / SR-173 @ 4420 W, SL":
+        - img "Camera at 5415 S / SR-173 @ 4420 W, SL" [ref=e689] [cursor=pointer]
+    - generic [ref=e691]:
+      - button "Camera at 5600 W @ 8200 S, WJD":
+        - img "Camera at 5600 W @ 8200 S, WJD" [ref=e692] [cursor=pointer]
+    - generic [ref=e694]:
+      - button "Camera at 5600 W / SR-172 @ 1100 S, SLC":
+        - img "Camera at 5600 W / SR-172 @ 1100 S, SLC" [ref=e695] [cursor=pointer]
+    - generic [ref=e697]:
+      - button "Camera at 5600 W / SR-172 @ 2700 S, WVC":
+        - img "Camera at 5600 W / SR-172 @ 2700 S, WVC" [ref=e698] [cursor=pointer]
+    - generic [ref=e700]:
+      - button "Camera at 5600 W / SR-172 @ 3500 S / SR-171, WVC":
+        - img "Camera at 5600 W / SR-172 @ 3500 S / SR-171, WVC" [ref=e701] [cursor=pointer]
+    - generic [ref=e703]:
+      - button "Camera at 5600 W / SR-172 @ 4100 S, WVC":
+        - img "Camera at 5600 W / SR-172 @ 4100 S, WVC" [ref=e704] [cursor=pointer]
+    - generic [ref=e706]:
+      - button "Camera at 5600 W / SR-172 @ 4700 S, WVC":
+        - img "Camera at 5600 W / SR-172 @ 4700 S, WVC" [ref=e707] [cursor=pointer]
+    - generic [ref=e709]:
+      - button "Camera at 5600 W / SR-172 @ 5400 S / SR-173, KRN":
+        - img "Camera at 5600 W / SR-172 @ 5400 S / SR-173, KRN" [ref=e710] [cursor=pointer]
+    - generic [ref=e712]:
+      - button "Camera at 5600 W / SR-172 @ 6200 S, WJD":
+        - img "Camera at 5600 W / SR-172 @ 6200 S, WJD" [ref=e713] [cursor=pointer]
+    - generic [ref=e715]:
+      - button "Camera at 5600 W / SR-172 @ 700 S, SLC":
+        - img "Camera at 5600 W / SR-172 @ 700 S, SLC" [ref=e716] [cursor=pointer]
+    - generic [ref=e718]:
+      - button "Camera at 5600 W / SR-172 @ California Ave / 1400 S, SLC":
+        - img "Camera at 5600 W / SR-172 @ California Ave / 1400 S, SLC" [ref=e719] [cursor=pointer]
+    - generic [ref=e721]:
+      - button "Camera at 6050 N / SR-157 @ 550 E / MP 4.85, CC":
+        - img "Camera at 6050 N / SR-157 @ 550 E / MP 4.85, CC" [ref=e722] [cursor=pointer]
+    - generic [ref=e724]:
+      - button "Camera at 6200 S @ Jordan Canal Rd / Margray Dr, TAY":
+        - img "Camera at 6200 S @ Jordan Canal Rd / Margray Dr, TAY" [ref=e725] [cursor=pointer]
+    - generic [ref=e727]:
+      - button "Camera at 6200 S / Bennion Blvd @ 2700 W, TAY":
+        - img "Camera at 6200 S / Bennion Blvd @ 2700 W, TAY" [ref=e728] [cursor=pointer]
+    - generic [ref=e730]:
+      - button "Camera at 6200 S / Bennion Blvd @ 3200 W, TAY":
+        - img "Camera at 6200 S / Bennion Blvd @ 3200 W, TAY" [ref=e731] [cursor=pointer]
+    - generic [ref=e733]:
+      - button "Camera at 6200 S / Bennion Blvd @ Airport Rd / 4570 W, WJD":
+        - img "Camera at 6200 S / Bennion Blvd @ Airport Rd / 4570 W, WJD" [ref=e734] [cursor=pointer]
+    - generic [ref=e736]:
+      - button "Camera at 6200 S / SR-190 @ 3000 E, HDY":
+        - img "Camera at 6200 S / SR-190 @ 3000 E, HDY" [ref=e737] [cursor=pointer]
+    - generic [ref=e739]:
+      - button "Camera at 6200 S / Wasatch Blvd / SR-190 @ Wasatch Blvd / Millrock Dr, CWH":
+        - img "Camera at 6200 S / Wasatch Blvd / SR-190 @ Wasatch Blvd / Millrock Dr, CWH" [ref=e740] [cursor=pointer]
+    - generic [ref=e742]:
+      - button "Camera at 700 E / SR-71 @ 10600 S, SND":
+        - img "Camera at 700 E / SR-71 @ 10600 S, SND" [ref=e743] [cursor=pointer]
+    - generic [ref=e745]:
+      - button "Camera at 700 E / SR-71 @ 11000 S, SND":
+        - img "Camera at 700 E / SR-71 @ 11000 S, SND" [ref=e746] [cursor=pointer]
+    - generic [ref=e748]:
+      - button "Camera at 700 E / SR-71 @ 11400 S, SND":
+        - img "Camera at 700 E / SR-71 @ 11400 S, SND" [ref=e749] [cursor=pointer]
+    - generic [ref=e751]:
+      - button "Camera at 700 E / SR-71 @ 1300 S, SLC":
+        - img "Camera at 700 E / SR-71 @ 1300 S, SLC" [ref=e752] [cursor=pointer]
+    - generic [ref=e754]:
+      - button "Camera at 700 E / SR-71 @ 1700 S, SLC":
+        - img "Camera at 700 E / SR-71 @ 1700 S, SLC" [ref=e755] [cursor=pointer]
+    - generic [ref=e757]:
+      - button "Camera at 700 E / SR-71 @ 2100 S, SLC":
+        - img "Camera at 700 E / SR-71 @ 2100 S, SLC" [ref=e758] [cursor=pointer]
+    - generic [ref=e760]:
+      - button "Camera at 700 E / SR-71 @ 3300 S / SR-171, MCK":
+        - img "Camera at 700 E / SR-71 @ 3300 S / SR-171, MCK" [ref=e761] [cursor=pointer]
+    - generic [ref=e763]:
+      - button "Camera at 700 E / SR-71 @ 3900 S, MCK":
+        - img "Camera at 700 E / SR-71 @ 3900 S, MCK" [ref=e764] [cursor=pointer]
+    - generic [ref=e766]:
+      - button "Camera at 700 E / SR-71 @ 4500 S / SR-266, MUR":
+        - img "Camera at 700 E / SR-71 @ 4500 S / SR-266, MUR" [ref=e767] [cursor=pointer]
+    - generic [ref=e769]:
+      - button "Camera at 700 E / SR-71 @ 8000 S, SND":
+        - img "Camera at 700 E / SR-71 @ 8000 S, SND" [ref=e770] [cursor=pointer]
+    - generic [ref=e772]:
+      - button "Camera at 700 E / SR-71 @ 900 S, SLC":
+        - img "Camera at 700 E / SR-71 @ 900 S, SLC" [ref=e773] [cursor=pointer]
+    - generic [ref=e775]:
+      - button "Camera at 700 E / SR-71 @ 9000 S / SR-209, SND":
+        - img "Camera at 700 E / SR-71 @ 9000 S / SR-209, SND" [ref=e776] [cursor=pointer]
+    - generic [ref=e778]:
+      - button "Camera at 700 E / SR-71 @ 9400 S, SND":
+        - img "Camera at 700 E / SR-71 @ 9400 S, SND" [ref=e779] [cursor=pointer]
+    - generic [ref=e781]:
+      - button "Camera at 700 E / SR-71 @ 9800 S / Sego Lily Dr, SND":
+        - img "Camera at 700 E / SR-71 @ 9800 S / Sego Lily Dr, SND" [ref=e782] [cursor=pointer]
+    - generic [ref=e784]:
+      - button "Camera at 700 E / SR-71 @ Kensington Ave / 1505 S, SLC":
+        - img "Camera at 700 E / SR-71 @ Kensington Ave / 1505 S, SLC" [ref=e785] [cursor=pointer]
+    - generic [ref=e787]:
+      - button "Camera at 700 N / SR-129 @ Anderson Blvd, LDN":
+        - img "Camera at 700 N / SR-129 @ Anderson Blvd, LDN" [ref=e788] [cursor=pointer]
+    - generic [ref=e790]:
+      - button "Camera at 700 S @ Flood St / 400 E, STG":
+        - img "Camera at 700 S @ Flood St / 400 E, STG" [ref=e791] [cursor=pointer]
+    - generic [ref=e793]:
+      - button "Camera at 700 S @ Main St, SLC":
+        - img "Camera at 700 S @ Main St, SLC" [ref=e794] [cursor=pointer]
+    - generic [ref=e796]:
+      - button "Camera at 700 S @ University Ave / 700 E, STG":
+        - img "Camera at 700 S @ University Ave / 700 E, STG" [ref=e797] [cursor=pointer]
+    - generic [ref=e799]:
+      - button "Camera at 700 S / SR-193 @ Industrial Pkwy, CFD":
+        - img "Camera at 700 S / SR-193 @ Industrial Pkwy, CFD" [ref=e800] [cursor=pointer]
+    - generic [ref=e802]:
+      - button "Camera at 7000 S @ 3200 W, WJD":
+        - img "Camera at 7000 S @ 3200 W, WJD" [ref=e803] [cursor=pointer]
+    - generic [ref=e805]:
+      - button "Camera at 7000 S / SR-48 @ 1300 W, WJD":
+        - img "Camera at 7000 S / SR-48 @ 1300 W, WJD" [ref=e806] [cursor=pointer]
+    - generic [ref=e808]:
+      - button "Camera at 7200 S / Jordan River Blvd / SR-48 @ 700 W, MDV":
+        - img "Camera at 7200 S / Jordan River Blvd / SR-48 @ 700 W, MDV" [ref=e809] [cursor=pointer]
+    - generic [ref=e811]:
+      - button "Camera at 7200 S / SR-48 @ 180 W, MDV":
+        - img "Camera at 7200 S / SR-48 @ 180 W, MDV" [ref=e812] [cursor=pointer]
+    - generic [ref=e814]:
+      - button "Camera at 7200 S / SR-48 @ 300 W / Cottonwood St, MDV":
+        - img "Camera at 7200 S / SR-48 @ 300 W / Cottonwood St, MDV" [ref=e815] [cursor=pointer]
+    - generic [ref=e817]:
+      - button "Camera at 7800 S @ 1300 W / Temple Dr, WJD":
+        - img "Camera at 7800 S @ 1300 W / Temple Dr, WJD" [ref=e818] [cursor=pointer]
+    - generic [ref=e820]:
+      - button "Camera at 7800 S @ 3800 W / Campus View Dr, WJD":
+        - img "Camera at 7800 S @ 3800 W / Campus View Dr, WJD" [ref=e821] [cursor=pointer]
+    - generic [ref=e823]:
+      - button "Camera at 7800 S @ 4000 W, WJD":
+        - img "Camera at 7800 S @ 4000 W, WJD" [ref=e824] [cursor=pointer]
+    - generic [ref=e826]:
+      - button "Camera at 7800 S @ 5600 W, WJD":
+        - img "Camera at 7800 S @ 5600 W, WJD" [ref=e827] [cursor=pointer]
+    - generic [ref=e829]:
+      - button "Camera at 7800 S @ Airport Rd / 4450 W, WJD":
+        - img "Camera at 7800 S @ Airport Rd / 4450 W, WJD" [ref=e830] [cursor=pointer]
+    - generic [ref=e832]:
+      - button "Camera at 7800 S @ Fallwater Dr, WJD":
+        - img "Camera at 7800 S @ Fallwater Dr, WJD" [ref=e833] [cursor=pointer]
+    - generic [ref=e835]:
+      - button "Camera at 7800 S / SR-48 @ 2700 W, WJD":
+        - img "Camera at 7800 S / SR-48 @ 2700 W, WJD" [ref=e836] [cursor=pointer]
+    - generic [ref=e838]:
+      - button "Camera at 800 E @ 1000 S, ORM":
+        - img "Camera at 800 E @ 1000 S, ORM" [ref=e839] [cursor=pointer]
+    - generic [ref=e841]:
+      - button "Camera at 800 E @ 1200 N, ORM":
+        - img "Camera at 800 E @ 1200 N, ORM" [ref=e842] [cursor=pointer]
+    - generic [ref=e844]:
+      - button "Camera at 800 E @ 1200 S, ORM":
+        - img "Camera at 800 E @ 1200 S, ORM" [ref=e845] [cursor=pointer]
+    - generic [ref=e847]:
+      - button "Camera at 800 E @ 400 S, ORM":
+        - img "Camera at 800 E @ 400 S, ORM" [ref=e848] [cursor=pointer]
+    - generic [ref=e850]:
+      - button "Camera at 800 E @ 800 S, ORM":
+        - img "Camera at 800 E @ 800 S, ORM" [ref=e851] [cursor=pointer]
+    - generic [ref=e853]:
+      - button "Camera at 800 N @ 800 E, SPF":
+        - img "Camera at 800 N @ 800 E, SPF" [ref=e854] [cursor=pointer]
+    - generic [ref=e856]:
+      - button "Camera at 800 N / SR-52 @ 400 E, ORM":
+        - img "Camera at 800 N / SR-52 @ 400 E, ORM" [ref=e857] [cursor=pointer]
+    - generic [ref=e859]:
+      - button "Camera at 800 N / SR-52 @ 800 E, ORM":
+        - img "Camera at 800 N / SR-52 @ 800 E, ORM" [ref=e860] [cursor=pointer]
+    - generic [ref=e862]:
+      - button "Camera at 800 N / SR-52 @ 980 W, ORM":
+        - img "Camera at 800 N / SR-52 @ 980 W, ORM" [ref=e863] [cursor=pointer]
+    - generic [ref=e865]:
+      - button "Camera at 800 N / SR-52 @ Main St, ORM":
+        - img "Camera at 800 N / SR-52 @ Main St, ORM" [ref=e866] [cursor=pointer]
+    - generic [ref=e868]:
+      - button "Camera at 800 N / SR-52 @ Palisade Dr / 1300 E, ORM":
+        - img "Camera at 800 N / SR-52 @ Palisade Dr / 1300 E, ORM" [ref=e869] [cursor=pointer]
+    - generic [ref=e871]:
+      - button "Camera at 800 S @ 400 E, ORM":
+        - img "Camera at 800 S @ 400 E, ORM" [ref=e872] [cursor=pointer]
+    - generic [ref=e874]:
+      - button "Camera at 800 S @ 400 W, ORM":
+        - img "Camera at 800 S @ 400 W, ORM" [ref=e875] [cursor=pointer]
+    - generic [ref=e877]:
+      - button "Camera at 800 S @ Main St, ORM":
+        - img "Camera at 800 S @ Main St, ORM" [ref=e878] [cursor=pointer]
+    - generic [ref=e880]:
+      - button "Camera at 800 S @ Orem Blvd, ORM":
+        - img "Camera at 800 S @ Orem Blvd, ORM" [ref=e881] [cursor=pointer]
+    - generic [ref=e883]:
+      - button "Camera at 800 S / SR-178 @ 1270 W / Turf Farm Rd, PSN":
+        - img "Camera at 800 S / SR-178 @ 1270 W / Turf Farm Rd, PSN" [ref=e884] [cursor=pointer]
+    - generic [ref=e886]:
+      - button "Camera at 800 S / SR-178 @ 930 W, PSN":
+        - img "Camera at 800 S / SR-178 @ 930 W, PSN" [ref=e887] [cursor=pointer]
+    - generic [ref=e889]:
+      - button "Camera at 8000 S / SR-164 @ 460 W/SLM / 1200 W/SPF, SLM":
+        - img "Camera at 8000 S / SR-164 @ 460 W/SLM / 1200 W/SPF, SLM" [ref=e890] [cursor=pointer]
+    - generic [ref=e892]:
+      - button "Camera at 8000 S / SR-164 @ Loafer Mtn Pkwy / 1600 W, SLM":
+        - img "Camera at 8000 S / SR-164 @ Loafer Mtn Pkwy / 1600 W, SLM" [ref=e893] [cursor=pointer]
+    - generic [ref=e895]:
+      - button "Camera at 820 N @ Independence Ave, PVO":
+        - img "Camera at 820 N @ Independence Ave, PVO" [ref=e896] [cursor=pointer]
+    - generic [ref=e898]:
+      - button "Camera at 8400 W / Bacchus Hwy / SR-111 @ 2700 S / Main St, MAG":
+        - img "Camera at 8400 W / Bacchus Hwy / SR-111 @ 2700 S / Main St, MAG" [ref=e899] [cursor=pointer]
+    - generic [ref=e901]:
+      - button "Camera at 8400 W / Bacchus Hwy / SR-111 @ 3500 S / SR-171, MAG":
+        - img "Camera at 8400 W / Bacchus Hwy / SR-111 @ 3500 S / SR-171, MAG" [ref=e902] [cursor=pointer]
+    - generic [ref=e904]:
+      - button "Camera at 8400 W / Bacchus Hwy / SR-111 @ 4100 S, WVC":
+        - img "Camera at 8400 W / Bacchus Hwy / SR-111 @ 4100 S, WVC" [ref=e905] [cursor=pointer]
+    - generic [ref=e907]:
+      - button "Camera at 8400 W / Bacchus Hwy / SR-111 @ Cordero Dr, MAG":
+        - img "Camera at 8400 W / Bacchus Hwy / SR-111 @ Cordero Dr, MAG" [ref=e908] [cursor=pointer]
+    - generic [ref=e910]:
+      - button "Camera at 900 E @ 700 N, PVO":
+        - img "Camera at 900 E @ 700 N, PVO" [ref=e911] [cursor=pointer]
+    - generic [ref=e913]:
+      - button "Camera at 900 E @ 820 N, PVO":
+        - img "Camera at 900 E @ 820 N, PVO" [ref=e914] [cursor=pointer]
+    - generic [ref=e916]:
+      - button "Camera at 900 E @ Birch Ln / Heritage Dr / 1200 N, PVO":
+        - img "Camera at 900 E @ Birch Ln / Heritage Dr / 1200 N, PVO" [ref=e917] [cursor=pointer]
+    - generic [ref=e919]:
+      - button "Camera at 900 E @ Center St, PVO":
+        - img "Camera at 900 E @ Center St, PVO" [ref=e920] [cursor=pointer]
+    - generic [ref=e922]:
+      - button "Camera at 900 E @ Temple View Dr, PVO":
+        - img "Camera at 900 E @ Temple View Dr, PVO" [ref=e923] [cursor=pointer]
+    - generic [ref=e925]:
+      - button "Camera at 900 E @ University Pkwy, PVO":
+        - img "Camera at 900 E @ University Pkwy, PVO" [ref=e926] [cursor=pointer]
+    - generic [ref=e928]:
+      - button "Camera at 900 E / SR-71 @ 5600 S, MUR":
+        - img "Camera at 900 E / SR-71 @ 5600 S, MUR" [ref=e929] [cursor=pointer]
+    - generic [ref=e931]:
+      - button "Camera at 900 E / SR-71 @ Fort Union Blvd / 7100 S, MDV":
+        - img "Camera at 900 E / SR-71 @ Fort Union Blvd / 7100 S, MDV" [ref=e932] [cursor=pointer]
+    - generic [ref=e934]:
+      - button "Camera at 900 E / SR-71 @ South Union Ave / 7220 S, MDV":
+        - img "Camera at 900 E / SR-71 @ South Union Ave / 7220 S, MDV" [ref=e935] [cursor=pointer]
+    - generic [ref=e937]:
+      - button "Camera at 900 E / SR-71 @ Van Winkle Expwy / SR-152, MUR":
+        - img "Camera at 900 E / SR-71 @ Van Winkle Expwy / SR-152, MUR" [ref=e938] [cursor=pointer]
+    - generic [ref=e940]:
+      - button "Camera at 900 S @ West Temple St / 100 W, SLC":
+        - img "Camera at 900 S @ West Temple St / 100 W, SLC" [ref=e941] [cursor=pointer]
+    - generic [ref=e943]:
+      - button "Camera at 9000 S / SR-209 @ 1300 W / Temple Dr, WJD":
+        - img "Camera at 9000 S / SR-209 @ 1300 W / Temple Dr, WJD" [ref=e944] [cursor=pointer]
+    - generic [ref=e946]:
+      - button "Camera at 9000 S / SR-209 @ 150 E / Trax, SND":
+        - img "Camera at 9000 S / SR-209 @ 150 E / Trax, SND" [ref=e947] [cursor=pointer]
+    - generic [ref=e949]:
+      - button "Camera at 9000 S / SR-209 @ 4000 W, WJD":
+        - img "Camera at 9000 S / SR-209 @ 4000 W, WJD" [ref=e950] [cursor=pointer]
+    - generic [ref=e952]:
+      - button "Camera at 9000 S / SR-209 @ 4800 W, WJD":
+        - img "Camera at 9000 S / SR-209 @ 4800 W, WJD" [ref=e953] [cursor=pointer]
+    - generic [ref=e955]:
+      - button "Camera at 9000 S / SR-209 @ 700 W, SND":
+        - img "Camera at 9000 S / SR-209 @ 700 W, SND" [ref=e956] [cursor=pointer]
+    - generic [ref=e958]:
+      - button "Camera at 9000 S / SR-209 @ Monroe St / 150 W, SND":
+        - img "Camera at 9000 S / SR-209 @ Monroe St / 150 W, SND" [ref=e959] [cursor=pointer]
+    - generic [ref=e961]:
+      - button "Camera at 9400 S / Little Cottonwood Rd / SR-209 @ 2300 E / Quail Hollow Dr, SND":
+        - img "Camera at 9400 S / Little Cottonwood Rd / SR-209 @ 2300 E / Quail Hollow Dr, SND" [ref=e962] [cursor=pointer]
+    - generic [ref=e964]:
+      - button "Camera at 9400 S / SR-209 @ 1100 E, SND":
+        - img "Camera at 9400 S / SR-209 @ 1100 E, SND" [ref=e965] [cursor=pointer]
+    - generic [ref=e967]:
+      - button "Camera at 9400 S / SR-209 @ 1300 E, SND":
+        - img "Camera at 9400 S / SR-209 @ 1300 E, SND" [ref=e968] [cursor=pointer]
+    - generic [ref=e970]:
+      - button "Camera at 9400 S / SR-209 @ 1700 E, SND":
+        - img "Camera at 9400 S / SR-209 @ 1700 E, SND" [ref=e971] [cursor=pointer]
+    - generic [ref=e973]:
+      - button "Camera at 9400 S / SR-209 @ 2000 E / Highland Dr, SND":
+        - img "Camera at 9400 S / SR-209 @ 2000 E / Highland Dr, SND" [ref=e974] [cursor=pointer]
+    - generic [ref=e976]:
+      - button "Camera at Airport Rd @ Kitty Hawk Dr, CDC":
+        - img "Camera at Airport Rd @ Kitty Hawk Dr, CDC" [ref=e977] [cursor=pointer]
+    - generic [ref=e979]:
+      - button "Camera at Alpine Hwy / SR-74 @ Canal Blvd, HLD":
+        - img "Camera at Alpine Hwy / SR-74 @ Canal Blvd, HLD" [ref=e980] [cursor=pointer]
+    - generic [ref=e982]:
+      - button "Camera at Alpine Loop / SR-92 @ American Fork Canyon Rd / SR-144, UT":
+        - img "Camera at Alpine Loop / SR-92 @ American Fork Canyon Rd / SR-144, UT" [ref=e983] [cursor=pointer]
+    - generic [ref=e985]:
+      - button "Camera at Alpine Loop / SR-92 @ Milepost 13.99 UT":
+        - img "Camera at Alpine Loop / SR-92 @ Milepost 13.99 UT" [ref=e986] [cursor=pointer]
+    - generic [ref=e988]:
+      - button "Camera at Alpine Loop / SR-92 @ Milepost 14.54, UT":
+        - img "Camera at Alpine Loop / SR-92 @ Milepost 14.54, UT" [ref=e989] [cursor=pointer]
+    - generic [ref=e991]:
+      - button "Camera at Alpine Loop / SR-92 @ Milepost 22.52, UT":
+        - img "Camera at Alpine Loop / SR-92 @ Milepost 22.52, UT" [ref=e992] [cursor=pointer]
+    - generic [ref=e994]:
+      - button "Camera at Alpine Loop / SR-92 @ Ranger Station / MP 7.99, UT":
+        - img "Camera at Alpine Loop / SR-92 @ Ranger Station / MP 7.99, UT" [ref=e995] [cursor=pointer]
+    - generic [ref=e997]:
+      - button "Camera at Alpine Loop / SR-92 @ Timpanogos Cave / MP 10.3, UT":
+        - img "Camera at Alpine Loop / SR-92 @ Timpanogos Cave / MP 10.3, UT" [ref=e998] [cursor=pointer]
+    - generic [ref=e1000]:
+      - button "Camera at Alpine Loop / SR-92 RWIS EB @ Little Mill / MP 12.31, UT":
+        - img "Camera at Alpine Loop / SR-92 RWIS EB @ Little Mill / MP 12.31, UT" [ref=e1001] [cursor=pointer]
+    - generic [ref=e1003]:
+      - button "Camera at American Fork Canyon Rd / SR-144 @ Milepost 0.88, UT":
+        - img "Camera at American Fork Canyon Rd / SR-144 @ Milepost 0.88, UT" [ref=e1004] [cursor=pointer]
+    - generic [ref=e1006]:
+      - button "Camera at American Fork Canyon Rd / SR-144 @ Milepost 1.72, UT":
+        - img "Camera at American Fork Canyon Rd / SR-144 @ Milepost 1.72, UT" [ref=e1007] [cursor=pointer]
+    - generic [ref=e1009]:
+      - button "Camera at American Fork Canyon Rd / SR-144 @ Tibble Fork Reservoir / MP 2.4, UT":
+        - img "Camera at American Fork Canyon Rd / SR-144 @ Tibble Fork Reservoir / MP 2.4, UT" [ref=e1010] [cursor=pointer]
+    - generic [ref=e1012]:
+      - button "Camera at Angel St @ Layton Pkwy, LTN":
+        - img "Camera at Angel St @ Layton Pkwy, LTN" [ref=e1013] [cursor=pointer]
+    - generic [ref=e1015]:
+      - button "Camera at Antelope Dr / 1700 S / SR-108 @ 1000 W, SYR":
+        - img "Camera at Antelope Dr / 1700 S / SR-108 @ 1000 W, SYR" [ref=e1016] [cursor=pointer]
+    - generic [ref=e1018]:
+      - button "Camera at Antelope Dr / 1700 S / SR-108 @ 2000 W / SR-108, SYR":
+        - img "Camera at Antelope Dr / 1700 S / SR-108 @ 2000 W / SR-108, SYR" [ref=e1019] [cursor=pointer]
+    - generic [ref=e1021]:
+      - button "Camera at Antelope Dr / 1700 S / SR-108 @ Main St, CFD":
+        - img "Camera at Antelope Dr / 1700 S / SR-108 @ Main St, CFD" [ref=e1022] [cursor=pointer]
+    - generic [ref=e1024]:
+      - button "Camera at Antelope Dr / 1700 S / SR-108 @ Sand Ridge Pkwy / 500 W, CFD":
+        - img "Camera at Antelope Dr / 1700 S / SR-108 @ Sand Ridge Pkwy / 500 W, CFD" [ref=e1025] [cursor=pointer]
+    - generic [ref=e1027]:
+      - button "Camera at Antelope Dr / 1700 S / SR-127 @ 2500 W, SYR":
+        - img "Camera at Antelope Dr / 1700 S / SR-127 @ 2500 W, SYR" [ref=e1028] [cursor=pointer]
+    - generic [ref=e1030]:
+      - button "Camera at Antelope Dr / 1700 S / SR-127 @ 3000 W, SYR":
+        - img "Camera at Antelope Dr / 1700 S / SR-127 @ 3000 W, SYR" [ref=e1031] [cursor=pointer]
+    - generic [ref=e1033]:
+      - button "Camera at Antelope Dr / 2000 N @ Fairfield Rd / 850 E, LTN":
+        - img "Camera at Antelope Dr / 2000 N @ Fairfield Rd / 850 E, LTN" [ref=e1034] [cursor=pointer]
+    - generic [ref=e1036]:
+      - button "Camera at Arrowhead Trail Rd / SR-164 @ Del Monte Rd, SPF":
+        - img "Camera at Arrowhead Trail Rd / SR-164 @ Del Monte Rd, SPF" [ref=e1037] [cursor=pointer]
+    - generic [ref=e1039]:
+      - button "Camera at Arrowhead Trail Rd / SR-164 @ Mill Rd / 750 W, SPF":
+        - img "Camera at Arrowhead Trail Rd / SR-164 @ Mill Rd / 750 W, SPF" [ref=e1040] [cursor=pointer]
+    - generic [ref=e1042]:
+      - button "Camera at Ashton Blvd @ Executive Pkwy, LHI":
+        - img "Camera at Ashton Blvd @ Executive Pkwy, LHI" [ref=e1043] [cursor=pointer]
+    - generic [ref=e1045]:
+      - button "Camera at Auto Mall Dr @ Indian Hills Dr, STG":
+        - img "Camera at Auto Mall Dr @ Indian Hills Dr, STG" [ref=e1046] [cursor=pointer]
+    - generic [ref=e1048]:
+      - button "Camera at Bacchhus Hwy / 7230 W @ Old Bingham Hwy / 10200 S, WJD":
+        - img "Camera at Bacchhus Hwy / 7230 W @ Old Bingham Hwy / 10200 S, WJD" [ref=e1049] [cursor=pointer]
+    - generic [ref=e1051]:
+      - button "Camera at Bacchus Hwy / SR-111 @ 5400 S / SR-173, WVC":
+        - img "Camera at Bacchus Hwy / SR-111 @ 5400 S / SR-173, WVC" [ref=e1052] [cursor=pointer]
+    - generic [ref=e1054]:
+      - button "Camera at Bacchus Hwy / SR-111 @ 6200 S, WVC":
+        - img "Camera at Bacchus Hwy / SR-111 @ 6200 S, WVC" [ref=e1055] [cursor=pointer]
+    - generic [ref=e1057]:
+      - button "Camera at Bacchus Hwy / SR-111 @ 7800 S, WJD":
+        - img "Camera at Bacchus Hwy / SR-111 @ 7800 S, WJD" [ref=e1058] [cursor=pointer]
+    - generic [ref=e1060]:
+      - button "Camera at Bacchus Hwy / SR-111 @ 8200 S, WJD":
+        - img "Camera at Bacchus Hwy / SR-111 @ 8200 S, WJD" [ref=e1061] [cursor=pointer]
+    - generic [ref=e1063]:
+      - button "Camera at Bacchus Hwy / SR-111 @ New Bingham Hwy / SR-209, WJD":
+        - img "Camera at Bacchus Hwy / SR-111 @ New Bingham Hwy / SR-209, WJD" [ref=e1064] [cursor=pointer]
+    - generic [ref=e1066]:
+      - button "Camera at Bacchus Hwy / SR-111 RWIS SB @ 6400 S / MP 4.15, WVC":
+        - img "Camera at Bacchus Hwy / SR-111 RWIS SB @ 6400 S / MP 4.15, WVC" [ref=e1067] [cursor=pointer]
+    - generic [ref=e1069]:
+      - button "Camera at Bangerter Hwy / 200 E / SR-154 @ 13800 S, DPR":
+        - img "Camera at Bangerter Hwy / 200 E / SR-154 @ 13800 S, DPR" [ref=e1070] [cursor=pointer]
+    - generic [ref=e1072]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 10200 S, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 @ 10200 S, SJO" [ref=e1073] [cursor=pointer]
+    - generic [ref=e1075]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 10400 S / South Jordan Pkwy / SR-151, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 @ 10400 S / South Jordan Pkwy / SR-151, SJO" [ref=e1076] [cursor=pointer]
+    - generic [ref=e1078]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 10700 S, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 @ 10700 S, SJO" [ref=e1079] [cursor=pointer]
+    - generic [ref=e1081]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 10950 S, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 @ 10950 S, SJO" [ref=e1082] [cursor=pointer]
+    - generic [ref=e1084]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 11400 S, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 @ 11400 S, SJO" [ref=e1085] [cursor=pointer]
+    - generic [ref=e1087]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 11500 S, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 @ 11500 S, SJO" [ref=e1088] [cursor=pointer]
+    - generic [ref=e1090]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 12000 S, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 @ 12000 S, RVT" [ref=e1091] [cursor=pointer]
+    - generic [ref=e1093]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 12400 S, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 @ 12400 S, RVT" [ref=e1094] [cursor=pointer]
+    - generic [ref=e1096]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 12800 S, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 @ 12800 S, RVT" [ref=e1097] [cursor=pointer]
+    - generic [ref=e1099]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 13400 S, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 @ 13400 S, RVT" [ref=e1100] [cursor=pointer]
+    - generic [ref=e1102]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 200 W / MP 0.78, DPR":
+        - img "Camera at Bangerter Hwy / SR-154 @ 200 W / MP 0.78, DPR" [ref=e1103] [cursor=pointer]
+    - generic [ref=e1105]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 2400 S / Lake Park Blvd, WVC":
+        - img "Camera at Bangerter Hwy / SR-154 @ 2400 S / Lake Park Blvd, WVC" [ref=e1106] [cursor=pointer]
+    - generic [ref=e1108]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 2700 W, BLF":
+        - img "Camera at Bangerter Hwy / SR-154 @ 2700 W, BLF" [ref=e1109] [cursor=pointer]
+    - generic [ref=e1111]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 300 W / MP 1.0, DPR":
+        - img "Camera at Bangerter Hwy / SR-154 @ 300 W / MP 1.0, DPR" [ref=e1112] [cursor=pointer]
+    - generic [ref=e1114]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 3100 S, WVC":
+        - img "Camera at Bangerter Hwy / SR-154 @ 3100 S, WVC" [ref=e1115] [cursor=pointer]
+    - generic [ref=e1117]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 3500 S / SR-171, WVC":
+        - img "Camera at Bangerter Hwy / SR-154 @ 3500 S / SR-171, WVC" [ref=e1118] [cursor=pointer]
+    - generic [ref=e1120]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 4100 S, WVC":
+        - img "Camera at Bangerter Hwy / SR-154 @ 4100 S, WVC" [ref=e1121] [cursor=pointer]
+    - generic [ref=e1123]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 4700 S, TAY":
+        - img "Camera at Bangerter Hwy / SR-154 @ 4700 S, TAY" [ref=e1124] [cursor=pointer]
+    - generic [ref=e1126]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 500 W / MP 1.25, DPR":
+        - img "Camera at Bangerter Hwy / SR-154 @ 500 W / MP 1.25, DPR" [ref=e1127] [cursor=pointer]
+    - generic [ref=e1129]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 5200 S, TAY":
+        - img "Camera at Bangerter Hwy / SR-154 @ 5200 S, TAY" [ref=e1130] [cursor=pointer]
+    - generic [ref=e1132]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 5300 S, TAY":
+        - img "Camera at Bangerter Hwy / SR-154 @ 5300 S, TAY" [ref=e1133] [cursor=pointer]
+    - generic [ref=e1135]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 5400 S / SR-173, TAY":
+        - img "Camera at Bangerter Hwy / SR-154 @ 5400 S / SR-173, TAY" [ref=e1136] [cursor=pointer]
+    - generic [ref=e1138]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 5600 S, TAY":
+        - img "Camera at Bangerter Hwy / SR-154 @ 5600 S, TAY" [ref=e1139] [cursor=pointer]
+    - generic [ref=e1141]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 600 W / MP 1.45, DPR":
+        - img "Camera at Bangerter Hwy / SR-154 @ 600 W / MP 1.45, DPR" [ref=e1142] [cursor=pointer]
+    - generic [ref=e1144]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 6000 S, TAY":
+        - img "Camera at Bangerter Hwy / SR-154 @ 6000 S, TAY" [ref=e1145] [cursor=pointer]
+    - generic [ref=e1147]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 6400 S, TAY":
+        - img "Camera at Bangerter Hwy / SR-154 @ 6400 S, TAY" [ref=e1148] [cursor=pointer]
+    - generic [ref=e1150]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 6900 S, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 @ 6900 S, WJD" [ref=e1151] [cursor=pointer]
+    - generic [ref=e1153]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 700 W / MP 1.6, DPR":
+        - img "Camera at Bangerter Hwy / SR-154 @ 700 W / MP 1.6, DPR" [ref=e1154] [cursor=pointer]
+    - generic [ref=e1156]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 7100 S, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 @ 7100 S, WJD" [ref=e1157] [cursor=pointer]
+    - generic [ref=e1159]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 7800 S / SR-48, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 @ 7800 S / SR-48, WJD" [ref=e1160] [cursor=pointer]
+    - generic [ref=e1162]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 800 W / MP 1.86, DPR":
+        - img "Camera at Bangerter Hwy / SR-154 @ 800 W / MP 1.86, DPR" [ref=e1163] [cursor=pointer]
+    - generic [ref=e1165]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 8900 S, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 @ 8900 S, WJD" [ref=e1166] [cursor=pointer]
+    - generic [ref=e1168]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 9150 S, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 @ 9150 S, WJD" [ref=e1169] [cursor=pointer]
+    - generic [ref=e1171]:
+      - button "Camera at Bangerter Hwy / SR-154 @ 9800 S, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 @ 9800 S, SJO" [ref=e1172] [cursor=pointer]
+    - generic [ref=e1174]:
+      - button "Camera at Bangerter Hwy / SR-154 @ California Ave, SLC":
+        - img "Camera at Bangerter Hwy / SR-154 @ California Ave, SLC" [ref=e1175] [cursor=pointer]
+    - generic [ref=e1177]:
+      - button "Camera at Bangerter Hwy / SR-154 @ Parkway Blvd / 2700 S, WVC":
+        - img "Camera at Bangerter Hwy / SR-154 @ Parkway Blvd / 2700 S, WVC" [ref=e1178] [cursor=pointer]
+    - generic [ref=e1180]:
+      - button "Camera at Bangerter Hwy / SR-154 @ SLC Airport / N of I-80 / MP 24.1, SLC":
+        - img "Camera at Bangerter Hwy / SR-154 @ SLC Airport / N of I-80 / MP 24.1, SLC" [ref=e1181] [cursor=pointer]
+    - generic [ref=e1183]:
+      - button "Camera at Bangerter Hwy / SR-154 EB @ MP 3.82, BLF":
+        - img "Camera at Bangerter Hwy / SR-154 EB @ MP 3.82, BLF" [ref=e1184] [cursor=pointer]
+    - generic [ref=e1186]:
+      - button "Camera at Bangerter Hwy / SR-154 EB @ Redwood Rd / SR-68, BLF":
+        - img "Camera at Bangerter Hwy / SR-154 EB @ Redwood Rd / SR-68, BLF" [ref=e1187] [cursor=pointer]
+    - generic [ref=e1189]:
+      - button "Camera at Bangerter Hwy / SR-154 NB @ 12600 S / SR-71, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 NB @ 12600 S / SR-71, RVT" [ref=e1190] [cursor=pointer]
+    - generic [ref=e1192]:
+      - button "Camera at Bangerter Hwy / SR-154 NB @ 6200 S, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 NB @ 6200 S, WJD" [ref=e1193] [cursor=pointer]
+    - generic [ref=e1195]:
+      - button "Camera at Bangerter Hwy / SR-154 NB @ 7000 S, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 NB @ 7000 S, WJD" [ref=e1196] [cursor=pointer]
+    - generic [ref=e1198]:
+      - button "Camera at Bangerter Hwy / SR-154 NB @ 9000 S / SR-209, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 NB @ 9000 S / SR-209, WJD" [ref=e1199] [cursor=pointer]
+    - generic [ref=e1201]:
+      - button "Camera at Bangerter Hwy / SR-154 NB @ MP 5.68, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 NB @ MP 5.68, RVT" [ref=e1202] [cursor=pointer]
+    - generic [ref=e1204]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ 12600 S / SR-71, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ 12600 S / SR-71, RVT" [ref=e1205] [cursor=pointer]
+    - generic [ref=e1207]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ 6200 S, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ 6200 S, WJD" [ref=e1208] [cursor=pointer]
+    - generic [ref=e1210]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ 7000 S / Jordan Landing Blvd, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ 7000 S / Jordan Landing Blvd, WJD" [ref=e1211] [cursor=pointer]
+    - generic [ref=e1213]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ 9000 S / SR-209, WJD":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ 9000 S / SR-209, WJD" [ref=e1214] [cursor=pointer]
+    - generic [ref=e1216]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ MP 10.46, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ MP 10.46, SJO" [ref=e1217] [cursor=pointer]
+    - generic [ref=e1219]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ MP 16.47, TAY":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ MP 16.47, TAY" [ref=e1220] [cursor=pointer]
+    - generic [ref=e1222]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ MP 16.98, WVC":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ MP 16.98, WVC" [ref=e1223] [cursor=pointer]
+    - generic [ref=e1225]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ MP 5.31, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ MP 5.31, RVT" [ref=e1226] [cursor=pointer]
+    - generic [ref=e1228]:
+      - button "Camera at Bangerter Hwy / SR-154 SB @ MP 9.98, SJO":
+        - img "Camera at Bangerter Hwy / SR-154 SB @ MP 9.98, SJO" [ref=e1229] [cursor=pointer]
+    - generic [ref=e1231]:
+      - button "Camera at Bangerter Hwy / SR-154 WB @ MP 4 / 2700 W, BLF":
+        - img "Camera at Bangerter Hwy / SR-154 WB @ MP 4 / 2700 W, BLF" [ref=e1232] [cursor=pointer]
+    - generic [ref=e1234]:
+      - button "Camera at Bangerter Hwy / SR-154 WB @ MP 4.35, BLF":
+        - img "Camera at Bangerter Hwy / SR-154 WB @ MP 4.35, BLF" [ref=e1235] [cursor=pointer]
+    - generic [ref=e1237]:
+      - button "Camera at Bangerter Hwy / SR-154 WB @ Redwood Rd / SR-68, RVT":
+        - img "Camera at Bangerter Hwy / SR-154 WB @ Redwood Rd / SR-68, RVT" [ref=e1238] [cursor=pointer]
+    - generic [ref=e1240]:
+      - button "Camera at Beck St / US-89 @ 1810 N / Chicago St, SLC":
+        - img "Camera at Beck St / US-89 @ 1810 N / Chicago St, SLC" [ref=e1241] [cursor=pointer]
+    - generic [ref=e1243]:
+      - button "Camera at Big Cottonwood Canyon Rd / SR-190 @ Brighton / MP 16.07, BTN":
+        - img "Camera at Big Cottonwood Canyon Rd / SR-190 @ Brighton / MP 16.07, BTN" [ref=e1244] [cursor=pointer]
+    - generic [ref=e1246]:
+      - button "Camera at Big Cottonwood Canyon Rd / SR-190 @ Butler / MP 10, SL":
+        - img "Camera at Big Cottonwood Canyon Rd / SR-190 @ Butler / MP 10, SL" [ref=e1247] [cursor=pointer]
+    - generic [ref=e1249]:
+      - button "Camera at Big Cottonwood Canyon Rd / SR-190 @ Cardiff Fork / MP 10.74, SL":
+        - img "Camera at Big Cottonwood Canyon Rd / SR-190 @ Cardiff Fork / MP 10.74, SL" [ref=e1250] [cursor=pointer]
+    - generic [ref=e1252]:
+      - button "Camera at Big Cottonwood Canyon Rd / SR-190 @ Dogwood / MP 4.1, SL":
+        - img "Camera at Big Cottonwood Canyon Rd / SR-190 @ Dogwood / MP 4.1, SL" [ref=e1253] [cursor=pointer]
+    - generic [ref=e1255]:
+      - button "Camera at Big Cottonwood Canyon Rd / SR-190 @ S-Curves / MP 6.38, SL":
+        - img "Camera at Big Cottonwood Canyon Rd / SR-190 @ S-Curves / MP 6.38, SL" [ref=e1256] [cursor=pointer]
+    - generic [ref=e1258]:
+      - button "Camera at Big Cottonwood Canyon Rd / SR-190 @ Silver Fork / MP 12.54, SL":
+        - img "Camera at Big Cottonwood Canyon Rd / SR-190 @ Silver Fork / MP 12.54, SL" [ref=e1259] [cursor=pointer]
+    - generic [ref=e1261]:
+      - button "Camera at Big Cottonwood Canyon Rd / SR-190 @ Solitude / MP 14.53, SL":
+        - img "Camera at Big Cottonwood Canyon Rd / SR-190 @ Solitude / MP 14.53, SL" [ref=e1262] [cursor=pointer]
+    - generic [ref=e1264]:
+      - button "Camera at Blacksmith Fork Canyon Rd / SR-101 @ Hyrum City Park / MP 14.2, CA":
+        - img "Camera at Blacksmith Fork Canyon Rd / SR-101 @ Hyrum City Park / MP 14.2, CA" [ref=e1265] [cursor=pointer]
+    - generic [ref=e1267]:
+      - button "Camera at Bluff St / SR-18 @ 500 N, STG":
+        - img "Camera at Bluff St / SR-18 @ 500 N, STG" [ref=e1268] [cursor=pointer]
+    - generic [ref=e1270]:
+      - button "Camera at Bluff St / SR-18 @ 700 S, STG":
+        - img "Camera at Bluff St / SR-18 @ 700 S, STG" [ref=e1271] [cursor=pointer]
+    - generic [ref=e1273]:
+      - button "Camera at Bluff St / SR-18 @ Main St / Black Ridge Dr, STG":
+        - img "Camera at Bluff St / SR-18 @ Main St / Black Ridge Dr, STG" [ref=e1274] [cursor=pointer]
+    - generic [ref=e1276]:
+      - button "Camera at Bluff St / SR-18 @ Snow Canyon Pkwy / Red Hills Pkwy, STG":
+        - img "Camera at Bluff St / SR-18 @ Snow Canyon Pkwy / Red Hills Pkwy, STG" [ref=e1277] [cursor=pointer]
+    - generic [ref=e1279]:
+      - button "Camera at Bluff St / SR-18 @ St George Blvd / SR-34, STG":
+        - img "Camera at Bluff St / SR-18 @ St George Blvd / SR-34, STG" [ref=e1280] [cursor=pointer]
+    - generic [ref=e1282]:
+      - button "Camera at Bluff St / SR-18 @ Sunset Blvd / SR-8, STG":
+        - img "Camera at Bluff St / SR-18 @ Sunset Blvd / SR-8, STG" [ref=e1283] [cursor=pointer]
+    - generic [ref=e1285]:
+      - button "Camera at Brigham Rd @ Bloomington Hills Dr, STG":
+        - img "Camera at Brigham Rd @ Bloomington Hills Dr, STG" [ref=e1286] [cursor=pointer]
+    - generic [ref=e1288]:
+      - button "Camera at Brigham Rd @ Desert Hills Dr, STG":
+        - img "Camera at Brigham Rd @ Desert Hills Dr, STG" [ref=e1289] [cursor=pointer]
+    - generic [ref=e1291]:
+      - button "Camera at Brigham Rd @ Hidden Valley Dr, STG":
+        - img "Camera at Brigham Rd @ Hidden Valley Dr, STG" [ref=e1292] [cursor=pointer]
+    - generic [ref=e1294]:
+      - button "Camera at Canyon Creek Pkwy @ Spanish Fork Pkwy, SPF":
+        - img "Camera at Canyon Creek Pkwy @ Spanish Fork Pkwy, SPF" [ref=e1295] [cursor=pointer]
+    - generic [ref=e1297]:
+      - button "Camera at Canyon Pkwy / 800 N / SR-52 @ 800 W, ORM":
+        - img "Camera at Canyon Pkwy / 800 N / SR-52 @ 800 W, ORM" [ref=e1298] [cursor=pointer]
+    - generic [ref=e1300]:
+      - button "Camera at Canyon Rd @ 3650 N, PVO":
+        - img "Camera at Canyon Rd @ 3650 N, PVO" [ref=e1301] [cursor=pointer]
+    - generic [ref=e1303]:
+      - button "Camera at Canyon Rd @ Foothill Dr / 4525 N, PVO":
+        - img "Camera at Canyon Rd @ Foothill Dr / 4525 N, PVO" [ref=e1304] [cursor=pointer]
+    - generic [ref=e1306]:
+      - button "Camera at Canyon Rd / 300 S / SR-198 @ 600 E, SPF":
+        - img "Camera at Canyon Rd / 300 S / SR-198 @ 600 E, SPF" [ref=e1307] [cursor=pointer]
+    - generic [ref=e1309]:
+      - button "Camera at Canyon Rd / SR-198 @ 1100 E, SPF":
+        - img "Camera at Canyon Rd / SR-198 @ 1100 E, SPF" [ref=e1310] [cursor=pointer]
+    - generic [ref=e1312]:
+      - button "Camera at Canyon Rd / SR-198 @ 1400 E, SPF":
+        - img "Camera at Canyon Rd / SR-198 @ 1400 E, SPF" [ref=e1313] [cursor=pointer]
+    - generic [ref=e1315]:
+      - button "Camera at Canyon Rd / SR-198 @ 2300 E, SPF":
+        - img "Camera at Canyon Rd / SR-198 @ 2300 E, SPF" [ref=e1316] [cursor=pointer]
+    - generic [ref=e1318]:
+      - button "Camera at Canyon Rd / SR-198 @ 2600 E / Spanish Fork Pkwy, SPF":
+        - img "Camera at Canyon Rd / SR-198 @ 2600 E / Spanish Fork Pkwy, SPF" [ref=e1319] [cursor=pointer]
+    - generic [ref=e1321]:
+      - button "Camera at Center St @ 1150 E, SPF":
+        - img "Camera at Center St @ 1150 E, SPF" [ref=e1322] [cursor=pointer]
+    - generic [ref=e1324]:
+      - button "Camera at Center St @ 1200 W, ORM":
+        - img "Camera at Center St @ 1200 W, ORM" [ref=e1325] [cursor=pointer]
+    - generic [ref=e1327]:
+      - button "Camera at Center St @ 200 E, PVO":
+        - img "Camera at Center St @ 200 E, PVO" [ref=e1328] [cursor=pointer]
+    - generic [ref=e1330]:
+      - button "Camera at Center St @ 220 W / Garden Park Dr, ORM":
+        - img "Camera at Center St @ 220 W / Garden Park Dr, ORM" [ref=e1331] [cursor=pointer]
+    - generic [ref=e1333]:
+      - button "Camera at Center St @ 300 E, SPF":
+        - img "Camera at Center St @ 300 E, SPF" [ref=e1334] [cursor=pointer]
+    - generic [ref=e1336]:
+      - button "Camera at Center St @ 300 W, PVO":
+        - img "Camera at Center St @ 300 W, PVO" [ref=e1337] [cursor=pointer]
+    - generic [ref=e1339]:
+      - button "Camera at Center St @ 400 E / Tiger Way, ORM":
+        - img "Camera at Center St @ 400 E / Tiger Way, ORM" [ref=e1340] [cursor=pointer]
+    - generic [ref=e1342]:
+      - button "Camera at Center St @ 400 W, ORM":
+        - img "Camera at Center St @ 400 W, ORM" [ref=e1343] [cursor=pointer]
+    - generic [ref=e1345]:
+      - button "Camera at Center St @ 400 W, SPF":
+        - img "Camera at Center St @ 400 W, SPF" [ref=e1346] [cursor=pointer]
+    - generic [ref=e1348]:
+      - button "Camera at Center St @ 800 E, ORM":
+        - img "Camera at Center St @ 800 E, ORM" [ref=e1349] [cursor=pointer]
+    - generic [ref=e1351]:
+      - button "Camera at Center St @ 800 W, ORM":
+        - img "Camera at Center St @ 800 W, ORM" [ref=e1352] [cursor=pointer]
+    - generic [ref=e1354]:
+      - button "Camera at Center St @ Mill Rd, VIN":
+        - img "Camera at Center St @ Mill Rd, VIN" [ref=e1355] [cursor=pointer]
+    - generic [ref=e1357]:
+      - button "Camera at Center St @ Orem Blvd, ORM":
+        - img "Camera at Center St @ Orem Blvd, ORM" [ref=e1358] [cursor=pointer]
+    - generic [ref=e1360]:
+      - button "Camera at Center St @ Vineyard Rd, VIN":
+        - img "Camera at Center St @ Vineyard Rd, VIN" [ref=e1361] [cursor=pointer]
+    - generic [ref=e1363]:
+      - button "Camera at Center St / 7720 S @ Holden St / 805 W, MDV":
+        - img "Camera at Center St / 7720 S @ Holden St / 805 W, MDV" [ref=e1364] [cursor=pointer]
+    - generic [ref=e1366]:
+      - button "Camera at Center St / 7800 S @ Bingham Jct Blvd / 880 W, MDV":
+        - img "Camera at Center St / 7800 S @ Bingham Jct Blvd / 880 W, MDV" [ref=e1367] [cursor=pointer]
+    - generic [ref=e1369]:
+      - button "Camera at Center St / SR-114 @ 1600 W, PVO":
+        - img "Camera at Center St / SR-114 @ 1600 W, PVO" [ref=e1370] [cursor=pointer]
+    - generic [ref=e1372]:
+      - button "Camera at Center St / SR-114 @ 900 W, PVO":
+        - img "Camera at Center St / SR-114 @ 900 W, PVO" [ref=e1373] [cursor=pointer]
+    - generic [ref=e1375]:
+      - button "Camera at Center St / SR-114 @ Independence Ave, PVO":
+        - img "Camera at Center St / SR-114 @ Independence Ave, PVO" [ref=e1376] [cursor=pointer]
+    - generic [ref=e1378]:
+      - button "Camera at Center St / SR-61 @ 800 W / SR-200, LEW":
+        - img "Camera at Center St / SR-61 @ 800 W / SR-200, LEW" [ref=e1379] [cursor=pointer]
+    - generic [ref=e1381]:
+      - button "Camera at Center St / US-89 @ Main St, KNB":
+        - img "Camera at Center St / US-89 @ Main St, KNB" [ref=e1382] [cursor=pointer]
+    - generic [ref=e1384]:
+      - button "Camera at Charleston Rd / 3600 W / SR-113 @ US-189, CHR":
+        - img "Camera at Charleston Rd / 3600 W / SR-113 @ US-189, CHR" [ref=e1385] [cursor=pointer]
+    - generic [ref=e1387]:
+      - button "Camera at Club House Dr @ Executive Pkwy / Pine Meadow Blvd, LHI":
+        - img "Camera at Club House Dr @ Executive Pkwy / Pine Meadow Blvd, LHI" [ref=e1388] [cursor=pointer]
+    - generic [ref=e1390]:
+      - button "Camera at Columbia Ln @ 1700 N / 950 W, PVO":
+        - img "Camera at Columbia Ln @ 1700 N / 950 W, PVO" [ref=e1391] [cursor=pointer]
+    - generic [ref=e1393]:
+      - button "Camera at Columbus St / SR-186 @ 400 N / W Capitol St, SLC":
+        - img "Camera at Columbus St / SR-186 @ 400 N / W Capitol St, SLC" [ref=e1394] [cursor=pointer]
+    - generic [ref=e1396]:
+      - button "Camera at Columbus St / SR-186 @ 500 N, SLC":
+        - img "Camera at Columbus St / SR-186 @ 500 N, SLC" [ref=e1397] [cursor=pointer]
+    - generic [ref=e1399]:
+      - button "Camera at Constitution Blvd / 2700 W @ 3100 S, WVC":
+        - img "Camera at Constitution Blvd / 2700 W @ 3100 S, WVC" [ref=e1400] [cursor=pointer]
+    - generic [ref=e1402]:
+      - button "Camera at Copper Hills Pkwy / 8200 S @ 4800 W, WJD":
+        - img "Camera at Copper Hills Pkwy / 8200 S @ 4800 W, WJD" [ref=e1403] [cursor=pointer]
+    - generic [ref=e1405]:
+      - button "Camera at Copper Hills Pkwy / 8600 S @ 5600 W, WJD":
+        - img "Camera at Copper Hills Pkwy / 8600 S @ 5600 W, WJD" [ref=e1406] [cursor=pointer]
+    - generic [ref=e1408]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Airport Rd, EAG":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Airport Rd, EAG" [ref=e1409] [cursor=pointer]
+    - generic [ref=e1411]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Canyon Wash Dr, EAG":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Canyon Wash Dr, EAG" [ref=e1412] [cursor=pointer]
+    - generic [ref=e1414]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Foothill Blvd / 800 W / Mountain View / SR-85, SSP":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Foothill Blvd / 800 W / Mountain View / SR-85, SSP" [ref=e1415] [cursor=pointer]
+    - generic [ref=e1417]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Milepost 34.25, SSP":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Milepost 34.25, SSP" [ref=e1418] [cursor=pointer]
+    - generic [ref=e1420]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Mt Airey Dr / MP 33.86, EAG":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Mt Airey Dr / MP 33.86, EAG" [ref=e1421] [cursor=pointer]
+    - generic [ref=e1423]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Mt Saratoga Blvd / MP 34.6, SSP":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Mt Saratoga Blvd / MP 34.6, SSP" [ref=e1424] [cursor=pointer]
+    - generic [ref=e1426]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Ranches Pkwy, EAG":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Ranches Pkwy, EAG" [ref=e1427] [cursor=pointer]
+    - generic [ref=e1429]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Sunset Dr, EAG":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Sunset Dr, EAG" [ref=e1430] [cursor=pointer]
+    - generic [ref=e1432]:
+      - button "Camera at Cory Wride Hwy / SR-73 @ Valley Dr / Mustang Way, EAG":
+        - img "Camera at Cory Wride Hwy / SR-73 @ Valley Dr / Mustang Way, EAG" [ref=e1433] [cursor=pointer]
+    - generic [ref=e1435]:
+      - button "Camera at Cougar Blvd / 1230 N @ Canyon Rd, PVO":
+        - img "Camera at Cougar Blvd / 1230 N @ Canyon Rd, PVO" [ref=e1436] [cursor=pointer]
+    - generic [ref=e1438]:
+      - button "Camera at Cougar Blvd / 1230 N @ Freedom Blvd / 200 W, PVO":
+        - img "Camera at Cougar Blvd / 1230 N @ Freedom Blvd / 200 W, PVO" [ref=e1439] [cursor=pointer]
+    - generic [ref=e1441]:
+      - button "Camera at Crossroads Blvd @ Commerce Dr / 160 E, SSP":
+        - img "Camera at Crossroads Blvd @ Commerce Dr / 160 E, SSP" [ref=e1442] [cursor=pointer]
+    - generic [ref=e1444]:
+      - button "Camera at Crossroads Blvd @ Exchange Dr / 250 W, SSP":
+        - img "Camera at Crossroads Blvd @ Exchange Dr / 250 W, SSP" [ref=e1445] [cursor=pointer]
+    - generic [ref=e1447]:
+      - button "Camera at Crossroads Blvd @ Riverside Dr / 400 E, SSP":
+        - img "Camera at Crossroads Blvd @ Riverside Dr / 400 E, SSP" [ref=e1448] [cursor=pointer]
+    - generic [ref=e1450]:
+      - button "Camera at Deer Valley Dr / SR-224 @ Bonanza Dr, PKC":
+        - img "Camera at Deer Valley Dr / SR-224 @ Bonanza Dr, PKC" [ref=e1451] [cursor=pointer]
+    - generic [ref=e1453]:
+      - button "Camera at Deer Valley Dr / SR-224 @ Swede Alley, PKC":
+        - img "Camera at Deer Valley Dr / SR-224 @ Swede Alley, PKC" [ref=e1454] [cursor=pointer]
+    - generic [ref=e1456]:
+      - button "Camera at Desert Color Pkwy @ Black Mountain Dr, STG":
+        - img "Camera at Desert Color Pkwy @ Black Mountain Dr, STG" [ref=e1457] [cursor=pointer]
+    - generic [ref=e1459]:
+      - button "Camera at Dixie Dr @ 1600 S, STG":
+        - img "Camera at Dixie Dr @ 1600 S, STG" [ref=e1460] [cursor=pointer]
+    - generic [ref=e1462]:
+      - button "Camera at Dixie Dr @ 600 W, STG":
+        - img "Camera at Dixie Dr @ 600 W, STG" [ref=e1463] [cursor=pointer]
+    - generic [ref=e1465]:
+      - button "Camera at Dixie Dr @ Canyon View Dr, STG":
+        - img "Camera at Dixie Dr @ Canyon View Dr, STG" [ref=e1466] [cursor=pointer]
+    - generic [ref=e1468]:
+      - button "Camera at Dixie Dr @ Sunbrook Dr, STG":
+        - img "Camera at Dixie Dr @ Sunbrook Dr, STG" [ref=e1469] [cursor=pointer]
+    - generic [ref=e1471]:
+      - button "Camera at Dixie Dr @ Valley View Dr, STG":
+        - img "Camera at Dixie Dr @ Valley View Dr, STG" [ref=e1472] [cursor=pointer]
+    - generic [ref=e1474]:
+      - button "Camera at Draper Pkwy / 12300 S @ 1300 E, DPR":
+        - img "Camera at Draper Pkwy / 12300 S @ 1300 E, DPR" [ref=e1475] [cursor=pointer]
+    - generic [ref=e1477]:
+      - button "Camera at East Canyon Rd / SR-65 @ MN/SU County Line / MP 21.76, MN":
+        - img "Camera at East Canyon Rd / SR-65 @ MN/SU County Line / MP 21.76, MN" [ref=e1478] [cursor=pointer]
+    - generic [ref=e1480]:
+      - button "Camera at Expressway Ln @ 800 N, SPF":
+        - img "Camera at Expressway Ln @ 800 N, SPF" [ref=e1481] [cursor=pointer]
+    - generic [ref=e1483]:
+      - button "Camera at Expressway Ln @ Market Place Dr, SPF":
+        - img "Camera at Expressway Ln @ Market Place Dr, SPF" [ref=e1484] [cursor=pointer]
+    - generic [ref=e1486]:
+      - button "Camera at Fairfield Rd / 850 E @ Wasatch Dr / 425 N, LTN":
+        - img "Camera at Fairfield Rd / 850 E @ Wasatch Dr / 425 N, LTN" [ref=e1487] [cursor=pointer]
+    - generic [ref=e1489]:
+      - button "Camera at Foothill Dr / Honorary Veterans Blvd / SR-186 @ Mario Capecchi Dr, SLC":
+        - img "Camera at Foothill Dr / Honorary Veterans Blvd / SR-186 @ Mario Capecchi Dr, SLC" [ref=e1490] [cursor=pointer]
+    - generic [ref=e1492]:
+      - button "Camera at Foothill Dr / Honorary Veterans Blvd / SR-186 @ Sunnyside Ave, SLC":
+        - img "Camera at Foothill Dr / Honorary Veterans Blvd / SR-186 @ Sunnyside Ave, SLC" [ref=e1493] [cursor=pointer]
+    - generic [ref=e1495]:
+      - button "Camera at Foothill Dr / Honorary Veterans Blvd / SR-186 @ Wakara Way, SLC":
+        - img "Camera at Foothill Dr / Honorary Veterans Blvd / SR-186 @ Wakara Way, SLC" [ref=e1496] [cursor=pointer]
+    - generic [ref=e1498]:
+      - button "Camera at Foothill Dr / SR-186 @ 2100 S, SLC":
+        - img "Camera at Foothill Dr / SR-186 @ 2100 S, SLC" [ref=e1499] [cursor=pointer]
+    - generic [ref=e1501]:
+      - button "Camera at Foothill Dr / SR-186 @ 2300 E, SLC":
+        - img "Camera at Foothill Dr / SR-186 @ 2300 E, SLC" [ref=e1502] [cursor=pointer]
+    - generic [ref=e1504]:
+      - button "Camera at Foothill Dr / SR-186 @ Parley's Way, SLC":
+        - img "Camera at Foothill Dr / SR-186 @ Parley's Way, SLC" [ref=e1505] [cursor=pointer]
+    - generic [ref=e1507]:
+      - button "Camera at Foremaster Dr @ Five Sisters Dr, STG":
+        - img "Camera at Foremaster Dr @ Five Sisters Dr, STG" [ref=e1508] [cursor=pointer]
+    - generic [ref=e1510]:
+      - button "Camera at Foremaster Dr @ Medical Center Dr, STG":
+        - img "Camera at Foremaster Dr @ Medical Center Dr, STG" [ref=e1511] [cursor=pointer]
+    - generic [ref=e1513]:
+      - button "Camera at Fort Union Blvd / 6910 S @ 1300 E, CWH":
+        - img "Camera at Fort Union Blvd / 6910 S @ 1300 E, CWH" [ref=e1514] [cursor=pointer]
+    - generic [ref=e1516]:
+      - button "Camera at Fort Union Blvd / 7000 S @ 2300 E, CWH":
+        - img "Camera at Fort Union Blvd / 7000 S @ 2300 E, CWH" [ref=e1517] [cursor=pointer]
+    - generic [ref=e1519]:
+      - button "Camera at Freedom Blvd / 200 W @ 100 N, PVO":
+        - img "Camera at Freedom Blvd / 200 W @ 100 N, PVO" [ref=e1520] [cursor=pointer]
+    - generic [ref=e1522]:
+      - button "Camera at Freedom Blvd / 200 W @ 100 S, PVO":
+        - img "Camera at Freedom Blvd / 200 W @ 100 S, PVO" [ref=e1523] [cursor=pointer]
+    - generic [ref=e1525]:
+      - button "Camera at Freedom Blvd / 200 W @ 1100 N, PVO":
+        - img "Camera at Freedom Blvd / 200 W @ 1100 N, PVO" [ref=e1526] [cursor=pointer]
+    - generic [ref=e1528]:
+      - button "Camera at Freedom Blvd / 200 W @ 500 N, PVO":
+        - img "Camera at Freedom Blvd / 200 W @ 500 N, PVO" [ref=e1529] [cursor=pointer]
+    - generic [ref=e1531]:
+      - button "Camera at Freedom Blvd / 200 W @ 800 N, PVO":
+        - img "Camera at Freedom Blvd / 200 W @ 800 N, PVO" [ref=e1532] [cursor=pointer]
+    - generic [ref=e1534]:
+      - button "Camera at Freedom Blvd / 200 W @ 920 S, PVO":
+        - img "Camera at Freedom Blvd / 200 W @ 920 S, PVO" [ref=e1535] [cursor=pointer]
+    - generic [ref=e1537]:
+      - button "Camera at Geneva Rd / SR-114 @ 1000 S, ORM":
+        - img "Camera at Geneva Rd / SR-114 @ 1000 S, ORM" [ref=e1538] [cursor=pointer]
+    - generic [ref=e1540]:
+      - button "Camera at Geneva Rd / SR-114 @ 1390 N, PVO":
+        - img "Camera at Geneva Rd / SR-114 @ 1390 N, PVO" [ref=e1541] [cursor=pointer]
+    - generic [ref=e1543]:
+      - button "Camera at Geneva Rd / SR-114 @ 1600 N ORM / 600 S LDN / SR-241, ORM":
+        - img "Camera at Geneva Rd / SR-114 @ 1600 N ORM / 600 S LDN / SR-241, ORM" [ref=e1544] [cursor=pointer]
+    - generic [ref=e1546]:
+      - button "Camera at Geneva Rd / SR-114 @ 2000 N, PVO":
+        - img "Camera at Geneva Rd / SR-114 @ 2000 N, PVO" [ref=e1547] [cursor=pointer]
+    - generic [ref=e1549]:
+      - button "Camera at Geneva Rd / SR-114 @ 400 S, ORM":
+        - img "Camera at Geneva Rd / SR-114 @ 400 S, ORM" [ref=e1550] [cursor=pointer]
+    - generic [ref=e1552]:
+      - button "Camera at Geneva Rd / SR-114 @ 700 N / SR-129, LDN":
+        - img "Camera at Geneva Rd / SR-114 @ 700 N / SR-129, LDN" [ref=e1553] [cursor=pointer]
+    - generic [ref=e1555]:
+      - button "Camera at Geneva Rd / SR-114 @ 800 N / SR-52, ORM":
+        - img "Camera at Geneva Rd / SR-114 @ 800 N / SR-52, ORM" [ref=e1556] [cursor=pointer]
+    - generic [ref=e1558]:
+      - button "Camera at Geneva Rd / SR-114 @ 800 S / Springwater Dr, ORM":
+        - img "Camera at Geneva Rd / SR-114 @ 800 S / Springwater Dr, ORM" [ref=e1559] [cursor=pointer]
+    - generic [ref=e1561]:
+      - button "Camera at Geneva Rd / SR-114 @ 820 N, PVO":
+        - img "Camera at Geneva Rd / SR-114 @ 820 N, PVO" [ref=e1562] [cursor=pointer]
+    - generic [ref=e1564]:
+      - button "Camera at Geneva Rd / SR-114 @ Center St / SR-114, PVO":
+        - img "Camera at Geneva Rd / SR-114 @ Center St / SR-114, PVO" [ref=e1565] [cursor=pointer]
+    - generic [ref=e1567]:
+      - button "Camera at Geneva Rd / SR-114 @ Center St, ORM":
+        - img "Camera at Geneva Rd / SR-114 @ Center St, ORM" [ref=e1568] [cursor=pointer]
+    - generic [ref=e1570]:
+      - button "Camera at Geneva Rd / SR-114 @ University Pkwy / SR-265, ORM":
+        - img "Camera at Geneva Rd / SR-114 @ University Pkwy / SR-265, ORM" [ref=e1571] [cursor=pointer]
+    - generic [ref=e1573]:
+      - button "Camera at Gentile St @ 2700 W, LTN":
+        - img "Camera at Gentile St @ 2700 W, LTN" [ref=e1574] [cursor=pointer]
+    - generic [ref=e1576]:
+      - button "Camera at Gentile St @ Flint St, LTN":
+        - img "Camera at Gentile St @ Flint St, LTN" [ref=e1577] [cursor=pointer]
+    - generic [ref=e1579]:
+      - button "Camera at Gentile St / SR-109 @ Fairfield Rd, LTN":
+        - img "Camera at Gentile St / SR-109 @ Fairfield Rd, LTN" [ref=e1580] [cursor=pointer]
+    - generic [ref=e1582]:
+      - button "Camera at Gentile St / SR-109 @ Fort Ln, LTN":
+        - img "Camera at Gentile St / SR-109 @ Fort Ln, LTN" [ref=e1583] [cursor=pointer]
+    - generic [ref=e1585]:
+      - button "Camera at George Washington Blvd @ 240 W, WAS":
+        - img "Camera at George Washington Blvd @ 240 W, WAS" [ref=e1586] [cursor=pointer]
+    - generic [ref=e1588]:
+      - button "Camera at George Washington Blvd / 3650 S @ Washington Fields Rd, WAS":
+        - img "Camera at George Washington Blvd / 3650 S @ Washington Fields Rd, WAS" [ref=e1589] [cursor=pointer]
+    - generic [ref=e1591]:
+      - button "Camera at Gordon Ave @ Emerald Ln, LTN":
+        - img "Camera at Gordon Ave @ Emerald Ln, LTN" [ref=e1592] [cursor=pointer]
+    - generic [ref=e1594]:
+      - button "Camera at Gordon Ave / 1000 N @ Fort Ln, LTN":
+        - img "Camera at Gordon Ave / 1000 N @ Fort Ln, LTN" [ref=e1595] [cursor=pointer]
+    - generic [ref=e1597]:
+      - button "Camera at Green Spring Dr @ Red Cliff Dr / Telegraph St, WAS":
+        - img "Camera at Green Spring Dr @ Red Cliff Dr / Telegraph St, WAS" [ref=e1598] [cursor=pointer]
+    - generic [ref=e1600]:
+      - button "Camera at Green Spring Dr @ Red Hills Pkwy / Buena Vista Dr, WAS":
+        - img "Camera at Green Spring Dr @ Red Hills Pkwy / Buena Vista Dr, WAS" [ref=e1601] [cursor=pointer]
+    - generic [ref=e1603]:
+      - button "Camera at Grizzlies Blvd / 3100 S @ Decker Lake Dr, WVC":
+        - img "Camera at Grizzlies Blvd / 3100 S @ Decker Lake Dr, WVC" [ref=e1604] [cursor=pointer]
+    - generic [ref=e1606]:
+      - button "Camera at Harrison Blvd / 1200 E / SR-203 @ 20th St, OGD":
+        - img "Camera at Harrison Blvd / 1200 E / SR-203 @ 20th St, OGD" [ref=e1607] [cursor=pointer]
+    - generic [ref=e1609]:
+      - button "Camera at Harrison Blvd / 1200 E / SR-203 @ 24th St, OGD":
+        - img "Camera at Harrison Blvd / 1200 E / SR-203 @ 24th St, OGD" [ref=e1610] [cursor=pointer]
+    - generic [ref=e1612]:
+      - button "Camera at Harrison Blvd / 1200 E / SR-203 @ 30th St / SR-79, OGD":
+        - img "Camera at Harrison Blvd / 1200 E / SR-203 @ 30th St / SR-79, OGD" [ref=e1613] [cursor=pointer]
+    - generic [ref=e1615]:
+      - button "Camera at Harrison Blvd / 1200 E / SR-203 @ 4800 S / Edgewood Dr, OGD":
+        - img "Camera at Harrison Blvd / 1200 E / SR-203 @ 4800 S / Edgewood Dr, OGD" [ref=e1616] [cursor=pointer]
+    - generic [ref=e1618]:
+      - button "Camera at Harrison Blvd / SR-203 @ 12th St / Ogden Canyon Rd / SR-39, OGD":
+        - img "Camera at Harrison Blvd / SR-203 @ 12th St / Ogden Canyon Rd / SR-39, OGD" [ref=e1619] [cursor=pointer]
+    - generic [ref=e1621]:
+      - button "Camera at Harrison Blvd / Wildcat Way / SR-203 @ 36th St, OGD":
+        - img "Camera at Harrison Blvd / Wildcat Way / SR-203 @ 36th St, OGD" [ref=e1622] [cursor=pointer]
+    - generic [ref=e1624]:
+      - button "Camera at Harrison Blvd / Wildcat Way / SR-203 @ 42nd St / Country Hills Dr, OGD":
+        - img "Camera at Harrison Blvd / Wildcat Way / SR-203 @ 42nd St / Country Hills Dr, OGD" [ref=e1625] [cursor=pointer]
+    - generic [ref=e1627]:
+      - button "Camera at Highland Dr @ 3900 S, MCK":
+        - img "Camera at Highland Dr @ 3900 S, MCK" [ref=e1628] [cursor=pointer]
+    - generic [ref=e1630]:
+      - button "Camera at Highland Dr / 1830 E @ Murray Holladay Rd / 4780 S, HDY":
+        - img "Camera at Highland Dr / 1830 E @ Murray Holladay Rd / 4780 S, HDY" [ref=e1631] [cursor=pointer]
+    - generic [ref=e1633]:
+      - button "Camera at Highland Dr / 2000 E @ Bengal Blvd / Parkridge Dr, CWH":
+        - img "Camera at Highland Dr / 2000 E @ Bengal Blvd / Parkridge Dr, CWH" [ref=e1634] [cursor=pointer]
+    - generic [ref=e1636]:
+      - button "Camera at Highland Dr / 2000 E @ Creek Rd / 8100 S, CWH":
+        - img "Camera at Highland Dr / 2000 E @ Creek Rd / 8100 S, CWH" [ref=e1637] [cursor=pointer]
+    - generic [ref=e1639]:
+      - button "Camera at Highland Dr / 2000 E @ Fort Union Blvd / 7000 S, CWH":
+        - img "Camera at Highland Dr / 2000 E @ Fort Union Blvd / 7000 S, CWH" [ref=e1640] [cursor=pointer]
+    - generic [ref=e1642]:
+      - button "Camera at Highland Dr / 2000 E @ Newcastle Dr / 8890 S, SND":
+        - img "Camera at Highland Dr / 2000 E @ Newcastle Dr / 8890 S, SND" [ref=e1643] [cursor=pointer]
+    - generic [ref=e1645]:
+      - button "Camera at Highland Dr / Van Winkle Expwy / SR-152 @ 6200 S, HDY":
+        - img "Camera at Highland Dr / Van Winkle Expwy / SR-152 @ 6200 S, HDY" [ref=e1646] [cursor=pointer]
+    - generic [ref=e1648]:
+      - button "Camera at Hill Field Rd / SR-232 @ 2000 N / Antelope Dr, LTN":
+        - img "Camera at Hill Field Rd / SR-232 @ 2000 N / Antelope Dr, LTN" [ref=e1649] [cursor=pointer]
+    - generic [ref=e1651]:
+      - button "Camera at Hill Field Rd / SR-232 @ 3000 N / SR-193, LTN":
+        - img "Camera at Hill Field Rd / SR-232 @ 3000 N / SR-193, LTN" [ref=e1652] [cursor=pointer]
+    - generic [ref=e1654]:
+      - button "Camera at Hill Field Rd / SR-232 @ Gordon Ave / 1000 N, LTN":
+        - img "Camera at Hill Field Rd / SR-232 @ Gordon Ave / 1000 N, LTN" [ref=e1655] [cursor=pointer]
+    - generic [ref=e1657]:
+      - button "Camera at Hill Field Rd / SR-232 @ Main St / SR-126, LTN":
+        - img "Camera at Hill Field Rd / SR-232 @ Main St / SR-126, LTN" [ref=e1658] [cursor=pointer]
+    - generic [ref=e1660]:
+      - button "Camera at Hinckley Dr / 31st St / SR-79 @ Pennsylvania Ave, OGD":
+        - img "Camera at Hinckley Dr / 31st St / SR-79 @ Pennsylvania Ave, OGD" [ref=e1661] [cursor=pointer]
+    - generic [ref=e1663]:
+      - button "Camera at I-15 @ 100 N / SR-132 / MP 225.26, NPH":
+        - img "Camera at I-15 @ 100 N / SR-132 / MP 225.26, NPH" [ref=e1664] [cursor=pointer]
+    - generic [ref=e1666]:
+      - button "Camera at I-15 @ 10000 N / MP 377.93, TRE":
+        - img "Camera at I-15 @ 10000 N / MP 377.93, TRE" [ref=e1667] [cursor=pointer]
+    - generic [ref=e1669]:
+      - button "Camera at I-15 @ Main St / US-6 / MP 244.8, STQ":
+        - img "Camera at I-15 @ Main St / US-6 / MP 244.8, STQ" [ref=e1670] [cursor=pointer]
+    - generic [ref=e1672]:
+      - button "Camera at I-15 @ Milepost 246.42, STQ":
+        - img "Camera at I-15 @ Milepost 246.42, STQ" [ref=e1673] [cursor=pointer]
+    - generic [ref=e1675]:
+      - button "Camera at I-15 @ Milepost 246.53, STQ":
+        - img "Camera at I-15 @ Milepost 246.53, STQ" [ref=e1676] [cursor=pointer]
+    - generic [ref=e1678]:
+      - button "Camera at I-15 @ Mills Rd / SR-78 / MP 206.55, JU":
+        - img "Camera at I-15 @ Mills Rd / SR-78 / MP 206.55, JU" [ref=e1679] [cursor=pointer]
+    - generic [ref=e1681]:
+      - button "Camera at I-15 NB @ 100 N / MP 274.15, LDN":
+        - img "Camera at I-15 NB @ 100 N / MP 274.15, LDN" [ref=e1682] [cursor=pointer]
+    - generic [ref=e1684]:
+      - button "Camera at I-15 NB @ 100 S / MP 8.41, STG":
+        - img "Camera at I-15 NB @ 100 S / MP 8.41, STG" [ref=e1685] [cursor=pointer]
+    - generic [ref=e1687]:
+      - button "Camera at I-15 NB @ 10200 S / MP 294.2, SND":
+        - img "Camera at I-15 NB @ 10200 S / MP 294.2, SND" [ref=e1688] [cursor=pointer]
+    - generic [ref=e1690]:
+      - button "Camera at I-15 NB @ 10400 S / MP 293.88, SND":
+        - img "Camera at I-15 NB @ 10400 S / MP 293.88, SND" [ref=e1691] [cursor=pointer]
+    - generic [ref=e1693]:
+      - button "Camera at I-15 NB @ 10600 S / SR-151 / MP 293.65, SND":
+        - img "Camera at I-15 NB @ 10600 S / SR-151 / MP 293.65, SND" [ref=e1694] [cursor=pointer]
+    - generic [ref=e1696]:
+      - button "Camera at I-15 NB @ 10600 S / SR-151 / MP 293.65, SND (Tunnel)":
+        - img "Camera at I-15 NB @ 10600 S / SR-151 / MP 293.65, SND (Tunnel)" [ref=e1697] [cursor=pointer]
+    - generic [ref=e1699]:
+      - button "Camera at I-15 NB @ 10800 S / MP 293.4, SND":
+        - img "Camera at I-15 NB @ 10800 S / MP 293.4, SND" [ref=e1700] [cursor=pointer]
+    - generic [ref=e1702]:
+      - button "Camera at I-15 NB @ 1100 S / MP 306.53, SLC":
+        - img "Camera at I-15 NB @ 1100 S / MP 306.53, SLC" [ref=e1703] [cursor=pointer]
+    - generic [ref=e1705]:
+      - button "Camera at I-15 NB @ 1100 S / US-91 / MP 362, BRC":
+        - img "Camera at I-15 NB @ 1100 S / US-91 / MP 362, BRC" [ref=e1706] [cursor=pointer]
+    - generic [ref=e1708]:
+      - button "Camera at I-15 NB @ 11200 S / MP 292.85, SND":
+        - img "Camera at I-15 NB @ 11200 S / MP 292.85, SND" [ref=e1709] [cursor=pointer]
+    - generic [ref=e1711]:
+      - button "Camera at I-15 NB @ 11500 S / MP 292.35, DPR":
+        - img "Camera at I-15 NB @ 11500 S / MP 292.35, DPR" [ref=e1712] [cursor=pointer]
+    - generic [ref=e1714]:
+      - button "Camera at I-15 NB @ 1160 S / MP 6.77, STG":
+        - img "Camera at I-15 NB @ 1160 S / MP 6.77, STG" [ref=e1715] [cursor=pointer]
+    - generic [ref=e1717]:
+      - button "Camera at I-15 NB @ 11900 S / MP 291.98, DPR":
+        - img "Camera at I-15 NB @ 11900 S / MP 291.98, DPR" [ref=e1718] [cursor=pointer]
+    - generic [ref=e1720]:
+      - button "Camera at I-15 NB @ 1200 N / MP 281.15, LHI":
+        - img "Camera at I-15 NB @ 1200 N / MP 281.15, LHI" [ref=e1721] [cursor=pointer]
+    - generic [ref=e1723]:
+      - button "Camera at I-15 NB @ 1200 S / MP 355.15, WIL":
+        - img "Camera at I-15 NB @ 1200 S / MP 355.15, WIL" [ref=e1724] [cursor=pointer]
+    - generic [ref=e1726]:
+      - button "Camera at I-15 NB @ 12250 S / MP 291.48, DPR":
+        - img "Camera at I-15 NB @ 12250 S / MP 291.48, DPR" [ref=e1727] [cursor=pointer]
+    - generic [ref=e1729]:
+      - button "Camera at I-15 NB @ 12th St / 1200 S / SR-39 / MP 344.96, MSV":
+        - img "Camera at I-15 NB @ 12th St / 1200 S / SR-39 / MP 344.96, MSV" [ref=e1730] [cursor=pointer]
+    - generic [ref=e1732]:
+      - button "Camera at I-15 NB @ 1300 S / MP 333.41, CFD":
+        - img "Camera at I-15 NB @ 1300 S / MP 333.41, CFD" [ref=e1733] [cursor=pointer]
+    - generic [ref=e1735]:
+      - button "Camera at I-15 NB @ 1400 N / SR-75 / MP 261.83, SPV":
+        - img "Camera at I-15 NB @ 1400 N / SR-75 / MP 261.83, SPV" [ref=e1736] [cursor=pointer]
+    - generic [ref=e1738]:
+      - button "Camera at I-15 NB @ 14000 S / MP 289.34, DPR":
+        - img "Camera at I-15 NB @ 14000 S / MP 289.34, DPR" [ref=e1739] [cursor=pointer]
+    - generic [ref=e1741]:
+      - button "Camera at I-15 NB @ 14500 S / MP 288.54, DPR":
+        - img "Camera at I-15 NB @ 14500 S / MP 288.54, DPR" [ref=e1742] [cursor=pointer]
+    - generic [ref=e1744]:
+      - button "Camera at I-15 NB @ 1460 N / MP 267.19, PVO":
+        - img "Camera at I-15 NB @ 1460 N / MP 267.19, PVO" [ref=e1745] [cursor=pointer]
+    - generic [ref=e1747]:
+      - button "Camera at I-15 NB @ 1500 N / MP 332.22, LTN":
+        - img "Camera at I-15 NB @ 1500 N / MP 332.22, LTN" [ref=e1748] [cursor=pointer]
+    - generic [ref=e1750]:
+      - button "Camera at I-15 NB @ 1500 S / MP 316.58, WXS":
+        - img "Camera at I-15 NB @ 1500 S / MP 316.58, WXS" [ref=e1751] [cursor=pointer]
+    - generic [ref=e1753]:
+      - button "Camera at I-15 NB @ 15200 S / MP 287.6, DPR":
+        - img "Camera at I-15 NB @ 15200 S / MP 287.6, DPR" [ref=e1754] [cursor=pointer]
+    - generic [ref=e1756]:
+      - button "Camera at I-15 NB @ 15400 S / MP 287.23, DPR":
+        - img "Camera at I-15 NB @ 15400 S / MP 287.23, DPR" [ref=e1757] [cursor=pointer]
+    - generic [ref=e1759]:
+      - button "Camera at I-15 NB @ 1600 S / MP 258.96, SPF":
+        - img "Camera at I-15 NB @ 1600 S / MP 258.96, SPF" [ref=e1760] [cursor=pointer]
+    - generic [ref=e1762]:
+      - button "Camera at I-15 NB @ 1650 S / MP 268.37, ORM":
+        - img "Camera at I-15 NB @ 1650 S / MP 268.37, ORM" [ref=e1763] [cursor=pointer]
+    - generic [ref=e1765]:
+      - button "Camera at I-15 NB @ 1680 E / MP 9.47, STG":
+        - img "Camera at I-15 NB @ 1680 E / MP 9.47, STG" [ref=e1766] [cursor=pointer]
+    - generic [ref=e1768]:
+      - button "Camera at I-15 NB @ 1700 S / River Canal / MP 344.5, WHV":
+        - img "Camera at I-15 NB @ 1700 S / River Canal / MP 344.5, WHV" [ref=e1769] [cursor=pointer]
+    - generic [ref=e1771]:
+      - button "Camera at I-15 NB @ 1800 S / MP 305.6, SLC":
+        - img "Camera at I-15 NB @ 1800 S / MP 305.6, SLC" [ref=e1772] [cursor=pointer]
+    - generic [ref=e1774]:
+      - button "Camera at I-15 NB @ 1800 S / MP 326.23, KAY":
+        - img "Camera at I-15 NB @ 1800 S / MP 326.23, KAY" [ref=e1775] [cursor=pointer]
+    - generic [ref=e1777]:
+      - button "Camera at I-15 NB @ 200 S / MP 273.67, LDN":
+        - img "Camera at I-15 NB @ 200 S / MP 273.67, LDN" [ref=e1778] [cursor=pointer]
+    - generic [ref=e1780]:
+      - button "Camera at I-15 NB @ 200 S / MP 356.35, WIL":
+        - img "Camera at I-15 NB @ 200 S / MP 356.35, WIL" [ref=e1781] [cursor=pointer]
+    - generic [ref=e1783]:
+      - button "Camera at I-15 NB @ 200 W / MP 277.71, AFK":
+        - img "Camera at I-15 NB @ 200 W / MP 277.71, AFK" [ref=e1784] [cursor=pointer]
+    - generic [ref=e1786]:
+      - button "Camera at I-15 NB @ 2000 N / MP 282.17, LHI":
+        - img "Camera at I-15 NB @ 2000 N / MP 282.17, LHI" [ref=e1787] [cursor=pointer]
+    - generic [ref=e1789]:
+      - button "Camera at I-15 NB @ 2000 S / MP 267.86, ORM":
+        - img "Camera at I-15 NB @ 2000 S / MP 267.86, ORM" [ref=e1790] [cursor=pointer]
+    - generic [ref=e1792]:
+      - button "Camera at I-15 NB @ 2100 E / MP 9.97, STG":
+        - img "Camera at I-15 NB @ 2100 E / MP 9.97, STG" [ref=e1793] [cursor=pointer]
+    - generic [ref=e1795]:
+      - button "Camera at I-15 NB @ 2200 N / MP 282.46, LHI":
+        - img "Camera at I-15 NB @ 2200 N / MP 282.46, LHI" [ref=e1796] [cursor=pointer]
+    - generic [ref=e1798]:
+      - button "Camera at I-15 NB @ 2450 E / MP 10.43, STG":
+        - img "Camera at I-15 NB @ 2450 E / MP 10.43, STG" [ref=e1799] [cursor=pointer]
+    - generic [ref=e1801]:
+      - button "Camera at I-15 NB @ 24th St / SR-53 / MP 343.1, OGD":
+        - img "Camera at I-15 NB @ 24th St / SR-53 / MP 343.1, OGD" [ref=e1802] [cursor=pointer]
+    - generic [ref=e1804]:
+      - button "Camera at I-15 NB @ 2500 N / MP 282.86, LHI":
+        - img "Camera at I-15 NB @ 2500 N / MP 282.86, LHI" [ref=e1805] [cursor=pointer]
+    - generic [ref=e1807]:
+      - button "Camera at I-15 NB @ 2600 S / SR-93 / MP 315.26, WXS":
+        - img "Camera at I-15 NB @ 2600 S / SR-93 / MP 315.26, WXS" [ref=e1808] [cursor=pointer]
+    - generic [ref=e1810]:
+      - button "Camera at I-15 NB @ 2650 S / 24th St Exit / MP 342.9, OGD":
+        - img "Camera at I-15 NB @ 2650 S / 24th St Exit / MP 342.9, OGD" [ref=e1811] [cursor=pointer]
+    - generic [ref=e1813]:
+      - button "Camera at I-15 NB @ 2700 N / SR-134 / MP 349.42, FRW":
+        - img "Camera at I-15 NB @ 2700 N / SR-134 / MP 349.42, FRW" [ref=e1814] [cursor=pointer]
+    - generic [ref=e1816]:
+      - button "Camera at I-15 NB @ 2800 N / MP 283.26, LHI":
+        - img "Camera at I-15 NB @ 2800 N / MP 283.26, LHI" [ref=e1817] [cursor=pointer]
+    - generic [ref=e1819]:
+      - button "Camera at I-15 NB @ 29th St / MP 342.5, OGD":
+        - img "Camera at I-15 NB @ 29th St / MP 342.5, OGD" [ref=e1820] [cursor=pointer]
+    - generic [ref=e1822]:
+      - button "Camera at I-15 NB @ 300 N / MP 256.15, SPF":
+        - img "Camera at I-15 NB @ 300 N / MP 256.15, SPF" [ref=e1823] [cursor=pointer]
+    - generic [ref=e1825]:
+      - button "Camera at I-15 NB @ 31st St / Hinckley Dr / SR-79 / MP 341.93, OGD":
+        - img "Camera at I-15 NB @ 31st St / Hinckley Dr / SR-79 / MP 341.93, OGD" [ref=e1826] [cursor=pointer]
+    - generic [ref=e1828]:
+      - button "Camera at I-15 NB @ 3200 N / MP 283.62, LHI":
+        - img "Camera at I-15 NB @ 3200 N / MP 283.62, LHI" [ref=e1829] [cursor=pointer]
+    - generic [ref=e1831]:
+      - button "Camera at I-15 NB @ 3400 S / MP 359.5, PRY":
+        - img "Camera at I-15 NB @ 3400 S / MP 359.5, PRY" [ref=e1832] [cursor=pointer]
+    - generic [ref=e1834]:
+      - button "Camera at I-15 NB @ 350 S / MP 334.52, CFD":
+        - img "Camera at I-15 NB @ 350 S / MP 334.52, CFD" [ref=e1835] [cursor=pointer]
+    - generic [ref=e1837]:
+      - button "Camera at I-15 NB @ 3750 S / MP 302.75, SSL":
+        - img "Camera at I-15 NB @ 3750 S / MP 302.75, SSL" [ref=e1838] [cursor=pointer]
+    - generic [ref=e1840]:
+      - button "Camera at I-15 NB @ 3800 N / Adobe Way / MP 284.3, LHI":
+        - img "Camera at I-15 NB @ 3800 N / Adobe Way / MP 284.3, LHI" [ref=e1841] [cursor=pointer]
+    - generic [ref=e1843]:
+      - button "Camera at I-15 NB @ 400 N / MP 250.33, PSN":
+        - img "Camera at I-15 NB @ 400 N / MP 250.33, PSN" [ref=e1844] [cursor=pointer]
+    - generic [ref=e1846]:
+      - button "Camera at I-15 NB @ 400 S / MP 307.79, SLC":
+        - img "Camera at I-15 NB @ 400 S / MP 307.79, SLC" [ref=e1847] [cursor=pointer]
+    - generic [ref=e1849]:
+      - button "Camera at I-15 NB @ 400 S / SR-77 / MP 260, SPV":
+        - img "Camera at I-15 NB @ 400 S / SR-77 / MP 260, SPV" [ref=e1850] [cursor=pointer]
+    - generic [ref=e1852]:
+      - button "Camera at I-15 NB @ 4100 S / MP 302.25, MUR":
+        - img "Camera at I-15 NB @ 4100 S / MP 302.25, MUR" [ref=e1853] [cursor=pointer]
+    - generic [ref=e1855]:
+      - button "Camera at I-15 NB @ 4200 N / MP 284.65, LHI":
+        - img "Camera at I-15 NB @ 4200 N / MP 284.65, LHI" [ref=e1856] [cursor=pointer]
+    - generic [ref=e1858]:
+      - button "Camera at I-15 NB @ 4400 S / MP 340.1, RDL":
+        - img "Camera at I-15 NB @ 4400 S / MP 340.1, RDL" [ref=e1859] [cursor=pointer]
+    - generic [ref=e1861]:
+      - button "Camera at I-15 NB @ 450 S / MP 8, STG":
+        - img "Camera at I-15 NB @ 450 S / MP 8, STG" [ref=e1862] [cursor=pointer]
+    - generic [ref=e1864]:
+      - button "Camera at I-15 NB @ 4500 S / SR-266 / MP 301.71, MUR":
+        - img "Camera at I-15 NB @ 4500 S / SR-266 / MP 301.71, MUR" [ref=e1865] [cursor=pointer]
+    - generic [ref=e1867]:
+      - button "Camera at I-15 NB @ 4600 S / MP 339.68, RDL":
+        - img "Camera at I-15 NB @ 4600 S / MP 339.68, RDL" [ref=e1868] [cursor=pointer]
+    - generic [ref=e1870]:
+      - button "Camera at I-15 NB @ 500 E / SR-180 / MP 276.5, AFK":
+        - img "Camera at I-15 NB @ 500 E / SR-180 / MP 276.5, AFK" [ref=e1871] [cursor=pointer]
+    - generic [ref=e1873]:
+      - button "Camera at I-15 NB @ 500 N / MP 331.04, LTN":
+        - img "Camera at I-15 NB @ 500 N / MP 331.04, LTN" [ref=e1874] [cursor=pointer]
+    - generic [ref=e1876]:
+      - button "Camera at I-15 NB @ 500 S / MP 273.04, LDN":
+        - img "Camera at I-15 NB @ 500 S / MP 273.04, LDN" [ref=e1877] [cursor=pointer]
+    - generic [ref=e1879]:
+      - button "Camera at I-15 NB @ 500 S / MP 307.61, SLC":
+        - img "Camera at I-15 NB @ 500 S / MP 307.61, SLC" [ref=e1880] [cursor=pointer]
+    - generic [ref=e1882]:
+      - button "Camera at I-15 NB @ 500 W / MP 11.38, WAS":
+        - img "Camera at I-15 NB @ 500 W / MP 11.38, WAS" [ref=e1883] [cursor=pointer]
+    - generic [ref=e1885]:
+      - button "Camera at I-15 NB @ 500 W / US-89 / MP 318.1, BTF":
+        - img "Camera at I-15 NB @ 500 W / US-89 / MP 318.1, BTF" [ref=e1886] [cursor=pointer]
+    - generic [ref=e1888]:
+      - button "Camera at I-15 NB @ 5000 S / MP 301, MUR":
+        - img "Camera at I-15 NB @ 5000 S / MP 301, MUR" [ref=e1889] [cursor=pointer]
+    - generic [ref=e1891]:
+      - button "Camera at I-15 NB @ 5200 S / MP 300.63, MUR":
+        - img "Camera at I-15 NB @ 5200 S / MP 300.63, MUR" [ref=e1892] [cursor=pointer]
+    - generic [ref=e1894]:
+      - button "Camera at I-15 NB @ 5550 S / MP 300, MUR":
+        - img "Camera at I-15 NB @ 5550 S / MP 300, MUR" [ref=e1895] [cursor=pointer]
+    - generic [ref=e1897]:
+      - button "Camera at I-15 NB @ 5800 S / MP 338.19, ROY":
+        - img "Camera at I-15 NB @ 5800 S / MP 338.19, ROY" [ref=e1898] [cursor=pointer]
+    - generic [ref=e1900]:
+      - button "Camera at I-15 NB @ 600 E / MP 280.3, LHI":
+        - img "Camera at I-15 NB @ 600 E / MP 280.3, LHI" [ref=e1901] [cursor=pointer]
+    - generic [ref=e1903]:
+      - button "Camera at I-15 NB @ 600 N / SR-268 / MP 309.34, SLC":
+        - img "Camera at I-15 NB @ 600 N / SR-268 / MP 309.34, SLC" [ref=e1904] [cursor=pointer]
+    - generic [ref=e1906]:
+      - button "Camera at I-15 NB @ 600 S / MP 255, SPF":
+        - img "Camera at I-15 NB @ 600 S / MP 255, SPF" [ref=e1907] [cursor=pointer]
+    - generic [ref=e1909]:
+      - button "Camera at I-15 NB @ 600 S Exit / MP 307.36, SLC":
+        - img "Camera at I-15 NB @ 600 S Exit / MP 307.36, SLC" [ref=e1910] [cursor=pointer]
+    - generic [ref=e1912]:
+      - button "Camera at I-15 NB @ 6600 S / MP 298.5, MDV":
+        - img "Camera at I-15 NB @ 6600 S / MP 298.5, MDV" [ref=e1913] [cursor=pointer]
+    - generic [ref=e1915]:
+      - button "Camera at I-15 NB @ 6900 N / SR-240 / MP 372.83, HYV":
+        - img "Camera at I-15 NB @ 6900 N / SR-240 / MP 372.83, HYV" [ref=e1916] [cursor=pointer]
+    - generic [ref=e1918]:
+      - button "Camera at I-15 NB @ 6950 S / MP 298.25, MDV":
+        - img "Camera at I-15 NB @ 6950 S / MP 298.25, MDV" [ref=e1919] [cursor=pointer]
+    - generic [ref=e1921]:
+      - button "Camera at I-15 NB @ 700 S / MP 7.65, STG":
+        - img "Camera at I-15 NB @ 700 S / MP 7.65, STG" [ref=e1922] [cursor=pointer]
+    - generic [ref=e1924]:
+      - button "Camera at I-15 NB @ 700 S / SR-193 / MP 334.1, CFD":
+        - img "Camera at I-15 NB @ 700 S / SR-193 / MP 334.1, CFD" [ref=e1925] [cursor=pointer]
+    - generic [ref=e1927]:
+      - button "Camera at I-15 NB @ 7250 S / MP 297.86, MDV":
+        - img "Camera at I-15 NB @ 7250 S / MP 297.86, MDV" [ref=e1928] [cursor=pointer]
+    - generic [ref=e1930]:
+      - button "Camera at I-15 NB @ 750 N / Willard Bay / SR-315 / MP 357.6, WIL":
+        - img "Camera at I-15 NB @ 750 N / Willard Bay / SR-315 / MP 357.6, WIL" [ref=e1931] [cursor=pointer]
+    - generic [ref=e1933]:
+      - button "Camera at I-15 NB @ 7500 S / MP 297.58, MDV":
+        - img "Camera at I-15 NB @ 7500 S / MP 297.58, MDV" [ref=e1934] [cursor=pointer]
+    - generic [ref=e1936]:
+      - button "Camera at I-15 NB @ 7850 S / MP 297.06, MDV":
+        - img "Camera at I-15 NB @ 7850 S / MP 297.06, MDV" [ref=e1937] [cursor=pointer]
+    - generic [ref=e1939]:
+      - button "Camera at I-15 NB @ 7850 S / MP 353.73, BE":
+        - img "Camera at I-15 NB @ 7850 S / MP 353.73, BE" [ref=e1940] [cursor=pointer]
+    - generic [ref=e1942]:
+      - button "Camera at I-15 NB @ 800 N / SR-52 / MP 271.7, ORM":
+        - img "Camera at I-15 NB @ 800 N / SR-52 / MP 271.7, ORM" [ref=e1943] [cursor=pointer]
+    - generic [ref=e1945]:
+      - button "Camera at I-15 NB @ 8250 S / MP 296.6, MDV":
+        - img "Camera at I-15 NB @ 8250 S / MP 296.6, MDV" [ref=e1946] [cursor=pointer]
+    - generic [ref=e1948]:
+      - button "Camera at I-15 NB @ 8600 S / MP 296.16, SND":
+        - img "Camera at I-15 NB @ 8600 S / MP 296.16, SND" [ref=e1949] [cursor=pointer]
+    - generic [ref=e1951]:
+      - button "Camera at I-15 NB @ 8650 S / MP 352.8, BE":
+        - img "Camera at I-15 NB @ 8650 S / MP 352.8, BE" [ref=e1952] [cursor=pointer]
+    - generic [ref=e1954]:
+      - button "Camera at I-15 NB @ 900 N / MP 280.73, LHI":
+        - img "Camera at I-15 NB @ 900 N / MP 280.73, LHI" [ref=e1955] [cursor=pointer]
+    - generic [ref=e1957]:
+      - button "Camera at I-15 NB @ 900 S / MP 327.34, KAY":
+        - img "Camera at I-15 NB @ 900 S / MP 327.34, KAY" [ref=e1958] [cursor=pointer]
+    - generic [ref=e1960]:
+      - button "Camera at I-15 NB @ 900 S / MP 333.79, CFD":
+        - img "Camera at I-15 NB @ 900 S / MP 333.79, CFD" [ref=e1961] [cursor=pointer]
+    - generic [ref=e1963]:
+      - button "Camera at I-15 NB @ 9000 S / SR-209 / MP 295.66, SND":
+        - img "Camera at I-15 NB @ 9000 S / SR-209 / MP 295.66, SND" [ref=e1964] [cursor=pointer]
+    - generic [ref=e1966]:
+      - button "Camera at I-15 NB @ 9050 S / MP 295.55, SND":
+        - img "Camera at I-15 NB @ 9050 S / MP 295.55, SND" [ref=e1967] [cursor=pointer]
+    - generic [ref=e1969]:
+      - button "Camera at I-15 NB @ 920 S / MP 264.54, PVO":
+        - img "Camera at I-15 NB @ 920 S / MP 264.54, PVO" [ref=e1970] [cursor=pointer]
+    - generic [ref=e1972]:
+      - button "Camera at I-15 NB @ 9400 S / MP 295.18, SND":
+        - img "Camera at I-15 NB @ 9400 S / MP 295.18, SND" [ref=e1973] [cursor=pointer]
+    - generic [ref=e1975]:
+      - button "Camera at I-15 NB @ 975 N / MP 336.14, SUN":
+        - img "Camera at I-15 NB @ 975 N / MP 336.14, SUN" [ref=e1976] [cursor=pointer]
+    - generic [ref=e1978]:
+      - button "Camera at I-15 NB @ 9800 S / MP 294.6, SND":
+        - img "Camera at I-15 NB @ 9800 S / MP 294.6, SND" [ref=e1979] [cursor=pointer]
+    - generic [ref=e1981]:
+      - button "Camera at I-15 NB @ Antelope Dr / 2000 N / SR-108 / MP 332.87, LTN":
+        - img "Camera at I-15 NB @ Antelope Dr / 2000 N / SR-108 / MP 332.87, LTN" [ref=e1982] [cursor=pointer]
+    - generic [ref=e1984]:
+      - button "Camera at I-15 NB @ Beaver Ridge / MP 101.33, BV":
+        - img "Camera at I-15 NB @ Beaver Ridge / MP 101.33, BV" [ref=e1985] [cursor=pointer]
+    - generic [ref=e1987]:
+      - button "Camera at I-15 NB @ Beck St / US-89 / MP 312.06, SLC":
+        - img "Camera at I-15 NB @ Beck St / US-89 / MP 312.06, SLC" [ref=e1988] [cursor=pointer]
+    - generic [ref=e1990]:
+      - button "Camera at I-15 NB @ Bluegrass Way / MP 2.39, STG":
+        - img "Camera at I-15 NB @ Bluegrass Way / MP 2.39, STG" [ref=e1991] [cursor=pointer]
+    - generic [ref=e1993]:
+      - button "Camera at I-15 NB @ Brigham Rd / MP 4.65, STG":
+        - img "Camera at I-15 NB @ Brigham Rd / MP 4.65, STG" [ref=e1994] [cursor=pointer]
+    - generic [ref=e1996]:
+      - button "Camera at I-15 NB @ Cedar City / MP 54.1, RN":
+        - img "Camera at I-15 NB @ Cedar City / MP 54.1, RN" [ref=e1997] [cursor=pointer]
+    - generic [ref=e1999]:
+      - button "Camera at I-15 NB @ Center St / MP 116.4, BV":
+        - img "Camera at I-15 NB @ Center St / MP 116.4, BV" [ref=e2000] [cursor=pointer]
+    - generic [ref=e2002]:
+      - button "Camera at I-15 NB @ Center St / SR-114 / MP 265.62, PVO":
+        - img "Camera at I-15 NB @ Center St / SR-114 / MP 265.62, PVO" [ref=e2003] [cursor=pointer]
+    - generic [ref=e2005]:
+      - button "Camera at I-15 NB @ Church St / MP 330.75, LTN":
+        - img "Camera at I-15 NB @ Church St / MP 330.75, LTN" [ref=e2006] [cursor=pointer]
+    - generic [ref=e2008]:
+      - button "Camera at I-15 NB @ East Bay / MP 262.55, PVO":
+        - img "Camera at I-15 NB @ East Bay / MP 262.55, PVO" [ref=e2009] [cursor=pointer]
+    - generic [ref=e2011]:
+      - button "Camera at I-15 NB @ Eastridge Dr / MP 9.08, STG":
+        - img "Camera at I-15 NB @ Eastridge Dr / MP 9.08, STG" [ref=e2012] [cursor=pointer]
+    - generic [ref=e2014]:
+      - button "Camera at I-15 NB @ Fillmore / MP 161.43, MD":
+        - img "Camera at I-15 NB @ Fillmore / MP 161.43, MD" [ref=e2015] [cursor=pointer]
+    - generic [ref=e2017]:
+      - button "Camera at I-15 NB @ Hill Field Rd / 750 N / SR-232 / MP 331.36, LTN":
+        - img "Camera at I-15 NB @ Hill Field Rd / 750 N / SR-232 / MP 331.36, LTN" [ref=e2018] [cursor=pointer]
+    - generic [ref=e2020]:
+      - button "Camera at I-15 NB @ I-215 North Interchange / MP 313.28, NSL":
+        - img "Camera at I-15 NB @ I-215 North Interchange / MP 313.28, NSL" [ref=e2021] [cursor=pointer]
+    - generic [ref=e2023]:
+      - button "Camera at I-15 NB @ Layton Pkwy / SR-126 / MP 330.12, LTN":
+        - img "Camera at I-15 NB @ Layton Pkwy / SR-126 / MP 330.12, LTN" [ref=e2024] [cursor=pointer]
+    - generic [ref=e2026]:
+      - button "Camera at I-15 NB @ Main St / MP 12.07, WAS":
+        - img "Camera at I-15 NB @ Main St / MP 12.07, WAS" [ref=e2027] [cursor=pointer]
+    - generic [ref=e2029]:
+      - button "Camera at I-15 NB @ Main St / SR-156 / MP 257.35, SPF":
+        - img "Camera at I-15 NB @ Main St / SR-156 / MP 257.35, SPF" [ref=e2030] [cursor=pointer]
+    - generic [ref=e2032]:
+      - button "Camera at I-15 NB @ Main St / SR-73 / MP 279.77, LHI":
+        - img "Camera at I-15 NB @ Main St / SR-73 / MP 279.77, LHI" [ref=e2033] [cursor=pointer]
+    - generic [ref=e2035]:
+      - button "Camera at I-15 NB @ Man O War Rd / MP 3.96, STG":
+        - img "Camera at I-15 NB @ Man O War Rd / MP 3.96, STG" [ref=e2036] [cursor=pointer]
+    - generic [ref=e2038]:
+      - button "Camera at I-15 NB @ Milepost 103.25, BV":
+        - img "Camera at I-15 NB @ Milepost 103.25, BV" [ref=e2039] [cursor=pointer]
+    - generic [ref=e2041]:
+      - button "Camera at I-15 NB @ Milepost 114.35, BV":
+        - img "Camera at I-15 NB @ Milepost 114.35, BV" [ref=e2042] [cursor=pointer]
+    - generic [ref=e2044]:
+      - button "Camera at I-15 NB @ Milepost 115.42, BV":
+        - img "Camera at I-15 NB @ Milepost 115.42, BV" [ref=e2045] [cursor=pointer]
+    - generic [ref=e2047]:
+      - button "Camera at I-15 NB @ Milepost 122.1, BV":
+        - img "Camera at I-15 NB @ Milepost 122.1, BV" [ref=e2048] [cursor=pointer]
+    - generic [ref=e2050]:
+      - button "Camera at I-15 NB @ Milepost 125, BV":
+        - img "Camera at I-15 NB @ Milepost 125, BV" [ref=e2051] [cursor=pointer]
+    - generic [ref=e2053]:
+      - button "Camera at I-15 NB @ Milepost 130.15, BV":
+        - img "Camera at I-15 NB @ Milepost 130.15, BV" [ref=e2054] [cursor=pointer]
+    - generic [ref=e2056]:
+      - button "Camera at I-15 NB @ Milepost 133.8, MD":
+        - img "Camera at I-15 NB @ Milepost 133.8, MD" [ref=e2057] [cursor=pointer]
+    - generic [ref=e2059]:
+      - button "Camera at I-15 NB @ Milepost 135.83, MD":
+        - img "Camera at I-15 NB @ Milepost 135.83, MD" [ref=e2060] [cursor=pointer]
+    - generic [ref=e2062]:
+      - button "Camera at I-15 NB @ Milepost 138.6, MD":
+        - img "Camera at I-15 NB @ Milepost 138.6, MD" [ref=e2063] [cursor=pointer]
+    - generic [ref=e2065]:
+      - button "Camera at I-15 NB @ Milepost 139.1, MD":
+        - img "Camera at I-15 NB @ Milepost 139.1, MD" [ref=e2066] [cursor=pointer]
+    - generic [ref=e2068]:
+      - button "Camera at I-15 NB @ Milepost 14.02, WAS":
+        - img "Camera at I-15 NB @ Milepost 14.02, WAS" [ref=e2069] [cursor=pointer]
+    - generic [ref=e2071]:
+      - button "Camera at I-15 NB @ Milepost 14.5, WAS":
+        - img "Camera at I-15 NB @ Milepost 14.5, WAS" [ref=e2072] [cursor=pointer]
+    - generic [ref=e2074]:
+      - button "Camera at I-15 NB @ Milepost 140.6, MD":
+        - img "Camera at I-15 NB @ Milepost 140.6, MD" [ref=e2075] [cursor=pointer]
+    - generic [ref=e2077]:
+      - button "Camera at I-15 NB @ Milepost 144.03, MD":
+        - img "Camera at I-15 NB @ Milepost 144.03, MD" [ref=e2078] [cursor=pointer]
+    - generic [ref=e2080]:
+      - button "Camera at I-15 NB @ Milepost 15.38, WAS":
+        - img "Camera at I-15 NB @ Milepost 15.38, WAS" [ref=e2081] [cursor=pointer]
+    - generic [ref=e2083]:
+      - button "Camera at I-15 NB @ Milepost 204.4, JU":
+        - img "Camera at I-15 NB @ Milepost 204.4, JU" [ref=e2084] [cursor=pointer]
+    - generic [ref=e2086]:
+      - button "Camera at I-15 NB @ Milepost 22.19, LED":
+        - img "Camera at I-15 NB @ Milepost 22.19, LED" [ref=e2087] [cursor=pointer]
+    - generic [ref=e2089]:
+      - button "Camera at I-15 NB @ Milepost 24.32, LED":
+        - img "Camera at I-15 NB @ Milepost 24.32, LED" [ref=e2090] [cursor=pointer]
+    - generic [ref=e2092]:
+      - button "Camera at I-15 NB @ Milepost 26.37, TOQ":
+        - img "Camera at I-15 NB @ Milepost 26.37, TOQ" [ref=e2093] [cursor=pointer]
+    - generic [ref=e2095]:
+      - button "Camera at I-15 NB @ Milepost 350.3, PLV":
+        - img "Camera at I-15 NB @ Milepost 350.3, PLV" [ref=e2096] [cursor=pointer]
+    - generic [ref=e2098]:
+      - button "Camera at I-15 NB @ Milepost 40.06, WN":
+        - img "Camera at I-15 NB @ Milepost 40.06, WN" [ref=e2099] [cursor=pointer]
+    - generic [ref=e2101]:
+      - button "Camera at I-15 NB @ Milepost 44.12, RN":
+        - img "Camera at I-15 NB @ Milepost 44.12, RN" [ref=e2102] [cursor=pointer]
+    - generic [ref=e2104]:
+      - button "Camera at I-15 NB @ Milepost 90.05, RN":
+        - img "Camera at I-15 NB @ Milepost 90.05, RN" [ref=e2105] [cursor=pointer]
+    - generic [ref=e2107]:
+      - button "Camera at I-15 NB @ New Harmony / MP 42.15, WN":
+        - img "Camera at I-15 NB @ New Harmony / MP 42.15, WN" [ref=e2108] [cursor=pointer]
+    - generic [ref=e2110]:
+      - button "Camera at I-15 NB @ North of POE / MP 1.17, STG":
+        - img "Camera at I-15 NB @ North of POE / MP 1.17, STG" [ref=e2111] [cursor=pointer]
+    - generic [ref=e2113]:
+      - button "Camera at I-15 NB @ North Temple St / MP 308.59, SLC":
+        - img "Camera at I-15 NB @ North Temple St / MP 308.59, SLC" [ref=e2114] [cursor=pointer]
+    - generic [ref=e2116]:
+      - button "Camera at I-15 NB @ Pioneer Crossing / Main St / SR-145 / MP 278.58, AFK":
+        - img "Camera at I-15 NB @ Pioneer Crossing / Main St / SR-145 / MP 278.58, AFK" [ref=e2117] [cursor=pointer]
+    - generic [ref=e2119]:
+      - button "Camera at I-15 NB @ Pleasant Grove Blvd / MP 275.35, PLG":
+        - img "Camera at I-15 NB @ Pleasant Grove Blvd / MP 275.35, PLG" [ref=e2120] [cursor=pointer]
+    - generic [ref=e2122]:
+      - button "Camera at I-15 NB @ Plymouth / SR-13 / MP 392.7, BE":
+        - img "Camera at I-15 NB @ Plymouth / SR-13 / MP 392.7, BE" [ref=e2123] [cursor=pointer]
+    - generic [ref=e2125]:
+      - button "Camera at I-15 NB @ Promontory Rd / 900 N / SR-13 / MP 365.57, BRC":
+        - img "Camera at I-15 NB @ Promontory Rd / 900 N / SR-13 / MP 365.57, BRC" [ref=e2126] [cursor=pointer]
+    - generic [ref=e2128]:
+      - button "Camera at I-15 NB @ Riverdale Rd / SR-26 / MP 339.15, RDL":
+        - img "Camera at I-15 NB @ Riverdale Rd / SR-26 / MP 339.15, RDL" [ref=e2129] [cursor=pointer]
+    - generic [ref=e2131]:
+      - button "Camera at I-15 NB @ Shepard Ln / MP 325.43, FRM":
+        - img "Camera at I-15 NB @ Shepard Ln / MP 325.43, FRM" [ref=e2132] [cursor=pointer]
+    - generic [ref=e2134]:
+      - button "Camera at I-15 NB @ Silver Reef Rd / MP 23.6, LED":
+        - img "Camera at I-15 NB @ Silver Reef Rd / MP 23.6, LED" [ref=e2135] [cursor=pointer]
+    - generic [ref=e2137]:
+      - button "Camera at I-15 NB @ South of POE / MP 0.67, STG":
+        - img "Camera at I-15 NB @ South of POE / MP 0.67, STG" [ref=e2138] [cursor=pointer]
+    - generic [ref=e2140]:
+      - button "Camera at I-15 NB @ Southern Pkwy / SR-7 / MP 2.12, STG":
+        - img "Camera at I-15 NB @ Southern Pkwy / SR-7 / MP 2.12, STG" [ref=e2141] [cursor=pointer]
+    - generic [ref=e2143]:
+      - button "Camera at I-15 NB @ SR-126 / MP 351.9, BE":
+        - img "Camera at I-15 NB @ SR-126 / MP 351.9, BE" [ref=e2144] [cursor=pointer]
+    - generic [ref=e2146]:
+      - button "Camera at I-15 NB @ SR-17 / MP 27.5, TOQ":
+        - img "Camera at I-15 NB @ SR-17 / MP 27.5, TOQ" [ref=e2147] [cursor=pointer]
+    - generic [ref=e2149]:
+      - button "Camera at I-15 NB @ SR-20 / MP 94.7, RN":
+        - img "Camera at I-15 NB @ SR-20 / MP 94.7, RN" [ref=e2150] [cursor=pointer]
+    - generic [ref=e2152]:
+      - button "Camera at I-15 NB @ SR-30 / MP 385.3, BE":
+        - img "Camera at I-15 NB @ SR-30 / MP 385.3, BE" [ref=e2153] [cursor=pointer]
+    - generic [ref=e2155]:
+      - button "Camera at I-15 NB @ St George Blvd / SR-34 / MP 8.41, STG":
+        - img "Camera at I-15 NB @ St George Blvd / SR-34 / MP 8.41, STG" [ref=e2156] [cursor=pointer]
+    - generic [ref=e2158]:
+      - button "Camera at I-15 NB @ State St / MP 323.66, FRM":
+        - img "Camera at I-15 NB @ State St / MP 323.66, FRM" [ref=e2159] [cursor=pointer]
+    - generic [ref=e2161]:
+      - button "Camera at I-15 NB @ State St / SR-9 / MP 15.91, WAS":
+        - img "Camera at I-15 NB @ State St / SR-9 / MP 15.91, WAS" [ref=e2162] [cursor=pointer]
+    - generic [ref=e2164]:
+      - button "Camera at I-15 NB @ Timpanogos Hwy / SR-92 / MP 284, LHI":
+        - img "Camera at I-15 NB @ Timpanogos Hwy / SR-92 / MP 284, LHI" [ref=e2165] [cursor=pointer]
+    - generic [ref=e2167]:
+      - button "Camera at I-15 NB @ University Ave / US-189 / 1860 S / MP 263.4, PVO":
+        - img "Camera at I-15 NB @ University Ave / US-189 / 1860 S / MP 263.4, PVO" [ref=e2168] [cursor=pointer]
+    - generic [ref=e2170]:
+      - button "Camera at I-15 NB @ University Pkwy / SR-265 / MP 269.1, ORM":
+        - img "Camera at I-15 NB @ University Pkwy / SR-265 / MP 269.1, ORM" [ref=e2171] [cursor=pointer]
+    - generic [ref=e2173]:
+      - button "Camera at I-15 NB @ UT/AZ State Line / MP 0.14, STG":
+        - img "Camera at I-15 NB @ UT/AZ State Line / MP 0.14, STG" [ref=e2174] [cursor=pointer]
+    - generic [ref=e2176]:
+      - button "Camera at I-15 NB @ UT/ID State Line / MP 400.59, BE":
+        - img "Camera at I-15 NB @ UT/ID State Line / MP 400.59, BE" [ref=e2177] [cursor=pointer]
+    - generic [ref=e2179]:
+      - button "Camera at I-15 NB @ Virgin River / MP 5.3, STG":
+        - img "Camera at I-15 NB @ Virgin River / MP 5.3, STG" [ref=e2180] [cursor=pointer]
+    - generic [ref=e2182]:
+      - button "Camera at I-15 NB @ Washington Pkwy / MP 13.39, WAS":
+        - img "Camera at I-15 NB @ Washington Pkwy / MP 13.39, WAS" [ref=e2183] [cursor=pointer]
+    - generic [ref=e2185]:
+      - button "Camera at I-15 Off-ramp NB @ 10600 S / SR-151 / MP 293.62, SND":
+        - img "Camera at I-15 Off-ramp NB @ 10600 S / SR-151 / MP 293.62, SND" [ref=e2186] [cursor=pointer]
+    - generic [ref=e2188]:
+      - button "Camera at I-15 Off-ramp SB @ 800 S / SR-178 / MP 248.82, PSN":
+        - img "Camera at I-15 Off-ramp SB @ 800 S / SR-178 / MP 248.82, PSN" [ref=e2189] [cursor=pointer]
+    - generic [ref=e2191]:
+      - button "Camera at I-15 Off-ramp SB @ 8000 S / SR-164 / MP 253.55, UT":
+        - img "Camera at I-15 Off-ramp SB @ 8000 S / SR-164 / MP 253.55, UT" [ref=e2192] [cursor=pointer]
+    - generic [ref=e2194]:
+      - button "Camera at I-15 On-ramp NB @ 9000 S / SR-209 / MP 295.6, SND":
+        - img "Camera at I-15 On-ramp NB @ 9000 S / SR-209 / MP 295.6, SND" [ref=e2195] [cursor=pointer]
+    - generic [ref=e2197]:
+      - button "Camera at I-15 RWIS @ Milepost 83.8, RN":
+        - img "Camera at I-15 RWIS @ Milepost 83.8, RN" [ref=e2198] [cursor=pointer]
+    - generic [ref=e2200]:
+      - button "Camera at I-15 RWIS @ Sevier River / MP 200.11, JU":
+        - img "Camera at I-15 RWIS @ Sevier River / MP 200.11, JU" [ref=e2201] [cursor=pointer]
+    - generic [ref=e2203]:
+      - button "Camera at I-15 RWIS NB @ 4000 N / MP 368.83, BE":
+        - img "Camera at I-15 RWIS NB @ 4000 N / MP 368.83, BE" [ref=e2204] [cursor=pointer]
+    - generic [ref=e2206]:
+      - button "Camera at I-15 RWIS NB @ Ash Creek / MP 37.3, WN":
+        - img "Camera at I-15 RWIS NB @ Ash Creek / MP 37.3, WN" [ref=e2207] [cursor=pointer]
+    - generic [ref=e2209]:
+      - button "Camera at I-15 RWIS NB @ Lampson Canyon / MP 215.06, JU":
+        - img "Camera at I-15 RWIS NB @ Lampson Canyon / MP 215.06, JU" [ref=e2210] [cursor=pointer]
+    - generic [ref=e2212]:
+      - button "Camera at I-15 RWIS NB @ Portage / MP 398.06, BE":
+        - img "Camera at I-15 RWIS NB @ Portage / MP 398.06, BE" [ref=e2213] [cursor=pointer]
+    - generic [ref=e2215]:
+      - button "Camera at I-15 RWIS NB @ Rocky Ridge / MP 241.4, JU":
+        - img "Camera at I-15 RWIS NB @ Rocky Ridge / MP 241.4, JU" [ref=e2216] [cursor=pointer]
+    - generic [ref=e2218]:
+      - button "Camera at I-15 RWIS NB @ Willard/Perry POE / MP 358.88, PRY":
+        - img "Camera at I-15 RWIS NB @ Willard/Perry POE / MP 358.88, PRY" [ref=e2219] [cursor=pointer]
+    - generic [ref=e2221]:
+      - button "Camera at I-15 RWIS SB @ Milepost 169, MD":
+        - img "Camera at I-15 RWIS SB @ Milepost 169, MD" [ref=e2222] [cursor=pointer]
+    - generic [ref=e2224]:
+      - button "Camera at I-15 RWIS SB @ Pine Creek Hill / MP 125.5, BV":
+        - img "Camera at I-15 RWIS SB @ Pine Creek Hill / MP 125.5, BV" [ref=e2225] [cursor=pointer]
+    - generic [ref=e2227]:
+      - button "Camera at I-15 SB @ 1000 N / MP 310.2, SLC":
+        - img "Camera at I-15 SB @ 1000 N / MP 310.2, SLC" [ref=e2228] [cursor=pointer]
+    - generic [ref=e2230]:
+      - button "Camera at I-15 SB @ 10600 S / South Jordan Pkwy / SR-151 / MP 293.6, SJO":
+        - img "Camera at I-15 SB @ 10600 S / South Jordan Pkwy / SR-151 / MP 293.6, SJO" [ref=e2231] [cursor=pointer]
+    - generic [ref=e2233]:
+      - button "Camera at I-15 SB @ 1100 N / MP 358.2, WIL":
+        - img "Camera at I-15 SB @ 1100 N / MP 358.2, WIL" [ref=e2234] [cursor=pointer]
+    - generic [ref=e2236]:
+      - button "Camera at I-15 SB @ 1100 S / US-91 / MP 362, BRC":
+        - img "Camera at I-15 SB @ 1100 S / US-91 / MP 362, BRC" [ref=e2237] [cursor=pointer]
+    - generic [ref=e2239]:
+      - button "Camera at I-15 SB @ 11000 S / MP 293, SJO":
+        - img "Camera at I-15 SB @ 11000 S / MP 293, SJO" [ref=e2240] [cursor=pointer]
+    - generic [ref=e2242]:
+      - button "Camera at I-15 SB @ 11400 S / SR-175 / MP 292.62, SJO":
+        - img "Camera at I-15 SB @ 11400 S / SR-175 / MP 292.62, SJO" [ref=e2243] [cursor=pointer]
+    - generic [ref=e2245]:
+      - button "Camera at I-15 SB @ 12500 S / MP 291.17, DPR":
+        - img "Camera at I-15 SB @ 12500 S / MP 291.17, DPR" [ref=e2246] [cursor=pointer]
+    - generic [ref=e2248]:
+      - button "Camera at I-15 SB @ 12600 S / MP 291.1, DPR":
+        - img "Camera at I-15 SB @ 12600 S / MP 291.1, DPR" [ref=e2249] [cursor=pointer]
+    - generic [ref=e2251]:
+      - button "Camera at I-15 SB @ 1300 S / MP 306.33, SLC":
+        - img "Camera at I-15 SB @ 1300 S / MP 306.33, SLC" [ref=e2252] [cursor=pointer]
+    - generic [ref=e2254]:
+      - button "Camera at I-15 SB @ 13000 S / MP 290.6, DPR":
+        - img "Camera at I-15 SB @ 13000 S / MP 290.6, DPR" [ref=e2255] [cursor=pointer]
+    - generic [ref=e2257]:
+      - button "Camera at I-15 SB @ 13400 S / MP 290.08, DPR":
+        - img "Camera at I-15 SB @ 13400 S / MP 290.08, DPR" [ref=e2258] [cursor=pointer]
+    - generic [ref=e2260]:
+      - button "Camera at I-15 SB @ 1400 N / MP 320.77, CVL":
+        - img "Camera at I-15 SB @ 1400 N / MP 320.77, CVL" [ref=e2261] [cursor=pointer]
+    - generic [ref=e2263]:
+      - button "Camera at I-15 SB @ 1400 N / SR-75 / MP 261.79, SPV":
+        - img "Camera at I-15 SB @ 1400 N / SR-75 / MP 261.79, SPV" [ref=e2264] [cursor=pointer]
+    - generic [ref=e2266]:
+      - button "Camera at I-15 SB @ 1400 S / MP 321.98, FRM":
+        - img "Camera at I-15 SB @ 1400 S / MP 321.98, FRM" [ref=e2267] [cursor=pointer]
+    - generic [ref=e2269]:
+      - button "Camera at I-15 SB @ 14200 S / MP 289.09, DPR":
+        - img "Camera at I-15 SB @ 14200 S / MP 289.09, DPR" [ref=e2270] [cursor=pointer]
+    - generic [ref=e2272]:
+      - button "Camera at I-15 SB @ 14300 S / MP 288.84, DPR":
+        - img "Camera at I-15 SB @ 14300 S / MP 288.84, DPR" [ref=e2273] [cursor=pointer]
+    - generic [ref=e2275]:
+      - button "Camera at I-15 SB @ 14600 S / Highland Dr / SR-140 / MP 288.3, BLF":
+        - img "Camera at I-15 SB @ 14600 S / Highland Dr / SR-140 / MP 288.3, BLF" [ref=e2276] [cursor=pointer]
+    - generic [ref=e2278]:
+      - button "Camera at I-15 SB @ 1500 N / MP 336.67, SUN":
+        - img "Camera at I-15 SB @ 1500 N / MP 336.67, SUN" [ref=e2279] [cursor=pointer]
+    - generic [ref=e2281]:
+      - button "Camera at I-15 SB @ 1500 S / MP 306.11, SLC":
+        - img "Camera at I-15 SB @ 1500 S / MP 306.11, SLC" [ref=e2282] [cursor=pointer]
+    - generic [ref=e2284]:
+      - button "Camera at I-15 SB @ 15000 S / MP 287.91, BLF":
+        - img "Camera at I-15 SB @ 15000 S / MP 287.91, BLF" [ref=e2285] [cursor=pointer]
+    - generic [ref=e2287]:
+      - button "Camera at I-15 SB @ 1550 N / MP 281.65, LHI":
+        - img "Camera at I-15 SB @ 1550 N / MP 281.65, LHI" [ref=e2288] [cursor=pointer]
+    - generic [ref=e2290]:
+      - button "Camera at I-15 SB @ 15800 S / MP 286.64, BLF":
+        - img "Camera at I-15 SB @ 15800 S / MP 286.64, BLF" [ref=e2291] [cursor=pointer]
+    - generic [ref=e2293]:
+      - button "Camera at I-15 SB @ 1600 N / SR-241 / MP 272.82, ORM":
+        - img "Camera at I-15 SB @ 1600 N / SR-241 / MP 272.82, ORM" [ref=e2294] [cursor=pointer]
+    - generic [ref=e2296]:
+      - button "Camera at I-15 SB @ 16200 S / MP 286.3, BLF":
+        - img "Camera at I-15 SB @ 16200 S / MP 286.3, BLF" [ref=e2297] [cursor=pointer]
+    - generic [ref=e2299]:
+      - button "Camera at I-15 SB @ 1700 N / MP 310.93, SLC":
+        - img "Camera at I-15 SB @ 1700 N / MP 310.93, SLC" [ref=e2300] [cursor=pointer]
+    - generic [ref=e2302]:
+      - button "Camera at I-15 SB @ 1800 N / Harrisville Rd / MP 348.23, FRW":
+        - img "Camera at I-15 SB @ 1800 N / Harrisville Rd / MP 348.23, FRW" [ref=e2303] [cursor=pointer]
+    - generic [ref=e2305]:
+      - button "Camera at I-15 SB @ 1900 N / MP 337.05, SUN":
+        - img "Camera at I-15 SB @ 1900 N / MP 337.05, SUN" [ref=e2306] [cursor=pointer]
+    - generic [ref=e2308]:
+      - button "Camera at I-15 SB @ 200 N / SR-273 / MP 328.65, KAY":
+        - img "Camera at I-15 SB @ 200 N / SR-273 / MP 328.65, KAY" [ref=e2309] [cursor=pointer]
+    - generic [ref=e2311]:
+      - button "Camera at I-15 SB @ 200 S / MP 265.36, PVO":
+        - img "Camera at I-15 SB @ 200 S / MP 265.36, PVO" [ref=e2312] [cursor=pointer]
+    - generic [ref=e2314]:
+      - button "Camera at I-15 SB @ 2000 N / MP 61.27, CDC":
+        - img "Camera at I-15 SB @ 2000 N / MP 61.27, CDC" [ref=e2315] [cursor=pointer]
+    - generic [ref=e2317]:
+      - button "Camera at I-15 SB @ 2100 N / MP 321.7, CVL":
+        - img "Camera at I-15 SB @ 2100 N / MP 321.7, CVL" [ref=e2318] [cursor=pointer]
+    - generic [ref=e2320]:
+      - button "Camera at I-15 SB @ 2100 S / SR-201 / MP 305.25, SLC":
+        - img "Camera at I-15 SB @ 2100 S / SR-201 / MP 305.25, SLC" [ref=e2321] [cursor=pointer]
+    - generic [ref=e2323]:
+      - button "Camera at I-15 SB @ 21st St / SR-104 / MP 343.86, WHV":
+        - img "Camera at I-15 SB @ 21st St / SR-104 / MP 343.86, WHV" [ref=e2324] [cursor=pointer]
+    - generic [ref=e2326]:
+      - button "Camera at I-15 SB @ 2300 N / MP 337.48, SUN":
+        - img "Camera at I-15 SB @ 2300 N / MP 337.48, SUN" [ref=e2327] [cursor=pointer]
+    - generic [ref=e2329]:
+      - button "Camera at I-15 SB @ 2300 N / Warm Springs Rd / MP 311.34, SLC":
+        - img "Camera at I-15 SB @ 2300 N / Warm Springs Rd / MP 311.34, SLC" [ref=e2330] [cursor=pointer]
+    - generic [ref=e2332]:
+      - button "Camera at I-15 SB @ 2300 S / MP 304.9, SSL":
+        - img "Camera at I-15 SB @ 2300 S / MP 304.9, SSL" [ref=e2333] [cursor=pointer]
+    - generic [ref=e2335]:
+      - button "Camera at I-15 SB @ 2400 S / MP 222.03, NPH":
+        - img "Camera at I-15 SB @ 2400 S / MP 222.03, NPH" [ref=e2336] [cursor=pointer]
+    - generic [ref=e2338]:
+      - button "Camera at I-15 SB @ 24th St / Pennsylvania Ave / SR-53 / MP 343.12, OGD":
+        - img "Camera at I-15 SB @ 24th St / Pennsylvania Ave / SR-53 / MP 343.12, OGD" [ref=e2339] [cursor=pointer]
+    - generic [ref=e2341]:
+      - button "Camera at I-15 SB @ 2550 S / MP 304.53, SSL":
+        - img "Camera at I-15 SB @ 2550 S / MP 304.53, SSL" [ref=e2342] [cursor=pointer]
+    - generic [ref=e2344]:
+      - button "Camera at I-15 SB @ 2600 S / SR-93 / MP 315.24, WXS":
+        - img "Camera at I-15 SB @ 2600 S / SR-93 / MP 315.24, WXS" [ref=e2345] [cursor=pointer]
+    - generic [ref=e2347]:
+      - button "Camera at I-15 SB @ 2650 S / MP 360.62, PRY":
+        - img "Camera at I-15 SB @ 2650 S / MP 360.62, PRY" [ref=e2348] [cursor=pointer]
+    - generic [ref=e2350]:
+      - button "Camera at I-15 SB @ 2900 S / MP 304, SSL":
+        - img "Camera at I-15 SB @ 2900 S / MP 304, SSL" [ref=e2351] [cursor=pointer]
+    - generic [ref=e2353]:
+      - button "Camera at I-15 SB @ 300 N / MP 274.61, LDN":
+        - img "Camera at I-15 SB @ 300 N / MP 274.61, LDN" [ref=e2354] [cursor=pointer]
+    - generic [ref=e2356]:
+      - button "Camera at I-15 SB @ 3400 N / MP 283.9, LHI":
+        - img "Camera at I-15 SB @ 3400 N / MP 283.9, LHI" [ref=e2357] [cursor=pointer]
+    - generic [ref=e2359]:
+      - button "Camera at I-15 SB @ 350 N / MP 335.38, CFD":
+        - img "Camera at I-15 SB @ 350 N / MP 335.38, CFD" [ref=e2360] [cursor=pointer]
+    - generic [ref=e2362]:
+      - button "Camera at I-15 SB @ 400 N / MP 309.03, SLC":
+        - img "Camera at I-15 SB @ 400 N / MP 309.03, SLC" [ref=e2363] [cursor=pointer]
+    - generic [ref=e2365]:
+      - button "Camera at I-15 SB @ 400 N / Pioneer Rd / MP 346.72, MSV":
+        - img "Camera at I-15 SB @ 400 N / Pioneer Rd / MP 346.72, MSV" [ref=e2366] [cursor=pointer]
+    - generic [ref=e2368]:
+      - button "Camera at I-15 SB @ 400 N / SR-106 / MP 317.55, WBN":
+        - img "Camera at I-15 SB @ 400 N / SR-106 / MP 317.55, WBN" [ref=e2369] [cursor=pointer]
+    - generic [ref=e2371]:
+      - button "Camera at I-15 SB @ 400 S / MP 279.32, LHI":
+        - img "Camera at I-15 SB @ 400 S / MP 279.32, LHI" [ref=e2372] [cursor=pointer]
+    - generic [ref=e2374]:
+      - button "Camera at I-15 SB @ 400 S / MP 307.74, SLC":
+        - img "Camera at I-15 SB @ 400 S / MP 307.74, SLC" [ref=e2375] [cursor=pointer]
+    - generic [ref=e2377]:
+      - button "Camera at I-15 SB @ 400 S / MP 345.93, MSV":
+        - img "Camera at I-15 SB @ 400 S / MP 345.93, MSV" [ref=e2378] [cursor=pointer]
+    - generic [ref=e2380]:
+      - button "Camera at I-15 SB @ 4500 S / SR-266 / MP 301.65, MUR":
+        - img "Camera at I-15 SB @ 4500 S / SR-266 / MP 301.65, MUR" [ref=e2381] [cursor=pointer]
+    - generic [ref=e2383]:
+      - button "Camera at I-15 SB @ 4600 N / MP 285.12, LHI":
+        - img "Camera at I-15 SB @ 4600 N / MP 285.12, LHI" [ref=e2384] [cursor=pointer]
+    - generic [ref=e2386]:
+      - button "Camera at I-15 SB @ 4800 N / MP 285.37, LHI":
+        - img "Camera at I-15 SB @ 4800 N / MP 285.37, LHI" [ref=e2387] [cursor=pointer]
+    - generic [ref=e2389]:
+      - button "Camera at I-15 SB @ 500 E / MP 12.53, WAS":
+        - img "Camera at I-15 SB @ 500 E / MP 12.53, WAS" [ref=e2390] [cursor=pointer]
+    - generic [ref=e2392]:
+      - button "Camera at I-15 SB @ 500 N / MP 260.89, SPV":
+        - img "Camera at I-15 SB @ 500 N / MP 260.89, SPV" [ref=e2393] [cursor=pointer]
+    - generic [ref=e2395]:
+      - button "Camera at I-15 SB @ 500 S / SR-68 / MP 316.84, WBN":
+        - img "Camera at I-15 SB @ 500 S / SR-68 / MP 316.84, WBN" [ref=e2396] [cursor=pointer]
+    - generic [ref=e2398]:
+      - button "Camera at I-15 SB @ 5300 S / SR-173 / MP 300.35, MUR":
+        - img "Camera at I-15 SB @ 5300 S / SR-173 / MP 300.35, MUR" [ref=e2399] [cursor=pointer]
+    - generic [ref=e2401]:
+      - button "Camera at I-15 SB @ 550 S / MP 329.9, LTN":
+        - img "Camera at I-15 SB @ 550 S / MP 329.9, LTN" [ref=e2402] [cursor=pointer]
+    - generic [ref=e2404]:
+      - button "Camera at I-15 SB @ 5600 S / SR-97 / MP 338.46, ROY":
+        - img "Camera at I-15 SB @ 5600 S / SR-97 / MP 338.46, ROY" [ref=e2405] [cursor=pointer]
+    - generic [ref=e2407]:
+      - button "Camera at I-15 SB @ 5800 S / MP 299.7, MUR":
+        - img "Camera at I-15 SB @ 5800 S / MP 299.7, MUR" [ref=e2408] [cursor=pointer]
+    - generic [ref=e2410]:
+      - button "Camera at I-15 SB @ 600 N / MP 271.44, ORM":
+        - img "Camera at I-15 SB @ 600 N / MP 271.44, ORM" [ref=e2411] [cursor=pointer]
+    - generic [ref=e2413]:
+      - button "Camera at I-15 SB @ 600 S / MP 319.1, CVL":
+        - img "Camera at I-15 SB @ 600 S / MP 319.1, CVL" [ref=e2414] [cursor=pointer]
+    - generic [ref=e2416]:
+      - button "Camera at I-15 SB @ 650 N / SR-103 / MP 335.89, CFD":
+        - img "Camera at I-15 SB @ 650 N / SR-103 / MP 335.89, CFD" [ref=e2417] [cursor=pointer]
+    - generic [ref=e2419]:
+      - button "Camera at I-15 SB @ 650 S / MP 269.87, ORM":
+        - img "Camera at I-15 SB @ 650 S / MP 269.87, ORM" [ref=e2420] [cursor=pointer]
+    - generic [ref=e2422]:
+      - button "Camera at I-15 SB @ 700 S / MP 307.29, SLC":
+        - img "Camera at I-15 SB @ 700 S / MP 307.29, SLC" [ref=e2423] [cursor=pointer]
+    - generic [ref=e2425]:
+      - button "Camera at I-15 SB @ 700 S / SR-193 / MP 334.08, CFD":
+        - img "Camera at I-15 SB @ 700 S / SR-193 / MP 334.08, CFD" [ref=e2426] [cursor=pointer]
+    - generic [ref=e2428]:
+      - button "Camera at I-15 SB @ 7400 S / MP 297.6, MDV":
+        - img "Camera at I-15 SB @ 7400 S / MP 297.6, MDV" [ref=e2429] [cursor=pointer]
+    - generic [ref=e2431]:
+      - button "Camera at I-15 SB @ 800 N / MP 364.92, BRC":
+        - img "Camera at I-15 SB @ 800 N / MP 364.92, BRC" [ref=e2432] [cursor=pointer]
+    - generic [ref=e2434]:
+      - button "Camera at I-15 SB @ 800 S / SR-178 / MP 248.81, PSN":
+        - img "Camera at I-15 SB @ 800 S / SR-178 / MP 248.81, PSN" [ref=e2435] [cursor=pointer]
+    - generic [ref=e2437]:
+      - button "Camera at I-15 SB @ 8000 S / SR-164 / MP 253.56, UT":
+        - img "Camera at I-15 SB @ 8000 S / SR-164 / MP 253.56, UT" [ref=e2438] [cursor=pointer]
+    - generic [ref=e2440]:
+      - button "Camera at I-15 SB @ 820 N / MP 266.54, PVO":
+        - img "Camera at I-15 SB @ 820 N / MP 266.54, PVO" [ref=e2441] [cursor=pointer]
+    - generic [ref=e2443]:
+      - button "Camera at I-15 SB @ 8400 S / MP 296.4, MDV":
+        - img "Camera at I-15 SB @ 8400 S / MP 296.4, MDV" [ref=e2444] [cursor=pointer]
+    - generic [ref=e2446]:
+      - button "Camera at I-15 SB @ 9100 S / MP 295.48, SND":
+        - img "Camera at I-15 SB @ 9100 S / MP 295.48, SND" [ref=e2447] [cursor=pointer]
+    - generic [ref=e2449]:
+      - button "Camera at I-15 SB @ Bangerter Hwy / SR-154 / MP 289.83, DPR":
+        - img "Camera at I-15 SB @ Bangerter Hwy / SR-154 / MP 289.83, DPR" [ref=e2450] [cursor=pointer]
+    - generic [ref=e2452]:
+      - button "Camera at I-15 SB @ Beaver / MP 113.3, BV":
+        - img "Camera at I-15 SB @ Beaver / MP 113.3, BV" [ref=e2453] [cursor=pointer]
+    - generic [ref=e2455]:
+      - button "Camera at I-15 SB @ Beck St / US-89 / MP 312.8, NSL":
+        - img "Camera at I-15 SB @ Beck St / US-89 / MP 312.8, NSL" [ref=e2456] [cursor=pointer]
+    - generic [ref=e2458]:
+      - button "Camera at I-15 SB @ Blackridge / Exit 36 / MP 36.77, WN":
+        - img "Camera at I-15 SB @ Blackridge / Exit 36 / MP 36.77, WN" [ref=e2459] [cursor=pointer]
+    - generic [ref=e2461]:
+      - button "Camera at I-15 SB @ Bluff St / SR-18 / MP 6.37, STG":
+        - img "Camera at I-15 SB @ Bluff St / SR-18 / MP 6.37, STG" [ref=e2462] [cursor=pointer]
+    - generic [ref=e2464]:
+      - button "Camera at I-15 SB @ Brigham Rd / MP 4.65, STG":
+        - img "Camera at I-15 SB @ Brigham Rd / MP 4.65, STG" [ref=e2465] [cursor=pointer]
+    - generic [ref=e2467]:
+      - button "Camera at I-15 SB @ Center St / Milepost 244.09, STQ":
+        - img "Camera at I-15 SB @ Center St / Milepost 244.09, STQ" [ref=e2468] [cursor=pointer]
+    - generic [ref=e2470]:
+      - button "Camera at I-15 SB @ Center St / MP 270.67, ORM":
+        - img "Camera at I-15 SB @ Center St / MP 270.67, ORM" [ref=e2471] [cursor=pointer]
+    - generic [ref=e2473]:
+      - button "Camera at I-15 SB @ Center St / MP 313.73, NSL":
+        - img "Camera at I-15 SB @ Center St / MP 313.73, NSL" [ref=e2474] [cursor=pointer]
+    - generic [ref=e2476]:
+      - button "Camera at I-15 SB @ Center St / MP 334.93, CFD":
+        - img "Camera at I-15 SB @ Center St / MP 334.93, CFD" [ref=e2477] [cursor=pointer]
+    - generic [ref=e2479]:
+      - button "Camera at I-15 SB @ Cross Hollow Rd / MP 57, CDC":
+        - img "Camera at I-15 SB @ Cross Hollow Rd / MP 57, CDC" [ref=e2480] [cursor=pointer]
+    - generic [ref=e2482]:
+      - button "Camera at I-15 SB @ Dixie Dr / MP 5.72, STG":
+        - img "Camera at I-15 SB @ Dixie Dr / MP 5.72, STG" [ref=e2483] [cursor=pointer]
+    - generic [ref=e2485]:
+      - button "Camera at I-15 SB @ Dog Valley Pass/MP 136.17, MD":
+        - img "Camera at I-15 SB @ Dog Valley Pass/MP 136.17, MD" [ref=e2486] [cursor=pointer]
+    - generic [ref=e2488]:
+      - button "Camera at I-15 SB @ Freemont Rd / MP 99.7, RN":
+        - img "Camera at I-15 SB @ Freemont Rd / MP 99.7, RN" [ref=e2489] [cursor=pointer]
+    - generic [ref=e2491]:
+      - button "Camera at I-15 SB @ Glover Ln / MP 322.54, FRM":
+        - img "Camera at I-15 SB @ Glover Ln / MP 322.54, FRM" [ref=e2492] [cursor=pointer]
+    - generic [ref=e2494]:
+      - button "Camera at I-15 SB @ Hill Field Rd / 1150 N / SR-232 / MP 331.86, LTN":
+        - img "Camera at I-15 SB @ Hill Field Rd / 1150 N / SR-232 / MP 331.86, LTN" [ref=e2495] [cursor=pointer]
+    - generic [ref=e2497]:
+      - button "Camera at I-15 SB @ I-215 South Interchange / MP 299, MUR":
+        - img "Camera at I-15 SB @ I-215 South Interchange / MP 299, MUR" [ref=e2498] [cursor=pointer]
+    - generic [ref=e2500]:
+      - button "Camera at I-15 SB @ I-70 Interchange / MP 132.18, MD":
+        - img "Camera at I-15 SB @ I-70 Interchange / MP 132.18, MD" [ref=e2501] [cursor=pointer]
+    - generic [ref=e2503]:
+      - button "Camera at I-15 SB @ JU/MD Co Line / MP 194.55, JU":
+        - img "Camera at I-15 SB @ JU/MD Co Line / MP 194.55, JU" [ref=e2504] [cursor=pointer]
+    - generic [ref=e2506]:
+      - button "Camera at I-15 SB @ Main St / MP 314.31, NSL":
+        - img "Camera at I-15 SB @ Main St / MP 314.31, NSL" [ref=e2507] [cursor=pointer]
+    - generic [ref=e2509]:
+      - button "Camera at I-15 SB @ Main St / SR-115 / MP 251, PSN":
+        - img "Camera at I-15 SB @ Main St / SR-115 / MP 251, PSN" [ref=e2510] [cursor=pointer]
+    - generic [ref=e2512]:
+      - button "Camera at I-15 SB @ Main St / SR-156 / MP 257.35, SPF":
+        - img "Camera at I-15 SB @ Main St / SR-156 / MP 257.35, SPF" [ref=e2513] [cursor=pointer]
+    - generic [ref=e2515]:
+      - button "Camera at I-15 SB @ Main St / SR-160 / MP 111.77, BVR":
+        - img "Camera at I-15 SB @ Main St / SR-160 / MP 111.77, BVR" [ref=e2516] [cursor=pointer]
+    - generic [ref=e2518]:
+      - button "Camera at I-15 SB @ Manderfield Rd / MP 120.15, BV":
+        - img "Camera at I-15 SB @ Manderfield Rd / MP 120.15, BV" [ref=e2519] [cursor=pointer]
+    - generic [ref=e2521]:
+      - button "Camera at I-15 SB @ Milepost 105.7, BV":
+        - img "Camera at I-15 SB @ Milepost 105.7, BV" [ref=e2522] [cursor=pointer]
+    - generic [ref=e2524]:
+      - button "Camera at I-15 SB @ Milepost 113.65, BV":
+        - img "Camera at I-15 SB @ Milepost 113.65, BV" [ref=e2525] [cursor=pointer]
+    - generic [ref=e2527]:
+      - button "Camera at I-15 SB @ Milepost 117.42, BV":
+        - img "Camera at I-15 SB @ Milepost 117.42, BV" [ref=e2528] [cursor=pointer]
+    - generic [ref=e2530]:
+      - button "Camera at I-15 SB @ Milepost 118.42, BV":
+        - img "Camera at I-15 SB @ Milepost 118.42, BV" [ref=e2531] [cursor=pointer]
+    - generic [ref=e2533]:
+      - button "Camera at I-15 SB @ Milepost 121.04, BV":
+        - img "Camera at I-15 SB @ Milepost 121.04, BV" [ref=e2534] [cursor=pointer]
+    - generic [ref=e2536]:
+      - button "Camera at I-15 SB @ Milepost 122.87, BV":
+        - img "Camera at I-15 SB @ Milepost 122.87, BV" [ref=e2537] [cursor=pointer]
+    - generic [ref=e2539]:
+      - button "Camera at I-15 SB @ Milepost 127.86, BV":
+        - img "Camera at I-15 SB @ Milepost 127.86, BV" [ref=e2540] [cursor=pointer]
+    - generic [ref=e2542]:
+      - button "Camera at I-15 SB @ Milepost 134.27, MD":
+        - img "Camera at I-15 SB @ Milepost 134.27, MD" [ref=e2543] [cursor=pointer]
+    - generic [ref=e2545]:
+      - button "Camera at I-15 SB @ Milepost 134.96, MD":
+        - img "Camera at I-15 SB @ Milepost 134.96, MD" [ref=e2546] [cursor=pointer]
+    - generic [ref=e2548]:
+      - button "Camera at I-15 SB @ Milepost 138.1, MD":
+        - img "Camera at I-15 SB @ Milepost 138.1, MD" [ref=e2549] [cursor=pointer]
+    - generic [ref=e2551]:
+      - button "Camera at I-15 SB @ Milepost 139.6, MD":
+        - img "Camera at I-15 SB @ Milepost 139.6, MD" [ref=e2552] [cursor=pointer]
+    - generic [ref=e2554]:
+      - button "Camera at I-15 SB @ Milepost 140.1, MD":
+        - img "Camera at I-15 SB @ Milepost 140.1, MD" [ref=e2555] [cursor=pointer]
+    - generic [ref=e2557]:
+      - button "Camera at I-15 SB @ Milepost 141.1, MD":
+        - img "Camera at I-15 SB @ Milepost 141.1, MD" [ref=e2558] [cursor=pointer]
+    - generic [ref=e2560]:
+      - button "Camera at I-15 SB @ Milepost 142.1, MD":
+        - img "Camera at I-15 SB @ Milepost 142.1, MD" [ref=e2561] [cursor=pointer]
+    - generic [ref=e2563]:
+      - button "Camera at I-15 SB @ Milepost 217.7, JU":
+        - img "Camera at I-15 SB @ Milepost 217.7, JU" [ref=e2564] [cursor=pointer]
+    - generic [ref=e2566]:
+      - button "Camera at I-15 SB @ Milepost 29.45, TOQ":
+        - img "Camera at I-15 SB @ Milepost 29.45, TOQ" [ref=e2567] [cursor=pointer]
+    - generic [ref=e2569]:
+      - button "Camera at I-15 SB @ Milepost 343.4, OGD":
+        - img "Camera at I-15 SB @ Milepost 343.4, OGD" [ref=e2570] [cursor=pointer]
+    - generic [ref=e2572]:
+      - button "Camera at I-15 SB @ Milepost 39.1, WN":
+        - img "Camera at I-15 SB @ Milepost 39.1, WN" [ref=e2573] [cursor=pointer]
+    - generic [ref=e2575]:
+      - button "Camera at I-15 SB @ Mona / SR-54 / MP 233.17, MNA":
+        - img "Camera at I-15 SB @ Mona / SR-54 / MP 233.17, MNA" [ref=e2576] [cursor=pointer]
+    - generic [ref=e2578]:
+      - button "Camera at I-15 SB @ Park Ln / 1100 W / SR-225 / MP 324.44, FRM":
+        - img "Camera at I-15 SB @ Park Ln / 1100 W / SR-225 / MP 324.44, FRM" [ref=e2579] [cursor=pointer]
+    - generic [ref=e2581]:
+      - button "Camera at I-15 SB @ Parrish Ln / 400 N / SR-105 / MP 319.51, CVL":
+        - img "Camera at I-15 SB @ Parrish Ln / 400 N / SR-105 / MP 319.51, CVL" [ref=e2582] [cursor=pointer]
+    - generic [ref=e2584]:
+      - button "Camera at I-15 SB @ Pioneer Crossing / Main St / SR-145 / MP 278.6, AFK":
+        - img "Camera at I-15 SB @ Pioneer Crossing / Main St / SR-145 / MP 278.6, AFK" [ref=e2585] [cursor=pointer]
+    - generic [ref=e2587]:
+      - button "Camera at I-15 SB @ Point of the Mountain / MP 285.78, UT":
+        - img "Camera at I-15 SB @ Point of the Mountain / MP 285.78, UT" [ref=e2588] [cursor=pointer]
+    - generic [ref=e2590]:
+      - button "Camera at I-15 SB @ River Valley Dr / 3650 S / MP 341.2, RDL":
+        - img "Camera at I-15 SB @ River Valley Dr / 3650 S / MP 341.2, RDL" [ref=e2591] [cursor=pointer]
+    - generic [ref=e2593]:
+      - button "Camera at I-15 SB @ Scipio / MP 187.03, MD":
+        - img "Camera at I-15 SB @ Scipio / MP 187.03, MD" [ref=e2594] [cursor=pointer]
+    - generic [ref=e2596]:
+      - button "Camera at I-15 SB @ Scipio / MP 190.66, MD":
+        - img "Camera at I-15 SB @ Scipio / MP 190.66, MD" [ref=e2597] [cursor=pointer]
+    - generic [ref=e2599]:
+      - button "Camera at I-15 SB @ Scipio Summit / Exit 184 / MP 183.65, MD":
+        - img "Camera at I-15 SB @ Scipio Summit / Exit 184 / MP 183.65, MD" [ref=e2600] [cursor=pointer]
+    - generic [ref=e2602]:
+      - button "Camera at I-15 SB @ SR-130 / Minersville Hwy / MP 62.5, CDC":
+        - img "Camera at I-15 SB @ SR-130 / Minersville Hwy / MP 62.5, CDC" [ref=e2603] [cursor=pointer]
+    - generic [ref=e2605]:
+      - button "Camera at I-15 SB @ St George Blvd / SR-34 / MP 8.41, STG":
+        - img "Camera at I-15 SB @ St George Blvd / SR-34 / MP 8.41, STG" [ref=e2606] [cursor=pointer]
+    - generic [ref=e2608]:
+      - button "Camera at I-15 SB @ Sugar Leo Rd / MP 3.04, STG":
+        - img "Camera at I-15 SB @ Sugar Leo Rd / MP 3.04, STG" [ref=e2609] [cursor=pointer]
+    - generic [ref=e2611]:
+      - button "Camera at I-15 SB @ Summit Exit / MP 70.76, RN":
+        - img "Camera at I-15 SB @ Summit Exit / MP 70.76, RN" [ref=e2612] [cursor=pointer]
+    - generic [ref=e2614]:
+      - button "Camera at I-15 SB @ University Ave / 2260 S / MP 263, PVO":
+        - img "Camera at I-15 SB @ University Ave / 2260 S / MP 263, PVO" [ref=e2615] [cursor=pointer]
+    - generic [ref=e2617]:
+      - button "Camera at I-15 SB @ University Pkwy / SR-265 / MP 269.12, ORM":
+        - img "Camera at I-15 SB @ University Pkwy / SR-265 / MP 269.12, ORM" [ref=e2618] [cursor=pointer]
+    - generic [ref=e2620]:
+      - button "Camera at I-15 SB @ US-6 / MP 257.65, SPF":
+        - img "Camera at I-15 SB @ US-6 / MP 257.65, SPF" [ref=e2621] [cursor=pointer]
+    - generic [ref=e2623]:
+      - button "Camera at I-15 SB @ US-6 / MP 257.68, SPF":
+        - img "Camera at I-15 SB @ US-6 / MP 257.68, SPF" [ref=e2624] [cursor=pointer]
+    - generic [ref=e2626]:
+      - button "Camera at I-215 E NB @ 3600 S / MP 2.36, MCK":
+        - img "Camera at I-215 E NB @ 3600 S / MP 2.36, MCK" [ref=e2627] [cursor=pointer]
+    - generic [ref=e2629]:
+      - button "Camera at I-215 E NB @ 3900 S / MP 2.75, MCK":
+        - img "Camera at I-215 E NB @ 3900 S / MP 2.75, MCK" [ref=e2630] [cursor=pointer]
+    - generic [ref=e2632]:
+      - button "Camera at I-215 E NB @ 4200 S / MP 3.17, MCK":
+        - img "Camera at I-215 E NB @ 4200 S / MP 3.17, MCK" [ref=e2633] [cursor=pointer]
+    - generic [ref=e2635]:
+      - button "Camera at I-215 E NB @ 4800 S / MP 4.27, MCK":
+        - img "Camera at I-215 E NB @ 4800 S / MP 4.27, MCK" [ref=e2636] [cursor=pointer]
+    - generic [ref=e2638]:
+      - button "Camera at I-215 E NB @ 5200 S / MP 4.65, HDY":
+        - img "Camera at I-215 E NB @ 5200 S / MP 4.65, HDY" [ref=e2639] [cursor=pointer]
+    - generic [ref=e2641]:
+      - button "Camera at I-215 E NB @ 5650 S / MP 5.59, HDY":
+        - img "Camera at I-215 E NB @ 5650 S / MP 5.59, HDY" [ref=e2642] [cursor=pointer]
+    - generic [ref=e2644]:
+      - button "Camera at I-215 E NB @ 6100 S / MP 6.1, HDY":
+        - img "Camera at I-215 E NB @ 6100 S / MP 6.1, HDY" [ref=e2645] [cursor=pointer]
+    - generic [ref=e2647]:
+      - button "Camera at I-215 E NB @ 6200 S / SR-190 / MP 6.34, HDY":
+        - img "Camera at I-215 E NB @ 6200 S / SR-190 / MP 6.34, HDY" [ref=e2648] [cursor=pointer]
+    - generic [ref=e2650]:
+      - button "Camera at I-215 E NB @ 6400 S / MP 6.56, CWH":
+        - img "Camera at I-215 E NB @ 6400 S / MP 6.56, CWH" [ref=e2651] [cursor=pointer]
+    - generic [ref=e2653]:
+      - button "Camera at I-215 E NB @ Parleys Canyon / 2900 S / MP 1.3, MCK":
+        - img "Camera at I-215 E NB @ Parleys Canyon / 2900 S / MP 1.3, MCK" [ref=e2654] [cursor=pointer]
+    - generic [ref=e2656]:
+      - button "Camera at I-215 E SB @ 3300 S / SR-171 / MP 1.86, MCK":
+        - img "Camera at I-215 E SB @ 3300 S / SR-171 / MP 1.86, MCK" [ref=e2657] [cursor=pointer]
+    - generic [ref=e2659]:
+      - button "Camera at I-215 E SB @ 3900 S / MP 2.74, MCK":
+        - img "Camera at I-215 E SB @ 3900 S / MP 2.74, MCK" [ref=e2660] [cursor=pointer]
+    - generic [ref=e2662]:
+      - button "Camera at I-215 E SB @ 4300 S / MP 3.4, MCK":
+        - img "Camera at I-215 E SB @ 4300 S / MP 3.4, MCK" [ref=e2663] [cursor=pointer]
+    - generic [ref=e2665]:
+      - button "Camera at I-215 E SB @ 4500 S / SR-266 / MP 3.67, MCK":
+        - img "Camera at I-215 E SB @ 4500 S / SR-266 / MP 3.67, MCK" [ref=e2666] [cursor=pointer]
+    - generic [ref=e2668]:
+      - button "Camera at I-215 N EB On-ramp @ Redwood Rd / SR-68 / MP 27.38, NSL":
+        - img "Camera at I-215 N EB On-ramp @ Redwood Rd / SR-68 / MP 27.38, NSL" [ref=e2669] [cursor=pointer]
+    - generic [ref=e2671]:
+      - button "Camera at I-215 N Off-ramp WB @ Redwood Rd / SR-68 / MP 27.44, NSL":
+        - img "Camera at I-215 N Off-ramp WB @ Redwood Rd / SR-68 / MP 27.44, NSL" [ref=e2672] [cursor=pointer]
+    - generic [ref=e2674]:
+      - button "Camera at I-215 N WB @ 450 W / MP 28.54, NSL":
+        - img "Camera at I-215 N WB @ 450 W / MP 28.54, NSL" [ref=e2675] [cursor=pointer]
+    - generic [ref=e2677]:
+      - button "Camera at I-215 N WB @ Redwood Rd / SR-68 / MP 27.4, NSL (HUB)":
+        - img "Camera at I-215 N WB @ Redwood Rd / SR-68 / MP 27.4, NSL (HUB)" [ref=e2678] [cursor=pointer]
+    - generic [ref=e2680]:
+      - button "Camera at I-215 S EB @ 1200 W / Murray Pkwy Ave / MP 12.34, MUR":
+        - img "Camera at I-215 S EB @ 1200 W / Murray Pkwy Ave / MP 12.34, MUR" [ref=e2681] [cursor=pointer]
+    - generic [ref=e2683]:
+      - button "Camera at I-215 S EB @ 1900 E / MP 7.98, CWH":
+        - img "Camera at I-215 S EB @ 1900 E / MP 7.98, CWH" [ref=e2684] [cursor=pointer]
+    - generic [ref=e2686]:
+      - button "Camera at I-215 S EB @ 2200 W / MP 14.06, TAY":
+        - img "Camera at I-215 S EB @ 2200 W / MP 14.06, TAY" [ref=e2687] [cursor=pointer]
+    - generic [ref=e2689]:
+      - button "Camera at I-215 S EB @ 2300 E / MP 7.3, CWH":
+        - img "Camera at I-215 S EB @ 2300 E / MP 7.3, CWH" [ref=e2690] [cursor=pointer]
+    - generic [ref=e2692]:
+      - button "Camera at I-215 S EB @ 300 E / MP 10.18, MDV":
+        - img "Camera at I-215 S EB @ 300 E / MP 10.18, MDV" [ref=e2693] [cursor=pointer]
+    - generic [ref=e2695]:
+      - button "Camera at I-215 S EB @ 700 W / MP 11.8, MUR":
+        - img "Camera at I-215 S EB @ 700 W / MP 11.8, MUR" [ref=e2696] [cursor=pointer]
+    - generic [ref=e2698]:
+      - button "Camera at I-215 S EB @ Redwood Rd / SR-68 / MP 13.4, TAY":
+        - img "Camera at I-215 S EB @ Redwood Rd / SR-68 / MP 13.4, TAY" [ref=e2699] [cursor=pointer]
+    - generic [ref=e2701]:
+      - button "Camera at I-215 S EB @ State St / US-89 / MP 10.66, MUR":
+        - img "Camera at I-215 S EB @ State St / US-89 / MP 10.66, MUR" [ref=e2702] [cursor=pointer]
+    - generic [ref=e2704]:
+      - button "Camera at I-215 S WB @ 1300 E / MP 8.87, CWH":
+        - img "Camera at I-215 S WB @ 1300 E / MP 8.87, CWH" [ref=e2705] [cursor=pointer]
+    - generic [ref=e2707]:
+      - button "Camera at I-215 S WB @ 1300 W / MP 12.9, MUR":
+        - img "Camera at I-215 S WB @ 1300 W / MP 12.9, MUR" [ref=e2708] [cursor=pointer]
+    - generic [ref=e2710]:
+      - button "Camera at I-215 S WB @ 2000 E / Highland Dr / SR-152 / MP 7.76, HDY":
+        - img "Camera at I-215 S WB @ 2000 E / Highland Dr / SR-152 / MP 7.76, HDY" [ref=e2711] [cursor=pointer]
+    - generic [ref=e2713]:
+      - button "Camera at I-215 S WB @ 2300 E / MP 7.25, HDY":
+        - img "Camera at I-215 S WB @ 2300 E / MP 7.25, HDY" [ref=e2714] [cursor=pointer]
+    - generic [ref=e2716]:
+      - button "Camera at I-215 S WB @ 300 W / MP 11.15, MUR":
+        - img "Camera at I-215 S WB @ 300 W / MP 11.15, MUR" [ref=e2717] [cursor=pointer]
+    - generic [ref=e2719]:
+      - button "Camera at I-215 S WB @ Redwood Rd / SR-68 / MP 13.5, TAY":
+        - img "Camera at I-215 S WB @ Redwood Rd / SR-68 / MP 13.5, TAY" [ref=e2720] [cursor=pointer]
+    - generic [ref=e2722]:
+      - button "Camera at I-215 S WB @ Union Park Ave / MP 9.31, MUR":
+        - img "Camera at I-215 S WB @ Union Park Ave / MP 9.31, MUR" [ref=e2723] [cursor=pointer]
+    - generic [ref=e2725]:
+      - button "Camera at I-215 W NB @ 2100 N / MP 25.63, SLC":
+        - img "Camera at I-215 W NB @ 2100 N / MP 25.63, SLC" [ref=e2726] [cursor=pointer]
+    - generic [ref=e2728]:
+      - button "Camera at I-215 W NB @ 2900 S / MP 18.22, WVC":
+        - img "Camera at I-215 W NB @ 2900 S / MP 18.22, WVC" [ref=e2729] [cursor=pointer]
+    - generic [ref=e2731]:
+      - button "Camera at I-215 W NB @ 3500 S / SR-171 / MP 17.58, WVC":
+        - img "Camera at I-215 W NB @ 3500 S / SR-171 / MP 17.58, WVC" [ref=e2732] [cursor=pointer]
+    - generic [ref=e2734]:
+      - button "Camera at I-215 W NB @ 4200 S / MP 16.41, TAY":
+        - img "Camera at I-215 W NB @ 4200 S / MP 16.41, TAY" [ref=e2735] [cursor=pointer]
+    - generic [ref=e2737]:
+      - button "Camera at I-215 W NB @ 4700 S / SR-266 / MP 15.46, TAY":
+        - img "Camera at I-215 W NB @ 4700 S / SR-266 / MP 15.46, TAY" [ref=e2738] [cursor=pointer]
+    - generic [ref=e2740]:
+      - button "Camera at I-215 W NB @ 500 S / MP 21.75, SLC":
+        - img "Camera at I-215 W NB @ 500 S / MP 21.75, SLC" [ref=e2741] [cursor=pointer]
+    - generic [ref=e2743]:
+      - button "Camera at I-215 W NB @ 700 N / MP 23.7, SLC":
+        - img "Camera at I-215 W NB @ 700 N / MP 23.7, SLC" [ref=e2744] [cursor=pointer]
+    - generic [ref=e2746]:
+      - button "Camera at I-215 W NB @ California Ave / 1330 S / MP 20.6, SLC":
+        - img "Camera at I-215 W NB @ California Ave / 1330 S / MP 20.6, SLC" [ref=e2747] [cursor=pointer]
+    - generic [ref=e2749]:
+      - button "Camera at I-215 W NB @ North Temple St / MP 22.8, SLC":
+        - img "Camera at I-215 W NB @ North Temple St / MP 22.8, SLC" [ref=e2750] [cursor=pointer]
+    - generic [ref=e2752]:
+      - button "Camera at I-215 W SB @ 1000 S / MP 21.14, SLC":
+        - img "Camera at I-215 W SB @ 1000 S / MP 21.14, SLC" [ref=e2753] [cursor=pointer]
+    - generic [ref=e2755]:
+      - button "Camera at I-215 W SB @ 1200 N / MP 24.42, SLC":
+        - img "Camera at I-215 W SB @ 1200 N / MP 24.42, SLC" [ref=e2756] [cursor=pointer]
+    - generic [ref=e2758]:
+      - button "Camera at I-215 W SB @ 1500 N / MP 24.91, SLC":
+        - img "Camera at I-215 W SB @ 1500 N / MP 24.91, SLC" [ref=e2759] [cursor=pointer]
+    - generic [ref=e2761]:
+      - button "Camera at I-215 W SB @ 1900 S / MP 19.82, SLC":
+        - img "Camera at I-215 W SB @ 1900 S / MP 19.82, SLC" [ref=e2762] [cursor=pointer]
+    - generic [ref=e2764]:
+      - button "Camera at I-215 W SB @ 2300 S / MP 19.25, WVC":
+        - img "Camera at I-215 W SB @ 2300 S / MP 19.25, WVC" [ref=e2765] [cursor=pointer]
+    - generic [ref=e2767]:
+      - button "Camera at I-215 W SB @ 2500 N / MP 26.31, SLC":
+        - img "Camera at I-215 W SB @ 2500 N / MP 26.31, SLC" [ref=e2768] [cursor=pointer]
+    - generic [ref=e2770]:
+      - button "Camera at I-215 W SB @ 2600 S / MP 18.71, WVC":
+        - img "Camera at I-215 W SB @ 2600 S / MP 18.71, WVC" [ref=e2771] [cursor=pointer]
+    - generic [ref=e2773]:
+      - button "Camera at I-215 W SB @ 2800 N / MP 26.8, SLC":
+        - img "Camera at I-215 W SB @ 2800 N / MP 26.8, SLC" [ref=e2774] [cursor=pointer]
+    - generic [ref=e2776]:
+      - button "Camera at I-215 W SB @ 3500 S / SR-171 / MP 17.4, WVC":
+        - img "Camera at I-215 W SB @ 3500 S / SR-171 / MP 17.4, WVC" [ref=e2777] [cursor=pointer]
+    - generic [ref=e2779]:
+      - button "Camera at I-215 W SB @ 3900 S / MP 16.9, WVC":
+        - img "Camera at I-215 W SB @ 3900 S / MP 16.9, WVC" [ref=e2780] [cursor=pointer]
+    - generic [ref=e2782]:
+      - button "Camera at I-215 W SB @ 450 N / MP 23.31, SLC":
+        - img "Camera at I-215 W SB @ 450 N / MP 23.31, SLC" [ref=e2783] [cursor=pointer]
+    - generic [ref=e2785]:
+      - button "Camera at I-215 W SB @ 4700 S / SR-266 / MP 15.53, TAY":
+        - img "Camera at I-215 W SB @ 4700 S / SR-266 / MP 15.53, TAY" [ref=e2786] [cursor=pointer]
+    - generic [ref=e2788]:
+      - button "Camera at I-215 W SB @ 5100 S / MP 14.96, TAY":
+        - img "Camera at I-215 W SB @ 5100 S / MP 14.96, TAY" [ref=e2789] [cursor=pointer]
+    - generic [ref=e2791]:
+      - button "Camera at I-215 W SB @ California Ave / 1330 S / MP 20.5, SLC":
+        - img "Camera at I-215 W SB @ California Ave / 1330 S / MP 20.5, SLC" [ref=e2792] [cursor=pointer]
+    - generic [ref=e2794]:
+      - button "Camera at I-70 @ Crescent Junction / MP 182.30, GR":
+        - img "Camera at I-70 @ Crescent Junction / MP 182.30, GR" [ref=e2795] [cursor=pointer]
+    - generic [ref=e2797]:
+      - button "Camera at I-70 @ Devils Canyon / MP 115.5, EM":
+        - img "Camera at I-70 @ Devils Canyon / MP 115.5, EM" [ref=e2798] [cursor=pointer]
+    - generic [ref=e2800]:
+      - button "Camera at I-70 @ Milepost 135.6, EM":
+        - img "Camera at I-70 @ Milepost 135.6, EM" [ref=e2801] [cursor=pointer]
+    - generic [ref=e2803]:
+      - button "Camera at I-70 @ Milepost 138.7, EM":
+        - img "Camera at I-70 @ Milepost 138.7, EM" [ref=e2804] [cursor=pointer]
+    - generic [ref=e2806]:
+      - button "Camera at I-70 @ MP 226.75, GR":
+        - img "Camera at I-70 @ MP 226.75, GR" [ref=e2807] [cursor=pointer]
+    - generic [ref=e2809]:
+      - button "Camera at I-70 EB @ Gooseberry Rd / MP 63.57, SE":
+        - img "Camera at I-70 EB @ Gooseberry Rd / MP 63.57, SE" [ref=e2810] [cursor=pointer]
+    - generic [ref=e2812]:
+      - button "Camera at I-70 EB @ Milepost 15.84, SE":
+        - img "Camera at I-70 EB @ Milepost 15.84, SE" [ref=e2813] [cursor=pointer]
+    - generic [ref=e2815]:
+      - button "Camera at I-70 EB @ Milepost 205, GR":
+        - img "Camera at I-70 EB @ Milepost 205, GR" [ref=e2816] [cursor=pointer]
+    - generic [ref=e2818]:
+      - button "Camera at I-70 EB @ Milepost 24.4, SE":
+        - img "Camera at I-70 EB @ Milepost 24.4, SE" [ref=e2819] [cursor=pointer]
+    - generic [ref=e2821]:
+      - button "Camera at I-70 EB @ Sage Flat Rd / MP 54.4, SLA":
+        - img "Camera at I-70 EB @ Sage Flat Rd / MP 54.4, SLA" [ref=e2822] [cursor=pointer]
+    - generic [ref=e2824]:
+      - button "Camera at I-70 EB @ State St / US-89 / MP 56.73, SLA":
+        - img "Camera at I-70 EB @ State St / US-89 / MP 56.73, SLA" [ref=e2825] [cursor=pointer]
+    - generic [ref=e2827]:
+      - button "Camera at I-70 RWIS @ Fish Creek / MP 11.31, SE":
+        - img "Camera at I-70 RWIS @ Fish Creek / MP 11.31, SE" [ref=e2828] [cursor=pointer]
+    - generic [ref=e2830]:
+      - button "Camera at I-70 RWIS @ SR-24 / MP 49.33, SIG":
+        - img "Camera at I-70 RWIS @ SR-24 / MP 49.33, SIG" [ref=e2831] [cursor=pointer]
+    - generic [ref=e2833]:
+      - button "Camera at I-70 RWIS EB @ 300 N / MP 38.77, RFD":
+        - img "Camera at I-70 RWIS EB @ 300 N / MP 38.77, RFD" [ref=e2834] [cursor=pointer]
+    - generic [ref=e2836]:
+      - button "Camera at I-70 RWIS EB @ Ghost Rocks / MP 123.11, EM":
+        - img "Camera at I-70 RWIS EB @ Ghost Rocks / MP 123.11, EM" [ref=e2837] [cursor=pointer]
+    - generic [ref=e2839]:
+      - button "Camera at I-70 RWIS WB @ Clear Creek Summit / MP 7.46, SE":
+        - img "Camera at I-70 RWIS WB @ Clear Creek Summit / MP 7.46, SE" [ref=e2840] [cursor=pointer]
+    - generic [ref=e2842]:
+      - button "Camera at I-70 RWIS WB @ Fremont Jct / MP 93, SE":
+        - img "Camera at I-70 RWIS WB @ Fremont Jct / MP 93, SE" [ref=e2843] [cursor=pointer]
+    - generic [ref=e2845]:
+      - button "Camera at I-70 RWIS WB @ Rattlesnake Bench / MP 137.07, EM":
+        - img "Camera at I-70 RWIS WB @ Rattlesnake Bench / MP 137.07, EM" [ref=e2846] [cursor=pointer]
+    - generic [ref=e2848]:
+      - button "Camera at I-70 WB @ Crescent Jct / MP 180.85, GR":
+        - img "Camera at I-70 WB @ Crescent Jct / MP 180.85, GR" [ref=e2849] [cursor=pointer]
+    - generic [ref=e2851]:
+      - button "Camera at I-70 WB @ I-15 / Cove Fort / MP 2.4, MD":
+        - img "Camera at I-70 WB @ I-15 / Cove Fort / MP 2.4, MD" [ref=e2852] [cursor=pointer]
+    - generic [ref=e2854]:
+      - button "Camera at I-70 WB @ Milepost 12.8, SE":
+        - img "Camera at I-70 WB @ Milepost 12.8, SE" [ref=e2855] [cursor=pointer]
+    - generic [ref=e2857]:
+      - button "Camera at I-70 WB @ Milepost 185.59, GR":
+        - img "Camera at I-70 WB @ Milepost 185.59, GR" [ref=e2858] [cursor=pointer]
+    - generic [ref=e2860]:
+      - button "Camera at I-70 WB @ Milepost 44.9, SE":
+        - img "Camera at I-70 WB @ Milepost 44.9, SE" [ref=e2861] [cursor=pointer]
+    - generic [ref=e2863]:
+      - button "Camera at I-70 WB @ Milepost 69.24, SE":
+        - img "Camera at I-70 WB @ Milepost 69.24, SE" [ref=e2864] [cursor=pointer]
+    - generic [ref=e2866]:
+      - button "Camera at I-70 WB @ Milepost 82.87, SE":
+        - img "Camera at I-70 WB @ Milepost 82.87, SE" [ref=e2867] [cursor=pointer]
+    - generic [ref=e2869]:
+      - button "Camera at I-70 WB @ Salina VMS / MP 58.66, SE":
+        - img "Camera at I-70 WB @ Salina VMS / MP 58.66, SE" [ref=e2870] [cursor=pointer]
+    - generic [ref=e2872]:
+      - button "Camera at I-80 @ 150 N / MP 163.05, CLV":
+        - img "Camera at I-80 @ 150 N / MP 163.05, CLV" [ref=e2873] [cursor=pointer]
+    - generic [ref=e2875]:
+      - button "Camera at I-80 @ Wanship / SR-32 / MP 155.46, SU":
+        - img "Camera at I-80 @ Wanship / SR-32 / MP 155.46, SU" [ref=e2876] [cursor=pointer]
+    - generic [ref=e2878]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Chain Up Area East / MP 129.5, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Chain Up Area East / MP 129.5, SL" [ref=e2879] [cursor=pointer]
+    - generic [ref=e2881]:
+      - button "Camera at I-80 / Parley's Canyon EB @ East Canyon / SR-65 / MP 133.96, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ East Canyon / SR-65 / MP 133.96, SL" [ref=e2882] [cursor=pointer]
+    - generic [ref=e2884]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Exit 130 to SB I-215 E / MP 128.5, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Exit 130 to SB I-215 E / MP 128.5, SL" [ref=e2885] [cursor=pointer]
+    - generic [ref=e2887]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Milepost 131.42, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Milepost 131.42, SL" [ref=e2888] [cursor=pointer]
+    - generic [ref=e2890]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Milepost 132.53, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Milepost 132.53, SL" [ref=e2891] [cursor=pointer]
+    - generic [ref=e2893]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Milepost 132.97, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Milepost 132.97, SL" [ref=e2894] [cursor=pointer]
+    - generic [ref=e2896]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Milepost 134.2, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Milepost 134.2, SL" [ref=e2897] [cursor=pointer]
+    - generic [ref=e2899]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Milepost 134.47, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Milepost 134.47, SL" [ref=e2900] [cursor=pointer]
+    - generic [ref=e2902]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Milepost 134.93, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Milepost 134.93, SL" [ref=e2903] [cursor=pointer]
+    - generic [ref=e2905]:
+      - button "Camera at I-80 / Parley's Canyon EB @ Milepost 135.46, SL":
+        - img "Camera at I-80 / Parley's Canyon EB @ Milepost 135.46, SL" [ref=e2906] [cursor=pointer]
+    - generic [ref=e2908]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Chain Up Area West / MP 129.2, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Chain Up Area West / MP 129.2, SL" [ref=e2909] [cursor=pointer]
+    - generic [ref=e2911]:
+      - button "Camera at I-80 / Parley's Canyon WB @ East Canyon / SR-65 On-ramp / MP 133.61, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ East Canyon / SR-65 On-ramp / MP 133.61, SL" [ref=e2912] [cursor=pointer]
+    - generic [ref=e2914]:
+      - button "Camera at I-80 / Parley's Canyon WB @ East Quarry / MP 130.38, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ East Quarry / MP 130.38, SL" [ref=e2915] [cursor=pointer]
+    - generic [ref=e2917]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Lamb's Canyon Rd Off-ramp / MP 136.45, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Lamb's Canyon Rd Off-ramp / MP 136.45, SL" [ref=e2918] [cursor=pointer]
+    - generic [ref=e2920]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Lamb's Canyon Rd On-ramp / MP 135.96, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Lamb's Canyon Rd On-ramp / MP 135.96, SL" [ref=e2921] [cursor=pointer]
+    - generic [ref=e2923]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Milepost 131.1, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Milepost 131.1, SL" [ref=e2924] [cursor=pointer]
+    - generic [ref=e2926]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Milepost 131.94, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Milepost 131.94, SL" [ref=e2927] [cursor=pointer]
+    - generic [ref=e2929]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Milepost 135.35, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Milepost 135.35, SL" [ref=e2930] [cursor=pointer]
+    - generic [ref=e2932]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Mountain Dell / MP 134.54, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Mountain Dell / MP 134.54, SL" [ref=e2933] [cursor=pointer]
+    - generic [ref=e2935]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Mt Aire Canyon Rd / MP 132.01, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Mt Aire Canyon Rd / MP 132.01, SL" [ref=e2936] [cursor=pointer]
+    - generic [ref=e2938]:
+      - button "Camera at I-80 / Parley's Canyon WB @ Quarry / MP 129.88, SL":
+        - img "Camera at I-80 / Parley's Canyon WB @ Quarry / MP 129.88, SL" [ref=e2939] [cursor=pointer]
+    - generic [ref=e2941]:
+      - button "Camera at I-80 / Parleys Canyon EB @ Milepost 136.95, SL":
+        - img "Camera at I-80 / Parleys Canyon EB @ Milepost 136.95, SL" [ref=e2942] [cursor=pointer]
+    - generic [ref=e2944]:
+      - button "Camera at I-80 EB @ 1000 W / MP 118.85, SLC":
+        - img "Camera at I-80 EB @ 1000 W / MP 118.85, SLC" [ref=e2945] [cursor=pointer]
+    - generic [ref=e2947]:
+      - button "Camera at I-80 EB @ 1300 W / MP 118.41 SLC":
+        - img "Camera at I-80 EB @ 1300 W / MP 118.41 SLC" [ref=e2948] [cursor=pointer]
+    - generic [ref=e2950]:
+      - button "Camera at I-80 EB @ 1800 W / MP 117.52, SLC":
+        - img "Camera at I-80 EB @ 1800 W / MP 117.52, SLC" [ref=e2951] [cursor=pointer]
+    - generic [ref=e2953]:
+      - button "Camera at I-80 EB @ 2000 E / MP 126.17, SLC":
+        - img "Camera at I-80 EB @ 2000 E / MP 126.17, SLC" [ref=e2954] [cursor=pointer]
+    - generic [ref=e2956]:
+      - button "Camera at I-80 EB @ 2200 E / MP 126.52, SLC":
+        - img "Camera at I-80 EB @ 2200 E / MP 126.52, SLC" [ref=e2957] [cursor=pointer]
+    - generic [ref=e2959]:
+      - button "Camera at I-80 EB @ 2400 E / MP 126.82, SLC":
+        - img "Camera at I-80 EB @ 2400 E / MP 126.82, SLC" [ref=e2960] [cursor=pointer]
+    - generic [ref=e2962]:
+      - button "Camera at I-80 EB @ 2400 E / MP 126.82, SLC (Tunnel)":
+        - img "Camera at I-80 EB @ 2400 E / MP 126.82, SLC (Tunnel)" [ref=e2963] [cursor=pointer]
+    - generic [ref=e2965]:
+      - button "Camera at I-80 EB @ 2800 E / MP 127.39, SL":
+        - img "Camera at I-80 EB @ 2800 E / MP 127.39, SL" [ref=e2966] [cursor=pointer]
+    - generic [ref=e2968]:
+      - button "Camera at I-80 EB @ 300 W / MP 122.57, SSL":
+        - img "Camera at I-80 EB @ 300 W / MP 122.57, SSL" [ref=e2969] [cursor=pointer]
+    - generic [ref=e2971]:
+      - button "Camera at I-80 EB @ 3200 W / North Temple St / MP 116.33, SLC":
+        - img "Camera at I-80 EB @ 3200 W / North Temple St / MP 116.33, SLC" [ref=e2972] [cursor=pointer]
+    - generic [ref=e2974]:
+      - button "Camera at I-80 EB @ 3250 E / East of Foothill / MP 127.97, SL":
+        - img "Camera at I-80 EB @ 3250 E / East of Foothill / MP 127.97, SL" [ref=e2975] [cursor=pointer]
+    - generic [ref=e2977]:
+      - button "Camera at I-80 EB @ 3600 W / MP 115.9, SLC":
+        - img "Camera at I-80 EB @ 3600 W / MP 115.9, SLC" [ref=e2978] [cursor=pointer]
+    - generic [ref=e2980]:
+      - button "Camera at I-80 EB @ 4400 W / MP 114.75, SLC":
+        - img "Camera at I-80 EB @ 4400 W / MP 114.75, SLC" [ref=e2981] [cursor=pointer]
+    - generic [ref=e2983]:
+      - button "Camera at I-80 EB @ 5600 W / SR-172 / MP 113.2, SLC":
+        - img "Camera at I-80 EB @ 5600 W / SR-172 / MP 113.2, SLC" [ref=e2984] [cursor=pointer]
+    - generic [ref=e2986]:
+      - button "Camera at I-80 EB @ 700 E / SR-71 / MP 124.15, SLC":
+        - img "Camera at I-80 EB @ 700 E / SR-71 / MP 124.15, SLC" [ref=e2987] [cursor=pointer]
+    - generic [ref=e2989]:
+      - button "Camera at I-80 EB @ 7200 W / MP 111.3, SLC":
+        - img "Camera at I-80 EB @ 7200 W / MP 111.3, SLC" [ref=e2990] [cursor=pointer]
+    - generic [ref=e2992]:
+      - button "Camera at I-80 EB @ Bangerter Hwy / 4000 W / SR-154 / MP 115.35, SLC":
+        - img "Camera at I-80 EB @ Bangerter Hwy / 4000 W / SR-154 / MP 115.35, SLC" [ref=e2993] [cursor=pointer]
+    - generic [ref=e2995]:
+      - button "Camera at I-80 EB @ Burmester Rd / MP 88.43, TE":
+        - img "Camera at I-80 EB @ Burmester Rd / MP 88.43, TE" [ref=e2996] [cursor=pointer]
+    - generic [ref=e2998]:
+      - button "Camera at I-80 EB @ Echo Canyon / MP 172, SU":
+        - img "Camera at I-80 EB @ Echo Canyon / MP 172, SU" [ref=e2999] [cursor=pointer]
+    - generic [ref=e3001]:
+      - button "Camera at I-80 EB @ Echo POE / MP 180.7, SU":
+        - img "Camera at I-80 EB @ Echo POE / MP 180.7, SU" [ref=e3002] [cursor=pointer]
+    - generic [ref=e3004]:
+      - button "Camera at I-80 EB @ I-215 E / MP 127.66, SL":
+        - img "Camera at I-80 EB @ I-215 E / MP 127.66, SL" [ref=e3005] [cursor=pointer]
+    - generic [ref=e3007]:
+      - button "Camera at I-80 EB @ I-215 W SB / MP 117.2, SLC":
+        - img "Camera at I-80 EB @ I-215 W SB / MP 117.2, SLC" [ref=e3008] [cursor=pointer]
+    - generic [ref=e3010]:
+      - button "Camera at I-80 EB @ Lakeside / Exit 62, TE":
+        - img "Camera at I-80 EB @ Lakeside / Exit 62, TE" [ref=e3011] [cursor=pointer]
+    - generic [ref=e3013]:
+      - button "Camera at I-80 EB @ Milepost 100, TE":
+        - img "Camera at I-80 EB @ Milepost 100, TE" [ref=e3014] [cursor=pointer]
+    - generic [ref=e3016]:
+      - button "Camera at I-80 EB @ Milepost 107.24, SL":
+        - img "Camera at I-80 EB @ Milepost 107.24, SL" [ref=e3017] [cursor=pointer]
+    - generic [ref=e3019]:
+      - button "Camera at I-80 EB @ Milepost 149.62, SU":
+        - img "Camera at I-80 EB @ Milepost 149.62, SU" [ref=e3020] [cursor=pointer]
+    - generic [ref=e3022]:
+      - button "Camera at I-80 EB @ Milepost 176.4, SU":
+        - img "Camera at I-80 EB @ Milepost 176.4, SU" [ref=e3023] [cursor=pointer]
+    - generic [ref=e3025]:
+      - button "Camera at I-80 EB @ Milepost 186.78, SU":
+        - img "Camera at I-80 EB @ Milepost 186.78, SU" [ref=e3026] [cursor=pointer]
+    - generic [ref=e3028]:
+      - button "Camera at I-80 EB @ Milepost 40, TE":
+        - img "Camera at I-80 EB @ Milepost 40, TE" [ref=e3029] [cursor=pointer]
+    - generic [ref=e3031]:
+      - button "Camera at I-80 EB @ Milepost 95, TE":
+        - img "Camera at I-80 EB @ Milepost 95, TE" [ref=e3032] [cursor=pointer]
+    - generic [ref=e3034]:
+      - button "Camera at I-80 EB @ Mouth of Parley's Canyon / MP 128.23, SL":
+        - img "Camera at I-80 EB @ Mouth of Parley's Canyon / MP 128.23, SL" [ref=e3035] [cursor=pointer]
+    - generic [ref=e3037]:
+      - button "Camera at I-80 EB @ Parley's Canyon / MP 138, SL":
+        - img "Camera at I-80 EB @ Parley's Canyon / MP 138, SL" [ref=e3038] [cursor=pointer]
+    - generic [ref=e3040]:
+      - button "Camera at I-80 EB @ Parley's Summit / MP 139.24, SU":
+        - img "Camera at I-80 EB @ Parley's Summit / MP 139.24, SU" [ref=e3041] [cursor=pointer]
+    - generic [ref=e3043]:
+      - button "Camera at I-80 EB @ Powderwood Rd / MP 143.46, SU":
+        - img "Camera at I-80 EB @ Powderwood Rd / MP 143.46, SU" [ref=e3044] [cursor=pointer]
+    - generic [ref=e3046]:
+      - button "Camera at I-80 EB @ Redwood Rd / SR-68 / MP 117.9, SLC":
+        - img "Camera at I-80 EB @ Redwood Rd / SR-68 / MP 117.9, SLC" [ref=e3047] [cursor=pointer]
+    - generic [ref=e3049]:
+      - button "Camera at I-80 EB @ Skull Valley Rd / Rowley Jct / SR-196 / MP 76.3, TE":
+        - img "Camera at I-80 EB @ Skull Valley Rd / Rowley Jct / SR-196 / MP 76.3, TE" [ref=e3050] [cursor=pointer]
+    - generic [ref=e3052]:
+      - button "Camera at I-80 EB @ SR-138 / MP 83.58, TE":
+        - img "Camera at I-80 EB @ SR-138 / MP 83.58, TE" [ref=e3053] [cursor=pointer]
+    - generic [ref=e3055]:
+      - button "Camera at I-80 EB @ SR-202 / MP 104.26, SL":
+        - img "Camera at I-80 EB @ SR-202 / MP 104.26, SL" [ref=e3056] [cursor=pointer]
+    - generic [ref=e3058]:
+      - button "Camera at I-80 EB @ SR-36 / Exit 99 / MP 98.6, TE":
+        - img "Camera at I-80 EB @ SR-36 / Exit 99 / MP 98.6, TE" [ref=e3059] [cursor=pointer]
+    - generic [ref=e3061]:
+      - button "Camera at I-80 EB @ State St / US-89 / MP 123.32, SSL":
+        - img "Camera at I-80 EB @ State St / US-89 / MP 123.32, SSL" [ref=e3062] [cursor=pointer]
+    - generic [ref=e3064]:
+      - button "Camera at I-80 EB @ Summit Park / MP 140.13, SU":
+        - img "Camera at I-80 EB @ Summit Park / MP 140.13, SU" [ref=e3065] [cursor=pointer]
+    - generic [ref=e3067]:
+      - button "Camera at I-80 EB @ View Area / MP 142.75, SU":
+        - img "Camera at I-80 EB @ View Area / MP 142.75, SU" [ref=e3068] [cursor=pointer]
+    - generic [ref=e3070]:
+      - button "Camera at I-80 EB @ Wendover / UT MP -1.4 / NV MP 409.25, WEN":
+        - img "Camera at I-80 EB @ Wendover / UT MP -1.4 / NV MP 409.25, WEN" [ref=e3071] [cursor=pointer]
+    - generic [ref=e3073]:
+      - button "Camera at I-80 EB @ West of POE / MP 2.44, WEN":
+        - img "Camera at I-80 EB @ West of POE / MP 2.44, WEN" [ref=e3074] [cursor=pointer]
+    - generic [ref=e3076]:
+      - button "Camera at I-80 EB @ West of US-40 / MP 145.4, SU":
+        - img "Camera at I-80 EB @ West of US-40 / MP 145.4, SU" [ref=e3077] [cursor=pointer]
+    - generic [ref=e3079]:
+      - button "Camera at I-80 Off-ramp WB @ 1300 E / MP 125.37, SLC":
+        - img "Camera at I-80 Off-ramp WB @ 1300 E / MP 125.37, SLC" [ref=e3080] [cursor=pointer]
+    - generic [ref=e3082]:
+      - button "Camera at I-80 RWIS @ Milepost 28.68, TE":
+        - img "Camera at I-80 RWIS @ Milepost 28.68, TE" [ref=e3083] [cursor=pointer]
+    - generic [ref=e3085]:
+      - button "Camera at I-80 RWIS @ Milepost 78, TE":
+        - img "Camera at I-80 RWIS @ Milepost 78, TE" [ref=e3086] [cursor=pointer]
+    - generic [ref=e3088]:
+      - button "Camera at I-80 RWIS @ Wahsatch Hill / MP 191.2, SU":
+        - img "Camera at I-80 RWIS @ Wahsatch Hill / MP 191.2, SU" [ref=e3089] [cursor=pointer]
+    - generic [ref=e3091]:
+      - button "Camera at I-80 RWIS EB @ East Delle / MP 70.75, TE":
+        - img "Camera at I-80 RWIS EB @ East Delle / MP 70.75, TE" [ref=e3092] [cursor=pointer]
+    - generic [ref=e3094]:
+      - button "Camera at I-80 RWIS EB @ Echo Canyon / MP 171.7, SU":
+        - img "Camera at I-80 RWIS EB @ Echo Canyon / MP 171.7, SU" [ref=e3095] [cursor=pointer]
+    - generic [ref=e3097]:
+      - button "Camera at I-80 RWIS EB @ Parley's Summit / MP 138.87, SL (Low Lite)":
+        - img "Camera at I-80 RWIS EB @ Parley's Summit / MP 138.87, SL (Low Lite)" [ref=e3098] [cursor=pointer]
+    - generic [ref=e3100]:
+      - button "Camera at I-80 RWIS EB @ Tollgate Canyon Rd / MP 150.7, SU":
+        - img "Camera at I-80 RWIS EB @ Tollgate Canyon Rd / MP 150.7, SU" [ref=e3101] [cursor=pointer]
+    - generic [ref=e3103]:
+      - button "Camera at I-80 RWIS EB @ West Delle / MP 68.3, TE":
+        - img "Camera at I-80 RWIS EB @ West Delle / MP 68.3, TE" [ref=e3104] [cursor=pointer]
+    - generic [ref=e3106]:
+      - button "Camera at I-80 RWIS WB @ Grassy Knolls Rest Area / MP 54.8, TE":
+        - img "Camera at I-80 RWIS WB @ Grassy Knolls Rest Area / MP 54.8, TE" [ref=e3107] [cursor=pointer]
+    - generic [ref=e3109]:
+      - button "Camera at I-80 RWIS WB @ Milepost 1.24, WEN":
+        - img "Camera at I-80 RWIS WB @ Milepost 1.24, WEN" [ref=e3110] [cursor=pointer]
+    - generic [ref=e3112]:
+      - button "Camera at I-80 WB @ 1200 E / Highland Dr / MP 124.9, SLC":
+        - img "Camera at I-80 WB @ 1200 E / Highland Dr / MP 124.9, SLC" [ref=e3113] [cursor=pointer]
+    - generic [ref=e3115]:
+      - button "Camera at I-80 WB @ 1300 E / MP 125.1, SLC":
+        - img "Camera at I-80 WB @ 1300 E / MP 125.1, SLC" [ref=e3116] [cursor=pointer]
+    - generic [ref=e3118]:
+      - button "Camera at I-80 WB @ 1500 E / MP 125.65, SLC":
+        - img "Camera at I-80 WB @ 1500 E / MP 125.65, SLC" [ref=e3119] [cursor=pointer]
+    - generic [ref=e3121]:
+      - button "Camera at I-80 WB @ 1700 E / MP 125.74, SLC":
+        - img "Camera at I-80 WB @ 1700 E / MP 125.74, SLC" [ref=e3122] [cursor=pointer]
+    - generic [ref=e3124]:
+      - button "Camera at I-80 WB @ 1900 W / MP 117.47, SLC":
+        - img "Camera at I-80 WB @ 1900 W / MP 117.47, SLC" [ref=e3125] [cursor=pointer]
+    - generic [ref=e3127]:
+      - button "Camera at I-80 WB @ 5600 W / SR-172 / MP 113.2, SLC":
+        - img "Camera at I-80 WB @ 5600 W / SR-172 / MP 113.2, SLC" [ref=e3128] [cursor=pointer]
+    - generic [ref=e3130]:
+      - button "Camera at I-80 WB @ 700 E / SR-71 / MP 124.1, SLC":
+        - img "Camera at I-80 WB @ 700 E / SR-71 / MP 124.1, SLC" [ref=e3131] [cursor=pointer]
+    - generic [ref=e3133]:
+      - button "Camera at I-80 WB @ Echo Canyon / MP 170.44, SU":
+        - img "Camera at I-80 WB @ Echo Canyon / MP 170.44, SU" [ref=e3134] [cursor=pointer]
+    - generic [ref=e3136]:
+      - button "Camera at I-80 WB @ Jeremy Ranch / MP 141.8, SU":
+        - img "Camera at I-80 WB @ Jeremy Ranch / MP 141.8, SU" [ref=e3137] [cursor=pointer]
+    - generic [ref=e3139]:
+      - button "Camera at I-80 WB @ Kimball Jct / SR-224 / MP 144.22, SU":
+        - img "Camera at I-80 WB @ Kimball Jct / SR-224 / MP 144.22, SU" [ref=e3140] [cursor=pointer]
+    - generic [ref=e3142]:
+      - button "Camera at I-80 WB @ Milepost 102.11, SL":
+        - img "Camera at I-80 WB @ Milepost 102.11, SL" [ref=e3143] [cursor=pointer]
+    - generic [ref=e3145]:
+      - button "Camera at I-80 WB @ Milepost 103, SL":
+        - img "Camera at I-80 WB @ Milepost 103, SL" [ref=e3146] [cursor=pointer]
+    - generic [ref=e3148]:
+      - button "Camera at I-80 WB @ Milepost 104.97, SL":
+        - img "Camera at I-80 WB @ Milepost 104.97, SL" [ref=e3149] [cursor=pointer]
+    - generic [ref=e3151]:
+      - button "Camera at I-80 WB @ Milepost 105.5, SL":
+        - img "Camera at I-80 WB @ Milepost 105.5, SL" [ref=e3152] [cursor=pointer]
+    - generic [ref=e3154]:
+      - button "Camera at I-80 WB @ Milepost 106, SL":
+        - img "Camera at I-80 WB @ Milepost 106, SL" [ref=e3155] [cursor=pointer]
+    - generic [ref=e3157]:
+      - button "Camera at I-80 WB @ Milepost 11.8, TE":
+        - img "Camera at I-80 WB @ Milepost 11.8, TE" [ref=e3158] [cursor=pointer]
+    - generic [ref=e3160]:
+      - button "Camera at I-80 WB @ Milepost 141.04, SU":
+        - img "Camera at I-80 WB @ Milepost 141.04, SU" [ref=e3161] [cursor=pointer]
+    - generic [ref=e3163]:
+      - button "Camera at I-80 WB @ Milepost 147.56, SU":
+        - img "Camera at I-80 WB @ Milepost 147.56, SU" [ref=e3164] [cursor=pointer]
+    - generic [ref=e3166]:
+      - button "Camera at I-80 WB @ Milepost 84.73, TE":
+        - img "Camera at I-80 WB @ Milepost 84.73, TE" [ref=e3167] [cursor=pointer]
+    - generic [ref=e3169]:
+      - button "Camera at I-80 WB @ Parley's Summit / MP 138.9, SL":
+        - img "Camera at I-80 WB @ Parley's Summit / MP 138.9, SL" [ref=e3170] [cursor=pointer]
+    - generic [ref=e3172]:
+      - button "Camera at I-80 WB @ Silver Creek Jct / US-40 / MP 146.84, SU":
+        - img "Camera at I-80 WB @ Silver Creek Jct / US-40 / MP 146.84, SU" [ref=e3173] [cursor=pointer]
+    - generic [ref=e3175]:
+      - button "Camera at I-80 WB @ SR-201 / MP 101.45, TE":
+        - img "Camera at I-80 WB @ SR-201 / MP 101.45, TE" [ref=e3176] [cursor=pointer]
+    - generic [ref=e3178]:
+      - button "Camera at I-80 WB @ State St / US-89 / MP 123.28, SSL":
+        - img "Camera at I-80 WB @ State St / US-89 / MP 123.28, SSL" [ref=e3179] [cursor=pointer]
+    - generic [ref=e3181]:
+      - button "Camera at I-84 / Weber Canyon @ Power Plant / MP 89.25, WB":
+        - img "Camera at I-84 / Weber Canyon @ Power Plant / MP 89.25, WB" [ref=e3182] [cursor=pointer]
+    - generic [ref=e3184]:
+      - button "Camera at I-84 / Weber Canyon EB @ MP 86.68, SWE":
+        - img "Camera at I-84 / Weber Canyon EB @ MP 86.68, SWE" [ref=e3185] [cursor=pointer]
+    - generic [ref=e3187]:
+      - button "Camera at I-84 / Weber Canyon WB @ Milepost 92.02, MN":
+        - img "Camera at I-84 / Weber Canyon WB @ Milepost 92.02, MN" [ref=e3188] [cursor=pointer]
+    - generic [ref=e3190]:
+      - button "Camera at I-84 / Weber Canyon WB @ Milepost 91.35, MN":
+        - img "Camera at I-84 / Weber Canyon WB @ Milepost 91.35, MN" [ref=e3191] [cursor=pointer]
+    - generic [ref=e3193]:
+      - button "Camera at I-84 EB @ Adams Ave Pkwy / 475 E / MP 84.6, SWE":
+        - img "Camera at I-84 EB @ Adams Ave Pkwy / 475 E / MP 84.6, SWE" [ref=e3194] [cursor=pointer]
+    - generic [ref=e3196]:
+      - button "Camera at I-84 EB @ Blue Creek / MP 20.36, BE":
+        - img "Camera at I-84 EB @ Blue Creek / MP 20.36, BE" [ref=e3197] [cursor=pointer]
+    - generic [ref=e3199]:
+      - button "Camera at I-84 EB @ I-80 / Echo Jct / MP 119.36, SU":
+        - img "Camera at I-84 EB @ I-80 / Echo Jct / MP 119.36, SU" [ref=e3200] [cursor=pointer]
+    - generic [ref=e3202]:
+      - button "Camera at I-84 EB @ I-80 / Echo Jct / MP 119.6, SU":
+        - img "Camera at I-84 EB @ I-80 / Echo Jct / MP 119.6, SU" [ref=e3203] [cursor=pointer]
+    - generic [ref=e3205]:
+      - button "Camera at I-84 EB @ Milepost 106.44, MN":
+        - img "Camera at I-84 EB @ Milepost 106.44, MN" [ref=e3206] [cursor=pointer]
+    - generic [ref=e3208]:
+      - button "Camera at I-84 EB @ Milepost 34, BE":
+        - img "Camera at I-84 EB @ Milepost 34, BE" [ref=e3209] [cursor=pointer]
+    - generic [ref=e3211]:
+      - button "Camera at I-84 EB @ Milepost 96.63, MN":
+        - img "Camera at I-84 EB @ Milepost 96.63, MN" [ref=e3212] [cursor=pointer]
+    - generic [ref=e3214]:
+      - button "Camera at I-84 EB @ Milepost 98.85, MN":
+        - img "Camera at I-84 EB @ Milepost 98.85, MN" [ref=e3215] [cursor=pointer]
+    - generic [ref=e3217]:
+      - button "Camera at I-84 EB @ Mouth of Weber Cyn / MP 88.18, WB":
+        - img "Camera at I-84 EB @ Mouth of Weber Cyn / MP 88.18, WB" [ref=e3218] [cursor=pointer]
+    - generic [ref=e3220]:
+      - button "Camera at I-84 EB @ Rattlesnake Pass / MP 17.64, BE":
+        - img "Camera at I-84 EB @ Rattlesnake Pass / MP 17.64, BE" [ref=e3221] [cursor=pointer]
+    - generic [ref=e3223]:
+      - button "Camera at I-84 EB @ SR-83 / MP 26.57, HWL":
+        - img "Camera at I-84 EB @ SR-83 / MP 26.57, HWL" [ref=e3224] [cursor=pointer]
+    - generic [ref=e3226]:
+      - button "Camera at I-84 EB @ Stoddard Ln / MP 101.11, MN":
+        - img "Camera at I-84 EB @ Stoddard Ln / MP 101.11, MN" [ref=e3227] [cursor=pointer]
+    - generic [ref=e3229]:
+      - button "Camera at I-84 RWIS WB @ Chaulk Hill / MP 13.79, BE":
+        - img "Camera at I-84 RWIS WB @ Chaulk Hill / MP 13.79, BE" [ref=e3230] [cursor=pointer]
+    - generic [ref=e3232]:
+      - button "Camera at I-84 RWIS WB @ Devils Slide / MP 111.74, MN":
+        - img "Camera at I-84 RWIS WB @ Devils Slide / MP 111.74, MN" [ref=e3233] [cursor=pointer]
+    - generic [ref=e3235]:
+      - button "Camera at I-84 RWIS WB @ Whites Valley / MP 30.45, BE":
+        - img "Camera at I-84 RWIS WB @ Whites Valley / MP 30.45, BE" [ref=e3236] [cursor=pointer]
+    - generic [ref=e3238]:
+      - button "Camera at I-84 SB @ Riverdale Rd / SR-26 / MP 81.8, RDL":
+        - img "Camera at I-84 SB @ Riverdale Rd / SR-26 / MP 81.8, RDL" [ref=e3239] [cursor=pointer]
+    - generic [ref=e3241]:
+      - button "Camera at I-84 WB @ I-15 SB / MP 41.66, TRE":
+        - img "Camera at I-84 WB @ I-15 SB / MP 41.66, TRE" [ref=e3242] [cursor=pointer]
+    - generic [ref=e3244]:
+      - button "Camera at I-84 WB @ Milepost 109.39, MN":
+        - img "Camera at I-84 WB @ Milepost 109.39, MN" [ref=e3245] [cursor=pointer]
+    - generic [ref=e3247]:
+      - button "Camera at I-84 WB @ SR-167 / MP 92.42, MN":
+        - img "Camera at I-84 WB @ SR-167 / MP 92.42, MN" [ref=e3248] [cursor=pointer]
+    - generic [ref=e3250]:
+      - button "Camera at Jordan Gateway / 10800 S @ Sterling View Dr / 400 W, SJO":
+        - img "Camera at Jordan Gateway / 10800 S @ Sterling View Dr / 400 W, SJO" [ref=e3251] [cursor=pointer]
+    - generic [ref=e3253]:
+      - button "Camera at Jordan Gateway / 325 W @ 11325 S, SJO":
+        - img "Camera at Jordan Gateway / 325 W @ 11325 S, SJO" [ref=e3254] [cursor=pointer]
+    - generic [ref=e3256]:
+      - button "Camera at Jordan Gateway / 500 W @ 10000 S, SJO":
+        - img "Camera at Jordan Gateway / 500 W @ 10000 S, SJO" [ref=e3257] [cursor=pointer]
+    - generic [ref=e3259]:
+      - button "Camera at Kearns Blvd / SR-248 @ Bonanza Dr / Monitor Dr, PKC":
+        - img "Camera at Kearns Blvd / SR-248 @ Bonanza Dr / Monitor Dr, PKC" [ref=e3260] [cursor=pointer]
+    - generic [ref=e3262]:
+      - button "Camera at Kearns Blvd / SR-248 @ Comstock Dr, PKC":
+        - img "Camera at Kearns Blvd / SR-248 @ Comstock Dr, PKC" [ref=e3263] [cursor=pointer]
+    - generic [ref=e3265]:
+      - button "Camera at Kearns Blvd / SR-248 @ Richardson Flat Rd, PKC":
+        - img "Camera at Kearns Blvd / SR-248 @ Richardson Flat Rd, PKC" [ref=e3266] [cursor=pointer]
+    - generic [ref=e3268]:
+      - button "Camera at Kearns Blvd / SR-248 @ Round Valley Dr, PKC":
+        - img "Camera at Kearns Blvd / SR-248 @ Round Valley Dr, PKC" [ref=e3269] [cursor=pointer]
+    - generic [ref=e3271]:
+      - button "Camera at Lakeview Pkwy @ 500 W, PVO":
+        - img "Camera at Lakeview Pkwy @ 500 W, PVO" [ref=e3272] [cursor=pointer]
+    - generic [ref=e3274]:
+      - button "Camera at Lakeview Pkwy @ Center St, PVO":
+        - img "Camera at Lakeview Pkwy @ Center St, PVO" [ref=e3275] [cursor=pointer]
+    - generic [ref=e3277]:
+      - button "Camera at Lakeview Pkwy @ Industrial Pkwy, PVO":
+        - img "Camera at Lakeview Pkwy @ Industrial Pkwy, PVO" [ref=e3278] [cursor=pointer]
+    - generic [ref=e3280]:
+      - button "Camera at Lakeview Pkwy @ Sky Way / Championship Dr, PVO":
+        - img "Camera at Lakeview Pkwy @ Sky Way / Championship Dr, PVO" [ref=e3281] [cursor=pointer]
+    - generic [ref=e3283]:
+      - button "Camera at Lakeview Pkwy / 1860 S @ East Bay Blvd / 350 E, PVO":
+        - img "Camera at Lakeview Pkwy / 1860 S @ East Bay Blvd / 350 E, PVO" [ref=e3284] [cursor=pointer]
+    - generic [ref=e3286]:
+      - button "Camera at Lakeview Pkwy / 1860 S @ Novell Place, PVO":
+        - img "Camera at Lakeview Pkwy / 1860 S @ Novell Place, PVO" [ref=e3287] [cursor=pointer]
+    - generic [ref=e3289]:
+      - button "Camera at Layton Pkwy @ 100 W, LTN":
+        - img "Camera at Layton Pkwy @ 100 W, LTN" [ref=e3290] [cursor=pointer]
+    - generic [ref=e3292]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 1200 N / MP 5.42, WBN":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 1200 N / MP 5.42, WBN" [ref=e3293] [cursor=pointer]
+    - generic [ref=e3295]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 1275 N / MP 8.3, CVL":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 1275 N / MP 8.3, CVL" [ref=e3296] [cursor=pointer]
+    - generic [ref=e3298]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 1600 S / MP 9.73, FRM (Lower)":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 1600 S / MP 9.73, FRM (Lower)" [ref=e3299] [cursor=pointer]
+    - generic [ref=e3301]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 1600 S / MP 9.73, FRM (Upper)":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 1600 S / MP 9.73, FRM (Upper)" [ref=e3302] [cursor=pointer]
+    - generic [ref=e3304]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 1900 S / MP 3.16, WXS":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 1900 S / MP 3.16, WXS" [ref=e3305] [cursor=pointer]
+    - generic [ref=e3307]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 200 S / MP 11.4, FRM":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 200 S / MP 11.4, FRM" [ref=e3308] [cursor=pointer]
+    - generic [ref=e3310]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 2200 N / MP 6.62, WBN":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 2200 N / MP 6.62, WBN" [ref=e3311] [cursor=pointer]
+    - generic [ref=e3313]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 2500 S / MP 2.5, WXS":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 2500 S / MP 2.5, WXS" [ref=e3314] [cursor=pointer]
+    - generic [ref=e3316]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 300 N / MP 1.52, NSL":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 300 N / MP 1.52, NSL" [ref=e3317] [cursor=pointer]
+    - generic [ref=e3319]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 400 N / MP 4.7, WBN":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 400 N / MP 4.7, WBN" [ref=e3320] [cursor=pointer]
+    - generic [ref=e3322]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 800 N / MP 7.8, CVL":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 800 N / MP 7.8, CVL" [ref=e3323] [cursor=pointer]
+    - generic [ref=e3325]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 900 N / MP 2.14, NSL":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 900 N / MP 2.14, NSL" [ref=e3326] [cursor=pointer]
+    - generic [ref=e3328]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ 900 W / MP 7, CVL":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ 900 W / MP 7, CVL" [ref=e3329] [cursor=pointer]
+    - generic [ref=e3331]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ Center St / MP 1, NSL":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ Center St / MP 1, NSL" [ref=e3332] [cursor=pointer]
+    - generic [ref=e3334]:
+      - button "Camera at Legacy Pkwy / SR-67 NB @ Parrish Ln / SR-105 / MP 7.45, CVL":
+        - img "Camera at Legacy Pkwy / SR-67 NB @ Parrish Ln / SR-105 / MP 7.45, CVL" [ref=e3335] [cursor=pointer]
+    - generic [ref=e3337]:
+      - button "Camera at Legacy Pkwy / SR-67 SB @ 1900 N / MP 9.16, CVL":
+        - img "Camera at Legacy Pkwy / SR-67 SB @ 1900 N / MP 9.16, CVL" [ref=e3338] [cursor=pointer]
+    - generic [ref=e3340]:
+      - button "Camera at Legacy Pkwy / SR-67 SB @ 250 N / US-89 / MP 12.1, FRM":
+        - img "Camera at Legacy Pkwy / SR-67 SB @ 250 N / US-89 / MP 12.1, FRM" [ref=e3341] [cursor=pointer]
+    - generic [ref=e3343]:
+      - button "Camera at Legacy Pkwy / SR-67 SB @ 500 S / MP 4, WXS":
+        - img "Camera at Legacy Pkwy / SR-67 SB @ 500 S / MP 4, WXS" [ref=e3344] [cursor=pointer]
+    - generic [ref=e3346]:
+      - button "Camera at Legacy Pkwy / SR-67 SB @ Glover Ln / MP 10.5, FRM":
+        - img "Camera at Legacy Pkwy / SR-67 SB @ Glover Ln / MP 10.5, FRM" [ref=e3347] [cursor=pointer]
+    - generic [ref=e3349]:
+      - button "Camera at Legacy Pkwy / SR-67 SB @ Pages Ln / MP 6, WBN":
+        - img "Camera at Legacy Pkwy / SR-67 SB @ Pages Ln / MP 6, WBN" [ref=e3350] [cursor=pointer]
+    - generic [ref=e3352]:
+      - button "Camera at Legacy Pkwy / SR-67 SB @ Parrish Ln / SR-105 / MP 7.4, CVL":
+        - img "Camera at Legacy Pkwy / SR-67 SB @ Parrish Ln / SR-105 / MP 7.4, CVL" [ref=e3353] [cursor=pointer]
+    - generic [ref=e3355]:
+      - button "Camera at Little Cottonwood Rd / 3335 E / SR-209 @ Old Wasatch Blvd / 9710 S, GNT":
+        - img "Camera at Little Cottonwood Rd / 3335 E / SR-209 @ Old Wasatch Blvd / 9710 S, GNT" [ref=e3356] [cursor=pointer]
+    - generic [ref=e3358]:
+      - button "Camera at Little Cottonwood Rd / 9800 S / SR-209 @ Wasatch Blvd / 3400 E, SL":
+        - img "Camera at Little Cottonwood Rd / 9800 S / SR-209 @ Wasatch Blvd / 3400 E, SL" [ref=e3359] [cursor=pointer]
+    - generic [ref=e3361]:
+      - button "Camera at Little Cottonwood Rd / SR-210 @ Lisa Falls / MP 6.5, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 @ Lisa Falls / MP 6.5, SL" [ref=e3362] [cursor=pointer]
+    - generic [ref=e3364]:
+      - button "Camera at Little Cottonwood Rd / SR-210 @ Tanners Flat / MP 7.94, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 @ Tanners Flat / MP 7.94, SL" [ref=e3365] [cursor=pointer]
+    - generic [ref=e3367]:
+      - button "Camera at Little Cottonwood Rd / SR-210 @ Upper Vault / MP 5.96, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 @ Upper Vault / MP 5.96, SL" [ref=e3368] [cursor=pointer]
+    - generic [ref=e3370]:
+      - button "Camera at Little Cottonwood Rd / SR-210 @ White Pine / MP 8.7, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 @ White Pine / MP 8.7, SL" [ref=e3371] [cursor=pointer]
+    - generic [ref=e3373]:
+      - button "Camera at Little Cottonwood Rd / SR-210 EB @ Alta Bypass / MP 10.95, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 EB @ Alta Bypass / MP 10.95, SL" [ref=e3374] [cursor=pointer]
+    - generic [ref=e3376]:
+      - button "Camera at Little Cottonwood Rd / SR-210 EB @ Seven Turns / MP 7.4, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 EB @ Seven Turns / MP 7.4, SL" [ref=e3377] [cursor=pointer]
+    - generic [ref=e3379]:
+      - button "Camera at Little Cottonwood Rd / SR-210 EB @ White Pine Parking / MP 9.2, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 EB @ White Pine Parking / MP 9.2, SL" [ref=e3380] [cursor=pointer]
+    - generic [ref=e3382]:
+      - button "Camera at Little Cottonwood Rd / SR-210 RWIS EB @ Powerhouse / MP 5.67, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 RWIS EB @ Powerhouse / MP 5.67, SL" [ref=e3383] [cursor=pointer]
+    - generic [ref=e3385]:
+      - button "Camera at Little Cottonwood Rd / SR-210 WB @ Alta / MP 12.16, ALT":
+        - img "Camera at Little Cottonwood Rd / SR-210 WB @ Alta / MP 12.16, ALT" [ref=e3386] [cursor=pointer]
+    - generic [ref=e3388]:
+      - button "Camera at Little Cottonwood Rd / SR-210 WB @ Upper White Pine / MP 9.7, SL":
+        - img "Camera at Little Cottonwood Rd / SR-210 WB @ Upper White Pine / MP 9.7, SL" [ref=e3389] [cursor=pointer]
+    - generic [ref=e3391]:
+      - button "Camera at Logan Rd / US-89 @ Bear Lake Blvd / SR-30, GRC":
+        - img "Camera at Logan Rd / US-89 @ Bear Lake Blvd / SR-30, GRC" [ref=e3392] [cursor=pointer]
+    - generic [ref=e3394]:
+      - button "Camera at Logan Rd / US-89 EB @ MP 497.15, GRC":
+        - img "Camera at Logan Rd / US-89 EB @ MP 497.15, GRC" [ref=e3395] [cursor=pointer]
+    - generic [ref=e3397]:
+      - button "Camera at Main St @ 100 S, STG":
+        - img "Camera at Main St @ 100 S, STG" [ref=e3398] [cursor=pointer]
+    - generic [ref=e3400]:
+      - button "Camera at Main St @ 1100 W, LHI":
+        - img "Camera at Main St @ 1100 W, LHI" [ref=e3401] [cursor=pointer]
+    - generic [ref=e3403]:
+      - button "Camera at Main St @ 1200 E, LHI":
+        - img "Camera at Main St @ 1200 E, LHI" [ref=e3404] [cursor=pointer]
+    - generic [ref=e3406]:
+      - button "Camera at Main St @ 1700 W, LHI":
+        - img "Camera at Main St @ 1700 W, LHI" [ref=e3407] [cursor=pointer]
+    - generic [ref=e3409]:
+      - button "Camera at Main St @ 2300 W, LHI":
+        - img "Camera at Main St @ 2300 W, LHI" [ref=e3410] [cursor=pointer]
+    - generic [ref=e3412]:
+      - button "Camera at Main St @ 500 E / Pioneer Dr, LHI":
+        - img "Camera at Main St @ 500 E / Pioneer Dr, LHI" [ref=e3413] [cursor=pointer]
+    - generic [ref=e3415]:
+      - button "Camera at Main St @ 700 S, STG":
+        - img "Camera at Main St @ 700 S, STG" [ref=e3416] [cursor=pointer]
+    - generic [ref=e3418]:
+      - button "Camera at Main St @ Buena Vista Blvd, WAS":
+        - img "Camera at Main St @ Buena Vista Blvd, WAS" [ref=e3419] [cursor=pointer]
+    - generic [ref=e3421]:
+      - button "Camera at Main St @ Center St, LHI":
+        - img "Camera at Main St @ Center St, LHI" [ref=e3422] [cursor=pointer]
+    - generic [ref=e3424]:
+      - button "Camera at Main St @ River Way / Willow Park Rd / 2725 W, LHI":
+        - img "Camera at Main St @ River Way / Willow Park Rd / 2725 W, LHI" [ref=e3425] [cursor=pointer]
+    - generic [ref=e3427]:
+      - button "Camera at Main St @ Vineyard Rd / 400 N, VIN":
+        - img "Camera at Main St @ Vineyard Rd / 400 N, VIN" [ref=e3428] [cursor=pointer]
+    - generic [ref=e3430]:
+      - button "Camera at Main St / Columbus St / SR-186 @ 300 N, SLC":
+        - img "Camera at Main St / Columbus St / SR-186 @ 300 N, SLC" [ref=e3431] [cursor=pointer]
+    - generic [ref=e3433]:
+      - button "Camera at Main St / SR 102 @ I-84 SB Ramp TRE":
+        - img "Camera at Main St / SR 102 @ I-84 SB Ramp TRE" [ref=e3434] [cursor=pointer]
+    - generic [ref=e3436]:
+      - button "Camera at Main St / SR-10 @ 100 N, HTN":
+        - img "Camera at Main St / SR-10 @ 100 N, HTN" [ref=e3437] [cursor=pointer]
+    - generic [ref=e3439]:
+      - button "Camera at Main St / SR-101 @ 800 E / SR-165, HYR":
+        - img "Camera at Main St / SR-101 @ 800 E / SR-165, HYR" [ref=e3440] [cursor=pointer]
+    - generic [ref=e3442]:
+      - button "Camera at Main St / SR-102 @ 1000 W, TRE":
+        - img "Camera at Main St / SR-102 @ 1000 W, TRE" [ref=e3443] [cursor=pointer]
+    - generic [ref=e3445]:
+      - button "Camera at Main St / SR-102 @ I-84 SB Ramp TRE":
+        - img "Camera at Main St / SR-102 @ I-84 SB Ramp TRE" [ref=e3446] [cursor=pointer]
+    - generic [ref=e3448]:
+      - button "Camera at Main St / SR-113 / SR-222 @ Center St / SR-113, MWY":
+        - img "Camera at Main St / SR-113 / SR-222 @ Center St / SR-113, MWY" [ref=e3449] [cursor=pointer]
+    - generic [ref=e3451]:
+      - button "Camera at Main St / SR-115 @ 600 N, PSN":
+        - img "Camera at Main St / SR-115 @ 600 N, PSN" [ref=e3452] [cursor=pointer]
+    - generic [ref=e3454]:
+      - button "Camera at Main St / SR-118 / SR-120 @ 1300 S / SR-120, RFD":
+        - img "Camera at Main St / SR-118 / SR-120 @ 1300 S / SR-120, RFD" [ref=e3455] [cursor=pointer]
+    - generic [ref=e3457]:
+      - button "Camera at Main St / SR-120 @ 300 N / SR-118, RFD":
+        - img "Camera at Main St / SR-120 @ 300 N / SR-118, RFD" [ref=e3458] [cursor=pointer]
+    - generic [ref=e3460]:
+      - button "Camera at Main St / SR-120 @ 300 S, RFD":
+        - img "Camera at Main St / SR-120 @ 300 S, RFD" [ref=e3461] [cursor=pointer]
+    - generic [ref=e3463]:
+      - button "Camera at Main St / SR-120 @ 800 S, RFD":
+        - img "Camera at Main St / SR-120 @ 800 S, RFD" [ref=e3464] [cursor=pointer]
+    - generic [ref=e3466]:
+      - button "Camera at Main St / SR-120 @ Center St, RFD":
+        - img "Camera at Main St / SR-120 @ Center St, RFD" [ref=e3467] [cursor=pointer]
+    - generic [ref=e3469]:
+      - button "Camera at Main St / SR-126 @ 1300 N, SUN":
+        - img "Camera at Main St / SR-126 @ 1300 N, SUN" [ref=e3470] [cursor=pointer]
+    - generic [ref=e3472]:
+      - button "Camera at Main St / SR-126 @ Antelope Dr / SR-108, LTN":
+        - img "Camera at Main St / SR-126 @ Antelope Dr / SR-108, LTN" [ref=e3473] [cursor=pointer]
+    - generic [ref=e3475]:
+      - button "Camera at Main St / SR-126 @ Gentile St / SR-109, LTN":
+        - img "Camera at Main St / SR-126 @ Gentile St / SR-109, LTN" [ref=e3476] [cursor=pointer]
+    - generic [ref=e3478]:
+      - button "Camera at Main St / SR-13 @ 200 S / SR-90, BRC":
+        - img "Camera at Main St / SR-13 @ 200 S / SR-90, BRC" [ref=e3479] [cursor=pointer]
+    - generic [ref=e3481]:
+      - button "Camera at Main St / SR-13 @ 700 S, BRC":
+        - img "Camera at Main St / SR-13 @ 700 S, BRC" [ref=e3482] [cursor=pointer]
+    - generic [ref=e3484]:
+      - button "Camera at Main St / SR-13 @ Forest St, BRC":
+        - img "Camera at Main St / SR-13 @ Forest St, BRC" [ref=e3485] [cursor=pointer]
+    - generic [ref=e3487]:
+      - button "Camera at Main St / SR-130 @ 1045 N / Knoll St, CDC":
+        - img "Camera at Main St / SR-130 @ 1045 N / Knoll St, CDC" [ref=e3488] [cursor=pointer]
+    - generic [ref=e3490]:
+      - button "Camera at Main St / SR-130 @ 1325 N, CDC":
+        - img "Camera at Main St / SR-130 @ 1325 N, CDC" [ref=e3491] [cursor=pointer]
+    - generic [ref=e3493]:
+      - button "Camera at Main St / SR-130 @ 200 N / Freedom Blvd / SR-56, CDC":
+        - img "Camera at Main St / SR-130 @ 200 N / Freedom Blvd / SR-56, CDC" [ref=e3494] [cursor=pointer]
+    - generic [ref=e3496]:
+      - button "Camera at Main St / SR-130 @ 200 S / SR-289, CDC":
+        - img "Camera at Main St / SR-130 @ 200 S / SR-289, CDC" [ref=e3497] [cursor=pointer]
+    - generic [ref=e3499]:
+      - button "Camera at Main St / SR-130 @ 600 S, CDC":
+        - img "Camera at Main St / SR-130 @ 600 S, CDC" [ref=e3500] [cursor=pointer]
+    - generic [ref=e3502]:
+      - button "Camera at Main St / SR-130 @ Canyon Ranch Dr, CDC":
+        - img "Camera at Main St / SR-130 @ Canyon Ranch Dr, CDC" [ref=e3503] [cursor=pointer]
+    - generic [ref=e3505]:
+      - button "Camera at Main St / SR-130 @ Cedar Knolls, CDC":
+        - img "Camera at Main St / SR-130 @ Cedar Knolls, CDC" [ref=e3506] [cursor=pointer]
+    - generic [ref=e3508]:
+      - button "Camera at Main St / SR-130 @ Coal Creek Rd, CDC":
+        - img "Camera at Main St / SR-130 @ Coal Creek Rd, CDC" [ref=e3509] [cursor=pointer]
+    - generic [ref=e3511]:
+      - button "Camera at Main St / SR-130 @ Cross Hollow Rd / Old Hwy 91, CDC":
+        - img "Camera at Main St / SR-130 @ Cross Hollow Rd / Old Hwy 91, CDC" [ref=e3512] [cursor=pointer]
+    - generic [ref=e3514]:
+      - button "Camera at Main St / SR-130 @ Fiddlers Canyon Rd / 1925 N, CDC":
+        - img "Camera at Main St / SR-130 @ Fiddlers Canyon Rd / 1925 N, CDC" [ref=e3515] [cursor=pointer]
+    - generic [ref=e3517]:
+      - button "Camera at Main St / SR-130 @ Nichols Canyon Rd, CDC":
+        - img "Camera at Main St / SR-130 @ Nichols Canyon Rd, CDC" [ref=e3518] [cursor=pointer]
+    - generic [ref=e3520]:
+      - button "Camera at Main St / SR-130 @ University Blvd/SR-289 / Center St/SR-14, CDC":
+        - img "Camera at Main St / SR-130 @ University Blvd/SR-289 / Center St/SR-14, CDC" [ref=e3521] [cursor=pointer]
+    - generic [ref=e3523]:
+      - button "Camera at Main St / SR-138 @ SR-112, GVL":
+        - img "Camera at Main St / SR-138 @ SR-112, GVL" [ref=e3524] [cursor=pointer]
+    - generic [ref=e3526]:
+      - button "Camera at Main St / SR-145 @ Kawakami Dr / 600 W, AFK":
+        - img "Camera at Main St / SR-145 @ Kawakami Dr / 600 W, AFK" [ref=e3527] [cursor=pointer]
+    - generic [ref=e3529]:
+      - button "Camera at Main St / SR-156 @ 1000 N, SPF":
+        - img "Camera at Main St / SR-156 @ 1000 N, SPF" [ref=e3530] [cursor=pointer]
+    - generic [ref=e3532]:
+      - button "Camera at Main St / SR-156 @ 300 S / SR-198, SPF":
+        - img "Camera at Main St / SR-156 @ 300 S / SR-198, SPF" [ref=e3533] [cursor=pointer]
+    - generic [ref=e3535]:
+      - button "Camera at Main St / SR-156 @ 400 N / SR-147, SPF":
+        - img "Camera at Main St / SR-156 @ 400 N / SR-147, SPF" [ref=e3536] [cursor=pointer]
+    - generic [ref=e3538]:
+      - button "Camera at Main St / SR-156 @ 800 N, SPF":
+        - img "Camera at Main St / SR-156 @ 800 N, SPF" [ref=e3539] [cursor=pointer]
+    - generic [ref=e3541]:
+      - button "Camera at Main St / SR-156 @ Center St, SPF":
+        - img "Camera at Main St / SR-156 @ Center St, SPF" [ref=e3542] [cursor=pointer]
+    - generic [ref=e3544]:
+      - button "Camera at Main St / SR-160 @ Center St / SR-21, BVR":
+        - img "Camera at Main St / SR-160 @ Center St / SR-21, BVR" [ref=e3545] [cursor=pointer]
+    - generic [ref=e3547]:
+      - button "Camera at Main St / SR-165 @ 100 N PVD / 1200 S LGN, PVD":
+        - img "Camera at Main St / SR-165 @ 100 N PVD / 1200 S LGN, PVD" [ref=e3548] [cursor=pointer]
+    - generic [ref=e3550]:
+      - button "Camera at Main St / SR-165 @ 3200 S, NIB":
+        - img "Camera at Main St / SR-165 @ 3200 S, NIB" [ref=e3551] [cursor=pointer]
+    - generic [ref=e3553]:
+      - button "Camera at Main St / SR-198 @ Arrowhead Trail Rd / SR-164, SPF":
+        - img "Camera at Main St / SR-198 @ Arrowhead Trail Rd / SR-164, SPF" [ref=e3554] [cursor=pointer]
+    - generic [ref=e3556]:
+      - button "Camera at Main St / SR-198 @ Highland Dr / SR-198, STQ":
+        - img "Camera at Main St / SR-198 @ Highland Dr / SR-198, STQ" [ref=e3557] [cursor=pointer]
+    - generic [ref=e3559]:
+      - button "Camera at Main St / SR-198 @ Volunteer Dr, SPF":
+        - img "Camera at Main St / SR-198 @ Volunteer Dr, SPF" [ref=e3560] [cursor=pointer]
+    - generic [ref=e3562]:
+      - button "Camera at Main St / SR-273 @ Nicholls Rd / 800 S, FRU":
+        - img "Camera at Main St / SR-273 @ Nicholls Rd / 800 S, FRU" [ref=e3563] [cursor=pointer]
+    - generic [ref=e3565]:
+      - button "Camera at Main St / SR-28 @ 100 N / SR-132, NPH (Local)":
+        - img "Camera at Main St / SR-28 @ 100 N / SR-132, NPH (Local)" [ref=e3566] [cursor=pointer]
+    - generic [ref=e3568]:
+      - button "Camera at Main St / SR-32 @ 200 S / SR-248, KMS":
+        - img "Camera at Main St / SR-32 @ 200 S / SR-248, KMS" [ref=e3569] [cursor=pointer]
+    - generic [ref=e3571]:
+      - button "Camera at Main St / SR-32 @ Center St / SR-150, KMS":
+        - img "Camera at Main St / SR-32 @ Center St / SR-150, KMS" [ref=e3572] [cursor=pointer]
+    - generic [ref=e3574]:
+      - button "Camera at Main St / SR-36 @ 1000 N, TLE":
+        - img "Camera at Main St / SR-36 @ 1000 N, TLE" [ref=e3575] [cursor=pointer]
+    - generic [ref=e3577]:
+      - button "Camera at Main St / SR-36 @ 1280 N, TLE":
+        - img "Camera at Main St / SR-36 @ 1280 N, TLE" [ref=e3578] [cursor=pointer]
+    - generic [ref=e3580]:
+      - button "Camera at Main St / SR-36 @ 2000 N, TLE":
+        - img "Camera at Main St / SR-36 @ 2000 N, TLE" [ref=e3581] [cursor=pointer]
+    - generic [ref=e3583]:
+      - button "Camera at Main St / SR-36 @ 3100 N, TLE":
+        - img "Camera at Main St / SR-36 @ 3100 N, TLE" [ref=e3584] [cursor=pointer]
+    - generic [ref=e3586]:
+      - button "Camera at Main St / SR-36 @ 400 N, TLE":
+        - img "Camera at Main St / SR-36 @ 400 N, TLE" [ref=e3587] [cursor=pointer]
+    - generic [ref=e3589]:
+      - button "Camera at Main St / SR-36 @ Tooele Shed / Coleman St / MP 52.63, TLE":
+        - img "Camera at Main St / SR-36 @ Tooele Shed / Coleman St / MP 52.63, TLE" [ref=e3590] [cursor=pointer]
+    - generic [ref=e3592]:
+      - button "Camera at Main St / SR-36 @ Vine St, TLE":
+        - img "Camera at Main St / SR-36 @ Vine St, TLE" [ref=e3593] [cursor=pointer]
+    - generic [ref=e3595]:
+      - button "Camera at Main St / SR-55 @ 300 S, PRC":
+        - img "Camera at Main St / SR-55 @ 300 S, PRC" [ref=e3596] [cursor=pointer]
+    - generic [ref=e3598]:
+      - button "Camera at Main St / SR-55 @ 700 E, PRC":
+        - img "Camera at Main St / SR-55 @ 700 E, PRC" [ref=e3599] [cursor=pointer]
+    - generic [ref=e3601]:
+      - button "Camera at Main St / SR-63 @ Center St, BCC":
+        - img "Camera at Main St / SR-63 @ Center St, BCC" [ref=e3602] [cursor=pointer]
+    - generic [ref=e3604]:
+      - button "Camera at Main St / SR-73 @ 850 E, LHI":
+        - img "Camera at Main St / SR-73 @ 850 E, LHI" [ref=e3605] [cursor=pointer]
+    - generic [ref=e3607]:
+      - button "Camera at Main St / US-191 @ 100 N, MAB":
+        - img "Camera at Main St / US-191 @ 100 N, MAB" [ref=e3608] [cursor=pointer]
+    - generic [ref=e3610]:
+      - button "Camera at Main St / US-191 @ 100 S, MAB":
+        - img "Camera at Main St / US-191 @ 100 S, MAB" [ref=e3611] [cursor=pointer]
+    - generic [ref=e3613]:
+      - button "Camera at Main St / US-191 @ 300 S, MAB":
+        - img "Camera at Main St / US-191 @ 300 S, MAB" [ref=e3614] [cursor=pointer]
+    - generic [ref=e3616]:
+      - button "Camera at Main St / US-191 @ 400 E / Jackson St, MAB":
+        - img "Camera at Main St / US-191 @ 400 E / Jackson St, MAB" [ref=e3617] [cursor=pointer]
+    - generic [ref=e3619]:
+      - button "Camera at Main St / US-191 @ 400 N, MAB":
+        - img "Camera at Main St / US-191 @ 400 N, MAB" [ref=e3620] [cursor=pointer]
+    - generic [ref=e3622]:
+      - button "Camera at Main St / US-191 @ 500 W, MAB":
+        - img "Camera at Main St / US-191 @ 500 W, MAB" [ref=e3623] [cursor=pointer]
+    - generic [ref=e3625]:
+      - button "Camera at Main St / US-191 @ Center St / US-191, BLA":
+        - img "Camera at Main St / US-191 @ Center St / US-191, BLA" [ref=e3626] [cursor=pointer]
+    - generic [ref=e3628]:
+      - button "Camera at Main St / US-191 @ Center St / US-491, MNC":
+        - img "Camera at Main St / US-191 @ Center St / US-491, MNC" [ref=e3629] [cursor=pointer]
+    - generic [ref=e3631]:
+      - button "Camera at Main St / US-191 @ Center St, MAB":
+        - img "Camera at Main St / US-191 @ Center St, MAB" [ref=e3632] [cursor=pointer]
+    - generic [ref=e3634]:
+      - button "Camera at Main St / US-191 @ Kane Creek Blvd, MAB":
+        - img "Camera at Main St / US-191 @ Kane Creek Blvd, MAB" [ref=e3635] [cursor=pointer]
+    - generic [ref=e3637]:
+      - button "Camera at Main St / US-40 @ 100 S / MP 143.4, VNL":
+        - img "Camera at Main St / US-40 @ 100 S / MP 143.4, VNL" [ref=e3638] [cursor=pointer]
+    - generic [ref=e3640]:
+      - button "Camera at Main St / US-40 @ 100 S / MP 17, HBR":
+        - img "Camera at Main St / US-40 @ 100 S / MP 17, HBR" [ref=e3641] [cursor=pointer]
+    - generic [ref=e3643]:
+      - button "Camera at Main St / US-40 @ 100 W / US-191, DCH":
+        - img "Camera at Main St / US-40 @ 100 W / US-191, DCH" [ref=e3644] [cursor=pointer]
+    - generic [ref=e3646]:
+      - button "Camera at Main St / US-40 @ 200 S, RSV":
+        - img "Camera at Main St / US-40 @ 200 S, RSV" [ref=e3647] [cursor=pointer]
+    - generic [ref=e3649]:
+      - button "Camera at Main St / US-40 @ 2000 W / Hancock Cove Rd / MP 111.5, RSV":
+        - img "Camera at Main St / US-40 @ 2000 W / Hancock Cove Rd / MP 111.5, RSV" [ref=e3650] [cursor=pointer]
+    - generic [ref=e3652]:
+      - button "Camera at Main St / US-40 @ 2100 W / MP 141.64, VNL":
+        - img "Camera at Main St / US-40 @ 2100 W / MP 141.64, VNL" [ref=e3653] [cursor=pointer]
+    - generic [ref=e3655]:
+      - button "Camera at Main St / US-40 @ 500 N / MP 16.4, HBR":
+        - img "Camera at Main St / US-40 @ 500 N / MP 16.4, HBR" [ref=e3656] [cursor=pointer]
+    - generic [ref=e3658]:
+      - button "Camera at Main St / US-40 @ 500 W / SR-121, VNL":
+        - img "Camera at Main St / US-40 @ 500 W / SR-121, VNL" [ref=e3659] [cursor=pointer]
+    - generic [ref=e3661]:
+      - button "Camera at Main St / US-40 @ 900 N / MP 16.2, HBR":
+        - img "Camera at Main St / US-40 @ 900 N / MP 16.2, HBR" [ref=e3662] [cursor=pointer]
+    - generic [ref=e3664]:
+      - button "Camera at Main St / US-40 @ Center St / SR-87 / MP 86.54, DCH":
+        - img "Camera at Main St / US-40 @ Center St / SR-87 / MP 86.54, DCH" [ref=e3665] [cursor=pointer]
+    - generic [ref=e3667]:
+      - button "Camera at Main St / US-40 @ Coyote Canyon Dr, HBR":
+        - img "Camera at Main St / US-40 @ Coyote Canyon Dr, HBR" [ref=e3668] [cursor=pointer]
+    - generic [ref=e3670]:
+      - button "Camera at Main St / US-40 @ US-189 / 1200 S / MP 17.94, HBR":
+        - img "Camera at Main St / US-40 @ US-189 / 1200 S / MP 17.94, HBR" [ref=e3671] [cursor=pointer]
+    - generic [ref=e3673]:
+      - button "Camera at Main St / US-40 @ Vernal Ave / US-191 / MP 144.3, VNL":
+        - img "Camera at Main St / US-40 @ Vernal Ave / US-191 / MP 144.3, VNL" [ref=e3674] [cursor=pointer]
+    - generic [ref=e3676]:
+      - button "Camera at Main St / US-6 @ 100 E, WTN":
+        - img "Camera at Main St / US-6 @ 100 E, WTN" [ref=e3677] [cursor=pointer]
+    - generic [ref=e3679]:
+      - button "Camera at Main St / US-6 @ 200 W, DLT":
+        - img "Camera at Main St / US-6 @ 200 W, DLT" [ref=e3680] [cursor=pointer]
+    - generic [ref=e3682]:
+      - button "Camera at Main St / US-6 @ 200 W, STQ":
+        - img "Camera at Main St / US-6 @ 200 W, STQ" [ref=e3683] [cursor=pointer]
+    - generic [ref=e3685]:
+      - button "Camera at Main St / US-6 @ 574 E / MP 141, EUR":
+        - img "Camera at Main St / US-6 @ 574 E / MP 141, EUR" [ref=e3686] [cursor=pointer]
+    - generic [ref=e3688]:
+      - button "Camera at Main St / US-6 @ Center St, STQ":
+        - img "Camera at Main St / US-6 @ Center St, STQ" [ref=e3689] [cursor=pointer]
+    - generic [ref=e3691]:
+      - button "Camera at Main St / US-89 @ 100 E / Alpine Hwy / SR-74, AFK":
+        - img "Camera at Main St / US-89 @ 100 E / Alpine Hwy / SR-74, AFK" [ref=e3692] [cursor=pointer]
+    - generic [ref=e3694]:
+      - button "Camera at Main St / US-89 @ 100 N / College Ave / SR-290, EPH":
+        - img "Camera at Main St / US-89 @ 100 N / College Ave / SR-290, EPH" [ref=e3695] [cursor=pointer]
+    - generic [ref=e3697]:
+      - button "Camera at Main St / US-89 @ 1400 N / SR-75, SPV":
+        - img "Camera at Main St / US-89 @ 1400 N / SR-75, SPV" [ref=e3698] [cursor=pointer]
+    - generic [ref=e3700]:
+      - button "Camera at Main St / US-89 @ 2600 S / SR-93, BTF":
+        - img "Camera at Main St / US-89 @ 2600 S / SR-93, BTF" [ref=e3701] [cursor=pointer]
+    - generic [ref=e3703]:
+      - button "Camera at Main St / US-89 @ 400 N, SPV":
+        - img "Camera at Main St / US-89 @ 400 N, SPV" [ref=e3704] [cursor=pointer]
+    - generic [ref=e3706]:
+      - button "Camera at Main St / US-89 @ 400 S / SR-77, SPV":
+        - img "Camera at Main St / US-89 @ 400 S / SR-77, SPV" [ref=e3707] [cursor=pointer]
+    - generic [ref=e3709]:
+      - button "Camera at Main St / US-89 @ 750 N / SR-315, WIL":
+        - img "Camera at Main St / US-89 @ 750 N / SR-315, WIL" [ref=e3710] [cursor=pointer]
+    - generic [ref=e3712]:
+      - button "Camera at Main St / US-89 @ 900 N, SPV":
+        - img "Camera at Main St / US-89 @ 900 N, SPV" [ref=e3713] [cursor=pointer]
+    - generic [ref=e3715]:
+      - button "Camera at Main St / US-89 @ Center St, SPV":
+        - img "Camera at Main St / US-89 @ Center St, SPV" [ref=e3716] [cursor=pointer]
+    - generic [ref=e3718]:
+      - button "Camera at Main St / US-89 @ Willard / MP 426.55, WIL":
+        - img "Camera at Main St / US-89 @ Willard / MP 426.55, WIL" [ref=e3719] [cursor=pointer]
+    - generic [ref=e3721]:
+      - button "Camera at Main St / US-89 / SR-145 @ State St / US-89, AFK":
+        - img "Camera at Main St / US-89 / SR-145 @ State St / US-89, AFK" [ref=e3722] [cursor=pointer]
+    - generic [ref=e3724]:
+      - button "Camera at Main St / US-89/91 @ 100 S, LGN":
+        - img "Camera at Main St / US-89/91 @ 100 S, LGN" [ref=e3725] [cursor=pointer]
+    - generic [ref=e3727]:
+      - button "Camera at Main St / US-89/91 @ 200 N / SR-30, LGN":
+        - img "Camera at Main St / US-89/91 @ 200 N / SR-30, LGN" [ref=e3728] [cursor=pointer]
+    - generic [ref=e3730]:
+      - button "Camera at Main St / US-89/91 @ 400 N / US-89, LGN":
+        - img "Camera at Main St / US-89/91 @ 400 N / US-89, LGN" [ref=e3731] [cursor=pointer]
+    - generic [ref=e3733]:
+      - button "Camera at Main St / US-91 @ 1000 N, LGN":
+        - img "Camera at Main St / US-91 @ 1000 N, LGN" [ref=e3734] [cursor=pointer]
+    - generic [ref=e3736]:
+      - button "Camera at Main St / US-91 @ 1000 S / Wheeler Way, SMF":
+        - img "Camera at Main St / US-91 @ 1000 S / Wheeler Way, SMF" [ref=e3737] [cursor=pointer]
+    - generic [ref=e3739]:
+      - button "Camera at Main St / US-91 @ 1400 N, LGN":
+        - img "Camera at Main St / US-91 @ 1400 N, LGN" [ref=e3740] [cursor=pointer]
+    - generic [ref=e3742]:
+      - button "Camera at Main St / US-91 @ 2500 N / SR-252, NLG":
+        - img "Camera at Main St / US-91 @ 2500 N / SR-252, NLG" [ref=e3743] [cursor=pointer]
+    - generic [ref=e3745]:
+      - button "Camera at Main St / US-91 @ 300 S, SMF":
+        - img "Camera at Main St / US-91 @ 300 S, SMF" [ref=e3746] [cursor=pointer]
+    - generic [ref=e3748]:
+      - button "Camera at Main St / US-91 @ Hyde Park Ln, HYD":
+        - img "Camera at Main St / US-91 @ Hyde Park Ln, HYD" [ref=e3749] [cursor=pointer]
+    - generic [ref=e3751]:
+      - button "Camera at Mall Dr @ Dinosaur Crossing Dr, STG":
+        - img "Camera at Mall Dr @ Dinosaur Crossing Dr, STG" [ref=e3752] [cursor=pointer]
+    - generic [ref=e3754]:
+      - button "Camera at Mall Dr / Merril Rd / 2600 S @ Sandia Rd / 3000 E, STG":
+        - img "Camera at Mall Dr / Merril Rd / 2600 S @ Sandia Rd / 3000 E, STG" [ref=e3755] [cursor=pointer]
+    - generic [ref=e3757]:
+      - button "Camera at Mario Capecchi Dr / SR-282 @ 1900 E, SLC":
+        - img "Camera at Mario Capecchi Dr / SR-282 @ 1900 E, SLC" [ref=e3758] [cursor=pointer]
+    - generic [ref=e3760]:
+      - button "Camera at Midland Dr / SR-108 @ Hinckley Dr / 3600 S / SR-79, WHV":
+        - img "Camera at Midland Dr / SR-108 @ Hinckley Dr / 3600 S / SR-79, WHV" [ref=e3761] [cursor=pointer]
+    - generic [ref=e3763]:
+      - button "Camera at Midvalley Hwy / SR-179 @ Parachute Park Ln, ERD":
+        - img "Camera at Midvalley Hwy / SR-179 @ Parachute Park Ln, ERD" [ref=e3764] [cursor=pointer]
+    - generic [ref=e3766]:
+      - button "Camera at Midvalley Hwy / SR-179 @ SR-138, ERD":
+        - img "Camera at Midvalley Hwy / SR-179 @ SR-138, ERD" [ref=e3767] [cursor=pointer]
+    - generic [ref=e3769]:
+      - button "Camera at Minersville Hwy / SR-130 @ Midvalley Rd / 4800 N, ENO":
+        - img "Camera at Minersville Hwy / SR-130 @ Midvalley Rd / 4800 N, ENO" [ref=e3770] [cursor=pointer]
+    - generic [ref=e3772]:
+      - button "Camera at Minuteman Dr @ 12450 S, DPR":
+        - img "Camera at Minuteman Dr @ 12450 S, DPR" [ref=e3773] [cursor=pointer]
+    - generic [ref=e3775]:
+      - button "Camera at Mountain View / SR-85 @ Academy Pkwy / 15200 S, HRR":
+        - img "Camera at Mountain View / SR-85 @ Academy Pkwy / 15200 S, HRR" [ref=e3776] [cursor=pointer]
+    - generic [ref=e3778]:
+      - button "Camera at Mountain View / SR-85 @ Harvest Moon Dr, SSP":
+        - img "Camera at Mountain View / SR-85 @ Harvest Moon Dr, SSP" [ref=e3779] [cursor=pointer]
+    - generic [ref=e3781]:
+      - button "Camera at Mountain View / SR-85 @ Rosecrest Rd / 14500 S, HRR":
+        - img "Camera at Mountain View / SR-85 @ Rosecrest Rd / 14500 S, HRR" [ref=e3782] [cursor=pointer]
+    - generic [ref=e3784]:
+      - button "Camera at Mountain View / SR-85 NB @ 12600 S, RVT":
+        - img "Camera at Mountain View / SR-85 NB @ 12600 S, RVT" [ref=e3785] [cursor=pointer]
+    - generic [ref=e3787]:
+      - button "Camera at Mountain View / SR-85 NB @ 13400 S, RVT":
+        - img "Camera at Mountain View / SR-85 NB @ 13400 S, RVT" [ref=e3788] [cursor=pointer]
+    - generic [ref=e3790]:
+      - button "Camera at Mountain View / SR-85 NB @ 1730 S, SLC":
+        - img "Camera at Mountain View / SR-85 NB @ 1730 S, SLC" [ref=e3791] [cursor=pointer]
+    - generic [ref=e3793]:
+      - button "Camera at Mountain View / SR-85 NB @ 2400 S, WVC":
+        - img "Camera at Mountain View / SR-85 NB @ 2400 S, WVC" [ref=e3794] [cursor=pointer]
+    - generic [ref=e3796]:
+      - button "Camera at Mountain View / SR-85 NB @ 3100 S / MP 22.5, WVC":
+        - img "Camera at Mountain View / SR-85 NB @ 3100 S / MP 22.5, WVC" [ref=e3797] [cursor=pointer]
+    - generic [ref=e3799]:
+      - button "Camera at Mountain View / SR-85 NB @ 3500 S / SR-171, WVC":
+        - img "Camera at Mountain View / SR-85 NB @ 3500 S / SR-171, WVC" [ref=e3800] [cursor=pointer]
+    - generic [ref=e3802]:
+      - button "Camera at Mountain View / SR-85 NB @ 4100 S, WVC":
+        - img "Camera at Mountain View / SR-85 NB @ 4100 S, WVC" [ref=e3803] [cursor=pointer]
+    - generic [ref=e3805]:
+      - button "Camera at Mountain View / SR-85 NB @ 4565 S, WVC":
+        - img "Camera at Mountain View / SR-85 NB @ 4565 S, WVC" [ref=e3806] [cursor=pointer]
+    - generic [ref=e3808]:
+      - button "Camera at Mountain View / SR-85 NB @ 4825 S, WVC":
+        - img "Camera at Mountain View / SR-85 NB @ 4825 S, WVC" [ref=e3809] [cursor=pointer]
+    - generic [ref=e3811]:
+      - button "Camera at Mountain View / SR-85 NB @ 5400 S / SR-173, WVC":
+        - img "Camera at Mountain View / SR-85 NB @ 5400 S / SR-173, WVC" [ref=e3812] [cursor=pointer]
+    - generic [ref=e3814]:
+      - button "Camera at Mountain View / SR-85 NB @ 7600 S, WJD":
+        - img "Camera at Mountain View / SR-85 NB @ 7600 S, WJD" [ref=e3815] [cursor=pointer]
+    - generic [ref=e3817]:
+      - button "Camera at Mountain View / SR-85 NB @ 7800 S, WJD":
+        - img "Camera at Mountain View / SR-85 NB @ 7800 S, WJD" [ref=e3818] [cursor=pointer]
+    - generic [ref=e3820]:
+      - button "Camera at Mountain View / SR-85 NB @ 9000 S / SR-209, WJD":
+        - img "Camera at Mountain View / SR-85 NB @ 9000 S / SR-209, WJD" [ref=e3821] [cursor=pointer]
+    - generic [ref=e3823]:
+      - button "Camera at Mountain View / SR-85 NB @ California Ave / 1400 S, SLC":
+        - img "Camera at Mountain View / SR-85 NB @ California Ave / 1400 S, SLC" [ref=e3824] [cursor=pointer]
+    - generic [ref=e3826]:
+      - button "Camera at Mountain View / SR-85 NB @ Harvest Hills Blvd, SSP":
+        - img "Camera at Mountain View / SR-85 NB @ Harvest Hills Blvd, SSP" [ref=e3827] [cursor=pointer]
+    - generic [ref=e3829]:
+      - button "Camera at Mountain View / SR-85 NB @ Porter Rockwell Blvd, HRR":
+        - img "Camera at Mountain View / SR-85 NB @ Porter Rockwell Blvd, HRR" [ref=e3830] [cursor=pointer]
+    - generic [ref=e3832]:
+      - button "Camera at Mountain View / SR-85 NB @ South Jordan Pkwy / 11000 S, SJO":
+        - img "Camera at Mountain View / SR-85 NB @ South Jordan Pkwy / 11000 S, SJO" [ref=e3833] [cursor=pointer]
+    - generic [ref=e3835]:
+      - button "Camera at Mountain View / SR-85 NB @ SR-201 EB Ramps, WVC":
+        - img "Camera at Mountain View / SR-85 NB @ SR-201 EB Ramps, WVC" [ref=e3836] [cursor=pointer]
+    - generic [ref=e3838]:
+      - button "Camera at Mountain View / SR-85 RWIS NB @ 14600 S / Juniper, HRR":
+        - img "Camera at Mountain View / SR-85 RWIS NB @ 14600 S / Juniper, HRR" [ref=e3839] [cursor=pointer]
+    - generic [ref=e3841]:
+      - button "Camera at Mountain View / SR-85 SB @ 11800 S / Anthem Park Blvd, HRR":
+        - img "Camera at Mountain View / SR-85 SB @ 11800 S / Anthem Park Blvd, HRR" [ref=e3842] [cursor=pointer]
+    - generic [ref=e3844]:
+      - button "Camera at Mountain View / SR-85 SB @ 12200 S, HRR":
+        - img "Camera at Mountain View / SR-85 SB @ 12200 S, HRR" [ref=e3845] [cursor=pointer]
+    - generic [ref=e3847]:
+      - button "Camera at Mountain View / SR-85 SB @ 13200 S, RVT":
+        - img "Camera at Mountain View / SR-85 SB @ 13200 S, RVT" [ref=e3848] [cursor=pointer]
+    - generic [ref=e3850]:
+      - button "Camera at Mountain View / SR-85 SB @ 3500 S / SR-171, WVC":
+        - img "Camera at Mountain View / SR-85 SB @ 3500 S / SR-171, WVC" [ref=e3851] [cursor=pointer]
+    - generic [ref=e3853]:
+      - button "Camera at Mountain View / SR-85 SB @ 4350 S, WVC":
+        - img "Camera at Mountain View / SR-85 SB @ 4350 S, WVC" [ref=e3854] [cursor=pointer]
+    - generic [ref=e3856]:
+      - button "Camera at Mountain View / SR-85 SB @ 5800 S, WVC":
+        - img "Camera at Mountain View / SR-85 SB @ 5800 S, WVC" [ref=e3857] [cursor=pointer]
+    - generic [ref=e3859]:
+      - button "Camera at Mountain View / SR-85 SB @ 6200 S, WVC":
+        - img "Camera at Mountain View / SR-85 SB @ 6200 S, WVC" [ref=e3860] [cursor=pointer]
+    - generic [ref=e3862]:
+      - button "Camera at Mountain View / SR-85 SB @ 9860 S, WJD":
+        - img "Camera at Mountain View / SR-85 SB @ 9860 S, WJD" [ref=e3863] [cursor=pointer]
+    - generic [ref=e3865]:
+      - button "Camera at Mountain View / SR-85 SB @ Cilma Dr / 3835 S, WVC":
+        - img "Camera at Mountain View / SR-85 SB @ Cilma Dr / 3835 S, WVC" [ref=e3866] [cursor=pointer]
+    - generic [ref=e3868]:
+      - button "Camera at Mountain View / SR-85 SB @ Daybreak Pkwy, SJO":
+        - img "Camera at Mountain View / SR-85 SB @ Daybreak Pkwy, SJO" [ref=e3869] [cursor=pointer]
+    - generic [ref=e3871]:
+      - button "Camera at Mountain View / SR-85 SB @ Lake Ave / 11400 S, SJO":
+        - img "Camera at Mountain View / SR-85 SB @ Lake Ave / 11400 S, SJO" [ref=e3872] [cursor=pointer]
+    - generic [ref=e3874]:
+      - button "Camera at Mountain View / SR-85 SB @ Old Bingham Hwy, WJD":
+        - img "Camera at Mountain View / SR-85 SB @ Old Bingham Hwy, WJD" [ref=e3875] [cursor=pointer]
+    - generic [ref=e3877]:
+      - button "Camera at Mountain View / SR-85 SB @ Parkway Blvd / 2700 S, WVC":
+        - img "Camera at Mountain View / SR-85 SB @ Parkway Blvd / 2700 S, WVC" [ref=e3878] [cursor=pointer]
+    - generic [ref=e3880]:
+      - button "Camera at Mountain View / SR-85 SB @ Upper Ridge Rd / 5100 S, WVC":
+        - img "Camera at Mountain View / SR-85 SB @ Upper Ridge Rd / 5100 S, WVC" [ref=e3881] [cursor=pointer]
+    - generic [ref=e3883]:
+      - button "Camera at New Bingham Hwy / SR-209 @ 6400 W, WJD":
+        - img "Camera at New Bingham Hwy / SR-209 @ 6400 W, WJD" [ref=e3884] [cursor=pointer]
+    - generic [ref=e3886]:
+      - button "Camera at None":
+        - img "Camera at None" [ref=e3887] [cursor=pointer]
+    - generic [ref=e3889]:
+      - button "Camera at None":
+        - img "Camera at None" [ref=e3890] [cursor=pointer]
+    - generic [ref=e3892]:
+      - button "Camera at None":
+        - img "Camera at None" [ref=e3893] [cursor=pointer]
+    - generic [ref=e3895]:
+      - button "Camera at None":
+        - img "Camera at None" [ref=e3896] [cursor=pointer]
+    - generic [ref=e3898]:
+      - button "Camera at North Campus Dr / Medical Dr / SR-282 @ Mario Capecchi Dr / SR-282, SLC":
+        - img "Camera at North Campus Dr / Medical Dr / SR-282 @ Mario Capecchi Dr / SR-282, SLC" [ref=e3899] [cursor=pointer]
+    - generic [ref=e3901]:
+      - button "Camera at North Campus Dr / SR-282 @ Central Campus Rd, SLC":
+        - img "Camera at North Campus Dr / SR-282 @ Central Campus Rd, SLC" [ref=e3902] [cursor=pointer]
+    - generic [ref=e3904]:
+      - button "Camera at North County Blvd / 1100 E / SR-129 @ 300 N, AFK":
+        - img "Camera at North County Blvd / 1100 E / SR-129 @ 300 N, AFK" [ref=e3905] [cursor=pointer]
+    - generic [ref=e3907]:
+      - button "Camera at North County Blvd / 1100 E / SR-129 @ 700 N, AFK":
+        - img "Camera at North County Blvd / 1100 E / SR-129 @ 700 N, AFK" [ref=e3908] [cursor=pointer]
+    - generic [ref=e3910]:
+      - button "Camera at North County Blvd / 1100 E, AFK / 2000 W, PLG / SR-129 @ 50 S, AFK / 1100 N, PLG, AFK":
+        - img "Camera at North County Blvd / 1100 E, AFK / 2000 W, PLG / SR-129 @ 50 S, AFK / 1100 N, PLG, AFK" [ref=e3911] [cursor=pointer]
+    - generic [ref=e3913]:
+      - button "Camera at North County Blvd / 4800 W / SR-129 @ Cedar Hills Dr / 10100 N, HLD":
+        - img "Camera at North County Blvd / 4800 W / SR-129 @ Cedar Hills Dr / 10100 N, HLD" [ref=e3914] [cursor=pointer]
+    - generic [ref=e3916]:
+      - button "Camera at North County Blvd / 700 N / SR-129 @ 2000 W, LDN":
+        - img "Camera at North County Blvd / 700 N / SR-129 @ 2000 W, LDN" [ref=e3917] [cursor=pointer]
+    - generic [ref=e3919]:
+      - button "Camera at North County Blvd / 900 E / SR-129 @ 1100 N, AFK":
+        - img "Camera at North County Blvd / 900 E / SR-129 @ 1100 N, AFK" [ref=e3920] [cursor=pointer]
+    - generic [ref=e3922]:
+      - button "Camera at North County Blvd / SR-129 @ Canal Blvd / Harvey Blvd, HLD":
+        - img "Camera at North County Blvd / SR-129 @ Canal Blvd / Harvey Blvd, HLD" [ref=e3923] [cursor=pointer]
+    - generic [ref=e3925]:
+      - button "Camera at North County Blvd / SR-129 @ Grove Pkwy / Evermore Ln, PLG":
+        - img "Camera at North County Blvd / SR-129 @ Grove Pkwy / Evermore Ln, PLG" [ref=e3926] [cursor=pointer]
+    - generic [ref=e3928]:
+      - button "Camera at North County Blvd / SR-129 @ Knight Ave / Ole Bish Ln, HLD":
+        - img "Camera at North County Blvd / SR-129 @ Knight Ave / Ole Bish Ln, HLD" [ref=e3929] [cursor=pointer]
+    - generic [ref=e3931]:
+      - button "Camera at North Little Cottonwood Rd / Little Cottonwood Canyon Rd / SR-210 @ Little Cottonwood Rd / SR-209, SL":
+        - img "Camera at North Little Cottonwood Rd / Little Cottonwood Canyon Rd / SR-210 @ Little Cottonwood Rd / SR-209, SL" [ref=e3932] [cursor=pointer]
+    - generic [ref=e3934]:
+      - button "Camera at North Little Cottonwood Rd / Wasatch Blvd / 3600 E / SR-210 @ Wasatch Blvd / 8900 S, CWH":
+        - img "Camera at North Little Cottonwood Rd / Wasatch Blvd / 3600 E / SR-210 @ Wasatch Blvd / 8900 S, CWH" [ref=e3935] [cursor=pointer]
+    - generic [ref=e3937]:
+      - button "Camera at North Ogden Canyon Rd @ Ben Lomond Trailhead, WB":
+        - img "Camera at North Ogden Canyon Rd @ Ben Lomond Trailhead, WB" [ref=e3938] [cursor=pointer]
+    - generic [ref=e3940]:
+      - button "Camera at North Temple St @ 200 W, SLC":
+        - img "Camera at North Temple St @ 200 W, SLC" [ref=e3941] [cursor=pointer]
+    - generic [ref=e3943]:
+      - button "Camera at Noth Temple @ 300 W, / US-89, SLC":
+        - img "Camera at Noth Temple @ 300 W, / US-89, SLC" [ref=e3944] [cursor=pointer]
+    - generic [ref=e3946]:
+      - button "Camera at Old Bingham Hwy / 8800 S @ 4000 W, WJD":
+        - img "Camera at Old Bingham Hwy / 8800 S @ 4000 W, WJD" [ref=e3947] [cursor=pointer]
+    - generic [ref=e3949]:
+      - button "Camera at Old Bingham Hwy / 9350 S @ 4800 W, WJD":
+        - img "Camera at Old Bingham Hwy / 9350 S @ 4800 W, WJD" [ref=e3950] [cursor=pointer]
+    - generic [ref=e3952]:
+      - button "Camera at Old Ranch Rd / 3680 W @ Cold Spring Dr / 640 N, LHI":
+        - img "Camera at Old Ranch Rd / 3680 W @ Cold Spring Dr / 640 N, LHI" [ref=e3953] [cursor=pointer]
+    - generic [ref=e3955]:
+      - button "Camera at Orem Blvd @ 400 S, ORM":
+        - img "Camera at Orem Blvd @ 400 S, ORM" [ref=e3956] [cursor=pointer]
+    - generic [ref=e3958]:
+      - button "Camera at Park Ave / SR-224 @ Empire Ave / Deer Valley Dr / SR-224, PKC":
+        - img "Camera at Park Ave / SR-224 @ Empire Ave / Deer Valley Dr / SR-224, PKC" [ref=e3959] [cursor=pointer]
+    - generic [ref=e3961]:
+      - button "Camera at Park Ave / SR-224 @ Holiday Ranch Loop Rd / Payday Dr, PKC":
+        - img "Camera at Park Ave / SR-224 @ Holiday Ranch Loop Rd / Payday Dr, PKC" [ref=e3962] [cursor=pointer]
+    - generic [ref=e3964]:
+      - button "Camera at Park Ave / SR-224 @ Kearns Blvd / SR-248, PKC":
+        - img "Camera at Park Ave / SR-224 @ Kearns Blvd / SR-248, PKC" [ref=e3965] [cursor=pointer]
+    - generic [ref=e3967]:
+      - button "Camera at Park Ave / SR-224 RWIS @ Meadows Dr, PKC":
+        - img "Camera at Park Ave / SR-224 RWIS @ Meadows Dr, PKC" [ref=e3968] [cursor=pointer]
+    - generic [ref=e3970]:
+      - button "Camera at Parkway Blvd @ 6400 W, WVC":
+        - img "Camera at Parkway Blvd @ 6400 W, WVC" [ref=e3971] [cursor=pointer]
+    - generic [ref=e3973]:
+      - button "Camera at Parkway Blvd / 2670 S @ 3200 W, WVC":
+        - img "Camera at Parkway Blvd / 2670 S @ 3200 W, WVC" [ref=e3974] [cursor=pointer]
+    - generic [ref=e3976]:
+      - button "Camera at Parrish Ln / 400 N / SR-105 @ Main St / SR-106, CVL":
+        - img "Camera at Parrish Ln / 400 N / SR-105 @ Main St / SR-106, CVL" [ref=e3977] [cursor=pointer]
+    - generic [ref=e3979]:
+      - button "Camera at Pioneer Crossing / SR-145 @ 1020 W, AFK":
+        - img "Camera at Pioneer Crossing / SR-145 @ 1020 W, AFK" [ref=e3980] [cursor=pointer]
+    - generic [ref=e3982]:
+      - button "Camera at Pioneer Crossing / SR-145 @ 1100 W, LHI":
+        - img "Camera at Pioneer Crossing / SR-145 @ 1100 W, LHI" [ref=e3983] [cursor=pointer]
+    - generic [ref=e3985]:
+      - button "Camera at Pioneer Crossing / SR-145 @ 1700 W, LHI":
+        - img "Camera at Pioneer Crossing / SR-145 @ 1700 W, LHI" [ref=e3986] [cursor=pointer]
+    - generic [ref=e3988]:
+      - button "Camera at Pioneer Crossing / SR-145 @ 2300 W / Saratoga Rd, LHI":
+        - img "Camera at Pioneer Crossing / SR-145 @ 2300 W / Saratoga Rd, LHI" [ref=e3989] [cursor=pointer]
+    - generic [ref=e3991]:
+      - button "Camera at Pioneer Crossing / SR-145 @ 300 E, LHI":
+        - img "Camera at Pioneer Crossing / SR-145 @ 300 E, LHI" [ref=e3992] [cursor=pointer]
+    - generic [ref=e3994]:
+      - button "Camera at Pioneer Crossing / SR-145 @ 500 W, LHI":
+        - img "Camera at Pioneer Crossing / SR-145 @ 500 W, LHI" [ref=e3995] [cursor=pointer]
+    - generic [ref=e3997]:
+      - button "Camera at Pioneer Crossing / SR-145 @ Center St, LHI":
+        - img "Camera at Pioneer Crossing / SR-145 @ Center St, LHI" [ref=e3998] [cursor=pointer]
+    - generic [ref=e4000]:
+      - button "Camera at Pioneer Crossing / SR-145 @ Crossroads Blvd, SSP":
+        - img "Camera at Pioneer Crossing / SR-145 @ Crossroads Blvd, SSP" [ref=e4001] [cursor=pointer]
+    - generic [ref=e4003]:
+      - button "Camera at Pioneer Crossing / SR-145 @ Market St, SSP":
+        - img "Camera at Pioneer Crossing / SR-145 @ Market St, SSP" [ref=e4004] [cursor=pointer]
+    - generic [ref=e4006]:
+      - button "Camera at Pioneer Crossing / SR-145 @ Mill Pond Rd, LHI":
+        - img "Camera at Pioneer Crossing / SR-145 @ Mill Pond Rd, LHI" [ref=e4007] [cursor=pointer]
+    - generic [ref=e4009]:
+      - button "Camera at Pioneer Crossing / SR-145 @ Riverside Dr, SSP":
+        - img "Camera at Pioneer Crossing / SR-145 @ Riverside Dr, SSP" [ref=e4010] [cursor=pointer]
+    - generic [ref=e4012]:
+      - button "Camera at Pioneer Pkwy @ Rachel Dr, SCL":
+        - img "Camera at Pioneer Pkwy @ Rachel Dr, SCL" [ref=e4013] [cursor=pointer]
+    - generic [ref=e4015]:
+      - button "Camera at Pleasant Grove Blvd / SR-135 @ North County Blvd / SR-129, PLG":
+        - img "Camera at Pleasant Grove Blvd / SR-135 @ North County Blvd / SR-129, PLG" [ref=e4016] [cursor=pointer]
+    - generic [ref=e4018]:
+      - button "Camera at Pole Canyon Rd @ Stansbury Pkwy, STP":
+        - img "Camera at Pole Canyon Rd @ Stansbury Pkwy, STP" [ref=e4019] [cursor=pointer]
+    - generic [ref=e4021]:
+      - button "Camera at Pony Express Pkwy @ Foothill Blvd / 800 W, SSP":
+        - img "Camera at Pony Express Pkwy @ Foothill Blvd / 800 W, SSP" [ref=e4022] [cursor=pointer]
+    - generic [ref=e4024]:
+      - button "Camera at Pony Express Pkwy @ Thunder Blvd / 200 W, SSP":
+        - img "Camera at Pony Express Pkwy @ Thunder Blvd / 200 W, SSP" [ref=e4025] [cursor=pointer]
+    - generic [ref=e4027]:
+      - button "Camera at Portable RWIS 2":
+        - img "Camera at Portable RWIS 2" [ref=e4028] [cursor=pointer]
+    - generic [ref=e4030]:
+      - button "Camera at Portable RWIS 4":
+        - img "Camera at Portable RWIS 4" [ref=e4031] [cursor=pointer]
+    - generic [ref=e4033]:
+      - button "Camera at Porter Rockwell Blvd @ 2300 W, HRR":
+        - img "Camera at Porter Rockwell Blvd @ 2300 W, HRR" [ref=e4034] [cursor=pointer]
+    - generic [ref=e4036]:
+      - button "Camera at Porter Rockwell Blvd @ Harmon Day Rd, BLF":
+        - img "Camera at Porter Rockwell Blvd @ Harmon Day Rd, BLF" [ref=e4037] [cursor=pointer]
+    - generic [ref=e4039]:
+      - button "Camera at Porter Rockwell Blvd / SR-131 @ 1500 W, BLF":
+        - img "Camera at Porter Rockwell Blvd / SR-131 @ 1500 W, BLF" [ref=e4040] [cursor=pointer]
+    - generic [ref=e4042]:
+      - button "Camera at Porter Rockwell Blvd / SR-131 @ Freedom Point Way, BLF":
+        - img "Camera at Porter Rockwell Blvd / SR-131 @ Freedom Point Way, BLF" [ref=e4043] [cursor=pointer]
+    - generic [ref=e4045]:
+      - button "Camera at Provo Canyon Rd / US-189 @ 800 N / SR-52, ORM":
+        - img "Camera at Provo Canyon Rd / US-189 @ 800 N / SR-52, ORM" [ref=e4046] [cursor=pointer]
+    - generic [ref=e4048]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Alpine Scenic Hwy / SR-92 / MP 14.26, UT":
+        - img "Camera at Provo Canyon Rd / US-189 @ Alpine Scenic Hwy / SR-92 / MP 14.26, UT" [ref=e4049] [cursor=pointer]
+    - generic [ref=e4051]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Bridal Veil Falls / MP 11.15, UT":
+        - img "Camera at Provo Canyon Rd / US-189 @ Bridal Veil Falls / MP 11.15, UT" [ref=e4052] [cursor=pointer]
+    - generic [ref=e4054]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Canyon Glen Park / MP 9.98, UT":
+        - img "Camera at Provo Canyon Rd / US-189 @ Canyon Glen Park / MP 9.98, UT" [ref=e4055] [cursor=pointer]
+    - generic [ref=e4057]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Canyon View Park / MP 8.46, PVO":
+        - img "Camera at Provo Canyon Rd / US-189 @ Canyon View Park / MP 8.46, PVO" [ref=e4058] [cursor=pointer]
+    - generic [ref=e4060]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Fishermen's / MP 15.46":
+        - img "Camera at Provo Canyon Rd / US-189 @ Fishermen's / MP 15.46" [ref=e4061] [cursor=pointer]
+    - generic [ref=e4063]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Lower Deer Creek Rd / MP 17.14, WA":
+        - img "Camera at Provo Canyon Rd / US-189 @ Lower Deer Creek Rd / MP 17.14, WA" [ref=e4064] [cursor=pointer]
+    - generic [ref=e4066]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Meadow Dr / MP 16.25, WA":
+        - img "Camera at Provo Canyon Rd / US-189 @ Meadow Dr / MP 16.25, WA" [ref=e4067] [cursor=pointer]
+    - generic [ref=e4069]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Milepost 12.21, UT":
+        - img "Camera at Provo Canyon Rd / US-189 @ Milepost 12.21, UT" [ref=e4070] [cursor=pointer]
+    - generic [ref=e4072]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Mouth of Provo Canyon / MP 8.26, ORM":
+        - img "Camera at Provo Canyon Rd / US-189 @ Mouth of Provo Canyon / MP 8.26, ORM" [ref=e4073] [cursor=pointer]
+    - generic [ref=e4075]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Springdell / MP 9.68, UT":
+        - img "Camera at Provo Canyon Rd / US-189 @ Springdell / MP 9.68, UT" [ref=e4076] [cursor=pointer]
+    - generic [ref=e4078]:
+      - button "Camera at Provo Canyon Rd / US-189 @ Vivian Park / MP 13.16, UT":
+        - img "Camera at Provo Canyon Rd / US-189 @ Vivian Park / MP 13.16, UT" [ref=e4079] [cursor=pointer]
+    - generic [ref=e4081]:
+      - button "Camera at Red Cliffs Dr @ Gateway Dr, STG":
+        - img "Camera at Red Cliffs Dr @ Gateway Dr, STG" [ref=e4082] [cursor=pointer]
+    - generic [ref=e4084]:
+      - button "Camera at Red Hills Pkwy @ 1000 E, STG":
+        - img "Camera at Red Hills Pkwy @ 1000 E, STG" [ref=e4085] [cursor=pointer]
+    - generic [ref=e4087]:
+      - button "Camera at Red Hills Pkwy @ Gateway Dr, STG":
+        - img "Camera at Red Hills Pkwy @ Gateway Dr, STG" [ref=e4088] [cursor=pointer]
+    - generic [ref=e4090]:
+      - button "Camera at Red Hills Pkwy @ Skyline Dr / 200 E, STG":
+        - img "Camera at Red Hills Pkwy @ Skyline Dr / 200 E, STG" [ref=e4091] [cursor=pointer]
+    - generic [ref=e4093]:
+      - button "Camera at Redwood Rd / SR-68 @ 1000 N, SLC":
+        - img "Camera at Redwood Rd / SR-68 @ 1000 N, SLC" [ref=e4094] [cursor=pointer]
+    - generic [ref=e4096]:
+      - button "Camera at Redwood Rd / SR-68 @ 10400 S / South Jordan Pkwy / SR-151, SJO":
+        - img "Camera at Redwood Rd / SR-68 @ 10400 S / South Jordan Pkwy / SR-151, SJO" [ref=e4097] [cursor=pointer]
+    - generic [ref=e4099]:
+      - button "Camera at Redwood Rd / SR-68 @ 1100 N, NSL":
+        - img "Camera at Redwood Rd / SR-68 @ 1100 N, NSL" [ref=e4100] [cursor=pointer]
+    - generic [ref=e4102]:
+      - button "Camera at Redwood Rd / SR-68 @ 11400 S / SR-175, SJO":
+        - img "Camera at Redwood Rd / SR-68 @ 11400 S / SR-175, SJO" [ref=e4103] [cursor=pointer]
+    - generic [ref=e4105]:
+      - button "Camera at Redwood Rd / SR-68 @ 12600 S / SR-71, RVT":
+        - img "Camera at Redwood Rd / SR-68 @ 12600 S / SR-71, RVT" [ref=e4106] [cursor=pointer]
+    - generic [ref=e4108]:
+      - button "Camera at Redwood Rd / SR-68 @ 12800 S, RVT":
+        - img "Camera at Redwood Rd / SR-68 @ 12800 S, RVT" [ref=e4109] [cursor=pointer]
+    - generic [ref=e4111]:
+      - button "Camera at Redwood Rd / SR-68 @ 13400 S, RVT":
+        - img "Camera at Redwood Rd / SR-68 @ 13400 S, RVT" [ref=e4112] [cursor=pointer]
+    - generic [ref=e4114]:
+      - button "Camera at Redwood Rd / SR-68 @ 14400 S / SR-140, BLF":
+        - img "Camera at Redwood Rd / SR-68 @ 14400 S / SR-140, BLF" [ref=e4115] [cursor=pointer]
+    - generic [ref=e4117]:
+      - button "Camera at Redwood Rd / SR-68 @ 1700 S, SLC":
+        - img "Camera at Redwood Rd / SR-68 @ 1700 S, SLC" [ref=e4118] [cursor=pointer]
+    - generic [ref=e4120]:
+      - button "Camera at Redwood Rd / SR-68 @ 2100 N / SR-194, LHI":
+        - img "Camera at Redwood Rd / SR-68 @ 2100 N / SR-194, LHI" [ref=e4121] [cursor=pointer]
+    - generic [ref=e4123]:
+      - button "Camera at Redwood Rd / SR-68 @ 2100 S, SLC":
+        - img "Camera at Redwood Rd / SR-68 @ 2100 S, SLC" [ref=e4124] [cursor=pointer]
+    - generic [ref=e4126]:
+      - button "Camera at Redwood Rd / SR-68 @ 2320 S, WVC":
+        - img "Camera at Redwood Rd / SR-68 @ 2320 S, WVC" [ref=e4127] [cursor=pointer]
+    - generic [ref=e4129]:
+      - button "Camera at Redwood Rd / SR-68 @ 2700 N, LHI":
+        - img "Camera at Redwood Rd / SR-68 @ 2700 N, LHI" [ref=e4130] [cursor=pointer]
+    - generic [ref=e4132]:
+      - button "Camera at Redwood Rd / SR-68 @ 3100 S, WVC":
+        - img "Camera at Redwood Rd / SR-68 @ 3100 S, WVC" [ref=e4133] [cursor=pointer]
+    - generic [ref=e4135]:
+      - button "Camera at Redwood Rd / SR-68 @ 3500 S / SR-171, WVC":
+        - img "Camera at Redwood Rd / SR-68 @ 3500 S / SR-171, WVC" [ref=e4136] [cursor=pointer]
+    - generic [ref=e4138]:
+      - button "Camera at Redwood Rd / SR-68 @ 400 N, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ 400 N, SSP" [ref=e4139] [cursor=pointer]
+    - generic [ref=e4141]:
+      - button "Camera at Redwood Rd / SR-68 @ 400 S, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ 400 S, SSP" [ref=e4142] [cursor=pointer]
+    - generic [ref=e4144]:
+      - button "Camera at Redwood Rd / SR-68 @ 4100 S, TAY":
+        - img "Camera at Redwood Rd / SR-68 @ 4100 S, TAY" [ref=e4145] [cursor=pointer]
+    - generic [ref=e4147]:
+      - button "Camera at Redwood Rd / SR-68 @ 4700 S / SR-266, TAY":
+        - img "Camera at Redwood Rd / SR-68 @ 4700 S / SR-266, TAY" [ref=e4148] [cursor=pointer]
+    - generic [ref=e4150]:
+      - button "Camera at Redwood Rd / SR-68 @ 5400 S / SR-173, TAY":
+        - img "Camera at Redwood Rd / SR-68 @ 5400 S / SR-173, TAY" [ref=e4151] [cursor=pointer]
+    - generic [ref=e4153]:
+      - button "Camera at Redwood Rd / SR-68 @ 6200 S, TAY":
+        - img "Camera at Redwood Rd / SR-68 @ 6200 S, TAY" [ref=e4154] [cursor=pointer]
+    - generic [ref=e4156]:
+      - button "Camera at Redwood Rd / SR-68 @ 700 N, SLC":
+        - img "Camera at Redwood Rd / SR-68 @ 700 N, SLC" [ref=e4157] [cursor=pointer]
+    - generic [ref=e4159]:
+      - button "Camera at Redwood Rd / SR-68 @ 7000 S / SR-48, WJD":
+        - img "Camera at Redwood Rd / SR-68 @ 7000 S / SR-48, WJD" [ref=e4160] [cursor=pointer]
+    - generic [ref=e4162]:
+      - button "Camera at Redwood Rd / SR-68 @ 7800 S / SR-48, WJD":
+        - img "Camera at Redwood Rd / SR-68 @ 7800 S / SR-48, WJD" [ref=e4163] [cursor=pointer]
+    - generic [ref=e4165]:
+      - button "Camera at Redwood Rd / SR-68 @ 8100 S, WJD":
+        - img "Camera at Redwood Rd / SR-68 @ 8100 S, WJD" [ref=e4166] [cursor=pointer]
+    - generic [ref=e4168]:
+      - button "Camera at Redwood Rd / SR-68 @ 8200 S / Sugar Factory Rd, WJD":
+        - img "Camera at Redwood Rd / SR-68 @ 8200 S / Sugar Factory Rd, WJD" [ref=e4169] [cursor=pointer]
+    - generic [ref=e4171]:
+      - button "Camera at Redwood Rd / SR-68 @ 9000 S / SR-209, WJD":
+        - img "Camera at Redwood Rd / SR-68 @ 9000 S / SR-209, WJD" [ref=e4172] [cursor=pointer]
+    - generic [ref=e4174]:
+      - button "Camera at Redwood Rd / SR-68 @ 9400 S, WJD":
+        - img "Camera at Redwood Rd / SR-68 @ 9400 S, WJD" [ref=e4175] [cursor=pointer]
+    - generic [ref=e4177]:
+      - button "Camera at Redwood Rd / SR-68 @ Aspen Hills Blvd / Cold Spring Dr, LHI":
+        - img "Camera at Redwood Rd / SR-68 @ Aspen Hills Blvd / Cold Spring Dr, LHI" [ref=e4178] [cursor=pointer]
+    - generic [ref=e4180]:
+      - button "Camera at Redwood Rd / SR-68 @ California Ave, SLC":
+        - img "Camera at Redwood Rd / SR-68 @ California Ave, SLC" [ref=e4181] [cursor=pointer]
+    - generic [ref=e4183]:
+      - button "Camera at Redwood Rd / SR-68 @ Center St, NSL":
+        - img "Camera at Redwood Rd / SR-68 @ Center St, NSL" [ref=e4184] [cursor=pointer]
+    - generic [ref=e4186]:
+      - button "Camera at Redwood Rd / SR-68 @ Crossroads Blvd, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Crossroads Blvd, SSP" [ref=e4187] [cursor=pointer]
+    - generic [ref=e4189]:
+      - button "Camera at Redwood Rd / SR-68 @ Exchange Dr / Commerce Dr, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Exchange Dr / Commerce Dr, SSP" [ref=e4190] [cursor=pointer]
+    - generic [ref=e4192]:
+      - button "Camera at Redwood Rd / SR-68 @ Fairway Blvd, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Fairway Blvd, SSP" [ref=e4193] [cursor=pointer]
+    - generic [ref=e4195]:
+      - button "Camera at Redwood Rd / SR-68 @ Gardener Ln / 8660 S, WJD":
+        - img "Camera at Redwood Rd / SR-68 @ Gardener Ln / 8660 S, WJD" [ref=e4196] [cursor=pointer]
+    - generic [ref=e4198]:
+      - button "Camera at Redwood Rd / SR-68 @ Grandview Blvd, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Grandview Blvd, SSP" [ref=e4199] [cursor=pointer]
+    - generic [ref=e4201]:
+      - button "Camera at Redwood Rd / SR-68 @ Harvest Hills Blvd / 2020 N, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Harvest Hills Blvd / 2020 N, SSP" [ref=e4202] [cursor=pointer]
+    - generic [ref=e4204]:
+      - button "Camera at Redwood Rd / SR-68 @ Hudson Way, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Hudson Way, SSP" [ref=e4205] [cursor=pointer]
+    - generic [ref=e4207]:
+      - button "Camera at Redwood Rd / SR-68 @ Indiana Ave / 850 S, SLC":
+        - img "Camera at Redwood Rd / SR-68 @ Indiana Ave / 850 S, SLC" [ref=e4208] [cursor=pointer]
+    - generic [ref=e4210]:
+      - button "Camera at Redwood Rd / SR-68 @ Lake Dr / Commerce Dr, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Lake Dr / Commerce Dr, SSP" [ref=e4211] [cursor=pointer]
+    - generic [ref=e4213]:
+      - button "Camera at Redwood Rd / SR-68 @ Market St, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Market St, SSP" [ref=e4214] [cursor=pointer]
+    - generic [ref=e4216]:
+      - button "Camera at Redwood Rd / SR-68 @ Medical Dr / 1140 N, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Medical Dr / 1140 N, SSP" [ref=e4217] [cursor=pointer]
+    - generic [ref=e4219]:
+      - button "Camera at Redwood Rd / SR-68 @ Milepost 23, UT":
+        - img "Camera at Redwood Rd / SR-68 @ Milepost 23, UT" [ref=e4220] [cursor=pointer]
+    - generic [ref=e4222]:
+      - button "Camera at Redwood Rd / SR-68 @ Mortimer Way, BLF":
+        - img "Camera at Redwood Rd / SR-68 @ Mortimer Way, BLF" [ref=e4223] [cursor=pointer]
+    - generic [ref=e4225]:
+      - button "Camera at Redwood Rd / SR-68 @ North Temple St, SLC":
+        - img "Camera at Redwood Rd / SR-68 @ North Temple St, SLC" [ref=e4226] [cursor=pointer]
+    - generic [ref=e4228]:
+      - button "Camera at Redwood Rd / SR-68 @ Parkway Blvd / Founders Blvd, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Parkway Blvd / Founders Blvd, SSP" [ref=e4229] [cursor=pointer]
+    - generic [ref=e4231]:
+      - button "Camera at Redwood Rd / SR-68 @ Pioneer Crossing / SR-145, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Pioneer Crossing / SR-145, SSP" [ref=e4232] [cursor=pointer]
+    - generic [ref=e4234]:
+      - button "Camera at Redwood Rd / SR-68 @ Pony Express Pkwy, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Pony Express Pkwy, SSP" [ref=e4235] [cursor=pointer]
+    - generic [ref=e4237]:
+      - button "Camera at Redwood Rd / SR-68 @ Porter Rockwell Blvd, BLF":
+        - img "Camera at Redwood Rd / SR-68 @ Porter Rockwell Blvd, BLF" [ref=e4238] [cursor=pointer]
+    - generic [ref=e4240]:
+      - button "Camera at Redwood Rd / SR-68 @ Ring Rd, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Ring Rd, SSP" [ref=e4241] [cursor=pointer]
+    - generic [ref=e4243]:
+      - button "Camera at Redwood Rd / SR-68 @ Stillwater Dr, SSP":
+        - img "Camera at Redwood Rd / SR-68 @ Stillwater Dr, SSP" [ref=e4244] [cursor=pointer]
+    - generic [ref=e4246]:
+      - button "Camera at Redwood Rd / SR-68 @ W G Williams Ave, BLF":
+        - img "Camera at Redwood Rd / SR-68 @ W G Williams Ave, BLF" [ref=e4247] [cursor=pointer]
+    - generic [ref=e4249]:
+      - button "Camera at Redwood Rd / SR-68 RWIS SB @ Milepost 16.3, UT":
+        - img "Camera at Redwood Rd / SR-68 RWIS SB @ Milepost 16.3, UT" [ref=e4250] [cursor=pointer]
+    - generic [ref=e4252]:
+      - button "Camera at River Rd @ 100 S, STG":
+        - img "Camera at River Rd @ 100 S, STG" [ref=e4253] [cursor=pointer]
+    - generic [ref=e4255]:
+      - button "Camera at River Rd @ 1450 S, STG":
+        - img "Camera at River Rd @ 1450 S, STG" [ref=e4256] [cursor=pointer]
+    - generic [ref=e4258]:
+      - button "Camera at River Rd @ 2450 S, STG":
+        - img "Camera at River Rd @ 2450 S, STG" [ref=e4259] [cursor=pointer]
+    - generic [ref=e4261]:
+      - button "Camera at River Rd @ 700 S / Foremaster Dr, STG":
+        - img "Camera at River Rd @ 700 S / Foremaster Dr, STG" [ref=e4262] [cursor=pointer]
+    - generic [ref=e4264]:
+      - button "Camera at River Rd @ Brigham Rd, STG":
+        - img "Camera at River Rd @ Brigham Rd, STG" [ref=e4265] [cursor=pointer]
+    - generic [ref=e4267]:
+      - button "Camera at River Rd @ Fort Pierce Dr, STG":
+        - img "Camera at River Rd @ Fort Pierce Dr, STG" [ref=e4268] [cursor=pointer]
+    - generic [ref=e4270]:
+      - button "Camera at River Rd @ Quarry Ridge Dr, STG":
+        - img "Camera at River Rd @ Quarry Ridge Dr, STG" [ref=e4271] [cursor=pointer]
+    - generic [ref=e4273]:
+      - button "Camera at River Rd @ Riverside Dr, STG":
+        - img "Camera at River Rd @ Riverside Dr, STG" [ref=e4274] [cursor=pointer]
+    - generic [ref=e4276]:
+      - button "Camera at River Rd @ St James Ln / Boulder Springs Rd, STG":
+        - img "Camera at River Rd @ St James Ln / Boulder Springs Rd, STG" [ref=e4277] [cursor=pointer]
+    - generic [ref=e4279]:
+      - button "Camera at River Rd @ White Dome Dr, STG":
+        - img "Camera at River Rd @ White Dome Dr, STG" [ref=e4280] [cursor=pointer]
+    - generic [ref=e4282]:
+      - button "Camera at Riverdale Rd / SR-26 @ 300 W, RDL":
+        - img "Camera at Riverdale Rd / SR-26 @ 300 W, RDL" [ref=e4283] [cursor=pointer]
+    - generic [ref=e4285]:
+      - button "Camera at Riverdale Rd / SR-26 @ 700 W, RDL":
+        - img "Camera at Riverdale Rd / SR-26 @ 700 W, RDL" [ref=e4286] [cursor=pointer]
+    - generic [ref=e4288]:
+      - button "Camera at Riverdale Rd / SR-26 @ 900 W, RDL":
+        - img "Camera at Riverdale Rd / SR-26 @ 900 W, RDL" [ref=e4289] [cursor=pointer]
+    - generic [ref=e4291]:
+      - button "Camera at Riverdale Rd / SR-26 @ Wall Ave / 40th St / SR-204, RDL":
+        - img "Camera at Riverdale Rd / SR-26 @ Wall Ave / 40th St / SR-204, RDL" [ref=e4292] [cursor=pointer]
+    - generic [ref=e4294]:
+      - button "Camera at Riverside Dr @ 2450 E, STG":
+        - img "Camera at Riverside Dr @ 2450 E, STG" [ref=e4295] [cursor=pointer]
+    - generic [ref=e4297]:
+      - button "Camera at Riverside Dr @ Mall Dr, STG":
+        - img "Camera at Riverside Dr @ Mall Dr, STG" [ref=e4298] [cursor=pointer]
+    - generic [ref=e4300]:
+      - button "Camera at Riverside Dr @ Morningside Dr, STG":
+        - img "Camera at Riverside Dr @ Morningside Dr, STG" [ref=e4301] [cursor=pointer]
+    - generic [ref=e4303]:
+      - button "Camera at Riverside Dr @ Sunland Dr / Convention Center Dr, STG":
+        - img "Camera at Riverside Dr @ Sunland Dr / Convention Center Dr, STG" [ref=e4304] [cursor=pointer]
+    - generic [ref=e4306]:
+      - button "Camera at Santa Clara Dr @ Canyon View Dr, SCL":
+        - img "Camera at Santa Clara Dr @ Canyon View Dr, SCL" [ref=e4307] [cursor=pointer]
+    - generic [ref=e4309]:
+      - button "Camera at Santa Clara Dr @ Lava Flow Dr / Warrior Way, SCL":
+        - img "Camera at Santa Clara Dr @ Lava Flow Dr / Warrior Way, SCL" [ref=e4310] [cursor=pointer]
+    - generic [ref=e4312]:
+      - button "Camera at Saratoga Rd @ 1300 S / Lazaret Ave, SSP":
+        - img "Camera at Saratoga Rd @ 1300 S / Lazaret Ave, SSP" [ref=e4313] [cursor=pointer]
+    - generic [ref=e4315]:
+      - button "Camera at Skull Valley Rd / SR-196 @ Milepost 16, TE":
+        - img "Camera at Skull Valley Rd / SR-196 @ Milepost 16, TE" [ref=e4316] [cursor=pointer]
+    - generic [ref=e4318]:
+      - button "Camera at Skull Valley Rd / SR-196 RWIS SB @ Dugway / MP 1.7, TE":
+        - img "Camera at Skull Valley Rd / SR-196 RWIS SB @ Dugway / MP 1.7, TE" [ref=e4319] [cursor=pointer]
+    - generic [ref=e4321]:
+      - button "Camera at Snow Canyon Pkwy @ Dixie Downs Rd / Lakota Dr, STG":
+        - img "Camera at Snow Canyon Pkwy @ Dixie Downs Rd / Lakota Dr, STG" [ref=e4322] [cursor=pointer]
+    - generic [ref=e4324]:
+      - button "Camera at Snow Canyon Pkwy @ Great Basin Dr / 1400 W, STG":
+        - img "Camera at Snow Canyon Pkwy @ Great Basin Dr / 1400 W, STG" [ref=e4325] [cursor=pointer]
+    - generic [ref=e4327]:
+      - button "Camera at Solar":
+        - img "Camera at Solar" [ref=e4328] [cursor=pointer]
+    - generic [ref=e4330]:
+      - button "Camera at Solar":
+        - img "Camera at Solar" [ref=e4331] [cursor=pointer]
+    - generic [ref=e4333]:
+      - button "Camera at South Campus Dr / SR-282 @ 1500 E, SLC":
+        - img "Camera at South Campus Dr / SR-282 @ 1500 E, SLC" [ref=e4334] [cursor=pointer]
+    - generic [ref=e4336]:
+      - button "Camera at South Campus Dr / SR-282 @ 1725 E, SLC":
+        - img "Camera at South Campus Dr / SR-282 @ 1725 E, SLC" [ref=e4337] [cursor=pointer]
+    - generic [ref=e4339]:
+      - button "Camera at South Campus Dr / SR-282 @ Mario Capecchi Dr, SLC":
+        - img "Camera at South Campus Dr / SR-282 @ Mario Capecchi Dr, SLC" [ref=e4340] [cursor=pointer]
+    - generic [ref=e4342]:
+      - button "Camera at South Jordan Pkwy / 10400 S @ 4000 W, SJO":
+        - img "Camera at South Jordan Pkwy / 10400 S @ 4000 W, SJO" [ref=e4343] [cursor=pointer]
+    - generic [ref=e4345]:
+      - button "Camera at South Jordan Pkwy / 10400 S / SR-151 @ 2200 W, SJO":
+        - img "Camera at South Jordan Pkwy / 10400 S / SR-151 @ 2200 W, SJO" [ref=e4346] [cursor=pointer]
+    - generic [ref=e4348]:
+      - button "Camera at South Temple St @ 700 E / I St, SLC":
+        - img "Camera at South Temple St @ 700 E / I St, SLC" [ref=e4349] [cursor=pointer]
+    - generic [ref=e4351]:
+      - button "Camera at South Temple St @ Main St, SLC":
+        - img "Camera at South Temple St @ Main St, SLC" [ref=e4352] [cursor=pointer]
+    - generic [ref=e4354]:
+      - button "Camera at Southern Pkwy / SR-7 @ 3000 S / MP 22.5, HRC":
+        - img "Camera at Southern Pkwy / SR-7 @ 3000 S / MP 22.5, HRC" [ref=e4355] [cursor=pointer]
+    - generic [ref=e4357]:
+      - button "Camera at Southern Pkwy / SR-7 @ Desert Canyons Pkwy / MP 6.5, STG":
+        - img "Camera at Southern Pkwy / SR-7 @ Desert Canyons Pkwy / MP 6.5, STG" [ref=e4358] [cursor=pointer]
+    - generic [ref=e4360]:
+      - button "Camera at Southern Pkwy / SR-7 @ Milepost 1.67, STG":
+        - img "Camera at Southern Pkwy / SR-7 @ Milepost 1.67, STG" [ref=e4361] [cursor=pointer]
+    - generic [ref=e4363]:
+      - button "Camera at Southern Pkwy / SR-7 @ Milepost 21.1, HRC":
+        - img "Camera at Southern Pkwy / SR-7 @ Milepost 21.1, HRC" [ref=e4364] [cursor=pointer]
+    - generic [ref=e4366]:
+      - button "Camera at Southern Pkwy / SR-7 @ Milepost 5.14, STG":
+        - img "Camera at Southern Pkwy / SR-7 @ Milepost 5.14, STG" [ref=e4367] [cursor=pointer]
+    - generic [ref=e4369]:
+      - button "Camera at Southern Pkwy / SR-7 @ Milepost 7.24, STG":
+        - img "Camera at Southern Pkwy / SR-7 @ Milepost 7.24, STG" [ref=e4370] [cursor=pointer]
+    - generic [ref=e4372]:
+      - button "Camera at Southern Pkwy / SR-7 @ River Rd / MP 3.76, STG":
+        - img "Camera at Southern Pkwy / SR-7 @ River Rd / MP 3.76, STG" [ref=e4373] [cursor=pointer]
+    - generic [ref=e4375]:
+      - button "Camera at Southern Pkwy / SR-7 @ Sand Hollow Rd / 4300 W / MP 18.36, HRC":
+        - img "Camera at Southern Pkwy / SR-7 @ Sand Hollow Rd / 4300 W / MP 18.36, HRC" [ref=e4376] [cursor=pointer]
+    - generic [ref=e4378]:
+      - button "Camera at Southern Pkwy / SR-7 RWIS EB @ Sand Hollow Reservoir / MP 19.5, HRC":
+        - img "Camera at Southern Pkwy / SR-7 RWIS EB @ Sand Hollow Reservoir / MP 19.5, HRC" [ref=e4379] [cursor=pointer]
+    - generic [ref=e4381]:
+      - button "Camera at Southern Pkwy / SR-7 WB @ Airport Pkwy / MP 7.68, STG":
+        - img "Camera at Southern Pkwy / SR-7 WB @ Airport Pkwy / MP 7.68, STG" [ref=e4382] [cursor=pointer]
+    - generic [ref=e4384]:
+      - button "Camera at SR-10 @ Milepost 18, EM":
+        - img "Camera at SR-10 @ Milepost 18, EM" [ref=e4385] [cursor=pointer]
+    - generic [ref=e4387]:
+      - button "Camera at SR-10 @ Milepost 33.07, EM":
+        - img "Camera at SR-10 @ Milepost 33.07, EM" [ref=e4388] [cursor=pointer]
+    - generic [ref=e4390]:
+      - button "Camera at SR-10 @ MP 62.95, CC":
+        - img "Camera at SR-10 @ MP 62.95, CC" [ref=e4391] [cursor=pointer]
+    - generic [ref=e4393]:
+      - button "Camera at SR-10 RWIS SB @ Poison Spring Bench / MP 54.1, EM":
+        - img "Camera at SR-10 RWIS SB @ Poison Spring Bench / MP 54.1, EM" [ref=e4394] [cursor=pointer]
+    - generic [ref=e4396]:
+      - button "Camera at SR-12 @ GA/WE County Line / MP 109.84, GA":
+        - img "Camera at SR-12 @ GA/WE County Line / MP 109.84, GA" [ref=e4397] [cursor=pointer]
+    - generic [ref=e4399]:
+      - button "Camera at SR-12 @ Milepost 14.5, GA":
+        - img "Camera at SR-12 @ Milepost 14.5, GA" [ref=e4400] [cursor=pointer]
+    - generic [ref=e4402]:
+      - button "Camera at SR-12 @ Milepost 41.16, GA":
+        - img "Camera at SR-12 @ Milepost 41.16, GA" [ref=e4403] [cursor=pointer]
+    - generic [ref=e4405]:
+      - button "Camera at SR-12 @ Milepost 7.25, GA":
+        - img "Camera at SR-12 @ Milepost 7.25, GA" [ref=e4406] [cursor=pointer]
+    - generic [ref=e4408]:
+      - button "Camera at SR-12 @ Milepost 97.28, GA":
+        - img "Camera at SR-12 @ Milepost 97.28, GA" [ref=e4409] [cursor=pointer]
+    - generic [ref=e4411]:
+      - button "Camera at SR-12 RWIS NB @ Boulder Summit / MP 100.86, GA":
+        - img "Camera at SR-12 RWIS NB @ Boulder Summit / MP 100.86, GA" [ref=e4412] [cursor=pointer]
+    - generic [ref=e4414]:
+      - button "Camera at SR-121 @ Milepost 25.9, UN":
+        - img "Camera at SR-121 @ Milepost 25.9, UN" [ref=e4415] [cursor=pointer]
+    - generic [ref=e4417]:
+      - button "Camera at SR-121 RWIS EB @ East Lapoint / MP 31.45, UN":
+        - img "Camera at SR-121 RWIS EB @ East Lapoint / MP 31.45, UN" [ref=e4418] [cursor=pointer]
+    - generic [ref=e4420]:
+      - button "Camera at SR-130 @ Milepost 31.5, RN":
+        - img "Camera at SR-130 @ Milepost 31.5, RN" [ref=e4421] [cursor=pointer]
+    - generic [ref=e4423]:
+      - button "Camera at SR-130 / Minersville Hwy @ 3000 N, CDC":
+        - img "Camera at SR-130 / Minersville Hwy @ 3000 N, CDC" [ref=e4424] [cursor=pointer]
+    - generic [ref=e4426]:
+      - button "Camera at SR-130 RWIS NB @ Minersville Pass / MP 32.03, RN":
+        - img "Camera at SR-130 RWIS NB @ Minersville Pass / MP 32.03, RN" [ref=e4427] [cursor=pointer]
+    - generic [ref=e4429]:
+      - button "Camera at SR-132 @ Milepost 20, JU":
+        - img "Camera at SR-132 @ Milepost 20, JU" [ref=e4430] [cursor=pointer]
+    - generic [ref=e4432]:
+      - button "Camera at SR-132 @ Milepost 44, SP":
+        - img "Camera at SR-132 @ Milepost 44, SP" [ref=e4433] [cursor=pointer]
+    - generic [ref=e4435]:
+      - button "Camera at SR-14 @ Milepost 16.58, RN":
+        - img "Camera at SR-14 @ Milepost 16.58, RN" [ref=e4436] [cursor=pointer]
+    - generic [ref=e4438]:
+      - button "Camera at SR-14 @ Milepost 20.6, RN":
+        - img "Camera at SR-14 @ Milepost 20.6, RN" [ref=e4439] [cursor=pointer]
+    - generic [ref=e4441]:
+      - button "Camera at SR-14 @ Milepost 24.26, RN":
+        - img "Camera at SR-14 @ Milepost 24.26, RN" [ref=e4442] [cursor=pointer]
+    - generic [ref=e4444]:
+      - button "Camera at SR-14 @ Milepost 8.12, RN":
+        - img "Camera at SR-14 @ Milepost 8.12, RN" [ref=e4445] [cursor=pointer]
+    - generic [ref=e4447]:
+      - button "Camera at SR-14 EB @ Mammoth Creek Rd / Duck Creek Ridge Rd / MP 31.06, KN":
+        - img "Camera at SR-14 EB @ Mammoth Creek Rd / Duck Creek Ridge Rd / MP 31.06, KN" [ref=e4448] [cursor=pointer]
+    - generic [ref=e4450]:
+      - button "Camera at SR-14 RWIS EB @ Summit / MP 17.3, RN":
+        - img "Camera at SR-14 RWIS EB @ Summit / MP 17.3, RN" [ref=e4451] [cursor=pointer]
+    - generic [ref=e4453]:
+      - button "Camera at SR-142 @ 9650 N / MP 4.1, CA":
+        - img "Camera at SR-142 @ 9650 N / MP 4.1, CA" [ref=e4454] [cursor=pointer]
+    - generic [ref=e4456]:
+      - button "Camera at SR-143 @ Brian Head / MP 18.19, RN":
+        - img "Camera at SR-143 @ Brian Head / MP 18.19, RN" [ref=e4457] [cursor=pointer]
+    - generic [ref=e4459]:
+      - button "Camera at SR-143 @ Milepost 13.43, BHD":
+        - img "Camera at SR-143 @ Milepost 13.43, BHD" [ref=e4460] [cursor=pointer]
+    - generic [ref=e4462]:
+      - button "Camera at SR-143 @ Milepost 21.91, RN":
+        - img "Camera at SR-143 @ Milepost 21.91, RN" [ref=e4463] [cursor=pointer]
+    - generic [ref=e4465]:
+      - button "Camera at SR-143 @ Milepost 25.13, RN":
+        - img "Camera at SR-143 @ Milepost 25.13, RN" [ref=e4466] [cursor=pointer]
+    - generic [ref=e4468]:
+      - button "Camera at SR-143 @ Milepost 31.14, GA":
+        - img "Camera at SR-143 @ Milepost 31.14, GA" [ref=e4469] [cursor=pointer]
+    - generic [ref=e4471]:
+      - button "Camera at SR-150 @ Milepost 50, SU":
+        - img "Camera at SR-150 @ Milepost 50, SU" [ref=e4472] [cursor=pointer]
+    - generic [ref=e4474]:
+      - button "Camera at SR-150 RWIS EB @ Bald Mountain Pass / MP 29.2, SU":
+        - img "Camera at SR-150 RWIS EB @ Bald Mountain Pass / MP 29.2, SU" [ref=e4475] [cursor=pointer]
+    - generic [ref=e4477]:
+      - button "Camera at SR-153 RWIS EB @ Puffer Lake / MP 20.24, BV":
+        - img "Camera at SR-153 RWIS EB @ Puffer Lake / MP 20.24, BV" [ref=e4478] [cursor=pointer]
+    - generic [ref=e4480]:
+      - button "Camera at SR-158 @ Powder Mountain / MP 11.62, WB":
+        - img "Camera at SR-158 @ Powder Mountain / MP 11.62, WB" [ref=e4481] [cursor=pointer]
+    - generic [ref=e4483]:
+      - button "Camera at SR-16 RWIS SB @ Milepost 0.54, RI":
+        - img "Camera at SR-16 RWIS SB @ Milepost 0.54, RI" [ref=e4484] [cursor=pointer]
+    - generic [ref=e4486]:
+      - button "Camera at SR-165 / 200 W @ 8800 S / MP 0.73, PDS":
+        - img "Camera at SR-165 / 200 W @ 8800 S / MP 0.73, PDS" [ref=e4487] [cursor=pointer]
+    - generic [ref=e4489]:
+      - button "Camera at SR-167 / Trappers Loop RWIS SB @ SR-226 / Snow Basin Rd / MP 6.92, WB":
+        - img "Camera at SR-167 / Trappers Loop RWIS SB @ SR-226 / Snow Basin Rd / MP 6.92, WB" [ref=e4490] [cursor=pointer]
+    - generic [ref=e4492]:
+      - button "Camera at SR-18 @ Milepost 35.3, WN":
+        - img "Camera at SR-18 @ Milepost 35.3, WN" [ref=e4493] [cursor=pointer]
+    - generic [ref=e4495]:
+      - button "Camera at SR-193 @ 4500 W / SR-110, WPT":
+        - img "Camera at SR-193 @ 4500 W / SR-110, WPT" [ref=e4496] [cursor=pointer]
+    - generic [ref=e4498]:
+      - button "Camera at SR-198 @ 400 N, SLM":
+        - img "Camera at SR-198 @ 400 N, SLM" [ref=e4499] [cursor=pointer]
+    - generic [ref=e4501]:
+      - button "Camera at SR-198 @ 750 N, SLM":
+        - img "Camera at SR-198 @ 750 N, SLM" [ref=e4502] [cursor=pointer]
+    - generic [ref=e4504]:
+      - button "Camera at SR-198 @ Loafer Mtn Pkwy / Elkridge Dr, SLM":
+        - img "Camera at SR-198 @ Loafer Mtn Pkwy / Elkridge Dr, SLM" [ref=e4505] [cursor=pointer]
+    - generic [ref=e4507]:
+      - button "Camera at SR-198 @ Main St, SLM":
+        - img "Camera at SR-198 @ Main St, SLM" [ref=e4508] [cursor=pointer]
+    - generic [ref=e4510]:
+      - button "Camera at SR-198 @ Woodland Hills Dr, UT":
+        - img "Camera at SR-198 @ Woodland Hills Dr, UT" [ref=e4511] [cursor=pointer]
+    - generic [ref=e4513]:
+      - button "Camera at SR-199 @ Skull Valley Rd / SR-196 / MP 0.07, DUG":
+        - img "Camera at SR-199 @ Skull Valley Rd / SR-196 / MP 0.07, DUG" [ref=e4514] [cursor=pointer]
+    - generic [ref=e4516]:
+      - button "Camera at SR-199 RWIS EB @ Johnson Pass / MP 12, TE":
+        - img "Camera at SR-199 RWIS EB @ Johnson Pass / MP 12, TE" [ref=e4517] [cursor=pointer]
+    - generic [ref=e4519]:
+      - button "Camera at SR-20 @ Milepost 10.02, RN":
+        - img "Camera at SR-20 @ Milepost 10.02, RN" [ref=e4520] [cursor=pointer]
+    - generic [ref=e4522]:
+      - button "Camera at SR-201 @ 1275 W / MP 15.83, WVC":
+        - img "Camera at SR-201 @ 1275 W / MP 15.83, WVC" [ref=e4523] [cursor=pointer]
+    - generic [ref=e4525]:
+      - button "Camera at SR-201 @ 1300 W / MP 15.8, WVC":
+        - img "Camera at SR-201 @ 1300 W / MP 15.8, WVC" [ref=e4526] [cursor=pointer]
+    - generic [ref=e4528]:
+      - button "Camera at SR-201 @ 1600 W / MP 15.47, SLC":
+        - img "Camera at SR-201 @ 1600 W / MP 15.47, SLC" [ref=e4529] [cursor=pointer]
+    - generic [ref=e4531]:
+      - button "Camera at SR-201 @ 2100 W / MP 14.82, SLC":
+        - img "Camera at SR-201 @ 2100 W / MP 14.82, SLC" [ref=e4532] [cursor=pointer]
+    - generic [ref=e4534]:
+      - button "Camera at SR-201 @ 2500 W / MP 14.42, SLC":
+        - img "Camera at SR-201 @ 2500 W / MP 14.42, SLC" [ref=e4535] [cursor=pointer]
+    - generic [ref=e4537]:
+      - button "Camera at SR-201 @ 3000 W / MP 14, WVC":
+        - img "Camera at SR-201 @ 3000 W / MP 14, WVC" [ref=e4538] [cursor=pointer]
+    - generic [ref=e4540]:
+      - button "Camera at SR-201 @ 4600 W / MP 12.11, WVC":
+        - img "Camera at SR-201 @ 4600 W / MP 12.11, WVC" [ref=e4541] [cursor=pointer]
+    - generic [ref=e4543]:
+      - button "Camera at SR-201 @ 6800 W / MP 9.13, WVC":
+        - img "Camera at SR-201 @ 6800 W / MP 9.13, WVC" [ref=e4544] [cursor=pointer]
+    - generic [ref=e4546]:
+      - button "Camera at SR-201 @ 7200 W / MP 8.7, MAG":
+        - img "Camera at SR-201 @ 7200 W / MP 8.7, MAG" [ref=e4547] [cursor=pointer]
+    - generic [ref=e4549]:
+      - button "Camera at SR-201 @ 800 W / MP 16.7, SSL":
+        - img "Camera at SR-201 @ 800 W / MP 16.7, SSL" [ref=e4550] [cursor=pointer]
+    - generic [ref=e4552]:
+      - button "Camera at SR-201 @ 8000 W / MP 7.7, MAG":
+        - img "Camera at SR-201 @ 8000 W / MP 7.7, MAG" [ref=e4553] [cursor=pointer]
+    - generic [ref=e4555]:
+      - button "Camera at SR-201 @ 8400 W / SR-111 / MP 7.2, MAG":
+        - img "Camera at SR-201 @ 8400 W / SR-111 / MP 7.2, MAG" [ref=e4556] [cursor=pointer]
+    - generic [ref=e4558]:
+      - button "Camera at SR-201 @ 900 W / MP 16.6, SSL":
+        - img "Camera at SR-201 @ 900 W / MP 16.6, SSL" [ref=e4559] [cursor=pointer]
+    - generic [ref=e4561]:
+      - button "Camera at SR-201 @ Milepost 3.2, SL":
+        - img "Camera at SR-201 @ Milepost 3.2, SL" [ref=e4562] [cursor=pointer]
+    - generic [ref=e4564]:
+      - button "Camera at SR-201 @ Milepost 6, MAG":
+        - img "Camera at SR-201 @ Milepost 6, MAG" [ref=e4565] [cursor=pointer]
+    - generic [ref=e4567]:
+      - button "Camera at SR-201 @ SR-202 / MP 2.78, SL":
+        - img "Camera at SR-201 @ SR-202 / MP 2.78, SL" [ref=e4568] [cursor=pointer]
+    - generic [ref=e4570]:
+      - button "Camera at SR-201 / N Frontage Rd @ 3200 W / MP 13.7, SLC":
+        - img "Camera at SR-201 / N Frontage Rd @ 3200 W / MP 13.7, SLC" [ref=e4571] [cursor=pointer]
+    - generic [ref=e4573]:
+      - button "Camera at SR-201 EB @ 5600 W / SR-172 / MP 10.8, WVC":
+        - img "Camera at SR-201 EB @ 5600 W / SR-172 / MP 10.8, WVC" [ref=e4574] [cursor=pointer]
+    - generic [ref=e4576]:
+      - button "Camera at SR-201 EB @ 6200 W / MP 10.04, WVC":
+        - img "Camera at SR-201 EB @ 6200 W / MP 10.04, WVC" [ref=e4577] [cursor=pointer]
+    - generic [ref=e4579]:
+      - button "Camera at SR-201 EB @ Bangerter Hwy / SR-154 / MP 12.82, WVC":
+        - img "Camera at SR-201 EB @ Bangerter Hwy / SR-154 / MP 12.82, WVC" [ref=e4580] [cursor=pointer]
+    - generic [ref=e4582]:
+      - button "Camera at SR-201 WB @ 5600 W / SR-172, SLC":
+        - img "Camera at SR-201 WB @ 5600 W / SR-172, SLC" [ref=e4583] [cursor=pointer]
+    - generic [ref=e4585]:
+      - button "Camera at SR-201 WB @ Bangerter Hwy / SR-154 / MP 12.8, SLC":
+        - img "Camera at SR-201 WB @ Bangerter Hwy / SR-154 / MP 12.8, SLC" [ref=e4586] [cursor=pointer]
+    - generic [ref=e4588]:
+      - button "Camera at SR-208 @ Milepost 7.68, DU":
+        - img "Camera at SR-208 @ Milepost 7.68, DU" [ref=e4589] [cursor=pointer]
+    - generic [ref=e4591]:
+      - button "Camera at SR-21 @ Milepost 1.2, MD":
+        - img "Camera at SR-21 @ Milepost 1.2, MD" [ref=e4592] [cursor=pointer]
+    - generic [ref=e4594]:
+      - button "Camera at SR-21 @ Milepost 44.93, BV":
+        - img "Camera at SR-21 @ Milepost 44.93, BV" [ref=e4595] [cursor=pointer]
+    - generic [ref=e4597]:
+      - button "Camera at SR-21 @ Minersville Lake / MP 96.1, BV":
+        - img "Camera at SR-21 @ Minersville Lake / MP 96.1, BV" [ref=e4598] [cursor=pointer]
+    - generic [ref=e4600]:
+      - button "Camera at SR-224 @ Bobsled Blvd / Cutter Ln, SU":
+        - img "Camera at SR-224 @ Bobsled Blvd / Cutter Ln, SU" [ref=e4601] [cursor=pointer]
+    - generic [ref=e4603]:
+      - button "Camera at SR-224 @ Canyon Resort Dr / Park West Village, SU":
+        - img "Camera at SR-224 @ Canyon Resort Dr / Park West Village, SU" [ref=e4604] [cursor=pointer]
+    - generic [ref=e4606]:
+      - button "Camera at SR-224 @ Olympic Pkwy / Newpark Blvd / MP 11.16, SU":
+        - img "Camera at SR-224 @ Olympic Pkwy / Newpark Blvd / MP 11.16, SU" [ref=e4607] [cursor=pointer]
+    - generic [ref=e4609]:
+      - button "Camera at SR-224 @ Ute Blvd, SU":
+        - img "Camera at SR-224 @ Ute Blvd, SU" [ref=e4610] [cursor=pointer]
+    - generic [ref=e4612]:
+      - button "Camera at SR-224 / Marsac Ave RWIS SB @ Ontario Mine / MP 3.22, PKC":
+        - img "Camera at SR-224 / Marsac Ave RWIS SB @ Ontario Mine / MP 3.22, PKC" [ref=e4613] [cursor=pointer]
+    - generic [ref=e4615]:
+      - button "Camera at SR-226 @ Snow Basin / MP 0.7, WB":
+        - img "Camera at SR-226 @ Snow Basin / MP 0.7, WB" [ref=e4616] [cursor=pointer]
+    - generic [ref=e4618]:
+      - button "Camera at SR-24 @ Koosharem Reservoir / MP 30.62, SE":
+        - img "Camera at SR-24 @ Koosharem Reservoir / MP 30.62, SE" [ref=e4619] [cursor=pointer]
+    - generic [ref=e4621]:
+      - button "Camera at SR-24 @ Milepost 22.45, SE":
+        - img "Camera at SR-24 @ Milepost 22.45, SE" [ref=e4622] [cursor=pointer]
+    - generic [ref=e4624]:
+      - button "Camera at SR-24 @ Milepost 40.98, WE":
+        - img "Camera at SR-24 @ Milepost 40.98, WE" [ref=e4625] [cursor=pointer]
+    - generic [ref=e4627]:
+      - button "Camera at SR-248 / 1040 W @ Jordanelle Pkwy / Browns Canyon Rd / 13970 N / MP 4.88, WA":
+        - img "Camera at SR-248 / 1040 W @ Jordanelle Pkwy / Browns Canyon Rd / 13970 N / MP 4.88, WA" [ref=e4628] [cursor=pointer]
+    - generic [ref=e4630]:
+      - button "Camera at SR-248 RWIS EB @ Milepost 8.95, WA":
+        - img "Camera at SR-248 RWIS EB @ Milepost 8.95, WA" [ref=e4631] [cursor=pointer]
+    - generic [ref=e4633]:
+      - button "Camera at SR-25 @ Fish Lake / MP 3.97, SE":
+        - img "Camera at SR-25 @ Fish Lake / MP 3.97, SE" [ref=e4634] [cursor=pointer]
+    - generic [ref=e4636]:
+      - button "Camera at SR-257 @ Milepost 33.27, MD":
+        - img "Camera at SR-257 @ Milepost 33.27, MD" [ref=e4637] [cursor=pointer]
+    - generic [ref=e4639]:
+      - button "Camera at SR-264 @ Milepost 10.8, EM":
+        - img "Camera at SR-264 @ Milepost 10.8, EM" [ref=e4640] [cursor=pointer]
+    - generic [ref=e4642]:
+      - button "Camera at SR-276 RWIS SB @ Mt Ellsworth / MP 21.47, GA":
+        - img "Camera at SR-276 RWIS SB @ Mt Ellsworth / MP 21.47, GA" [ref=e4643] [cursor=pointer]
+    - generic [ref=e4645]:
+      - button "Camera at SR-276 SB @ Milepost 21.14, GA":
+        - img "Camera at SR-276 SB @ Milepost 21.14, GA" [ref=e4646] [cursor=pointer]
+    - generic [ref=e4648]:
+      - button "Camera at SR-28 @ Milepost 14.96, SP":
+        - img "Camera at SR-28 @ Milepost 14.96, SP" [ref=e4649] [cursor=pointer]
+    - generic [ref=e4651]:
+      - button "Camera at SR-30 @ Kimball Ln / MP 112.53, GRC":
+        - img "Camera at SR-30 @ Kimball Ln / MP 112.53, GRC" [ref=e4652] [cursor=pointer]
+    - generic [ref=e4654]:
+      - button "Camera at SR-30 @ Milepost 2.3, BE":
+        - img "Camera at SR-30 @ Milepost 2.3, BE" [ref=e4655] [cursor=pointer]
+    - generic [ref=e4657]:
+      - button "Camera at SR-30 @ Otter Creek Rd / MP 124.15, RI":
+        - img "Camera at SR-30 @ Otter Creek Rd / MP 124.15, RI" [ref=e4658] [cursor=pointer]
+    - generic [ref=e4660]:
+      - button "Camera at SR-30 @ SR-16 / Manhead Rd / MP 131.68, RI":
+        - img "Camera at SR-30 @ SR-16 / Manhead Rd / MP 131.68, RI" [ref=e4661] [cursor=pointer]
+    - generic [ref=e4663]:
+      - button "Camera at SR-30 @ Warm Springs Rd / MP 44, BE":
+        - img "Camera at SR-30 @ Warm Springs Rd / MP 44, BE" [ref=e4664] [cursor=pointer]
+    - generic [ref=e4666]:
+      - button "Camera at SR-30 RWIS EB @ Laketown Summit / MP 124.02, RI":
+        - img "Camera at SR-30 RWIS EB @ Laketown Summit / MP 124.02, RI" [ref=e4667] [cursor=pointer]
+    - generic [ref=e4669]:
+      - button "Camera at SR-30 RWIS WB @ BE/CA County Line / MP 99.24, BE":
+        - img "Camera at SR-30 RWIS WB @ BE/CA County Line / MP 99.24, BE" [ref=e4670] [cursor=pointer]
+    - generic [ref=e4672]:
+      - button "Camera at SR-30 RWIS WB @ Curlew Junction / MP 72.36, BE":
+        - img "Camera at SR-30 RWIS WB @ Curlew Junction / MP 72.36, BE" [ref=e4673] [cursor=pointer]
+    - generic [ref=e4675]:
+      - button "Camera at SR-31 @ Milepost 13.3, SP":
+        - img "Camera at SR-31 @ Milepost 13.3, SP" [ref=e4676] [cursor=pointer]
+    - generic [ref=e4678]:
+      - button "Camera at SR-31 @ Miller Flat Rd / MP 18.3, SP":
+        - img "Camera at SR-31 @ Miller Flat Rd / MP 18.3, SP" [ref=e4679] [cursor=pointer]
+    - generic [ref=e4681]:
+      - button "Camera at SR-31 RWIS WB @ Skyline Dr / MP 11.79, SP":
+        - img "Camera at SR-31 RWIS WB @ Skyline Dr / MP 11.79, SP" [ref=e4682] [cursor=pointer]
+    - generic [ref=e4684]:
+      - button "Camera at SR-32 @ Milepost 19.55, SU":
+        - img "Camera at SR-32 @ Milepost 19.55, SU" [ref=e4685] [cursor=pointer]
+    - generic [ref=e4687]:
+      - button "Camera at SR-32 @ Milepost 23, SU":
+        - img "Camera at SR-32 @ Milepost 23, SU" [ref=e4688] [cursor=pointer]
+    - generic [ref=e4690]:
+      - button "Camera at SR-32 @ Milepost 3.86, HBR":
+        - img "Camera at SR-32 @ Milepost 3.86, HBR" [ref=e4691] [cursor=pointer]
+    - generic [ref=e4693]:
+      - button "Camera at SR-32 RWIS NB @ Rob Young Ln / MP 16.46, SU":
+        - img "Camera at SR-32 RWIS NB @ Rob Young Ln / MP 16.46, SU" [ref=e4694] [cursor=pointer]
+    - generic [ref=e4696]:
+      - button "Camera at SR-35 RWIS @ Wolf Creek / MP 9.92, WA":
+        - img "Camera at SR-35 RWIS @ Wolf Creek / MP 9.92, WA" [ref=e4697] [cursor=pointer]
+    - generic [ref=e4699]:
+      - button "Camera at SR-35 RWIS EB @ Wolf Creek Pass / MP 19.33, WA":
+        - img "Camera at SR-35 RWIS EB @ Wolf Creek Pass / MP 19.33, WA" [ref=e4700] [cursor=pointer]
+    - generic [ref=e4702]:
+      - button "Camera at SR-36 @ Canyon Rd, LKP":
+        - img "Camera at SR-36 @ Canyon Rd, LKP" [ref=e4703] [cursor=pointer]
+    - generic [ref=e4705]:
+      - button "Camera at SR-36 @ Erda Way / 4100 N, ERD":
+        - img "Camera at SR-36 @ Erda Way / 4100 N, ERD" [ref=e4706] [cursor=pointer]
+    - generic [ref=e4708]:
+      - button "Camera at SR-36 @ Milepost 17.88, TE":
+        - img "Camera at SR-36 @ Milepost 17.88, TE" [ref=e4709] [cursor=pointer]
+    - generic [ref=e4711]:
+      - button "Camera at SR-36 @ Milepost 42.53, TE":
+        - img "Camera at SR-36 @ Milepost 42.53, TE" [ref=e4712] [cursor=pointer]
+    - generic [ref=e4714]:
+      - button "Camera at SR-36 @ Pole Canyon Rd / Mills Jct, STP":
+        - img "Camera at SR-36 @ Pole Canyon Rd / Mills Jct, STP" [ref=e4715] [cursor=pointer]
+    - generic [ref=e4717]:
+      - button "Camera at SR-36 @ Saddleback Blvd, LKP":
+        - img "Camera at SR-36 @ Saddleback Blvd, LKP" [ref=e4718] [cursor=pointer]
+    - generic [ref=e4720]:
+      - button "Camera at SR-36 @ Stansbury Pkwy, STP":
+        - img "Camera at SR-36 @ Stansbury Pkwy, STP" [ref=e4721] [cursor=pointer]
+    - generic [ref=e4723]:
+      - button "Camera at SR-36 @ TE/JU County Line / MP 6.14, TE":
+        - img "Camera at SR-36 @ TE/JU County Line / MP 6.14, TE" [ref=e4724] [cursor=pointer]
+    - generic [ref=e4726]:
+      - button "Camera at SR-36 @ Village Blvd, STP":
+        - img "Camera at SR-36 @ Village Blvd, STP" [ref=e4727] [cursor=pointer]
+    - generic [ref=e4729]:
+      - button "Camera at SR-36 RWIS SB @ Stockton Bar / MP 49.07, TE":
+        - img "Camera at SR-36 RWIS SB @ Stockton Bar / MP 49.07, TE" [ref=e4730] [cursor=pointer]
+    - generic [ref=e4732]:
+      - button "Camera at SR-39 @ Monte Cristo / MP 36.84, WB":
+        - img "Camera at SR-39 @ Monte Cristo / MP 36.84, WB" [ref=e4733] [cursor=pointer]
+    - generic [ref=e4735]:
+      - button "Camera at SR-39 / 1150 S @ SR-134 / 4700 W, WB":
+        - img "Camera at SR-39 / 1150 S @ SR-134 / 4700 W, WB" [ref=e4736] [cursor=pointer]
+    - generic [ref=e4738]:
+      - button "Camera at SR-39 / Ogden Canyon @ Milepost 13.24, WB":
+        - img "Camera at SR-39 / Ogden Canyon @ Milepost 13.24, WB" [ref=e4739] [cursor=pointer]
+    - generic [ref=e4741]:
+      - button "Camera at SR-39 / Ogden Canyon @ SR-158 / MP 13.8, EB":
+        - img "Camera at SR-39 / Ogden Canyon @ SR-158 / MP 13.8, EB" [ref=e4742] [cursor=pointer]
+    - generic [ref=e4744]:
+      - button "Camera at SR-39 RWIS WB @ Monte Cristo / MP 46.2, RI":
+        - img "Camera at SR-39 RWIS WB @ Monte Cristo / MP 46.2, RI" [ref=e4745] [cursor=pointer]
+    - generic [ref=e4747]:
+      - button "Camera at SR-39 RWIS WB @ SR-167 / Trappers Loop / MP 17.53, WB":
+        - img "Camera at SR-39 RWIS WB @ SR-167 / Trappers Loop / MP 17.53, WB" [ref=e4748] [cursor=pointer]
+    - generic [ref=e4750]:
+      - button "Camera at SR-42 @ Idaho State Line / MP 0.43, BE":
+        - img "Camera at SR-42 @ Idaho State Line / MP 0.43, BE" [ref=e4751] [cursor=pointer]
+    - generic [ref=e4753]:
+      - button "Camera at SR-43 RWIS NB @ UT/WY State Line / MP 0.44, DG":
+        - img "Camera at SR-43 RWIS NB @ UT/WY State Line / MP 0.44, DG" [ref=e4754] [cursor=pointer]
+    - generic [ref=e4756]:
+      - button "Camera at SR-44 @ Milepost 12.7, DG":
+        - img "Camera at SR-44 @ Milepost 12.7, DG" [ref=e4757] [cursor=pointer]
+    - generic [ref=e4759]:
+      - button "Camera at SR-44 @ Milepost 16.86, DG":
+        - img "Camera at SR-44 @ Milepost 16.86, DG" [ref=e4760] [cursor=pointer]
+    - generic [ref=e4762]:
+      - button "Camera at SR-44 @ Milepost 5.24, DG":
+        - img "Camera at SR-44 @ Milepost 5.24, DG" [ref=e4763] [cursor=pointer]
+    - generic [ref=e4765]:
+      - button "Camera at SR-44 RWIS EB @ Moose Pond / MP 9.5, DG":
+        - img "Camera at SR-44 RWIS EB @ Moose Pond / MP 9.5, DG" [ref=e4766] [cursor=pointer]
+    - generic [ref=e4768]:
+      - button "Camera at SR-45 @ Milepost 15.55, UN":
+        - img "Camera at SR-45 @ Milepost 15.55, UN" [ref=e4769] [cursor=pointer]
+    - generic [ref=e4771]:
+      - button "Camera at SR-45 NB @ Milepost 2.95, UN":
+        - img "Camera at SR-45 NB @ Milepost 2.95, UN" [ref=e4772] [cursor=pointer]
+    - generic [ref=e4774]:
+      - button "Camera at SR-45 NB @ Milepost 29, UN":
+        - img "Camera at SR-45 NB @ Milepost 29, UN" [ref=e4775] [cursor=pointer]
+    - generic [ref=e4777]:
+      - button "Camera at SR-46 RWIS WB @ La Sal Divide / MP 12.5, SJ":
+        - img "Camera at SR-46 RWIS WB @ La Sal Divide / MP 12.5, SJ" [ref=e4778] [cursor=pointer]
+    - generic [ref=e4780]:
+      - button "Camera at SR-51 @ 1600 S, SPV":
+        - img "Camera at SR-51 @ 1600 S, SPV" [ref=e4781] [cursor=pointer]
+    - generic [ref=e4783]:
+      - button "Camera at SR-51 @ Expressway Ln / 980 N, SPF":
+        - img "Camera at SR-51 @ Expressway Ln / 980 N, SPF" [ref=e4784] [cursor=pointer]
+    - generic [ref=e4786]:
+      - button "Camera at SR-51 @ Spanish Fork Pkwy, SPF":
+        - img "Camera at SR-51 @ Spanish Fork Pkwy, SPF" [ref=e4787] [cursor=pointer]
+    - generic [ref=e4789]:
+      - button "Camera at SR-56 @ Milepost 1.3, RN":
+        - img "Camera at SR-56 @ Milepost 1.3, RN" [ref=e4790] [cursor=pointer]
+    - generic [ref=e4792]:
+      - button "Camera at SR-56 @ Milepost 42.24, RN":
+        - img "Camera at SR-56 @ Milepost 42.24, RN" [ref=e4793] [cursor=pointer]
+    - generic [ref=e4795]:
+      - button "Camera at SR-56 RWIS WB @ Iron Mountain Summit / MP 43.1 RN":
+        - img "Camera at SR-56 RWIS WB @ Iron Mountain Summit / MP 43.1 RN" [ref=e4796] [cursor=pointer]
+    - generic [ref=e4798]:
+      - button "Camera at SR-59 @ Paradise Ln / 520 W / MP 9.72, APV":
+        - img "Camera at SR-59 @ Paradise Ln / 520 W / MP 9.72, APV" [ref=e4799] [cursor=pointer]
+    - generic [ref=e4801]:
+      - button "Camera at SR-62 @ Milepost 26.28, PT":
+        - img "Camera at SR-62 @ Milepost 26.28, PT" [ref=e4802] [cursor=pointer]
+    - generic [ref=e4804]:
+      - button "Camera at SR-63 / Johns Valley Rd @ SR-12 / MP 2.56, GA":
+        - img "Camera at SR-63 / Johns Valley Rd @ SR-12 / MP 2.56, GA" [ref=e4805] [cursor=pointer]
+    - generic [ref=e4807]:
+      - button "Camera at SR-65 RWIS NB @ Big Mountain Pass / SL-MN Co Line / MP 8.4, SL":
+        - img "Camera at SR-65 RWIS NB @ Big Mountain Pass / SL-MN Co Line / MP 8.4, SL" [ref=e4808] [cursor=pointer]
+    - generic [ref=e4810]:
+      - button "Camera at SR-66 @ East Canyon Reservoir / MP 0.84, MN":
+        - img "Camera at SR-66 @ East Canyon Reservoir / MP 0.84, MN" [ref=e4811] [cursor=pointer]
+    - generic [ref=e4813]:
+      - button "Camera at SR-7 @ MP 1, Desert Color Pkwy, STG":
+        - img "Camera at SR-7 @ MP 1, Desert Color Pkwy, STG" [ref=e4814] [cursor=pointer]
+    - generic [ref=e4816]:
+      - button "Camera at SR-72 @ Hogan Pass / MP 15.8, SE":
+        - img "Camera at SR-72 @ Hogan Pass / MP 15.8, SE" [ref=e4817] [cursor=pointer]
+    - generic [ref=e4819]:
+      - button "Camera at SR-72 @ Milepost 30, SE":
+        - img "Camera at SR-72 @ Milepost 30, SE" [ref=e4820] [cursor=pointer]
+    - generic [ref=e4822]:
+      - button "Camera at SR-72 RWIS NB @ Hogan Pass / MP 17.32, SE":
+        - img "Camera at SR-72 RWIS NB @ Hogan Pass / MP 17.32, SE" [ref=e4823] [cursor=pointer]
+    - generic [ref=e4825]:
+      - button "Camera at SR-73 @ Eagle Mountain Blvd / MP 29.67, EAG":
+        - img "Camera at SR-73 @ Eagle Mountain Blvd / MP 29.67, EAG" [ref=e4826] [cursor=pointer]
+    - generic [ref=e4828]:
+      - button "Camera at SR-73 @ Milepost 20, FRF":
+        - img "Camera at SR-73 @ Milepost 20, FRF" [ref=e4829] [cursor=pointer]
+    - generic [ref=e4831]:
+      - button "Camera at SR-73 @ Milepost 24.4, CDF":
+        - img "Camera at SR-73 @ Milepost 24.4, CDF" [ref=e4832] [cursor=pointer]
+    - generic [ref=e4834]:
+      - button "Camera at SR-73 @ Milepost 26, CDF":
+        - img "Camera at SR-73 @ Milepost 26, CDF" [ref=e4835] [cursor=pointer]
+    - generic [ref=e4837]:
+      - button "Camera at SR-73 @ TE/UT County Line / MP 15.84, UT":
+        - img "Camera at SR-73 @ TE/UT County Line / MP 15.84, UT" [ref=e4838] [cursor=pointer]
+    - generic [ref=e4840]:
+      - button "Camera at SR-83 @ ATK Thiokol / MP 18.5, BE":
+        - img "Camera at SR-83 @ ATK Thiokol / MP 18.5, BE" [ref=e4841] [cursor=pointer]
+    - generic [ref=e4843]:
+      - button "Camera at SR-83 @ SR-102 / MP 13.07, BE":
+        - img "Camera at SR-83 @ SR-102 / MP 13.07, BE" [ref=e4844] [cursor=pointer]
+    - generic [ref=e4846]:
+      - button "Camera at SR-87 RWIS WB @ Mountain Home/MP 15.6, DU":
+        - img "Camera at SR-87 RWIS WB @ Mountain Home/MP 15.6, DU" [ref=e4847] [cursor=pointer]
+    - generic [ref=e4849]:
+      - button "Camera at SR-88 @ Pelican Lake / MP 9.03, UN":
+        - img "Camera at SR-88 @ Pelican Lake / MP 9.03, UN" [ref=e4850] [cursor=pointer]
+    - generic [ref=e4852]:
+      - button "Camera at SR-9 @ North Fork Rd / MP 46.58, KN":
+        - img "Camera at SR-9 @ North Fork Rd / MP 46.58, KN" [ref=e4853] [cursor=pointer]
+    - generic [ref=e4855]:
+      - button "Camera at SR-95 @ Milepost 0.37, HKV":
+        - img "Camera at SR-95 @ Milepost 0.37, HKV" [ref=e4856] [cursor=pointer]
+    - generic [ref=e4858]:
+      - button "Camera at SR-95 RWIS EB @ Salvation Knoll / MP 97, SJ":
+        - img "Camera at SR-95 RWIS EB @ Salvation Knoll / MP 97, SJ" [ref=e4859] [cursor=pointer]
+    - generic [ref=e4861]:
+      - button "Camera at St George Blvd / SR-34 @ 1000 E, STG":
+        - img "Camera at St George Blvd / SR-34 @ 1000 E, STG" [ref=e4862] [cursor=pointer]
+    - generic [ref=e4864]:
+      - button "Camera at St George Blvd / SR-34 @ 200 E / Temple St, STG":
+        - img "Camera at St George Blvd / SR-34 @ 200 E / Temple St, STG" [ref=e4865] [cursor=pointer]
+    - generic [ref=e4867]:
+      - button "Camera at St George Blvd / SR-34 @ 400 E, STG":
+        - img "Camera at St George Blvd / SR-34 @ 400 E, STG" [ref=e4868] [cursor=pointer]
+    - generic [ref=e4870]:
+      - button "Camera at St George Blvd / SR-34 @ Main St, STG":
+        - img "Camera at St George Blvd / SR-34 @ Main St, STG" [ref=e4871] [cursor=pointer]
+    - generic [ref=e4873]:
+      - button "Camera at St George Blvd / SR-34 @ River Rd / Red Cliffs Dr, STG":
+        - img "Camera at St George Blvd / SR-34 @ River Rd / Red Cliffs Dr, STG" [ref=e4874] [cursor=pointer]
+    - generic [ref=e4876]:
+      - button "Camera at St George Blvd / SR-34 @ University Ave / 700 E, STG":
+        - img "Camera at St George Blvd / SR-34 @ University Ave / 700 E, STG" [ref=e4877] [cursor=pointer]
+    - generic [ref=e4879]:
+      - button "Camera at State St / 300 W / SR-198 @ 800 S / SR-178, PSN":
+        - img "Camera at State St / 300 W / SR-198 @ 800 S / SR-178, PSN" [ref=e4880] [cursor=pointer]
+    - generic [ref=e4882]:
+      - button "Camera at State St / SR-126 @ 700 S / SR-193, CFD":
+        - img "Camera at State St / SR-126 @ 700 S / SR-193, CFD" [ref=e4883] [cursor=pointer]
+    - generic [ref=e4885]:
+      - button "Camera at State St / SR-126 @ Center St, CFD":
+        - img "Camera at State St / SR-126 @ Center St, CFD" [ref=e4886] [cursor=pointer]
+    - generic [ref=e4888]:
+      - button "Camera at State St / SR-186 @ 100 S, SLC":
+        - img "Camera at State St / SR-186 @ 100 S, SLC" [ref=e4889] [cursor=pointer]
+    - generic [ref=e4891]:
+      - button "Camera at State St / SR-186 @ 200 S, SLC":
+        - img "Camera at State St / SR-186 @ 200 S, SLC" [ref=e4892] [cursor=pointer]
+    - generic [ref=e4894]:
+      - button "Camera at State St / SR-186 @ North Temple St / 2nd Ave, SLC":
+        - img "Camera at State St / SR-186 @ North Temple St / 2nd Ave, SLC" [ref=e4895] [cursor=pointer]
+    - generic [ref=e4897]:
+      - button "Camera at State St / SR-198 @ 1400 S, PSN":
+        - img "Camera at State St / SR-198 @ 1400 S, PSN" [ref=e4898] [cursor=pointer]
+    - generic [ref=e4900]:
+      - button "Camera at State St / SR-9 @ 1150 W, HRC":
+        - img "Camera at State St / SR-9 @ 1150 W, HRC" [ref=e4901] [cursor=pointer]
+    - generic [ref=e4903]:
+      - button "Camera at State St / SR-9 @ 1400 W, HRC":
+        - img "Camera at State St / SR-9 @ 1400 W, HRC" [ref=e4904] [cursor=pointer]
+    - generic [ref=e4906]:
+      - button "Camera at State St / SR-9 @ 2600 W, HRC":
+        - img "Camera at State St / SR-9 @ 2600 W, HRC" [ref=e4907] [cursor=pointer]
+    - generic [ref=e4909]:
+      - button "Camera at State St / SR-9 @ 300 W, HRC":
+        - img "Camera at State St / SR-9 @ 300 W, HRC" [ref=e4910] [cursor=pointer]
+    - generic [ref=e4912]:
+      - button "Camera at State St / SR-9 @ 3700 W / Sand Hollow Rd, HRC":
+        - img "Camera at State St / SR-9 @ 3700 W / Sand Hollow Rd, HRC" [ref=e4913] [cursor=pointer]
+    - generic [ref=e4915]:
+      - button "Camera at State St / SR-9 @ 4400 W, HRC":
+        - img "Camera at State St / SR-9 @ 4400 W, HRC" [ref=e4916] [cursor=pointer]
+    - generic [ref=e4918]:
+      - button "Camera at State St / SR-9 @ 500 N, HRC":
+        - img "Camera at State St / SR-9 @ 500 N, HRC" [ref=e4919] [cursor=pointer]
+    - generic [ref=e4921]:
+      - button "Camera at State St / SR-9 @ 5300 W / SR-318, HRC":
+        - img "Camera at State St / SR-9 @ 5300 W / SR-318, HRC" [ref=e4922] [cursor=pointer]
+    - generic [ref=e4924]:
+      - button "Camera at State St / SR-9 @ 6300 W / Telegraph Rd / Old Hwy 91, HRC":
+        - img "Camera at State St / SR-9 @ 6300 W / Telegraph Rd / Old Hwy 91, HRC" [ref=e4925] [cursor=pointer]
+    - generic [ref=e4927]:
+      - button "Camera at State St / SR-9 @ 700 W / Airport Rd, HRC":
+        - img "Camera at State St / SR-9 @ 700 W / Airport Rd, HRC" [ref=e4928] [cursor=pointer]
+    - generic [ref=e4930]:
+      - button "Camera at State St / SR-9 @ Center St, LVR":
+        - img "Camera at State St / SR-9 @ Center St, LVR" [ref=e4931] [cursor=pointer]
+    - generic [ref=e4933]:
+      - button "Camera at State St / SR-9 @ Main St / SR-59, HRC":
+        - img "Camera at State St / SR-9 @ Main St / SR-59, HRC" [ref=e4934] [cursor=pointer]
+    - generic [ref=e4936]:
+      - button "Camera at State St / SR-9 @ Rlington Pkwy / 2260 W, HRC":
+        - img "Camera at State St / SR-9 @ Rlington Pkwy / 2260 W, HRC" [ref=e4937] [cursor=pointer]
+    - generic [ref=e4939]:
+      - button "Camera at State St / SR-9 @ Southern Pkwy / SR-7, HRC":
+        - img "Camera at State St / SR-9 @ Southern Pkwy / SR-7, HRC" [ref=e4940] [cursor=pointer]
+    - generic [ref=e4942]:
+      - button "Camera at State St / SR-9 / SR-17 @ 500 N / SR-9, LVR":
+        - img "Camera at State St / SR-9 / SR-17 @ 500 N / SR-9, LVR" [ref=e4943] [cursor=pointer]
+    - generic [ref=e4945]:
+      - button "Camera at State St / US-89 @ 100 E, LHI":
+        - img "Camera at State St / US-89 @ 100 E, LHI" [ref=e4946] [cursor=pointer]
+    - generic [ref=e4948]:
+      - button "Camera at State St / US-89 @ 10000 S / Sego Lily Dr, SND":
+        - img "Camera at State St / US-89 @ 10000 S / Sego Lily Dr, SND" [ref=e4949] [cursor=pointer]
+    - generic [ref=e4951]:
+      - button "Camera at State St / US-89 @ 10600 S, SND":
+        - img "Camera at State St / US-89 @ 10600 S, SND" [ref=e4952] [cursor=pointer]
+    - generic [ref=e4954]:
+      - button "Camera at State St / US-89 @ 11000 S, SND":
+        - img "Camera at State St / US-89 @ 11000 S, SND" [ref=e4955] [cursor=pointer]
+    - generic [ref=e4957]:
+      - button "Camera at State St / US-89 @ 11235 S / Auto Mall Dr, SND":
+        - img "Camera at State St / US-89 @ 11235 S / Auto Mall Dr, SND" [ref=e4958] [cursor=pointer]
+    - generic [ref=e4960]:
+      - button "Camera at State St / US-89 @ 11400 S / SR-175, SND":
+        - img "Camera at State St / US-89 @ 11400 S / SR-175, SND" [ref=e4961] [cursor=pointer]
+    - generic [ref=e4963]:
+      - button "Camera at State St / US-89 @ 1200 N, ORM":
+        - img "Camera at State St / US-89 @ 1200 N, ORM" [ref=e4964] [cursor=pointer]
+    - generic [ref=e4966]:
+      - button "Camera at State St / US-89 @ 12200 S, DPR":
+        - img "Camera at State St / US-89 @ 12200 S, DPR" [ref=e4967] [cursor=pointer]
+    - generic [ref=e4969]:
+      - button "Camera at State St / US-89 @ 1300 S, SLC":
+        - img "Camera at State St / US-89 @ 1300 S, SLC" [ref=e4970] [cursor=pointer]
+    - generic [ref=e4972]:
+      - button "Camera at State St / US-89 @ 1300 W / Proctor Ln, PLG":
+        - img "Camera at State St / US-89 @ 1300 W / Proctor Ln, PLG" [ref=e4973] [cursor=pointer]
+    - generic [ref=e4975]:
+      - button "Camera at State St / US-89 @ 1320 S, PVO":
+        - img "Camera at State St / US-89 @ 1320 S, PVO" [ref=e4976] [cursor=pointer]
+    - generic [ref=e4978]:
+      - button "Camera at State St / US-89 @ 1500 N, LHI":
+        - img "Camera at State St / US-89 @ 1500 N, LHI" [ref=e4979] [cursor=pointer]
+    - generic [ref=e4981]:
+      - button "Camera at State St / US-89 @ 1600 N, ORM":
+        - img "Camera at State St / US-89 @ 1600 N, ORM" [ref=e4982] [cursor=pointer]
+    - generic [ref=e4984]:
+      - button "Camera at State St / US-89 @ 1600 S, ORM":
+        - img "Camera at State St / US-89 @ 1600 S, ORM" [ref=e4985] [cursor=pointer]
+    - generic [ref=e4987]:
+      - button "Camera at State St / US-89 @ 1650 W, PLG":
+        - img "Camera at State St / US-89 @ 1650 W, PLG" [ref=e4988] [cursor=pointer]
+    - generic [ref=e4990]:
+      - button "Camera at State St / US-89 @ 1700 S, SLC":
+        - img "Camera at State St / US-89 @ 1700 S, SLC" [ref=e4991] [cursor=pointer]
+    - generic [ref=e4993]:
+      - button "Camera at State St / US-89 @ 1720 N / Grandview Ln, PVO":
+        - img "Camera at State St / US-89 @ 1720 N / Grandview Ln, PVO" [ref=e4994] [cursor=pointer]
+    - generic [ref=e4996]:
+      - button "Camera at State St / US-89 @ 1860 S / Slate Canyon Dr, PVO":
+        - img "Camera at State St / US-89 @ 1860 S / Slate Canyon Dr, PVO" [ref=e4997] [cursor=pointer]
+    - generic [ref=e4999]:
+      - button "Camera at State St / US-89 @ 200 S / 220 S, PLG":
+        - img "Camera at State St / US-89 @ 200 S / 220 S, PLG" [ref=e5000] [cursor=pointer]
+    - generic [ref=e5002]:
+      - button "Camera at State St / US-89 @ 2000 N, ORM":
+        - img "Camera at State St / US-89 @ 2000 N, ORM" [ref=e5003] [cursor=pointer]
+    - generic [ref=e5005]:
+      - button "Camera at State St / US-89 @ 2100 N / SR-194, LHI":
+        - img "Camera at State St / US-89 @ 2100 N / SR-194, LHI" [ref=e5006] [cursor=pointer]
+    - generic [ref=e5008]:
+      - button "Camera at State St / US-89 @ 2100 S / SR-201, SSL":
+        - img "Camera at State St / US-89 @ 2100 S / SR-201, SSL" [ref=e5009] [cursor=pointer]
+    - generic [ref=e5011]:
+      - button "Camera at State St / US-89 @ 2700 N / SR-134, PLV":
+        - img "Camera at State St / US-89 @ 2700 N / SR-134, PLV" [ref=e5012] [cursor=pointer]
+    - generic [ref=e5014]:
+      - button "Camera at State St / US-89 @ 2700 S, SSL":
+        - img "Camera at State St / US-89 @ 2700 S, SSL" [ref=e5015] [cursor=pointer]
+    - generic [ref=e5017]:
+      - button "Camera at State St / US-89 @ 2820 S, SSL":
+        - img "Camera at State St / US-89 @ 2820 S, SSL" [ref=e5018] [cursor=pointer]
+    - generic [ref=e5020]:
+      - button "Camera at State St / US-89 @ 300 E, AFK":
+        - img "Camera at State St / US-89 @ 300 E, AFK" [ref=e5021] [cursor=pointer]
+    - generic [ref=e5023]:
+      - button "Camera at State St / US-89 @ 300 W, LHI":
+        - img "Camera at State St / US-89 @ 300 W, LHI" [ref=e5024] [cursor=pointer]
+    - generic [ref=e5026]:
+      - button "Camera at State St / US-89 @ 3300 S / SR-171, SSL":
+        - img "Camera at State St / US-89 @ 3300 S / SR-171, SSL" [ref=e5027] [cursor=pointer]
+    - generic [ref=e5029]:
+      - button "Camera at State St / US-89 @ 3900 S, SSL":
+        - img "Camera at State St / US-89 @ 3900 S, SSL" [ref=e5030] [cursor=pointer]
+    - generic [ref=e5032]:
+      - button "Camera at State St / US-89 @ 400 N, LDN":
+        - img "Camera at State St / US-89 @ 400 N, LDN" [ref=e5033] [cursor=pointer]
+    - generic [ref=e5035]:
+      - button "Camera at State St / US-89 @ 400 N, ORM":
+        - img "Camera at State St / US-89 @ 400 N, ORM" [ref=e5036] [cursor=pointer]
+    - generic [ref=e5038]:
+      - button "Camera at State St / US-89 @ 400 S / University Blvd / SR-186, SLC":
+        - img "Camera at State St / US-89 @ 400 S / University Blvd / SR-186, SLC" [ref=e5039] [cursor=pointer]
+    - generic [ref=e5041]:
+      - button "Camera at State St / US-89 @ 4500 S / SR-266, MUR":
+        - img "Camera at State St / US-89 @ 4500 S / SR-266, MUR" [ref=e5042] [cursor=pointer]
+    - generic [ref=e5044]:
+      - button "Camera at State St / US-89 @ 4800 S, MUR":
+        - img "Camera at State St / US-89 @ 4800 S, MUR" [ref=e5045] [cursor=pointer]
+    - generic [ref=e5047]:
+      - button "Camera at State St / US-89 @ 500 E / SR-180, AFK":
+        - img "Camera at State St / US-89 @ 500 E / SR-180, AFK" [ref=e5048] [cursor=pointer]
+    - generic [ref=e5050]:
+      - button "Camera at State St / US-89 @ 500 W, LHI":
+        - img "Camera at State St / US-89 @ 500 W, LHI" [ref=e5051] [cursor=pointer]
+    - generic [ref=e5053]:
+      - button "Camera at State St / US-89 @ 5900 S, MUR":
+        - img "Camera at State St / US-89 @ 5900 S, MUR" [ref=e5054] [cursor=pointer]
+    - generic [ref=e5056]:
+      - button "Camera at State St / US-89 @ 600 S / Martin Luther King Jr Blvd / SR-269, SLC":
+        - img "Camera at State St / US-89 @ 600 S / Martin Luther King Jr Blvd / SR-269, SLC" [ref=e5057] [cursor=pointer]
+    - generic [ref=e5059]:
+      - button "Camera at State St / US-89 @ 700 E, AFK":
+        - img "Camera at State St / US-89 @ 700 E, AFK" [ref=e5060] [cursor=pointer]
+    - generic [ref=e5062]:
+      - button "Camera at State St / US-89 @ 700 N / SR-129, LDN":
+        - img "Camera at State St / US-89 @ 700 N / SR-129, LDN" [ref=e5063] [cursor=pointer]
+    - generic [ref=e5065]:
+      - button "Camera at State St / US-89 @ 700 S / 300 E, PLG":
+        - img "Camera at State St / US-89 @ 700 S / 300 E, PLG" [ref=e5066] [cursor=pointer]
+    - generic [ref=e5068]:
+      - button "Camera at State St / US-89 @ 7200 S / Fort Union Blvd / SR-48, MDV":
+        - img "Camera at State St / US-89 @ 7200 S / Fort Union Blvd / SR-48, MDV" [ref=e5069] [cursor=pointer]
+    - generic [ref=e5071]:
+      - button "Camera at State St / US-89 @ 7800 S, MDV":
+        - img "Camera at State St / US-89 @ 7800 S, MDV" [ref=e5072] [cursor=pointer]
+    - generic [ref=e5074]:
+      - button "Camera at State St / US-89 @ 800 N / SR-52, ORM":
+        - img "Camera at State St / US-89 @ 800 N / SR-52, ORM" [ref=e5075] [cursor=pointer]
+    - generic [ref=e5077]:
+      - button "Camera at State St / US-89 @ 800 S, ORM":
+        - img "Camera at State St / US-89 @ 800 S, ORM" [ref=e5078] [cursor=pointer]
+    - generic [ref=e5080]:
+      - button "Camera at State St / US-89 @ 8375 S / Princeton Dr, SND":
+        - img "Camera at State St / US-89 @ 8375 S / Princeton Dr, SND" [ref=e5081] [cursor=pointer]
+    - generic [ref=e5083]:
+      - button "Camera at State St / US-89 @ 850 E, LHI":
+        - img "Camera at State St / US-89 @ 850 E, LHI" [ref=e5084] [cursor=pointer]
+    - generic [ref=e5086]:
+      - button "Camera at State St / US-89 @ 860 E, AFK":
+        - img "Camera at State St / US-89 @ 860 E, AFK" [ref=e5087] [cursor=pointer]
+    - generic [ref=e5089]:
+      - button "Camera at State St / US-89 @ 900 E, PVO":
+        - img "Camera at State St / US-89 @ 900 E, PVO" [ref=e5090] [cursor=pointer]
+    - generic [ref=e5092]:
+      - button "Camera at State St / US-89 @ 900 S, SLC":
+        - img "Camera at State St / US-89 @ 900 S, SLC" [ref=e5093] [cursor=pointer]
+    - generic [ref=e5095]:
+      - button "Camera at State St / US-89 @ 9000 S / SR-209, SND":
+        - img "Camera at State St / US-89 @ 9000 S / SR-209, SND" [ref=e5096] [cursor=pointer]
+    - generic [ref=e5098]:
+      - button "Camera at State St / US-89 @ 9400 S, SND":
+        - img "Camera at State St / US-89 @ 9400 S, SND" [ref=e5099] [cursor=pointer]
+    - generic [ref=e5101]:
+      - button "Camera at State St / US-89 @ Center St, LDN":
+        - img "Camera at State St / US-89 @ Center St, LDN" [ref=e5102] [cursor=pointer]
+    - generic [ref=e5104]:
+      - button "Camera at State St / US-89 @ Center St, ORM":
+        - img "Camera at State St / US-89 @ Center St, ORM" [ref=e5105] [cursor=pointer]
+    - generic [ref=e5107]:
+      - button "Camera at State St / US-89 @ Columbia Ln, ORM":
+        - img "Camera at State St / US-89 @ Columbia Ln, ORM" [ref=e5108] [cursor=pointer]
+    - generic [ref=e5110]:
+      - button "Camera at State St / US-89 @ Main St / 1200 E / SR-73, LHI":
+        - img "Camera at State St / US-89 @ Main St / 1200 E / SR-73, LHI" [ref=e5111] [cursor=pointer]
+    - generic [ref=e5113]:
+      - button "Camera at State St / US-89 @ Main St / SR-114, PLG":
+        - img "Camera at State St / US-89 @ Main St / SR-114, PLG" [ref=e5114] [cursor=pointer]
+    - generic [ref=e5116]:
+      - button "Camera at State St / US-89 @ Main St / SR-116, MTP":
+        - img "Camera at State St / US-89 @ Main St / SR-116, MTP" [ref=e5117] [cursor=pointer]
+    - generic [ref=e5119]:
+      - button "Camera at State St / US-89 @ Main St / US-50, SLA":
+        - img "Camera at State St / US-89 @ Main St / US-50, SLA" [ref=e5120] [cursor=pointer]
+    - generic [ref=e5122]:
+      - button "Camera at State St / US-89 @ North County Blvd / 1100 E / SR-129, AFK":
+        - img "Camera at State St / US-89 @ North County Blvd / 1100 E / SR-129, AFK" [ref=e5123] [cursor=pointer]
+    - generic [ref=e5125]:
+      - button "Camera at State St / US-89 @ Pleasant Grove Blvd / Center St, PLG":
+        - img "Camera at State St / US-89 @ Pleasant Grove Blvd / Center St, PLG" [ref=e5126] [cursor=pointer]
+    - generic [ref=e5128]:
+      - button "Camera at State St / US-89 @ Rio Tinto Stadium / 9210 S, SND":
+        - img "Camera at State St / US-89 @ Rio Tinto Stadium / 9210 S, SND" [ref=e5129] [cursor=pointer]
+    - generic [ref=e5131]:
+      - button "Camera at State St / US-89 @ University Pkwy / SR-265, ORM":
+        - img "Camera at State St / US-89 @ University Pkwy / SR-265, ORM" [ref=e5132] [cursor=pointer]
+    - generic [ref=e5134]:
+      - button "Camera at State St / US-89 @ Valley Vista Way, PVO":
+        - img "Camera at State St / US-89 @ Valley Vista Way, PVO" [ref=e5135] [cursor=pointer]
+    - generic [ref=e5137]:
+      - button "Camera at State St / US-89 @ Winchester St / 6400 S, MUR":
+        - img "Camera at State St / US-89 @ Winchester St / 6400 S, MUR" [ref=e5138] [cursor=pointer]
+    - generic [ref=e5140]:
+      - button "Camera at State St / US-89 / Minuteman Dr @ 12300 S / SR-71, DPR":
+        - img "Camera at State St / US-89 / Minuteman Dr @ 12300 S / SR-71, DPR" [ref=e5141] [cursor=pointer]
+    - generic [ref=e5143]:
+      - button "Camera at Sun River Pkwy @ Pioneer Rd, STG":
+        - img "Camera at Sun River Pkwy @ Pioneer Rd, STG" [ref=e5144] [cursor=pointer]
+    - generic [ref=e5146]:
+      - button "Camera at Sunset Blvd / SR-8 @ 1300 W, STG":
+        - img "Camera at Sunset Blvd / SR-8 @ 1300 W, STG" [ref=e5147] [cursor=pointer]
+    - generic [ref=e5149]:
+      - button "Camera at Sunset Blvd / SR-8 @ Dixie Dr / Dixie Downs Rd, STG":
+        - img "Camera at Sunset Blvd / SR-8 @ Dixie Dr / Dixie Downs Rd, STG" [ref=e5150] [cursor=pointer]
+    - generic [ref=e5152]:
+      - button "Camera at Sunset Blvd / SR-8 @ Valley View Dr, STG":
+        - img "Camera at Sunset Blvd / SR-8 @ Valley View Dr, STG" [ref=e5153] [cursor=pointer]
+    - generic [ref=e5155]:
+      - button "Camera at Sunset Blvd / SR-8 @ Westridge Dr, STG":
+        - img "Camera at Sunset Blvd / SR-8 @ Westridge Dr, STG" [ref=e5156] [cursor=pointer]
+    - generic [ref=e5158]:
+      - button "Camera at Taylorsville Expwy / 4530 S / SR-266 @ Atherton Dr / 1050 W, TAY":
+        - img "Camera at Taylorsville Expwy / 4530 S / SR-266 @ Atherton Dr / 1050 W, TAY" [ref=e5159] [cursor=pointer]
+    - generic [ref=e5161]:
+      - button "Camera at Telegraph St @ 1100 E, WAS":
+        - img "Camera at Telegraph St @ 1100 E, WAS" [ref=e5162] [cursor=pointer]
+    - generic [ref=e5164]:
+      - button "Camera at Telegraph St @ Highland Pkwy, WAS":
+        - img "Camera at Telegraph St @ Highland Pkwy, WAS" [ref=e5165] [cursor=pointer]
+    - generic [ref=e5167]:
+      - button "Camera at Telegraph St @ Washington Pkwy, WAS":
+        - img "Camera at Telegraph St @ Washington Pkwy, WAS" [ref=e5168] [cursor=pointer]
+    - generic [ref=e5170]:
+      - button "Camera at Telegraph St / State St @ 300 E / Washington Fields Rd, WAS":
+        - img "Camera at Telegraph St / State St @ 300 E / Washington Fields Rd, WAS" [ref=e5171] [cursor=pointer]
+    - generic [ref=e5173]:
+      - button "Camera at Telegraph St / State St @ Main St, WAS":
+        - img "Camera at Telegraph St / State St @ Main St, WAS" [ref=e5174] [cursor=pointer]
+    - generic [ref=e5176]:
+      - button "Camera at Timpanogos Hwy / 11000 N / SR-92 @ 5600 W, HLD":
+        - img "Camera at Timpanogos Hwy / 11000 N / SR-92 @ 5600 W, HLD" [ref=e5177] [cursor=pointer]
+    - generic [ref=e5179]:
+      - button "Camera at Timpanogos Hwy / 11000 N / SR-92 @ 6000 W, HLD":
+        - img "Camera at Timpanogos Hwy / 11000 N / SR-92 @ 6000 W, HLD" [ref=e5180] [cursor=pointer]
+    - generic [ref=e5182]:
+      - button "Camera at Timpanogos Hwy / 11000 N / SR-92 @ 6400 W, HLD":
+        - img "Camera at Timpanogos Hwy / 11000 N / SR-92 @ 6400 W, HLD" [ref=e5183] [cursor=pointer]
+    - generic [ref=e5185]:
+      - button "Camera at Timpanogos Hwy / 11000 N / SR-92 @ Alpine Hwy / 5300 W / SR-74, HLD":
+        - img "Camera at Timpanogos Hwy / 11000 N / SR-92 @ Alpine Hwy / 5300 W / SR-74, HLD" [ref=e5186] [cursor=pointer]
+    - generic [ref=e5188]:
+      - button "Camera at Timpanogos Hwy / 11000 N / SR-92 @ North County Blvd / 4800 W / SR-129, HLD":
+        - img "Camera at Timpanogos Hwy / 11000 N / SR-92 @ North County Blvd / 4800 W / SR-129, HLD" [ref=e5189] [cursor=pointer]
+    - generic [ref=e5191]:
+      - button "Camera at Timpanogos Hwy / 3500 N / SR-92 @ 1200 E / Micron, LHI":
+        - img "Camera at Timpanogos Hwy / 3500 N / SR-92 @ 1200 E / Micron, LHI" [ref=e5192] [cursor=pointer]
+    - generic [ref=e5194]:
+      - button "Camera at Timpanogos Hwy / 3500 N / SR-92 @ 1450 W, LHI":
+        - img "Camera at Timpanogos Hwy / 3500 N / SR-92 @ 1450 W, LHI" [ref=e5195] [cursor=pointer]
+    - generic [ref=e5197]:
+      - button "Camera at Timpanogos Hwy / 3500 N / SR-92 @ 1700 W / MP 0.88, LHI":
+        - img "Camera at Timpanogos Hwy / 3500 N / SR-92 @ 1700 W / MP 0.88, LHI" [ref=e5198] [cursor=pointer]
+    - generic [ref=e5200]:
+      - button "Camera at Timpanogos Hwy / 3500 N / SR-92 @ 500 W, LHI":
+        - img "Camera at Timpanogos Hwy / 3500 N / SR-92 @ 500 W, LHI" [ref=e5201] [cursor=pointer]
+    - generic [ref=e5203]:
+      - button "Camera at Timpanogos Hwy / 3500 N / SR-92 @ Center St, LHI":
+        - img "Camera at Timpanogos Hwy / 3500 N / SR-92 @ Center St, LHI" [ref=e5204] [cursor=pointer]
+    - generic [ref=e5206]:
+      - button "Camera at Timpanogos Hwy / 3500 N / SR-92 @ Digital Dr, LHI":
+        - img "Camera at Timpanogos Hwy / 3500 N / SR-92 @ Digital Dr, LHI" [ref=e5207] [cursor=pointer]
+    - generic [ref=e5209]:
+      - button "Camera at Timpanogos Hwy / 3500 N / SR-92 @ Morning Vista Rd / 1200 W, LHI":
+        - img "Camera at Timpanogos Hwy / 3500 N / SR-92 @ Morning Vista Rd / 1200 W, LHI" [ref=e5210] [cursor=pointer]
+    - generic [ref=e5212]:
+      - button "Camera at Timpanogos Hwy / Club House Dr / SR-92 @ Ashton Blvd, LHI":
+        - img "Camera at Timpanogos Hwy / Club House Dr / SR-92 @ Ashton Blvd, LHI" [ref=e5213] [cursor=pointer]
+    - generic [ref=e5215]:
+      - button "Camera at Timpanogos Hwy / SR-92 @ Canyon Rd, HLD":
+        - img "Camera at Timpanogos Hwy / SR-92 @ Canyon Rd, HLD" [ref=e5216] [cursor=pointer]
+    - generic [ref=e5218]:
+      - button "Camera at Timpanogos Hwy / SR-92 @ Highland Blvd, LHI":
+        - img "Camera at Timpanogos Hwy / SR-92 @ Highland Blvd, LHI" [ref=e5219] [cursor=pointer]
+    - generic [ref=e5221]:
+      - button "Camera at Towne Centre Dr / 1420 S @ Towne Centre Blvd, PVO":
+        - img "Camera at Towne Centre Dr / 1420 S @ Towne Centre Blvd, PVO" [ref=e5222] [cursor=pointer]
+    - generic [ref=e5224]:
+      - button "Camera at Traverse Mtn Blvd @ Fox Canyon Rd, LHI":
+        - img "Camera at Traverse Mtn Blvd @ Fox Canyon Rd, LHI" [ref=e5225] [cursor=pointer]
+    - generic [ref=e5227]:
+      - button "Camera at Triumph Blvd @ Ashton Blvd, LHI":
+        - img "Camera at Triumph Blvd @ Ashton Blvd, LHI" [ref=e5228] [cursor=pointer]
+    - generic [ref=e5230]:
+      - button "Camera at Triumph Blvd @ Cabelas Blvd, LHI":
+        - img "Camera at Triumph Blvd @ Cabelas Blvd, LHI" [ref=e5231] [cursor=pointer]
+    - generic [ref=e5233]:
+      - button "Camera at UDOT Rural - Trailer 2":
+        - img "Camera at UDOT Rural - Trailer 2" [ref=e5234] [cursor=pointer]
+    - generic [ref=e5236]:
+      - button "Camera at UDOT Rural - Trailer 3":
+        - img "Camera at UDOT Rural - Trailer 3" [ref=e5237] [cursor=pointer]
+    - generic [ref=e5239]:
+      - button "Camera at UDOT Rural - Trailer 5":
+        - img "Camera at UDOT Rural - Trailer 5" [ref=e5240] [cursor=pointer]
+    - generic [ref=e5242]:
+      - button "Camera at Union Park Ave @ 1300 E / 7100 S, CWH":
+        - img "Camera at Union Park Ave @ 1300 E / 7100 S, CWH" [ref=e5243] [cursor=pointer]
+    - generic [ref=e5245]:
+      - button "Camera at Union Park Ave / 1090 E @ Fort Union Blvd / 7000 S, MDV":
+        - img "Camera at Union Park Ave / 1090 E @ Fort Union Blvd / 7000 S, MDV" [ref=e5246] [cursor=pointer]
+    - generic [ref=e5248]:
+      - button "Camera at Union Park Ave / 1300 E @ 7755 S / Forbush Ln, SND":
+        - img "Camera at Union Park Ave / 1300 E @ 7755 S / Forbush Ln, SND" [ref=e5249] [cursor=pointer]
+    - generic [ref=e5251]:
+      - button "Camera at Union Park Ave / 1300 E @ Creek Rd / South Union Ave / 7340 S, CWH":
+        - img "Camera at Union Park Ave / 1300 E @ Creek Rd / South Union Ave / 7340 S, CWH" [ref=e5252] [cursor=pointer]
+    - generic [ref=e5254]:
+      - button "Camera at University Ave / US-189 @ 1200 S, PVO":
+        - img "Camera at University Ave / US-189 @ 1200 S, PVO" [ref=e5255] [cursor=pointer]
+    - generic [ref=e5257]:
+      - button "Camera at University Ave / US-189 @ 200 N, PVO":
+        - img "Camera at University Ave / US-189 @ 200 N, PVO" [ref=e5258] [cursor=pointer]
+    - generic [ref=e5260]:
+      - button "Camera at University Ave / US-189 @ 2230 N, PVO":
+        - img "Camera at University Ave / US-189 @ 2230 N, PVO" [ref=e5261] [cursor=pointer]
+    - generic [ref=e5263]:
+      - button "Camera at University Ave / US-189 @ 2680 N, PVO":
+        - img "Camera at University Ave / US-189 @ 2680 N, PVO" [ref=e5264] [cursor=pointer]
+    - generic [ref=e5266]:
+      - button "Camera at University Ave / US-189 @ 300 S / US-89, PVO":
+        - img "Camera at University Ave / US-189 @ 300 S / US-89, PVO" [ref=e5267] [cursor=pointer]
+    - generic [ref=e5269]:
+      - button "Camera at University Ave / US-189 @ 3300 N, PVO":
+        - img "Camera at University Ave / US-189 @ 3300 N, PVO" [ref=e5270] [cursor=pointer]
+    - generic [ref=e5272]:
+      - button "Camera at University Ave / US-189 @ 3700 N, PVO":
+        - img "Camera at University Ave / US-189 @ 3700 N, PVO" [ref=e5273] [cursor=pointer]
+    - generic [ref=e5275]:
+      - button "Camera at University Ave / US-189 @ 400 S, PVO":
+        - img "Camera at University Ave / US-189 @ 400 S, PVO" [ref=e5276] [cursor=pointer]
+    - generic [ref=e5278]:
+      - button "Camera at University Ave / US-189 @ 4200 N, PVO":
+        - img "Camera at University Ave / US-189 @ 4200 N, PVO" [ref=e5279] [cursor=pointer]
+    - generic [ref=e5281]:
+      - button "Camera at University Ave / US-189 @ 4800 N / Foothill Blvd, PVO":
+        - img "Camera at University Ave / US-189 @ 4800 N / Foothill Blvd, PVO" [ref=e5282] [cursor=pointer]
+    - generic [ref=e5284]:
+      - button "Camera at University Ave / US-189 @ 500 N, PVO":
+        - img "Camera at University Ave / US-189 @ 500 N, PVO" [ref=e5285] [cursor=pointer]
+    - generic [ref=e5287]:
+      - button "Camera at University Ave / US-189 @ 5200 N / River Park Dr, PVO":
+        - img "Camera at University Ave / US-189 @ 5200 N / River Park Dr, PVO" [ref=e5288] [cursor=pointer]
+    - generic [ref=e5290]:
+      - button "Camera at University Ave / US-189 @ 700 N, PVO":
+        - img "Camera at University Ave / US-189 @ 700 N, PVO" [ref=e5291] [cursor=pointer]
+    - generic [ref=e5293]:
+      - button "Camera at University Ave / US-189 @ 800 N, PVO":
+        - img "Camera at University Ave / US-189 @ 800 N, PVO" [ref=e5294] [cursor=pointer]
+    - generic [ref=e5296]:
+      - button "Camera at University Ave / US-189 @ 920 S, PVO":
+        - img "Camera at University Ave / US-189 @ 920 S, PVO" [ref=e5297] [cursor=pointer]
+    - generic [ref=e5299]:
+      - button "Camera at University Ave / US-189 @ Center St, PVO":
+        - img "Camera at University Ave / US-189 @ Center St, PVO" [ref=e5300] [cursor=pointer]
+    - generic [ref=e5302]:
+      - button "Camera at University Ave / US-189 @ Cougar Blvd / 1230 N, PVO":
+        - img "Camera at University Ave / US-189 @ Cougar Blvd / 1230 N, PVO" [ref=e5303] [cursor=pointer]
+    - generic [ref=e5305]:
+      - button "Camera at University Ave / US-189 @ East Bay Blvd / Town Center Dr / 1420 S, PVO":
+        - img "Camera at University Ave / US-189 @ East Bay Blvd / Town Center Dr / 1420 S, PVO" [ref=e5306] [cursor=pointer]
+    - generic [ref=e5308]:
+      - button "Camera at University Ave / US-189 @ Stone Gate Ln / 4400 N, PVO":
+        - img "Camera at University Ave / US-189 @ Stone Gate Ln / 4400 N, PVO" [ref=e5309] [cursor=pointer]
+    - generic [ref=e5311]:
+      - button "Camera at University Ave / US-189 @ University Pkwy / 1650 N / SR-265, PVO":
+        - img "Camera at University Ave / US-189 @ University Pkwy / 1650 N / SR-265, PVO" [ref=e5312] [cursor=pointer]
+    - generic [ref=e5314]:
+      - button "Camera at University Blvd / Center St / SR-289 @ 300 W, CDC":
+        - img "Camera at University Blvd / Center St / SR-289 @ 300 W, CDC" [ref=e5315] [cursor=pointer]
+    - generic [ref=e5317]:
+      - button "Camera at University Blvd / Center St / SR-289 @ 800 W, CDC":
+        - img "Camera at University Blvd / Center St / SR-289 @ 800 W, CDC" [ref=e5318] [cursor=pointer]
+    - generic [ref=e5320]:
+      - button "Camera at University Pkwy / 1650 N @ 450 E, PVO":
+        - img "Camera at University Pkwy / 1650 N @ 450 E, PVO" [ref=e5321] [cursor=pointer]
+    - generic [ref=e5323]:
+      - button "Camera at University Pkwy / 1650 N @ Canyon Rd / 150 E, PVO":
+        - img "Camera at University Pkwy / 1650 N @ Canyon Rd / 150 E, PVO" [ref=e5324] [cursor=pointer]
+    - generic [ref=e5326]:
+      - button "Camera at University Pkwy / SR-265 @ 1400 S, ORM":
+        - img "Camera at University Pkwy / SR-265 @ 1400 S, ORM" [ref=e5327] [cursor=pointer]
+    - generic [ref=e5329]:
+      - button "Camera at University Pkwy / SR-265 @ 1700 S, ORM":
+        - img "Camera at University Pkwy / SR-265 @ 1700 S, ORM" [ref=e5330] [cursor=pointer]
+    - generic [ref=e5332]:
+      - button "Camera at University Pkwy / SR-265 @ 200 E, ORM":
+        - img "Camera at University Pkwy / SR-265 @ 200 E, ORM" [ref=e5333] [cursor=pointer]
+    - generic [ref=e5335]:
+      - button "Camera at University Pkwy / SR-265 @ 2230 N / 550 W, PVO":
+        - img "Camera at University Pkwy / SR-265 @ 2230 N / 550 W, PVO" [ref=e5336] [cursor=pointer]
+    - generic [ref=e5338]:
+      - button "Camera at University Pkwy / SR-265 @ 400 W, ORM":
+        - img "Camera at University Pkwy / SR-265 @ 400 W, ORM" [ref=e5339] [cursor=pointer]
+    - generic [ref=e5341]:
+      - button "Camera at University Pkwy / SR-265 @ 800 E, ORM":
+        - img "Camera at University Pkwy / SR-265 @ 800 E, ORM" [ref=e5342] [cursor=pointer]
+    - generic [ref=e5344]:
+      - button "Camera at University Pkwy / SR-265 @ Freedom Blvd / 200 W, PVO":
+        - img "Camera at University Pkwy / SR-265 @ Freedom Blvd / 200 W, PVO" [ref=e5345] [cursor=pointer]
+    - generic [ref=e5347]:
+      - button "Camera at University Pkwy / SR-265 @ Main St, ORM":
+        - img "Camera at University Pkwy / SR-265 @ Main St, ORM" [ref=e5348] [cursor=pointer]
+    - generic [ref=e5350]:
+      - button "Camera at University Pkwy / SR-265 @ Sandhill Rd, ORM":
+        - img "Camera at University Pkwy / SR-265 @ Sandhill Rd, ORM" [ref=e5351] [cursor=pointer]
+    - generic [ref=e5353]:
+      - button "Camera at US-163 @ Monument Valley Rd, SJ":
+        - img "Camera at US-163 @ Monument Valley Rd, SJ" [ref=e5354] [cursor=pointer]
+    - generic [ref=e5356]:
+      - button "Camera at US-189 @ 1300 S, HBR":
+        - img "Camera at US-189 @ 1300 S, HBR" [ref=e5357] [cursor=pointer]
+    - generic [ref=e5359]:
+      - button "Camera at US-189 @ 3000 S / MP 26.54, CHR":
+        - img "Camera at US-189 @ 3000 S / MP 26.54, CHR" [ref=e5360] [cursor=pointer]
+    - generic [ref=e5362]:
+      - button "Camera at US-189 @ Charleston Rd / 3600 W / SR-113 / MP 24.92, CHR":
+        - img "Camera at US-189 @ Charleston Rd / 3600 W / SR-113 / MP 24.92, CHR" [ref=e5363] [cursor=pointer]
+    - generic [ref=e5365]:
+      - button "Camera at US-189 @ Deer Creek Dam / MP 17.87, WA":
+        - img "Camera at US-189 @ Deer Creek Dam / MP 17.87, WA" [ref=e5366] [cursor=pointer]
+    - generic [ref=e5368]:
+      - button "Camera at US-189 @ Milepost 20.89, WA":
+        - img "Camera at US-189 @ Milepost 20.89, WA" [ref=e5369] [cursor=pointer]
+    - generic [ref=e5371]:
+      - button "Camera at US-189 @ Milepost 21.57, WA":
+        - img "Camera at US-189 @ Milepost 21.57, WA" [ref=e5372] [cursor=pointer]
+    - generic [ref=e5374]:
+      - button "Camera at US-189 @ Milepost 25.36, CHR":
+        - img "Camera at US-189 @ Milepost 25.36, CHR" [ref=e5375] [cursor=pointer]
+    - generic [ref=e5377]:
+      - button "Camera at US-189 WB @ Milepost 19.13, WA":
+        - img "Camera at US-189 WB @ Milepost 19.13, WA" [ref=e5378] [cursor=pointer]
+    - generic [ref=e5380]:
+      - button "Camera at US-191 @ Antelope Flat / MP 400.8, DG":
+        - img "Camera at US-191 @ Antelope Flat / MP 400.8, DG" [ref=e5381] [cursor=pointer]
+    - generic [ref=e5383]:
+      - button "Camera at US-191 @ Cedar Springs Rd / MP 391.77, DG":
+        - img "Camera at US-191 @ Cedar Springs Rd / MP 391.77, DG" [ref=e5384] [cursor=pointer]
+    - generic [ref=e5386]:
+      - button "Camera at US-191 @ Milepost 259.75, CC":
+        - img "Camera at US-191 @ Milepost 259.75, CC" [ref=e5387] [cursor=pointer]
+    - generic [ref=e5389]:
+      - button "Camera at US-191 @ Milepost 265.7, DU":
+        - img "Camera at US-191 @ Milepost 265.7, DU" [ref=e5390] [cursor=pointer]
+    - generic [ref=e5392]:
+      - button "Camera at US-191 @ Milepost 372.31, UN":
+        - img "Camera at US-191 @ Milepost 372.31, UN" [ref=e5393] [cursor=pointer]
+    - generic [ref=e5395]:
+      - button "Camera at US-191 @ Milepost 380.82, DG":
+        - img "Camera at US-191 @ Milepost 380.82, DG" [ref=e5396] [cursor=pointer]
+    - generic [ref=e5398]:
+      - button "Camera at US-191 @ Milepost 80.76, SJ":
+        - img "Camera at US-191 @ Milepost 80.76, SJ" [ref=e5399] [cursor=pointer]
+    - generic [ref=e5401]:
+      - button "Camera at US-191 @ Spanish Trail Rd, GR":
+        - img "Camera at US-191 @ Spanish Trail Rd, GR" [ref=e5402] [cursor=pointer]
+    - generic [ref=e5404]:
+      - button "Camera at US-191 NB @ Arches Entrance Rd / MP 130.28, GR":
+        - img "Camera at US-191 NB @ Arches Entrance Rd / MP 130.28, GR" [ref=e5405] [cursor=pointer]
+    - generic [ref=e5407]:
+      - button "Camera at US-191 NB @ Devils Canyon / MP 61.18, SJ":
+        - img "Camera at US-191 NB @ Devils Canyon / MP 61.18, SJ" [ref=e5408] [cursor=pointer]
+    - generic [ref=e5410]:
+      - button "Camera at US-191 NB @ MP 103.8, SR-46 / La Sal Jct, SJ":
+        - img "Camera at US-191 NB @ MP 103.8, SR-46 / La Sal Jct, SJ" [ref=e5411] [cursor=pointer]
+    - generic [ref=e5413]:
+      - button "Camera at US-191 NB @ SR-128 / MP 128.2, MAB":
+        - img "Camera at US-191 NB @ SR-128 / MP 128.2, MAB" [ref=e5414] [cursor=pointer]
+    - generic [ref=e5416]:
+      - button "Camera at US-191 RWIS NB @ Bassett Spring / MP 376.75, UN":
+        - img "Camera at US-191 RWIS NB @ Bassett Spring / MP 376.75, UN" [ref=e5417] [cursor=pointer]
+    - generic [ref=e5419]:
+      - button "Camera at US-191 RWIS NB @ Indian Canyon Summit / MP 266.77, DU":
+        - img "Camera at US-191 RWIS NB @ Indian Canyon Summit / MP 266.77, DU" [ref=e5420] [cursor=pointer]
+    - generic [ref=e5422]:
+      - button "Camera at US-191 RWIS NB @ Monticello / MP 62, SJ":
+        - img "Camera at US-191 RWIS NB @ Monticello / MP 62, SJ" [ref=e5423] [cursor=pointer]
+    - generic [ref=e5425]:
+      - button "Camera at US-191 RWIS NB @ Willie Spring / MP 385.94, DG":
+        - img "Camera at US-191 RWIS NB @ Willie Spring / MP 385.94, DG" [ref=e5426] [cursor=pointer]
+    - generic [ref=e5428]:
+      - button "Camera at US-191 RWIS SB @ Flat Iron / MP 104.44, SJ":
+        - img "Camera at US-191 RWIS SB @ Flat Iron / MP 104.44, SJ" [ref=e5429] [cursor=pointer]
+    - generic [ref=e5431]:
+      - button "Camera at US-191 RWIS SB @ Windy Point / MP 369.25, UN":
+        - img "Camera at US-191 RWIS SB @ Windy Point / MP 369.25, UN" [ref=e5432] [cursor=pointer]
+    - generic [ref=e5434]:
+      - button "Camera at US-40 @ 1500 S / MP 141.36, UN":
+        - img "Camera at US-40 @ 1500 S / MP 141.36, UN" [ref=e5435] [cursor=pointer]
+    - generic [ref=e5437]:
+      - button "Camera at US-40 @ 2050 S / MP 18.81, HBR":
+        - img "Camera at US-40 @ 2050 S / MP 18.81, HBR" [ref=e5438] [cursor=pointer]
+    - generic [ref=e5440]:
+      - button "Camera at US-40 @ 500 E / MP 87, DCH":
+        - img "Camera at US-40 @ 500 E / MP 87, DCH" [ref=e5441] [cursor=pointer]
+    - generic [ref=e5443]:
+      - button "Camera at US-40 @ 500 S / MP 143.12, VNL":
+        - img "Camera at US-40 @ 500 S / MP 143.12, VNL" [ref=e5444] [cursor=pointer]
+    - generic [ref=e5446]:
+      - button "Camera at US-40 @ 500 S / MP 146.2, VNL":
+        - img "Camera at US-40 @ 500 S / MP 146.2, VNL" [ref=e5447] [cursor=pointer]
+    - generic [ref=e5449]:
+      - button "Camera at US-40 @ Daniels Summit / MP 34.21, WA":
+        - img "Camera at US-40 @ Daniels Summit / MP 34.21, WA" [ref=e5450] [cursor=pointer]
+    - generic [ref=e5452]:
+      - button "Camera at US-40 @ Deer Hollow Rd / SR-319 / MP 8.22, WA":
+        - img "Camera at US-40 @ Deer Hollow Rd / SR-319 / MP 8.22, WA" [ref=e5453] [cursor=pointer]
+    - generic [ref=e5455]:
+      - button "Camera at US-40 @ Gray Mountain Canal / MP 95.92, DU":
+        - img "Camera at US-40 @ Gray Mountain Canal / MP 95.92, DU" [ref=e5456] [cursor=pointer]
+    - generic [ref=e5458]:
+      - button "Camera at US-40 @ Ioka Ln / SR-87 / MP 109.46, DU":
+        - img "Camera at US-40 @ Ioka Ln / SR-87 / MP 109.46, DU" [ref=e5459] [cursor=pointer]
+    - generic [ref=e5461]:
+      - button "Camera at US-40 @ Jordanelle Reservoir / MP 9.8, WA":
+        - img "Camera at US-40 @ Jordanelle Reservoir / MP 9.8, WA" [ref=e5462] [cursor=pointer]
+    - generic [ref=e5464]:
+      - button "Camera at US-40 @ Milepost 1.85, SU":
+        - img "Camera at US-40 @ Milepost 1.85, SU" [ref=e5465] [cursor=pointer]
+    - generic [ref=e5467]:
+      - button "Camera at US-40 @ Milepost 10.62, WA":
+        - img "Camera at US-40 @ Milepost 10.62, WA" [ref=e5468] [cursor=pointer]
+    - generic [ref=e5470]:
+      - button "Camera at US-40 @ Milepost 134.85, UN":
+        - img "Camera at US-40 @ Milepost 134.85, UN" [ref=e5471] [cursor=pointer]
+    - generic [ref=e5473]:
+      - button "Camera at US-40 @ Milepost 173.6, UN":
+        - img "Camera at US-40 @ Milepost 173.6, UN" [ref=e5474] [cursor=pointer]
+    - generic [ref=e5476]:
+      - button "Camera at US-40 @ Milepost 27.53, WA":
+        - img "Camera at US-40 @ Milepost 27.53, WA" [ref=e5477] [cursor=pointer]
+    - generic [ref=e5479]:
+      - button "Camera at US-40 @ Milepost 3, SU":
+        - img "Camera at US-40 @ Milepost 3, SU" [ref=e5480] [cursor=pointer]
+    - generic [ref=e5482]:
+      - button "Camera at US-40 @ Milepost 49.14, WA":
+        - img "Camera at US-40 @ Milepost 49.14, WA" [ref=e5483] [cursor=pointer]
+    - generic [ref=e5485]:
+      - button "Camera at US-40 @ Milepost 69.81, DU":
+        - img "Camera at US-40 @ Milepost 69.81, DU" [ref=e5486] [cursor=pointer]
+    - generic [ref=e5488]:
+      - button "Camera at US-40 @ River Rd / SR-32 / MP 13.7, WA":
+        - img "Camera at US-40 @ River Rd / SR-32 / MP 13.7, WA" [ref=e5489] [cursor=pointer]
+    - generic [ref=e5491]:
+      - button "Camera at US-40 @ Silver Summit Pkwy / MP 1.31, SU":
+        - img "Camera at US-40 @ Silver Summit Pkwy / MP 1.31, SU" [ref=e5492] [cursor=pointer]
+    - generic [ref=e5494]:
+      - button "Camera at US-40 @ SR-248 / Kearns Blvd / Quinns Jct / MP 3.89, SU":
+        - img "Camera at US-40 @ SR-248 / Kearns Blvd / Quinns Jct / MP 3.89, SU" [ref=e5495] [cursor=pointer]
+    - generic [ref=e5497]:
+      - button "Camera at US-40 @ State St / MP 114.1, RSV":
+        - img "Camera at US-40 @ State St / MP 114.1, RSV" [ref=e5498] [cursor=pointer]
+    - generic [ref=e5500]:
+      - button "Camera at US-40 @ Strawberry Rd / MP 40.4, WA":
+        - img "Camera at US-40 @ Strawberry Rd / MP 40.4, WA" [ref=e5501] [cursor=pointer]
+    - generic [ref=e5503]:
+      - button "Camera at US-40 @ Strawberry Reservoir / MP 42, WA":
+        - img "Camera at US-40 @ Strawberry Reservoir / MP 42, WA" [ref=e5504] [cursor=pointer]
+    - generic [ref=e5506]:
+      - button "Camera at US-40 @ Strawberry Reservoir Ladders / MP 45.2, WA":
+        - img "Camera at US-40 @ Strawberry Reservoir Ladders / MP 45.2, WA" [ref=e5507] [cursor=pointer]
+    - generic [ref=e5509]:
+      - button "Camera at US-40 @ WA/DU County Line / MP 59, DU":
+        - img "Camera at US-40 @ WA/DU County Line / MP 59, DU" [ref=e5510] [cursor=pointer]
+    - generic [ref=e5512]:
+      - button "Camera at US-40 RWIS EB @ Asphalt Ridge / MP 140.1, UN":
+        - img "Camera at US-40 RWIS EB @ Asphalt Ridge / MP 140.1, UN" [ref=e5513] [cursor=pointer]
+    - generic [ref=e5515]:
+      - button "Camera at US-40 RWIS EB @ Fruitland / MP 66, DU":
+        - img "Camera at US-40 RWIS EB @ Fruitland / MP 66, DU" [ref=e5516] [cursor=pointer]
+    - generic [ref=e5518]:
+      - button "Camera at US-40 RWIS EB @ Starvation Reservoir / MP 81.5, DU":
+        - img "Camera at US-40 RWIS EB @ Starvation Reservoir / MP 81.5, DU" [ref=e5519] [cursor=pointer]
+    - generic [ref=e5521]:
+      - button "Camera at US-40 RWIS SB @ Mayflower Summit / MP 6.13, WA":
+        - img "Camera at US-40 RWIS SB @ Mayflower Summit / MP 6.13, WA" [ref=e5522] [cursor=pointer]
+    - generic [ref=e5524]:
+      - button "Camera at US-40 RWIS WB @ Myton / MP 105.3, MYT":
+        - img "Camera at US-40 RWIS WB @ Myton / MP 105.3, MYT" [ref=e5525] [cursor=pointer]
+    - generic [ref=e5527]:
+      - button "Camera at US-40 SB @ Lodge Pole / MP 33.43, WA":
+        - img "Camera at US-40 SB @ Lodge Pole / MP 33.43, WA" [ref=e5528] [cursor=pointer]
+    - generic [ref=e5530]:
+      - button "Camera at US-491 @ Milepost 13.15, SJ":
+        - img "Camera at US-491 @ Milepost 13.15, SJ" [ref=e5531] [cursor=pointer]
+    - generic [ref=e5533]:
+      - button "Camera at US-491 RWIS WB @ Monticello POE / MP 2, SJ":
+        - img "Camera at US-491 RWIS WB @ Monticello POE / MP 2, SJ" [ref=e5534] [cursor=pointer]
+    - generic [ref=e5536]:
+      - button "Camera at US-50 @ SR-100 / MP 107.6, MD":
+        - img "Camera at US-50 @ SR-100 / MP 107.6, MD" [ref=e5537] [cursor=pointer]
+    - generic [ref=e5539]:
+      - button "Camera at US-50 SB @ MD/SE County Line / MP 148.15, MD":
+        - img "Camera at US-50 SB @ MD/SE County Line / MP 148.15, MD" [ref=e5540] [cursor=pointer]
+    - generic [ref=e5542]:
+      - button "Camera at US-6 @ 100 N / SR-55, PRC":
+        - img "Camera at US-6 @ 100 N / SR-55, PRC" [ref=e5543] [cursor=pointer]
+    - generic [ref=e5545]:
+      - button "Camera at US-6 @ 1000 N / Canyon Creek Pkwy, SPF":
+        - img "Camera at US-6 @ 1000 N / Canyon Creek Pkwy, SPF" [ref=e5546] [cursor=pointer]
+    - generic [ref=e5548]:
+      - button "Camera at US-6 @ 1000 N / MP 231.74, HLP":
+        - img "Camera at US-6 @ 1000 N / MP 231.74, HLP" [ref=e5549] [cursor=pointer]
+    - generic [ref=e5551]:
+      - button "Camera at US-6 @ 800 N / Expressway Ln, SPF":
+        - img "Camera at US-6 @ 800 N / Expressway Ln, SPF" [ref=e5552] [cursor=pointer]
+    - generic [ref=e5554]:
+      - button "Camera at US-6 @ Billies Mtn / MP 186.37, UT":
+        - img "Camera at US-6 @ Billies Mtn / MP 186.37, UT" [ref=e5555] [cursor=pointer]
+    - generic [ref=e5557]:
+      - button "Camera at US-6 @ Canyon Rd / SR-198 / MP 177.12, SPF":
+        - img "Camera at US-6 @ Canyon Rd / SR-198 / MP 177.12, SPF" [ref=e5558] [cursor=pointer]
+    - generic [ref=e5560]:
+      - button "Camera at US-6 @ Cedar Haven / Sheep Creek Rd / MP 195.08, UT":
+        - img "Camera at US-6 @ Cedar Haven / Sheep Creek Rd / MP 195.08, UT" [ref=e5561] [cursor=pointer]
+    - generic [ref=e5563]:
+      - button "Camera at US-6 @ Center St / 1430 E, SPF":
+        - img "Camera at US-6 @ Center St / 1430 E, SPF" [ref=e5564] [cursor=pointer]
+    - generic [ref=e5566]:
+      - button "Camera at US-6 @ Champlain Point JU":
+        - img "Camera at US-6 @ Champlain Point JU" [ref=e5567] [cursor=pointer]
+    - generic [ref=e5569]:
+      - button "Camera at US-6 @ Colton Shed / MP 217.11, UT":
+        - img "Camera at US-6 @ Colton Shed / MP 217.11, UT" [ref=e5570] [cursor=pointer]
+    - generic [ref=e5572]:
+      - button "Camera at US-6 @ Diamond Fork / MP 184.9, UT":
+        - img "Camera at US-6 @ Diamond Fork / MP 184.9, UT" [ref=e5573] [cursor=pointer]
+    - generic [ref=e5575]:
+      - button "Camera at US-6 @ Gilluly Switchback / MP 206.46, UT":
+        - img "Camera at US-6 @ Gilluly Switchback / MP 206.46, UT" [ref=e5576] [cursor=pointer]
+    - generic [ref=e5578]:
+      - button "Camera at US-6 @ Kings Canyon / MP 22.8, MD":
+        - img "Camera at US-6 @ Kings Canyon / MP 22.8, MD" [ref=e5579] [cursor=pointer]
+    - generic [ref=e5581]:
+      - button "Camera at US-6 @ Main St / MP 232.7, HLP":
+        - img "Camera at US-6 @ Main St / MP 232.7, HLP" [ref=e5582] [cursor=pointer]
+    - generic [ref=e5584]:
+      - button "Camera at US-6 @ Milepost 182.39, UT":
+        - img "Camera at US-6 @ Milepost 182.39, UT" [ref=e5585] [cursor=pointer]
+    - generic [ref=e5587]:
+      - button "Camera at US-6 @ Milepost 222.3, CC":
+        - img "Camera at US-6 @ Milepost 222.3, CC" [ref=e5588] [cursor=pointer]
+    - generic [ref=e5590]:
+      - button "Camera at US-6 @ Powerhouse Rd / MP 177.52, SPF":
+        - img "Camera at US-6 @ Powerhouse Rd / MP 177.52, SPF" [ref=e5591] [cursor=pointer]
+    - generic [ref=e5593]:
+      - button "Camera at US-6 @ Redwood Rd / SR-68, UT":
+        - img "Camera at US-6 @ Redwood Rd / SR-68, UT" [ref=e5594] [cursor=pointer]
+    - generic [ref=e5596]:
+      - button "Camera at US-6 @ Skull Rock Pass / MP 40.72, MD":
+        - img "Camera at US-6 @ Skull Rock Pass / MP 40.72, MD" [ref=e5597] [cursor=pointer]
+    - generic [ref=e5599]:
+      - button "Camera at US-6 @ Spanish Fork Pkwy / 2550 E, SPF":
+        - img "Camera at US-6 @ Spanish Fork Pkwy / 2550 E, SPF" [ref=e5600] [cursor=pointer]
+    - generic [ref=e5602]:
+      - button "Camera at US-6 @ SR-132 / MP 105.29, LDL":
+        - img "Camera at US-6 @ SR-132 / MP 105.29, LDL" [ref=e5603] [cursor=pointer]
+    - generic [ref=e5605]:
+      - button "Camera at US-6 @ Tie Fork Rest Area / MP 202.05, UT":
+        - img "Camera at US-6 @ Tie Fork Rest Area / MP 202.05, UT" [ref=e5606] [cursor=pointer]
+    - generic [ref=e5608]:
+      - button "Camera at US-6 @ US-191 / MP 229.82, CC":
+        - img "Camera at US-6 @ US-191 / MP 229.82, CC" [ref=e5609] [cursor=pointer]
+    - generic [ref=e5611]:
+      - button "Camera at US-6 @ US-191 / MP 230.1, CC":
+        - img "Camera at US-6 @ US-191 / MP 230.1, CC" [ref=e5612] [cursor=pointer]
+    - generic [ref=e5614]:
+      - button "Camera at US-6 @ US-89 / MP 187.47, UT":
+        - img "Camera at US-6 @ US-89 / MP 187.47, UT" [ref=e5615] [cursor=pointer]
+    - generic [ref=e5617]:
+      - button "Camera at US-6 NB @ Milepost 126.6, JU":
+        - img "Camera at US-6 NB @ Milepost 126.6, JU" [ref=e5618] [cursor=pointer]
+    - generic [ref=e5620]:
+      - button "Camera at US-6 RWIS EB @ 200 N / MP 232.4, HLP":
+        - img "Camera at US-6 RWIS EB @ 200 N / MP 232.4, HLP" [ref=e5621] [cursor=pointer]
+    - generic [ref=e5623]:
+      - button "Camera at US-6 RWIS EB @ Red Narrows / MP 192.9, UT":
+        - img "Camera at US-6 RWIS EB @ Red Narrows / MP 192.9, UT" [ref=e5624] [cursor=pointer]
+    - generic [ref=e5626]:
+      - button "Camera at US-6 RWIS EB @ SR-123 / MP 256, CC":
+        - img "Camera at US-6 RWIS EB @ SR-123 / MP 256, CC" [ref=e5627] [cursor=pointer]
+    - generic [ref=e5629]:
+      - button "Camera at US-6 RWIS NB @ Sphinx Siding / MP 295.93, GRR":
+        - img "Camera at US-6 RWIS NB @ Sphinx Siding / MP 295.93, GRR" [ref=e5630] [cursor=pointer]
+    - generic [ref=e5632]:
+      - button "Camera at US-6 WB @ Carbon Ave / SR-10, PRC":
+        - img "Camera at US-6 WB @ Carbon Ave / SR-10, PRC" [ref=e5633] [cursor=pointer]
+    - generic [ref=e5635]:
+      - button "Camera at US-6 WB @ Soldier Summit / MP 210.36, UT":
+        - img "Camera at US-6 WB @ Soldier Summit / MP 210.36, UT" [ref=e5636] [cursor=pointer]
+    - generic [ref=e5638]:
+      - button "Camera at US-89 @ 1200 E, LGN":
+        - img "Camera at US-89 @ 1200 E, LGN" [ref=e5639] [cursor=pointer]
+    - generic [ref=e5641]:
+      - button "Camera at US-89 @ 1500 E, LGN":
+        - img "Camera at US-89 @ 1500 E, LGN" [ref=e5642] [cursor=pointer]
+    - generic [ref=e5644]:
+      - button "Camera at US-89 @ 1600 N, MPL":
+        - img "Camera at US-89 @ 1600 N, MPL" [ref=e5645] [cursor=pointer]
+    - generic [ref=e5647]:
+      - button "Camera at US-89 @ 3000 N / SR-193, LTN":
+        - img "Camera at US-89 @ 3000 N / SR-193, LTN" [ref=e5648] [cursor=pointer]
+    - generic [ref=e5650]:
+      - button "Camera at US-89 @ 400 N, FRU":
+        - img "Camera at US-89 @ 400 N, FRU" [ref=e5651] [cursor=pointer]
+    - generic [ref=e5653]:
+      - button "Camera at US-89 @ 6300 S / 150 E / MP 407.72, UIN":
+        - img "Camera at US-89 @ 6300 S / 150 E / MP 407.72, UIN" [ref=e5654] [cursor=pointer]
+    - generic [ref=e5656]:
+      - button "Camera at US-89 @ Antelope Dr, LTN":
+        - img "Camera at US-89 @ Antelope Dr, LTN" [ref=e5657] [cursor=pointer]
+    - generic [ref=e5659]:
+      - button "Camera at US-89 @ Big Rock Candy Mtn / MP 183.8, PT":
+        - img "Camera at US-89 @ Big Rock Candy Mtn / MP 183.8, PT" [ref=e5660] [cursor=pointer]
+    - generic [ref=e5662]:
+      - button "Camera at US-89 @ Center St, NSL":
+        - img "Camera at US-89 @ Center St, NSL" [ref=e5663] [cursor=pointer]
+    - generic [ref=e5665]:
+      - button "Camera at US-89 @ Fish Hatchery Rd / MP 114.4, GA":
+        - img "Camera at US-89 @ Fish Hatchery Rd / MP 114.4, GA" [ref=e5666] [cursor=pointer]
+    - generic [ref=e5668]:
+      - button "Camera at US-89 @ Gordon Ave / 1200 N, LTN":
+        - img "Camera at US-89 @ Gordon Ave / 1200 N, LTN" [ref=e5669] [cursor=pointer]
+    - generic [ref=e5671]:
+      - button "Camera at US-89 @ Green Rd / MP 398.86, FRU":
+        - img "Camera at US-89 @ Green Rd / MP 398.86, FRU" [ref=e5672] [cursor=pointer]
+    - generic [ref=e5674]:
+      - button "Camera at US-89 @ Harrison Blvd / 1550 E / SR-203, SOG":
+        - img "Camera at US-89 @ Harrison Blvd / 1550 E / SR-203, SOG" [ref=e5675] [cursor=pointer]
+    - generic [ref=e5677]:
+      - button "Camera at US-89 @ I-84 EB Exit Ramp, SWE":
+        - img "Camera at US-89 @ I-84 EB Exit Ramp, SWE" [ref=e5678] [cursor=pointer]
+    - generic [ref=e5680]:
+      - button "Camera at US-89 @ Main St / SR-106 / SR-273 / MP 397.58, FRM":
+        - img "Camera at US-89 @ Main St / SR-106 / SR-273 / MP 397.58, FRM" [ref=e5681] [cursor=pointer]
+    - generic [ref=e5683]:
+      - button "Camera at US-89 @ Milepost 151.73, GA":
+        - img "Camera at US-89 @ Milepost 151.73, GA" [ref=e5684] [cursor=pointer]
+    - generic [ref=e5686]:
+      - button "Camera at US-89 @ Milepost 234.47, SP":
+        - img "Camera at US-89 @ Milepost 234.47, SP" [ref=e5687] [cursor=pointer]
+    - generic [ref=e5689]:
+      - button "Camera at US-89 @ Milepost 244.6, SP":
+        - img "Camera at US-89 @ Milepost 244.6, SP" [ref=e5690] [cursor=pointer]
+    - generic [ref=e5692]:
+      - button "Camera at US-89 @ Milepost 35.7, KN":
+        - img "Camera at US-89 @ Milepost 35.7, KN" [ref=e5693] [cursor=pointer]
+    - generic [ref=e5695]:
+      - button "Camera at US-89 @ Milepost 43.2, KN":
+        - img "Camera at US-89 @ Milepost 43.2, KN" [ref=e5696] [cursor=pointer]
+    - generic [ref=e5698]:
+      - button "Camera at US-89 @ Milepost 496.3, GRC":
+        - img "Camera at US-89 @ Milepost 496.3, GRC" [ref=e5699] [cursor=pointer]
+    - generic [ref=e5701]:
+      - button "Camera at US-89 @ Milepost 497.5, GRC":
+        - img "Camera at US-89 @ Milepost 497.5, GRC" [ref=e5702] [cursor=pointer]
+    - generic [ref=e5704]:
+      - button "Camera at US-89 @ Milepost 76.2, KN":
+        - img "Camera at US-89 @ Milepost 76.2, KN" [ref=e5705] [cursor=pointer]
+    - generic [ref=e5707]:
+      - button "Camera at US-89 @ Oak Hills Dr / SR-109, LTN":
+        - img "Camera at US-89 @ Oak Hills Dr / SR-109, LTN" [ref=e5708] [cursor=pointer]
+    - generic [ref=e5710]:
+      - button "Camera at US-89 @ Pedestrian Bridge / MP 398.08, FRU":
+        - img "Camera at US-89 @ Pedestrian Bridge / MP 398.08, FRU" [ref=e5711] [cursor=pointer]
+    - generic [ref=e5713]:
+      - button "Camera at US-89 @ Skyline Dr, SOG":
+        - img "Camera at US-89 @ Skyline Dr, SOG" [ref=e5714] [cursor=pointer]
+    - generic [ref=e5716]:
+      - button "Camera at US-89 @ SR-12 / Milepost 124.23, GA":
+        - img "Camera at US-89 @ SR-12 / Milepost 124.23, GA" [ref=e5717] [cursor=pointer]
+    - generic [ref=e5719]:
+      - button "Camera at US-89 @ SR-132 / Pigeon Hollow Jct / MP 267.37, SP":
+        - img "Camera at US-89 @ SR-132 / Pigeon Hollow Jct / MP 267.37, SP" [ref=e5720] [cursor=pointer]
+    - generic [ref=e5722]:
+      - button "Camera at US-89 @ SR-14 / Long Valley Jct / MP 103.7, KN":
+        - img "Camera at US-89 @ SR-14 / Long Valley Jct / MP 103.7, KN" [ref=e5723] [cursor=pointer]
+    - generic [ref=e5725]:
+      - button "Camera at US-89 @ Thistle / MP 311.09, UT":
+        - img "Camera at US-89 @ Thistle / MP 311.09, UT" [ref=e5726] [cursor=pointer]
+    - generic [ref=e5728]:
+      - button "Camera at US-89 @ UT/ID State Line / MP 502.57, RI":
+        - img "Camera at US-89 @ UT/ID State Line / MP 502.57, RI" [ref=e5729] [cursor=pointer]
+    - generic [ref=e5731]:
+      - button "Camera at US-89 @ UT/SP County Line / MP 297.03, SP":
+        - img "Camera at US-89 @ UT/SP County Line / MP 297.03, SP" [ref=e5732] [cursor=pointer]
+    - generic [ref=e5734]:
+      - button "Camera at US-89 @ W Harrisville Rd / Independence Blvd, HRV":
+        - img "Camera at US-89 @ W Harrisville Rd / Independence Blvd, HRV" [ref=e5735] [cursor=pointer]
+    - generic [ref=e5737]:
+      - button "Camera at US-89 / Harrisville Rd @ Wall Ave / SR-204 / Larsen Ln, HRV":
+        - img "Camera at US-89 / Harrisville Rd @ Wall Ave / SR-204 / Larsen Ln, HRV" [ref=e5738] [cursor=pointer]
+    - generic [ref=e5740]:
+      - button "Camera at US-89 / State St @ 900 S, PVO":
+        - img "Camera at US-89 / State St @ 900 S, PVO" [ref=e5741] [cursor=pointer]
+    - generic [ref=e5743]:
+      - button "Camera at US-89 NB @ 1600 N, LTN":
+        - img "Camera at US-89 NB @ 1600 N, LTN" [ref=e5744] [cursor=pointer]
+    - generic [ref=e5746]:
+      - button "Camera at US-89 NB @ Park Ln / SR-225, FRM":
+        - img "Camera at US-89 NB @ Park Ln / SR-225, FRM" [ref=e5747] [cursor=pointer]
+    - generic [ref=e5749]:
+      - button "Camera at US-89 NB @ Shepard Ln, FRM":
+        - img "Camera at US-89 NB @ Shepard Ln, FRM" [ref=e5750] [cursor=pointer]
+    - generic [ref=e5752]:
+      - button "Camera at US-89 RWIS EB @ USU / 900 E / MP 460.2, LGN":
+        - img "Camera at US-89 RWIS EB @ USU / 900 E / MP 460.2, LGN" [ref=e5753] [cursor=pointer]
+    - generic [ref=e5755]:
+      - button "Camera at US-89 RWIS NB @ Hilltop / MP 290.12, SP":
+        - img "Camera at US-89 RWIS NB @ Hilltop / MP 290.12, SP" [ref=e5756] [cursor=pointer]
+    - generic [ref=e5758]:
+      - button "Camera at US-89 RWIS SB @ Logan Summit / MP 489.68, CA":
+        - img "Camera at US-89 RWIS SB @ Logan Summit / MP 489.68, CA" [ref=e5759] [cursor=pointer]
+    - generic [ref=e5761]:
+      - button "Camera at US-89 RWIS SB @ Long Valley Jct / MP 103.8, KN":
+        - img "Camera at US-89 RWIS SB @ Long Valley Jct / MP 103.8, KN" [ref=e5762] [cursor=pointer]
+    - generic [ref=e5764]:
+      - button "Camera at US-89 RWIS SB @ Milepost 253.72, MTI":
+        - img "Camera at US-89 RWIS SB @ Milepost 253.72, MTI" [ref=e5765] [cursor=pointer]
+    - generic [ref=e5767]:
+      - button "Camera at US-89 RWIS SB @ Piute Reservoir / MP 171.8, PT":
+        - img "Camera at US-89 RWIS SB @ Piute Reservoir / MP 171.8, PT" [ref=e5768] [cursor=pointer]
+    - generic [ref=e5770]:
+      - button "Camera at US-89 SB @ Park Ln / SR-225, FRM":
+        - img "Camera at US-89 SB @ Park Ln / SR-225, FRM" [ref=e5771] [cursor=pointer]
+    - generic [ref=e5773]:
+      - button "Camera at US-89 SB @ Shepard Ln, FRM":
+        - img "Camera at US-89 SB @ Shepard Ln, FRM" [ref=e5774] [cursor=pointer]
+    - generic [ref=e5776]:
+      - button "Camera at US-89/91 @ 100 S / MP 5.61, MTU":
+        - img "Camera at US-89/91 @ 100 S / MP 5.61, MTU" [ref=e5777] [cursor=pointer]
+    - generic [ref=e5779]:
+      - button "Camera at US-89/91 @ 100 W, LGN":
+        - img "Camera at US-89/91 @ 100 W, LGN" [ref=e5780] [cursor=pointer]
+    - generic [ref=e5782]:
+      - button "Camera at US-89/91 @ 1000 W / SR-252, LGN":
+        - img "Camera at US-89/91 @ 1000 W / SR-252, LGN" [ref=e5783] [cursor=pointer]
+    - generic [ref=e5785]:
+      - button "Camera at US-89/91 @ 1700 S / Park Ave / 600 W, LGN":
+        - img "Camera at US-89/91 @ 1700 S / Park Ave / 600 W, LGN" [ref=e5786] [cursor=pointer]
+    - generic [ref=e5788]:
+      - button "Camera at US-89/91 @ 3200 S / 2000 W, LGN":
+        - img "Camera at US-89/91 @ 3200 S / 2000 W, LGN" [ref=e5789] [cursor=pointer]
+    - generic [ref=e5791]:
+      - button "Camera at US-89/91 @ 950 S / MP 17.18, WVL":
+        - img "Camera at US-89/91 @ 950 S / MP 17.18, WVL" [ref=e5792] [cursor=pointer]
+    - generic [ref=e5794]:
+      - button "Camera at US-89/91 @ Main St / SR-101 / MP 19.18, WVL":
+        - img "Camera at US-89/91 @ Main St / SR-101 / MP 19.18, WVL" [ref=e5795] [cursor=pointer]
+    - generic [ref=e5797]:
+      - button "Camera at US-89/91 @ Main St / SR-165, LGN":
+        - img "Camera at US-89/91 @ Main St / SR-165, LGN" [ref=e5798] [cursor=pointer]
+    - generic [ref=e5800]:
+      - button "Camera at US-89/91 @ Milepost 12.26, CA":
+        - img "Camera at US-89/91 @ Milepost 12.26, CA" [ref=e5801] [cursor=pointer]
+    - generic [ref=e5803]:
+      - button "Camera at US-89/91 @ Milepost 13.93, WVL":
+        - img "Camera at US-89/91 @ Milepost 13.93, WVL" [ref=e5804] [cursor=pointer]
+    - generic [ref=e5806]:
+      - button "Camera at US-89/91 @ Milepost 14.31, WVL":
+        - img "Camera at US-89/91 @ Milepost 14.31, WVL" [ref=e5807] [cursor=pointer]
+    - generic [ref=e5809]:
+      - button "Camera at US-89/91 @ Milepost 15.17, WVL":
+        - img "Camera at US-89/91 @ Milepost 15.17, WVL" [ref=e5810] [cursor=pointer]
+    - generic [ref=e5812]:
+      - button "Camera at US-89/91 @ Sardine Summit / MP 10.05, BE":
+        - img "Camera at US-89/91 @ Sardine Summit / MP 10.05, BE" [ref=e5813] [cursor=pointer]
+    - generic [ref=e5815]:
+      - button "Camera at US-89/91 RWIS SB @ Milepost 19.9, WVL":
+        - img "Camera at US-89/91 RWIS SB @ Milepost 19.9, WVL" [ref=e5816] [cursor=pointer]
+    - generic [ref=e5818]:
+      - button "Camera at US-91 @ 8600 N / MP 37.72, CA":
+        - img "Camera at US-91 @ 8600 N / MP 37.72, CA" [ref=e5819] [cursor=pointer]
+    - generic [ref=e5821]:
+      - button "Camera at US-91 @ UT/ID State Line / MP 45.27, CA":
+        - img "Camera at US-91 @ UT/ID State Line / MP 45.27, CA" [ref=e5822] [cursor=pointer]
+    - generic [ref=e5824]:
+      - button "Camera at US-91 / 1100 S @ 775 W, BRC":
+        - img "Camera at US-91 / 1100 S @ 775 W, BRC" [ref=e5825] [cursor=pointer]
+    - generic [ref=e5827]:
+      - button "Camera at Utah Ave / SR-112 @ Industrial Loop Rd / 1000 N / SR-112, TLE":
+        - img "Camera at Utah Ave / SR-112 @ Industrial Loop Rd / 1000 N / SR-112, TLE" [ref=e5828] [cursor=pointer]
+    - generic [ref=e5830]:
+      - button "Camera at Van Winkle Expwy / SR-152 @ 1300 E, HDY":
+        - img "Camera at Van Winkle Expwy / SR-152 @ 1300 E, HDY" [ref=e5831] [cursor=pointer]
+    - generic [ref=e5833]:
+      - button "Camera at Van Winkle Expwy / SR-152 @ 5600 S, HDY":
+        - img "Camera at Van Winkle Expwy / SR-152 @ 5600 S, HDY" [ref=e5834] [cursor=pointer]
+    - generic [ref=e5836]:
+      - button "Camera at Vineyard Connector / SR-176 @ Lighthouse Ln, VIN":
+        - img "Camera at Vineyard Connector / SR-176 @ Lighthouse Ln, VIN" [ref=e5837] [cursor=pointer]
+    - generic [ref=e5839]:
+      - button "Camera at Vineyard Connector / SR-176 @ Main St, VIN":
+        - img "Camera at Vineyard Connector / SR-176 @ Main St, VIN" [ref=e5840] [cursor=pointer]
+    - generic [ref=e5842]:
+      - button "Camera at Vineyard Connector / SR-176 @ Mill Rd, VIN":
+        - img "Camera at Vineyard Connector / SR-176 @ Mill Rd, VIN" [ref=e5843] [cursor=pointer]
+    - generic [ref=e5845]:
+      - button "Camera at Wall Ave / SR-204 @ 12th St / SR-39, OGD":
+        - img "Camera at Wall Ave / SR-204 @ 12th St / SR-39, OGD" [ref=e5846] [cursor=pointer]
+    - generic [ref=e5848]:
+      - button "Camera at Wall Ave / SR-204 @ 20th St / SR-104, OGD":
+        - img "Camera at Wall Ave / SR-204 @ 20th St / SR-104, OGD" [ref=e5849] [cursor=pointer]
+    - generic [ref=e5851]:
+      - button "Camera at Wall Ave / SR-204 @ 25th St, OGD":
+        - img "Camera at Wall Ave / SR-204 @ 25th St, OGD" [ref=e5852] [cursor=pointer]
+    - generic [ref=e5854]:
+      - button "Camera at Wall Ave / SR-204 @ 30th St / SR-79, OGD":
+        - img "Camera at Wall Ave / SR-204 @ 30th St / SR-79, OGD" [ref=e5855] [cursor=pointer]
+    - generic [ref=e5857]:
+      - button "Camera at Wall Ave / SR-204 @ 31st St / SR-79, OGD":
+        - img "Camera at Wall Ave / SR-204 @ 31st St / SR-79, OGD" [ref=e5858] [cursor=pointer]
+    - generic [ref=e5860]:
+      - button "Camera at Wall Ave / SR-204 @ 7th Street, OGD":
+        - img "Camera at Wall Ave / SR-204 @ 7th Street, OGD" [ref=e5861] [cursor=pointer]
+    - generic [ref=e5863]:
+      - button "Camera at Wasatch Blvd / 3650 E / SR-210 @ 7700 S, CWH":
+        - img "Camera at Wasatch Blvd / 3650 E / SR-210 @ 7700 S, CWH" [ref=e5864] [cursor=pointer]
+    - generic [ref=e5866]:
+      - button "Camera at Wasatch Blvd / 3650 E / SR-210 @ 7800 S / Bengal Blvd / Honeywood Cove Dr, CWH":
+        - img "Camera at Wasatch Blvd / 3650 E / SR-210 @ 7800 S / Bengal Blvd / Honeywood Cove Dr, CWH" [ref=e5867] [cursor=pointer]
+    - generic [ref=e5869]:
+      - button "Camera at Wasatch Blvd / SR-190/SR-210 @ Big Cottonwood Canyon Rd / Fort Union Blvd / SR-190, CWH":
+        - img "Camera at Wasatch Blvd / SR-190/SR-210 @ Big Cottonwood Canyon Rd / Fort Union Blvd / SR-190, CWH" [ref=e5870] [cursor=pointer]
+    - generic [ref=e5872]:
+      - button "Camera at Washington Blvd / Harrisville Rd / US-89 @ 2nd St / Washington Blvd / SR-235, OGD":
+        - img "Camera at Washington Blvd / Harrisville Rd / US-89 @ 2nd St / Washington Blvd / SR-235, OGD" [ref=e5873] [cursor=pointer]
+    - generic [ref=e5875]:
+      - button "Camera at Washington Blvd / SR-235 @ 2600 N / SR-134, NOG":
+        - img "Camera at Washington Blvd / SR-235 @ 2600 N / SR-134, NOG" [ref=e5876] [cursor=pointer]
+    - generic [ref=e5878]:
+      - button "Camera at Washington Blvd / SR-235 @ Larsen Ln, OGD":
+        - img "Camera at Washington Blvd / SR-235 @ Larsen Ln, OGD" [ref=e5879] [cursor=pointer]
+    - generic [ref=e5881]:
+      - button "Camera at Washington Blvd / US-89 @ 12th St / SR-39, OGD":
+        - img "Camera at Washington Blvd / US-89 @ 12th St / SR-39, OGD" [ref=e5882] [cursor=pointer]
+    - generic [ref=e5884]:
+      - button "Camera at Washington Blvd / US-89 @ 20th St, OGD":
+        - img "Camera at Washington Blvd / US-89 @ 20th St, OGD" [ref=e5885] [cursor=pointer]
+    - generic [ref=e5887]:
+      - button "Camera at Washington Blvd / US-89 @ 24th St / SR-53, OGD":
+        - img "Camera at Washington Blvd / US-89 @ 24th St / SR-53, OGD" [ref=e5888] [cursor=pointer]
+    - generic [ref=e5890]:
+      - button "Camera at Washington Blvd / US-89 @ 28th St, OGD":
+        - img "Camera at Washington Blvd / US-89 @ 28th St, OGD" [ref=e5891] [cursor=pointer]
+    - generic [ref=e5893]:
+      - button "Camera at Washington Blvd / US-89 @ 30th St / SR-79, OGD":
+        - img "Camera at Washington Blvd / US-89 @ 30th St / SR-79, OGD" [ref=e5894] [cursor=pointer]
+    - generic [ref=e5896]:
+      - button "Camera at Washington Blvd / US-89 @ 31st ST / SR-79, OGD":
+        - img "Camera at Washington Blvd / US-89 @ 31st ST / SR-79, OGD" [ref=e5897] [cursor=pointer]
+    - generic [ref=e5899]:
+      - button "Camera at Washington Blvd / US-89 @ 40th St / Chimes View Dr, SOG":
+        - img "Camera at Washington Blvd / US-89 @ 40th St / Chimes View Dr, SOG" [ref=e5900] [cursor=pointer]
+    - generic [ref=e5902]:
+      - button "Camera at Washington Blvd / US-89 @ 4400 S, SOG":
+        - img "Camera at Washington Blvd / US-89 @ 4400 S, SOG" [ref=e5903] [cursor=pointer]
+    - generic [ref=e5905]:
+      - button "Camera at Washington Blvd / US-89 @ Adams Ave Pkwy, OGD":
+        - img "Camera at Washington Blvd / US-89 @ Adams Ave Pkwy, OGD" [ref=e5906] [cursor=pointer]
+    - generic [ref=e5908]:
+      - button "Camera at Washington Blvd / US-89 @ Riverdale Rd / SR-26, OGD":
+        - img "Camera at Washington Blvd / US-89 @ Riverdale Rd / SR-26, OGD" [ref=e5909] [cursor=pointer]
+    - generic [ref=e5911]:
+      - button "Camera at Washington Fields Rd @ 2000 S, WAS":
+        - img "Camera at Washington Fields Rd @ 2000 S, WAS" [ref=e5912] [cursor=pointer]
+    - generic [ref=e5914]:
+      - button "Camera at Washington Fields Rd @ Industrial Rd, WAS":
+        - img "Camera at Washington Fields Rd @ Industrial Rd, WAS" [ref=e5915] [cursor=pointer]
+    - generic [ref=e5917]:
+      - button "Camera at Washington Fields Rd @ Washington Dam Rd, WAS":
+        - img "Camera at Washington Fields Rd @ Washington Dam Rd, WAS" [ref=e5918] [cursor=pointer]
+    - generic [ref=e5920]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1000 S / MP 6.18, KAY":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1000 S / MP 6.18, KAY" [ref=e5921] [cursor=pointer]
+    - generic [ref=e5923]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1100 S / MP 0.05, FRM":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1100 S / MP 0.05, FRM" [ref=e5924] [cursor=pointer]
+    - generic [ref=e5926]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1100 S / MP 8.68, LTN":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1100 S / MP 8.68, LTN" [ref=e5927] [cursor=pointer]
+    - generic [ref=e5929]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1150 S / MP 14.42, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1150 S / MP 14.42, SYR" [ref=e5930] [cursor=pointer]
+    - generic [ref=e5932]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1300 S / MP 0.0, FRM":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1300 S / MP 0.0, FRM" [ref=e5933] [cursor=pointer]
+    - generic [ref=e5935]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1400 S / MP 5.74, KAY":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1400 S / MP 5.74, KAY" [ref=e5936] [cursor=pointer]
+    - generic [ref=e5938]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1550 S / MP 8.18, LTN":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1550 S / MP 8.18, LTN" [ref=e5939] [cursor=pointer]
+    - generic [ref=e5941]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1900 S / MP 4.87, KAY":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1900 S / MP 4.87, KAY" [ref=e5942] [cursor=pointer]
+    - generic [ref=e5944]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 1950 S / MP 13.52, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 1950 S / MP 13.52, SYR" [ref=e5945] [cursor=pointer]
+    - generic [ref=e5947]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 200 N / MP 7.69, KAY":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 200 N / MP 7.69, KAY" [ref=e5948] [cursor=pointer]
+    - generic [ref=e5950]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 2150 S / MP 13.31, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 2150 S / MP 13.31, SYR" [ref=e5951] [cursor=pointer]
+    - generic [ref=e5953]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 2200 S / MP 4.39, KAY":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 2200 S / MP 4.39, KAY" [ref=e5954] [cursor=pointer]
+    - generic [ref=e5956]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 2500 S / MP 12.85, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 2500 S / MP 12.85, SYR" [ref=e5957] [cursor=pointer]
+    - generic [ref=e5959]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 3000 S / MP 12.35, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 3000 S / MP 12.35, SYR" [ref=e5960] [cursor=pointer]
+    - generic [ref=e5962]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 3200 S / MP 11.81, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 3200 S / MP 11.81, SYR" [ref=e5963] [cursor=pointer]
+    - generic [ref=e5965]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 3400 S / MP 11.42, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 3400 S / MP 11.42, SYR" [ref=e5966] [cursor=pointer]
+    - generic [ref=e5968]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 3500 S / MP 11.15, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 3500 S / MP 11.15, SYR" [ref=e5969] [cursor=pointer]
+    - generic [ref=e5971]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 400 S / MP 7.17, KAY":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 400 S / MP 7.17, KAY" [ref=e5972] [cursor=pointer]
+    - generic [ref=e5974]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 450 S / SR-193 / MP 15.57, WPT":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 450 S / SR-193 / MP 15.57, WPT" [ref=e5975] [cursor=pointer]
+    - generic [ref=e5977]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 500 N / MP 3.44, FRM":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 500 N / MP 3.44, FRM" [ref=e5978] [cursor=pointer]
+    - generic [ref=e5980]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 600 S / MP 6.72, KAY":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 600 S / MP 6.72, KAY" [ref=e5981] [cursor=pointer]
+    - generic [ref=e5983]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 800 S / MP 1.01, FRM":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 800 S / MP 1.01, FRM" [ref=e5984] [cursor=pointer]
+    - generic [ref=e5986]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 800 S / MP 14.84, SYR":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 800 S / MP 14.84, SYR" [ref=e5987] [cursor=pointer]
+    - generic [ref=e5989]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 800 S / MP 9.18, LTN":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 800 S / MP 9.18, LTN" [ref=e5990] [cursor=pointer]
+    - generic [ref=e5992]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ 950 N / MP 3.92, FRM":
+        - img "Camera at West Davis Hwy / SR-177 NB @ 950 N / MP 3.92, FRM" [ref=e5993] [cursor=pointer]
+    - generic [ref=e5995]:
+      - button "Camera at West Davis Hwy / SR-177 NB @ Angel St / 1650 S / MP 5.28, KAY":
+        - img "Camera at West Davis Hwy / SR-177 NB @ Angel St / 1650 S / MP 5.28, KAY" [ref=e5996] [cursor=pointer]
+    - generic [ref=e5998]:
+      - button "Camera at West Davis Hwy / SR-177 SB @ 1050 S / MP 0.52, FRM":
+        - img "Camera at West Davis Hwy / SR-177 SB @ 1050 S / MP 0.52, FRM" [ref=e5999] [cursor=pointer]
+    - generic [ref=e6001]:
+      - button "Camera at West Davis Hwy / SR-177 SB @ 1450 S / MP 14.07, SYR":
+        - img "Camera at West Davis Hwy / SR-177 SB @ 1450 S / MP 14.07, SYR" [ref=e6002] [cursor=pointer]
+    - generic [ref=e6004]:
+      - button "Camera at West Davis Hwy / SR-177 SB @ 150 N / MP 3.13, FRM":
+        - img "Camera at West Davis Hwy / SR-177 SB @ 150 N / MP 3.13, FRM" [ref=e6005] [cursor=pointer]
+    - generic [ref=e6007]:
+      - button "Camera at West Davis Hwy / SR-177 SB @ 200 N / MP 7.89, KAY":
+        - img "Camera at West Davis Hwy / SR-177 SB @ 200 N / MP 7.89, KAY" [ref=e6008] [cursor=pointer]
+    - generic [ref=e6010]:
+      - button "Camera at West Davis Hwy / SR-177 SB @ 300 S / MP 2.47, FRM":
+        - img "Camera at West Davis Hwy / SR-177 SB @ 300 S / MP 2.47, FRM" [ref=e6011] [cursor=pointer]
+    - generic [ref=e6013]:
+      - button "Camera at West Davis Hwy / SR-177 SB @ 3900 S / MP 10.66, SYR":
+        - img "Camera at West Davis Hwy / SR-177 SB @ 3900 S / MP 10.66, SYR" [ref=e6014] [cursor=pointer]
+    - generic [ref=e6016]:
+      - button "Camera at West Davis Hwy / SR-177 SB @ 700 S / MP 2.01, FRM":
+        - img "Camera at West Davis Hwy / SR-177 SB @ 700 S / MP 2.01, FRM" [ref=e6017] [cursor=pointer]
+    - generic [ref=e6019]:
+      - button "Camera at West Davis Hwy / SR-177 WB @ 1525 W / MP 1.49, FRM":
+        - img "Camera at West Davis Hwy / SR-177 WB @ 1525 W / MP 1.49, FRM" [ref=e6020] [cursor=pointer]
+    - generic [ref=e6022]:
+      - button "Camera at West Davis Hwy / SR-177 WB @ 2000 W / MP 12.11, SYR":
+        - img "Camera at West Davis Hwy / SR-177 WB @ 2000 W / MP 12.11, SYR" [ref=e6023] [cursor=pointer]
+    - generic [ref=e6025]:
+      - button "Camera at West Davis Hwy / SR-177 WB @ 2700 W / MP 9.67, LTN":
+        - img "Camera at West Davis Hwy / SR-177 WB @ 2700 W / MP 9.67, LTN" [ref=e6026] [cursor=pointer]
+    - generic [ref=e6028]:
+      - button "Camera at West Davis Hwy / SR-177 WB @ 3300 W / MP 10.15, LTN":
+        - img "Camera at West Davis Hwy / SR-177 WB @ 3300 W / MP 10.15, LTN" [ref=e6029] [cursor=pointer]
+    - generic [ref=e6031]:
+      - button "Camera at Winchester St / 6400 S @ Cottonwood St / 300 W, MUR":
+        - img "Camera at Winchester St / 6400 S @ Cottonwood St / 300 W, MUR" [ref=e6032] [cursor=pointer]
+    - generic [ref=e6034]:
+      - button "Camera at Zion Park Blvd / SR-9 @ 200 S, SDL":
+        - img "Camera at Zion Park Blvd / SR-9 @ 200 S, SDL" [ref=e6035] [cursor=pointer]
+    - generic [ref=e6037]:
+      - button "Camera at Zion Park Blvd / SR-9 @ 2400 S, SDL":
+        - img "Camera at Zion Park Blvd / SR-9 @ 2400 S, SDL" [ref=e6038] [cursor=pointer]
+    - generic [ref=e6040]:
+      - button "Camera at Zion Park Blvd / SR-9 @ Lion Blvd, SDL":
+        - img "Camera at Zion Park Blvd / SR-9 @ Lion Blvd, SDL" [ref=e6041] [cursor=pointer]
+    - generic [ref=e6043]:
+      - button "Camera at Zion Park Blvd / SR-9 @ Quail Ridge Rd, SDL":
+        - img "Camera at Zion Park Blvd / SR-9 @ Quail Ridge Rd, SDL" [ref=e6044] [cursor=pointer]
+  - dialog "100 E / Alpine Hwy / SR-74 @ 100 N, AFK" [ref=e6045]:
+    - generic [ref=e6046]:
+      - heading "100 E / Alpine Hwy / SR-74 @ 100 N, AFK" [level=5] [ref=e6047]
+      - button "Close modal" [ref=e6048] [cursor=pointer]:
+        - generic [ref=e6049]: 
+    - generic [ref=e6050]:
+      - generic [ref=e6052]:
+        - generic [ref=e6053]
+        - generic [ref=e6061]
+      - generic [ref=e6067]:
+        - generic [ref=e6068]
+        - generic [ref=e6107]
+        - button "Previous card" [ref=e6111] [cursor=pointer]
+        - button "Next card" [ref=e6113] [cursor=pointer]
+      - generic [ref=e6116]:
+        - generic
+      - generic [ref=e6120]:
+        - img "UDOT Cameras" [ref=e6121]
+        - generic [ref=e6122]: udotcameras.com
+    - generic [ref=e6123]:
+      - generic [ref=e6124]: 74P · American Fork · Northbound
+      - generic [ref=e6125]:
+        - button "Map" [ref=e6126] [cursor=pointer]
+        - button "Open Full Map" [ref=e6127] [cursor=pointer]
+        - button "Copy URL" [ref=e6128] [cursor=pointer]
+        - button "Done" [ref=e6129] [cursor=pointer]

@@ -52,7 +52,6 @@ export interface CameraModalController {
   activeInfoCardIndex: number
   setActiveInfoCardIndex: (index: number) => void
   stepInfoCard: (direction: -1 | 1) => void
-  showInlineMap: boolean
   handleMapAction: () => void
   mapCameras: ModalMapCamera[]
   footerMeta: string
@@ -146,7 +145,6 @@ export function useCameraModalController({
   const cameraLookup = useMemo(() => createCameraLookup(cameras), [cameras])
   const [displayedCameraId, setDisplayedCameraId] = useState(activeCamera.id)
   const [activeInfoCardIndex, setActiveInfoCardIndex] = useState(0)
-  const [showInlineMap, setShowInlineMap] = useState(false)
 
   const displayedCamera = cameraLookup.get(displayedCameraId) ?? activeCamera
   const cameraDetails = cameraDetailsById.get(displayedCamera.id) ?? null
@@ -258,14 +256,6 @@ export function useCameraModalController({
   }, [activeInfoCardIndex, deckCards.length])
 
   useEffect(() => {
-    if (!isMobile || !showInlineMap) {
-      return
-    }
-
-    setShowInlineMap(false)
-  }, [isMobile, showInlineMap])
-
-  useEffect(() => {
     ;[previousCard.imageUrl, nextCard.imageUrl]
       .filter((url): url is string => Boolean(url))
       .forEach((url) => {
@@ -298,15 +288,10 @@ export function useCameraModalController({
   )
 
   const handleMapAction = useCallback(() => {
-    if (isMobile) {
-      if (mapCardIndex >= 0) {
-        setActiveInfoCardIndex(mapCardIndex)
-      }
-      return
+    if (mapCardIndex >= 0) {
+      setActiveInfoCardIndex(mapCardIndex)
     }
-
-    setShowInlineMap((current) => !current)
-  }, [isMobile, mapCardIndex])
+  }, [mapCardIndex])
 
   return {
     displayedCamera,
@@ -317,7 +302,6 @@ export function useCameraModalController({
     activeInfoCardIndex,
     setActiveInfoCardIndex,
     stepInfoCard,
-    showInlineMap,
     handleMapAction,
     mapCameras,
     footerMeta,

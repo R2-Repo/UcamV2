@@ -225,3 +225,92 @@
     width: 100%;
   }
 }
+
+.mapExperience {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background:
+    radial-gradient(circle at top left, rgba(20, 97, 78, 0.28), transparent 34%),
+    linear-gradient(180deg, rgba(7, 12, 13, 0.96), rgba(18, 21, 18, 0.92));
+}
+
+.mapFallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.55rem;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.mapFallback h3,
+.mapFallback p {
+  margin: 0;
+}
+
+.mapOverlay {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  padding: 0;
+  pointer-events: none;
+}
+
+.mapHeaderChrome {
+  position: static;
+  gap: 0;
+  padding: max(4px, env(safe-area-inset-top, 0px)) 6px 0;
+  transition: none;
+  pointer-events: auto;
+}
+
+.mapHeaderChrome :global(.header-controls) {
+  width: min(calc(100% - 12px), 1220px);
+  max-width: none;
+  margin: 0 auto;
+  justify-content: flex-start;
+  padding: 8px 10px;
+  border-radius: 14px;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: linear-gradient(180deg, rgba(16, 24, 23, 0.92), rgba(23, 31, 30, 0.9));
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+}
+
+.mapHeaderChrome :global(.app-filterbar) {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.mapHeaderChrome :global(.app-filterbar__cluster) {
+  justify-content: flex-start;
+}
+
+.mapHeaderChrome :global(.app-filterbar__cluster--actions) {
+  margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  .mapHeaderChrome {
+    padding: max(2px, env(safe-area-inset-top, 0px)) 4px 0;
+  }
+
+  .mapHeaderChrome :global(.header-controls) {
+    width: calc(100% - 8px);
+    padding: 6px;
+    border-radius: 12px;
+  }
+
+  .mapHeaderChrome :global(.app-filterbar) {
+    justify-content: center;
+  }
+
+  .mapHeaderChrome :global(.app-filterbar__cluster),
+  .mapHeaderChrome :global(.app-filterbar__cluster--actions) {
+    width: auto;
+    margin-left: 0;
+    justify-content: center;
+  }
+}

@@ -4,34 +4,13 @@
   min-height: min(70svh, 42rem);
 }
 
+.isFullscreen {
+  min-height: 100svh;
+}
+
 .mapCanvas {
   position: absolute;
   inset: 0;
-}
-
-.mapBadge {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  display: grid;
-  gap: 0.2rem;
-  width: min(20rem, calc(100% - 2rem));
-  padding: 0.85rem 0.95rem;
-  border-radius: var(--radius-m);
-  background: rgba(255, 253, 248, 0.92);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(12px);
-  z-index: 2;
-}
-
-.mapBadge strong {
-  color: var(--ink-strong);
-}
-
-.mapBadge span,
-.emptyState p,
-.popupBody p {
-  color: var(--muted);
 }
 
 .emptyState {
@@ -47,89 +26,61 @@
 }
 
 .emptyState h3,
-.emptyState p,
-.popupBody strong,
-.popupBody p {
+.emptyState p {
   margin: 0;
 }
 
-.popupShell :global(.maplibregl-popup-content) {
-  padding: 0;
-  border-radius: var(--radius-m);
-  background: transparent;
-  box-shadow: none;
+.emptyState p {
+  color: var(--muted);
 }
 
-.popupShell :global(.maplibregl-popup-tip) {
-  display: none;
+.popupLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.popupCard {
-  width: min(19rem, 100%);
+.popupConnectorLayer {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.popupConnector {
+  stroke: #ff7800;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+}
+
+.popupThumb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 132px;
+  height: 84px;
   overflow: hidden;
-  border-radius: var(--radius-m);
-  background: rgba(255, 253, 248, 0.96);
+  visibility: hidden;
+  transform: translate3d(-9999px, -9999px, 0);
+  border-radius: 14px;
+  border: 2px solid rgba(255, 253, 247, 0.92);
+  background: rgba(255, 253, 248, 0.98);
   box-shadow: var(--shadow-strong);
+  will-change: transform;
 }
 
-.popupImageFrame {
-  aspect-ratio: 16 / 10;
-  background: linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(198, 116, 22, 0.16));
-}
-
-.popupImageFrame img {
+.popupThumb img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.popupBody {
-  display: grid;
-  gap: 0.55rem;
-  padding: 0.95rem;
-}
-
-.popupRoute {
-  display: inline-flex;
-  width: fit-content;
-  padding: 0.3rem 0.55rem;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.popupActions {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.popupActions button {
-  border: 0;
-  border-radius: 999px;
-  padding: 0.7rem 0.85rem;
-  cursor: pointer;
-  background: rgba(24, 33, 26, 0.08);
-  color: var(--ink-strong);
-  font-weight: 700;
-}
-
-.popupActions button:first-child {
-  background: var(--ink-strong);
-  color: white;
-}
-
 @media (max-width: 767px) {
   .root {
     min-height: min(72svh, 34rem);
-  }
-
-  .mapBadge {
-    right: 1rem;
-    width: auto;
   }
 }
