@@ -55,21 +55,37 @@
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
 }
 
+.popupConnectorFocused {
+  stroke: #ffd166;
+  stroke-width: 3.4;
+}
+
 .popupThumb {
   position: absolute;
   left: 0;
   top: 0;
   box-sizing: border-box;
-  width: 132px;
-  height: 84px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  visibility: hidden;
-  transform: translate3d(-9999px, -9999px, 0);
   border-radius: 14px;
   border: 2px solid rgba(255, 253, 247, 0.92);
-  background: rgba(255, 253, 248, 0.98);
+  background:
+    linear-gradient(180deg, rgba(10, 17, 17, 0.86), rgba(31, 39, 37, 0.68)),
+    rgba(255, 253, 248, 0.98);
   box-shadow: var(--shadow-strong);
   will-change: transform;
+  backface-visibility: hidden;
+}
+
+.popupThumbFocused {
+  border-color: rgba(255, 209, 102, 0.96);
+  box-shadow:
+    0 18px 32px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 209, 102, 0.26);
+}
+
+.popupThumb[data-popup-size='large'] {
+  border-radius: 16px;
 }
 
 .popupThumb img {
@@ -77,6 +93,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  transform: translateZ(0);
 }
 
 @media (max-width: 767px) {

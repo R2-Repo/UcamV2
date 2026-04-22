@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { CameraSummary } from '../../shared/types'
-import { buildPopupLayouts, createRect, type PopupLayout } from './popup-layout'
+import { buildPopupLayouts, createRect, getPopupSize, type PopupLayout } from './popup-layout'
 
 function createCamera(id: string): CameraSummary {
   return {
@@ -24,13 +24,15 @@ function createCamera(id: string): CameraSummary {
 }
 
 function createPreviousLayout(camera: CameraSummary, direction: PopupLayout['direction']): PopupLayout {
+  const popupSize = getPopupSize('default')
+
   return {
     camera,
     direction,
     left: 0,
     top: 0,
-    width: 132,
-    height: 84,
+    width: popupSize.width,
+    height: popupSize.height,
     markerX: 0,
     markerY: 0,
     anchorX: 0,
@@ -68,7 +70,7 @@ describe('popup layout stickiness', () => {
           point: { x: 160, y: 120 },
         },
       ],
-      blockedRects: [createRect(180, 70, 140, 100)],
+      blockedRects: [{ cameraId: null, rect: createRect(180, 70, 140, 100) }],
       blockedTop: 0,
       width: 420,
       height: 260,
@@ -77,5 +79,29 @@ describe('popup layout stickiness', () => {
 
     expect(layouts).toHaveLength(1)
     expect(layouts[0]?.direction).not.toBe('right')
+  })
+
+  it('uses the requested popup size mode when laying out the popup cards', () => {
+    const camera = createCamera('cam-1')
+    const popupSize = getPopupSize('large')
+    const layouts = buildPopupLayouts({
+      items: [
+        {
+          camera,
+          point: { x: 210, y: 160 },
+        },
+      ],
+      blockedRects: [],
+      blockedTop: 0,
+      width: 520,
+      height: 320,
+      sizeMode: 'large',
+    })
+
+    expect(layouts).toHaveLength(1)
+    expect(layouts[0]).toMatchObject({
+      width: popupSize.width,
+      height: popupSize.height,
+    })
   })
 })

@@ -17,6 +17,7 @@ import { useAppData } from '../shared/data/useAppData'
 import { useElementSize } from '../shared/hooks/useElementSize'
 import { IMAGE_REFRESH_INTERVAL_MS } from '../shared/lib/cameras'
 import type { FilterState, SelectionSource, ViewMode } from '../shared/types'
+import type { PopupSizeMode } from '../features/map/popup-layout'
 import styles from './AppShell.module.css'
 import { SplashScreen } from './SplashScreen'
 
@@ -57,6 +58,7 @@ export function AppShell() {
   const setSelectedCamera = useAppStore((state) => state.setSelectedCamera)
   const hydrateFromUrl = useAppStore((state) => state.hydrateFromUrl)
   const [imageSize, setImageSize] = useState(180)
+  const [mapPopupSizeMode, setMapPopupSizeMode] = useState<PopupSizeMode>('default')
   const [refreshTokensByCameraId, setRefreshTokensByCameraId] = useState<Record<string, number>>({})
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [galleryScrollTop, setGalleryScrollTop] = useState(0)
@@ -343,6 +345,10 @@ export function AppShell() {
     [setSelectedCamera, setViewMode],
   )
 
+  const handleToggleMapPopupSize = useCallback(() => {
+    setMapPopupSizeMode((currentMode) => (currentMode === 'default' ? 'large' : 'default'))
+  }, [])
+
   const totalCount = cameras.length
   const filteredCount = filteredCameras.length
   const shouldHideHeaderChrome =
@@ -436,25 +442,43 @@ export function AppShell() {
                   <div ref={mapOverlayRef} className={styles.mapOverlay}>
                     <div className={clsx('header-chrome', styles.mapHeaderChrome)}>
                       <div className="header-controls fade-in">
-                        <FilterBar
-                          filters={filters}
-                          filteredCount={filteredCount}
-                          imageSize={imageSize}
-                          options={filterOptions}
-                          showImageSizeControl={false}
-                          totalCount={totalCount}
-                          viewMode={viewMode}
-                          onCopyLink={handleCopyLink}
-                          onFilterChange={handleFilterChange}
-                          onImageSizeChange={setImageSize}
-                          onReset={resetFilters}
-                          onViewModeChange={handleViewModeChange}
-                        />
+                        <div className={styles.mapHeaderControls}>
+                          <FilterBar
+                            filters={filters}
+                            filteredCount={filteredCount}
+                            imageSize={imageSize}
+                            options={filterOptions}
+                            showImageSizeControl={false}
+                            totalCount={totalCount}
+                            viewMode={viewMode}
+                            onCopyLink={handleCopyLink}
+                            onFilterChange={handleFilterChange}
+                            onImageSizeChange={setImageSize}
+                            onReset={resetFilters}
+                            onViewModeChange={handleViewModeChange}
+                          />
+                          <button
+                            className={styles.mapPopupSizeButton}
+                            data-active={mapPopupSizeMode === 'large'}
+                            type="button"
+                            aria-pressed={mapPopupSizeMode === 'large'}
+                            title={
+                              mapPopupSizeMode === 'large'
+                                ? 'Switch to default map popup size'
+                                : 'Switch to larger map popups'
+                            }
+                            onClick={handleToggleMapPopupSize}
+                          >
+                            <i className={`fas ${mapPopupSizeMode === 'large' ? 'fa-compress' : 'fa-expand'}`}></i>
+                            <span>{mapPopupSizeMode === 'large' ? 'Default Popups' : 'Large Popups'}</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 }
                 overlayHeight={mapOverlaySize.height}
+                popupSizeMode={mapPopupSizeMode}
                 onSelectCamera={handleCameraSelection}
               />
             </Suspense>
