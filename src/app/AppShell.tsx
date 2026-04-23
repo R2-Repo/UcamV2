@@ -13,11 +13,27 @@ import { CameraModal } from '../features/modal/CameraModal'
 import { useAppStore } from '../features/filters/store'
 import { buildSearchParams, parseSearchParams } from '../features/filters/url-state'
 import { GalleryView } from '../features/gallery/GalleryView'
+import { ArcGisLayerPanel } from '../features/map/ArcGisLayerPanel'
+import {
+  DEFAULT_ARCGIS_RESULT_RECORD_COUNT,
+  SAMPLE_ARCGIS_LAYER_URL,
+  createArcGisLayerId,
+  fetchArcGisLayerMetadata,
+  getDefaultArcGisLayerMinZoom,
+  normalizeArcGisLayerUrl,
+  type ArcGisLayerConfig,
+} from '../features/map/arcgis-rest'
 import { useAppData } from '../shared/data/useAppData'
 import { useElementSize } from '../shared/hooks/useElementSize'
 import { IMAGE_REFRESH_INTERVAL_MS } from '../shared/lib/cameras'
 import type { FilterState, SelectionSource, ViewMode } from '../shared/types'
 import type { PopupSizeMode } from '../features/map/popup-layout'
+import {
+  DEFAULT_MAP_DIMENSION_MODE,
+  getMapDimensionToggleCopy,
+  getNextMapDimensionMode,
+  type MapDimensionMode,
+} from '../features/map/mapStyle'
 import styles from './AppShell.module.css'
 import { SplashScreen } from './SplashScreen'
 
@@ -28,6 +44,21 @@ const LazyMapView = lazy(async () => {
     default: module.MapView,
   }
 })
+
+const DEFAULT_ARCGIS_LAYERS: ArcGisLayerConfig[] = [
+  {
+    id: createArcGisLayerId(SAMPLE_ARCGIS_LAYER_URL),
+    title: 'UDOT Mile Point Measures',
+    url: SAMPLE_ARCGIS_LAYER_URL,
+    enabled: false,
+    geometryType: 'esriGeometryPoint',
+    minZoom: getDefaultArcGisLayerMinZoom('esriGeometryPoint'),
+    maxRecordCount: DEFAULT_ARCGIS_RESULT_RECORD_COUNT,
+    labelField: 'Measure',
+    labelsEnabled: true,
+    isRemovable: false,
+  },
+]
 
 function getActiveBadges(filters: FilterState, routeLabel: string | null) {
   return [
@@ -58,7 +89,13 @@ export function AppShell() {
   const setSelectedCamera = useAppStore((state) => state.setSelectedCamera)
   const hydrateFromUrl = useAppStore((state) => state.hydrateFromUrl)
   const [imageSize, setImageSize] = useState(180)
+  const [mapDimensionMode, setMapDimensionMode] = useState<MapDimensionMode>(DEFAULT_MAP_DIMENSION_MODE)
   const [mapPopupSizeMode, setMapPopupSizeMode] = useState<PopupSizeMode>('default')
+  const [arcGisLayers, setArcGisLayers] = useState<ArcGisLayerConfig[]>(DEFAULT_ARCGIS_LAYERS)
+  const [arcGisLayerUrl, setArcGisLayerUrl] = useState('')
+  const [arcGisLayerError, setArcGisLayerError] = useState<string | null>(null)
+  const [isAddingArcGisLayer, setIsAddingArcGisLayer] = useState(false)
+  const [isArcGisMenuOpen, setIsArcGisMenuOpen] = useState(false)
   const [refreshTokensByCameraId, setRefreshTokensByCameraId] = useState<Record<string, number>>({})
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [galleryScrollTop, setGalleryScrollTop] = useState(0)
@@ -69,6 +106,7 @@ export function AppShell() {
   const skipNextUrlSync = useRef(false)
   const lastSyncedViewMode = useRef<ViewMode | null>(null)
   const previousGalleryScrollTopRef = useRef(0)
+  const arcGisMenuRef = useRef<HTMLDivElement | null>(null)
   const { ref: mapOverlayRef, size: mapOverlaySize } = useElementSize<HTMLDivElement>()
 
   const routeLookup = useMemo(() => createRouteSelectors(routes), [routes])
@@ -106,6 +144,14 @@ export function AppShell() {
   const activeBadges = useMemo(
     () => getActiveBadges(filters, selectedRouteLabel),
     [filters, selectedRouteLabel],
+  )
+  const mapDimensionToggleCopy = useMemo(
+    () => getMapDimensionToggleCopy(mapDimensionMode),
+    [mapDimensionMode],
+  )
+  const activeArcGisLayerCount = useMemo(
+    () => arcGisLayers.filter((layer) => layer.enabled).length,
+    [arcGisLayers],
   )
 
   const handleClearSelection = useCallback(() => {
@@ -196,8 +242,39 @@ export function AppShell() {
   useEffect(() => {
     if (viewMode === 'map') {
       setIsModalOpen(false)
+      return
     }
+
+    setIsArcGisMenuOpen(false)
   }, [viewMode])
+
+  useEffect(() => {
+    if (!isArcGisMenuOpen) {
+      return undefined
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (arcGisMenuRef.current?.contains(event.target as Node)) {
+        return
+      }
+
+      setIsArcGisMenuOpen(false)
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsArcGisMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('pointerdown', handlePointerDown)
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('pointerdown', handlePointerDown)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isArcGisMenuOpen])
 
   useEffect(() => {
     if (!syncedSelectedCameraId) {
@@ -349,6 +426,85 @@ export function AppShell() {
     setMapPopupSizeMode((currentMode) => (currentMode === 'default' ? 'large' : 'default'))
   }, [])
 
+  const handleToggleMapDimensionMode = useCallback(() => {
+    setMapDimensionMode((currentMode) => getNextMapDimensionMode(currentMode))
+  }, [])
+
+  const handleArcGisLayerInputChange = useCallback(
+    (value: string) => {
+      setArcGisLayerUrl(value)
+
+      if (arcGisLayerError) {
+        setArcGisLayerError(null)
+      }
+    },
+    [arcGisLayerError],
+  )
+
+  const handleToggleArcGisLayer = useCallback((layerId: string, enabled: boolean) => {
+    setArcGisLayers((currentLayers) =>
+      currentLayers.map((layer) => (layer.id === layerId ? { ...layer, enabled } : layer)),
+    )
+  }, [])
+
+  const handleArcGisLayerMinZoomChange = useCallback((layerId: string, minZoom: number) => {
+    const clampedMinZoom = Math.min(Math.max(minZoom, 0), 22)
+
+    setArcGisLayers((currentLayers) =>
+      currentLayers.map((layer) => (layer.id === layerId ? { ...layer, minZoom: clampedMinZoom } : layer)),
+    )
+  }, [])
+
+  const handleRemoveArcGisLayer = useCallback((layerId: string) => {
+    setArcGisLayers((currentLayers) => currentLayers.filter((layer) => layer.id !== layerId))
+  }, [])
+
+  const handleAddArcGisLayer = useCallback(async () => {
+    const normalizedUrl = normalizeArcGisLayerUrl(arcGisLayerUrl)
+
+    if (!normalizedUrl) {
+      setArcGisLayerError('Enter a public ArcGIS layer URL ending in /MapServer/{id} or /FeatureServer/{id}.')
+      return
+    }
+
+    const layerId = createArcGisLayerId(normalizedUrl)
+
+    if (arcGisLayers.some((layer) => layer.id === layerId)) {
+      setArcGisLayerUrl('')
+      setArcGisLayerError(null)
+      return
+    }
+
+    setIsAddingArcGisLayer(true)
+    setArcGisLayerError(null)
+
+    try {
+      const metadata = await fetchArcGisLayerMetadata(normalizedUrl)
+
+      setArcGisLayers((currentLayers) => [
+        ...currentLayers,
+        {
+          id: layerId,
+          title: metadata.title,
+          url: normalizedUrl,
+          enabled: false,
+          geometryType: metadata.geometryType,
+          minZoom: metadata.minZoom,
+          maxRecordCount: metadata.maxRecordCount,
+          labelsEnabled: false,
+          isRemovable: true,
+        },
+      ])
+      setArcGisLayerUrl('')
+    } catch (error) {
+      setArcGisLayerError(
+        error instanceof Error ? error.message : 'Unable to load ArcGIS metadata for that layer.',
+      )
+    } finally {
+      setIsAddingArcGisLayer(false)
+    }
+  }, [arcGisLayerUrl, arcGisLayers])
+
   const totalCount = cameras.length
   const filteredCount = filteredCameras.length
   const shouldHideHeaderChrome =
@@ -433,6 +589,7 @@ export function AppShell() {
               }
             >
               <LazyMapView
+                arcGisLayers={arcGisLayers}
                 cameras={filteredCameras}
                 refreshTokensByCameraId={refreshTokensByCameraId}
                 selectedCamera={selectedCamera}
@@ -459,6 +616,17 @@ export function AppShell() {
                           />
                           <button
                             className={styles.mapPopupSizeButton}
+                            data-active={mapDimensionMode === '3d'}
+                            type="button"
+                            aria-pressed={mapDimensionMode === '3d'}
+                            title={mapDimensionToggleCopy.buttonTitle}
+                            onClick={handleToggleMapDimensionMode}
+                          >
+                            <i className={`fas ${mapDimensionMode === '3d' ? 'fa-map' : 'fa-cube'}`}></i>
+                            <span>{mapDimensionToggleCopy.buttonLabel}</span>
+                          </button>
+                          <button
+                            className={styles.mapPopupSizeButton}
                             data-active={mapPopupSizeMode === 'large'}
                             type="button"
                             aria-pressed={mapPopupSizeMode === 'large'}
@@ -472,13 +640,50 @@ export function AppShell() {
                             <i className={`fas ${mapPopupSizeMode === 'large' ? 'fa-compress' : 'fa-expand'}`}></i>
                             <span>{mapPopupSizeMode === 'large' ? 'Default Popups' : 'Large Popups'}</span>
                           </button>
+                          <div
+                            ref={arcGisMenuRef}
+                            className={styles.mapArcGisMenu}
+                            data-open={isArcGisMenuOpen}
+                          >
+                            <button
+                              className={styles.mapPopupSizeButton}
+                              data-active={isArcGisMenuOpen || activeArcGisLayerCount > 0}
+                              type="button"
+                              aria-expanded={isArcGisMenuOpen}
+                              title="Open external ArcGIS layer controls"
+                              onClick={() => setIsArcGisMenuOpen((currentValue) => !currentValue)}
+                            >
+                              <i className="fas fa-layer-group"></i>
+                              <span>{activeArcGisLayerCount ? `Layers (${activeArcGisLayerCount})` : 'Layers'}</span>
+                            </button>
+
+                            {isArcGisMenuOpen ? (
+                              <div className={styles.mapArcGisMenuPanel}>
+                                <ArcGisLayerPanel
+                                  activeLayerCount={activeArcGisLayerCount}
+                                  inputError={arcGisLayerError}
+                                  inputValue={arcGisLayerUrl}
+                                  isAdding={isAddingArcGisLayer}
+                                  layers={arcGisLayers}
+                                  onAddLayer={handleAddArcGisLayer}
+                                  onClose={() => setIsArcGisMenuOpen(false)}
+                                  onInputChange={handleArcGisLayerInputChange}
+                                  onMinZoomChange={handleArcGisLayerMinZoomChange}
+                                  onRemoveLayer={handleRemoveArcGisLayer}
+                                  onToggleLayer={handleToggleArcGisLayer}
+                                />
+                              </div>
+                            ) : null}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 }
+                mapDimensionMode={mapDimensionMode}
                 overlayHeight={mapOverlaySize.height}
                 popupSizeMode={mapPopupSizeMode}
+                onToggleMapDimensionMode={handleToggleMapDimensionMode}
                 onSelectCamera={handleCameraSelection}
               />
             </Suspense>

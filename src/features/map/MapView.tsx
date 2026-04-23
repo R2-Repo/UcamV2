@@ -1,11 +1,33 @@
 import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
-import type { FeatureCollection, Point } from 'geojson'
+import type { FeatureCollection, LineString, Point } from 'geojson'
 import type { CameraSummary, SelectionSource } from '../../shared/types'
 import { resolveCameraImageUrl } from '../../shared/lib/cameras'
 import { getPrimaryRouteLabel } from '../../shared/lib/routes'
-import { DEFAULT_MAP_STYLE, UTAH_VIEW } from './mapStyle'
+import {
+  DEFAULT_MAP_STYLE,
+  MAP_3D_PITCH,
+  MAP_HILLSHADE_LAYER,
+  MAP_HILLSHADE_LAYER_ID,
+  MAP_HILLSHADE_SOURCE,
+  MAP_HILLSHADE_SOURCE_ID,
+  MAP_TERRAIN_SOURCE,
+  MAP_TERRAIN_SOURCE_ID,
+  MAP_TERRAIN_SPEC,
+  UTAH_VIEW,
+  getMapDimensionToggleCopy,
+  type MapDimensionMode,
+} from './mapStyle'
+import {
+  buildGoogleEarthWebUrl,
+  buildGoogleMapsUrl,
+  buildGoogleStreetViewUrl,
+  formatCoordinatePair,
+  formatDistanceSummary,
+  getPathDistanceMeters,
+  type MapCoordinate,
+} from './map-actions'
 import {
   buildPopupLayouts,
   createRect,
@@ -15,6 +37,17 @@ import {
   type PopupSizeMode,
 } from './popup-layout'
 import { AUTO_POPUP_MIN_ZOOM, MAX_AUTO_POPUPS, selectPopupLayoutItems } from './popup-selection'
+import {
+  buildArcGisQueryUrl,
+  createEmptyArcGisFeatureCollection,
+  getArcGisLabelLayerId,
+  getArcGisLayerColor,
+  getArcGisLayerSourceId,
+  getArcGisStyleLayerIds,
+  type ArcGisFeatureCollection,
+  type ArcGisGeometryType,
+  type ArcGisLayerConfig,
+} from './arcgis-rest'
 import styles from './MapView.module.css'
 
 interface MapViewProps {
@@ -23,13 +56,23 @@ interface MapViewProps {
   selectionSource: SelectionSource
   refreshTokensByCameraId: Readonly<Record<string, number>>
   isFullscreen?: boolean
+  mapDimensionMode: MapDimensionMode
   overlay?: ReactNode
   overlayHeight?: number
   popupSizeMode?: PopupSizeMode
+  arcGisLayers?: ArcGisLayerConfig[]
+  onToggleMapDimensionMode: () => void
   onSelectCamera: (cameraId: string | null, source: SelectionSource) => void
 }
 
 type CameraFeatureCollection = FeatureCollection<Point, { id: string; location: string; routeLabel: string }>
+type MeasurementFeatureCollection = FeatureCollection<
+  Point | LineString,
+  {
+    kind: 'path' | 'vertex'
+    index?: number
+  }
+>
 
 const CAMERA_FOCUS_ZOOM = 13
 const CAMERA_CLUSTER_MAX_ZOOM = 10
@@ -37,6 +80,17 @@ const CAMERA_CLUSTER_RADIUS = 48
 const POPUP_MARKER_PADDING = 12
 const TRACKPAD_ZOOM_RATE = 1 / 45
 const WHEEL_ZOOM_RATE = 1 / 260
+const MEASUREMENT_SOURCE_ID = 'measurement-path'
+const ARCGIS_LAYER_INSERT_BEFORE_ID = 'camera-clusters'
+const CONTEXT_MENU_WIDTH = 272
+const CONTEXT_MENU_HEIGHT = 392
+const CONTEXT_MENU_MARGIN = 14
+
+interface ContextMenuState {
+  coordinate: MapCoordinate
+  x: number
+  y: number
+}
 
 function createFeatureCollection(cameras: CameraSummary[]): CameraFeatureCollection {
   return {
@@ -53,6 +107,397 @@ function createFeatureCollection(cameras: CameraSummary[]): CameraFeatureCollect
         routeLabel: getPrimaryRouteLabel(camera),
       },
     })),
+  }
+}
+
+function createMeasurementFeatureCollection(points: MapCoordinate[]): MeasurementFeatureCollection {
+  const features: MeasurementFeatureCollection['features'] = points.map((point, index) => ({
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [point.longitude, point.latitude],
+    },
+    properties: {
+      kind: 'vertex',
+      index,
+    },
+  }))
+
+  if (points.length > 1) {
+    features.unshift({
+      type: 'Feature',
+      geometry: {
+        type: 'LineString',
+        coordinates: points.map((point) => [point.longitude, point.latitude]),
+      },
+      properties: {
+        kind: 'path',
+      },
+    })
+  }
+
+  return {
+    type: 'FeatureCollection',
+    features,
+  }
+}
+
+function toMapCoordinate(lngLat: maplibregl.LngLat): MapCoordinate {
+  return {
+    latitude: lngLat.lat,
+    longitude: lngLat.lng,
+  }
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max)
+}
+
+function withAlpha(hexColor: string, alpha: number) {
+  const normalized = hexColor.replace('#', '')
+  const red = Number.parseInt(normalized.slice(0, 2), 16)
+  const green = Number.parseInt(normalized.slice(2, 4), 16)
+  const blue = Number.parseInt(normalized.slice(4, 6), 16)
+
+  return `rgba(${red}, ${green}, ${blue}, ${alpha})`
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+function formatArcGisAttributeValue(value: unknown) {
+  if (value === null || value === undefined || value === '') {
+    return null
+  }
+
+  if (typeof value === 'string') {
+    return value
+  }
+
+  if (typeof value === 'number' || typeof value === 'boolean') {
+    return String(value)
+  }
+
+  try {
+    return JSON.stringify(value)
+  } catch {
+    return String(value)
+  }
+}
+
+function getArcGisInteractiveLayerIds(layers: ArcGisLayerConfig[]) {
+  return layers.flatMap((layer) => {
+    const styleLayerIds = getArcGisStyleLayerIds(layer.id, layer.geometryType)
+
+    if (!layer.labelsEnabled || !layer.labelField?.trim()) {
+      return styleLayerIds
+    }
+
+    return [...styleLayerIds, getArcGisLabelLayerId(layer.id)]
+  })
+}
+
+function findArcGisLayerByRenderedLayerId(layers: ArcGisLayerConfig[], renderedLayerId: string) {
+  return (
+    layers.find((layer) => {
+      if (getArcGisLabelLayerId(layer.id) === renderedLayerId) {
+        return true
+      }
+
+      return getArcGisStyleLayerIds(layer.id, layer.geometryType).includes(renderedLayerId)
+    }) ?? null
+  )
+}
+
+function buildArcGisPopupHtml(layer: ArcGisLayerConfig, feature: maplibregl.MapGeoJSONFeature) {
+  const entries = Object.entries(feature.properties ?? {})
+    .map(([key, value]) => [key, formatArcGisAttributeValue(value)] as const)
+    .filter((entry): entry is [string, string] => entry[1] !== null)
+    .sort(([leftKey], [rightKey]) => {
+      const labelField = layer.labelField?.trim()
+
+      if (labelField && leftKey === labelField && rightKey !== labelField) {
+        return -1
+      }
+
+      if (labelField && rightKey === labelField && leftKey !== labelField) {
+        return 1
+      }
+
+      return leftKey.localeCompare(rightKey)
+    })
+
+  const rows = entries.length
+    ? entries
+        .map(
+          ([key, value]) =>
+            `<div style="display:grid;gap:0.12rem;padding:0.45rem 0;border-top:1px solid rgba(17,32,30,0.08)"><dt style="margin:0;font-size:0.72rem;font-weight:700;color:#6d7b78;text-transform:uppercase;letter-spacing:0.08em">${escapeHtml(key)}</dt><dd style="margin:0;font-size:0.88rem;line-height:1.35;color:#10201d;overflow-wrap:anywhere">${escapeHtml(value)}</dd></div>`,
+        )
+        .join('')
+    : '<p style="margin:0;color:#54615e">No feature attributes were returned for this layer.</p>'
+
+  return `<div style="display:grid;gap:0.65rem;min-width:240px;max-width:320px"><div style="display:grid;gap:0.18rem"><strong style="font-size:1rem;color:#10201d">${escapeHtml(layer.title)}</strong><span style="font-size:0.76rem;color:#6d7b78">${escapeHtml(layer.url)}</span></div><dl style="margin:0;display:grid">${rows}</dl></div>`
+}
+
+function setArcGisLayerVisibility(map: maplibregl.Map, layer: ArcGisLayerConfig, visibility: 'visible' | 'none') {
+  getArcGisStyleLayerIds(layer.id, layer.geometryType).forEach((layerId) => {
+    if (map.getLayer(layerId)) {
+      map.setLayoutProperty(layerId, 'visibility', visibility)
+    }
+  })
+
+  const labelLayerId = getArcGisLabelLayerId(layer.id)
+
+  if (map.getLayer(labelLayerId)) {
+    map.setLayoutProperty(labelLayerId, 'visibility', visibility)
+  }
+}
+
+function addArcGisLayerArtifacts(map: maplibregl.Map, layer: ArcGisLayerConfig) {
+  const sourceId = getArcGisLayerSourceId(layer.id)
+  const color = getArcGisLayerColor(layer.id)
+  const labelField = layer.labelField?.trim()
+
+  if (!map.getSource(sourceId)) {
+    map.addSource(sourceId, {
+      type: 'geojson',
+      data: createEmptyArcGisFeatureCollection(),
+    })
+  }
+
+  if (layer.geometryType === 'esriGeometryPoint') {
+    const pointLayerId = getArcGisStyleLayerIds(layer.id, layer.geometryType)[0]
+
+    if (!map.getLayer(pointLayerId)) {
+      map.addLayer(
+        {
+          id: pointLayerId,
+          type: 'circle',
+          source: sourceId,
+          paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, 3.5, 11, 6, 15, 9],
+            'circle-color': color,
+            'circle-stroke-width': 1.25,
+            'circle-stroke-color': '#0f1413',
+            'circle-opacity': 0.9,
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+    }
+  } else if (layer.geometryType === 'esriGeometryPolyline') {
+    const lineLayerId = getArcGisStyleLayerIds(layer.id, layer.geometryType)[0]
+
+    if (!map.getLayer(lineLayerId)) {
+      map.addLayer(
+        {
+          id: lineLayerId,
+          type: 'line',
+          source: sourceId,
+          paint: {
+            'line-color': color,
+            'line-width': ['interpolate', ['linear'], ['zoom'], 7, 1.4, 11, 2.2, 15, 4],
+            'line-opacity': 0.88,
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+    }
+  } else {
+    const [fillLayerId, outlineLayerId] = getArcGisStyleLayerIds(layer.id, layer.geometryType)
+
+    if (!map.getLayer(fillLayerId)) {
+      map.addLayer(
+        {
+          id: fillLayerId,
+          type: 'fill',
+          source: sourceId,
+          paint: {
+            'fill-color': withAlpha(color, 0.18),
+            'fill-opacity': 0.6,
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+    }
+
+    if (!map.getLayer(outlineLayerId)) {
+      map.addLayer(
+        {
+          id: outlineLayerId,
+          type: 'line',
+          source: sourceId,
+          paint: {
+            'line-color': color,
+            'line-width': ['interpolate', ['linear'], ['zoom'], 8, 0.8, 12, 1.6, 15, 2.4],
+            'line-opacity': 0.88,
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+    }
+  }
+
+  if (!labelField || !layer.labelsEnabled) {
+    return
+  }
+
+  const labelLayerId = getArcGisLabelLayerId(layer.id)
+
+  if (!map.getLayer(labelLayerId)) {
+    map.addLayer(
+      {
+        id: labelLayerId,
+        type: 'symbol',
+        source: sourceId,
+        layout: {
+          'symbol-placement': layer.geometryType === 'esriGeometryPolyline' ? 'line' : 'point',
+          'text-field': ['to-string', ['coalesce', ['get', labelField], '']],
+          'text-font': ['Noto Sans Regular'],
+          'text-size': ['interpolate', ['linear'], ['zoom'], 8, 10, 12, 12, 16, 14],
+          'text-offset': layer.geometryType === 'esriGeometryPolyline' ? [0, 0] : [0, 1.1],
+          'text-anchor': layer.geometryType === 'esriGeometryPolyline' ? 'center' : 'top',
+          'text-allow-overlap': true,
+          'text-ignore-placement': true,
+        },
+        paint: {
+          'text-color': color,
+          'text-halo-color': 'rgba(13, 19, 18, 0.96)',
+          'text-halo-width': 1.4,
+        },
+      },
+      ARCGIS_LAYER_INSERT_BEFORE_ID,
+    )
+  }
+}
+
+function removeArcGisLayerArtifacts(map: maplibregl.Map, layerId: string, geometryType: ArcGisGeometryType) {
+  const sourceId = getArcGisLayerSourceId(layerId)
+  const labelLayerId = getArcGisLabelLayerId(layerId)
+
+  if (map.getLayer(labelLayerId)) {
+    map.removeLayer(labelLayerId)
+  }
+
+  getArcGisStyleLayerIds(layerId, geometryType)
+    .slice()
+    .reverse()
+    .forEach((styleLayerId) => {
+      if (map.getLayer(styleLayerId)) {
+        map.removeLayer(styleLayerId)
+      }
+    })
+
+  if (map.getSource(sourceId)) {
+    map.removeSource(sourceId)
+  }
+}
+
+interface RefreshArcGisLayerOptions {
+  forceRefresh: boolean
+  layer: ArcGisLayerConfig
+  map: maplibregl.Map
+  requestControllers: Map<string, AbortController>
+  viewportSignatures: Map<string, string>
+}
+
+async function refreshArcGisLayerData({
+  forceRefresh,
+  layer,
+  map,
+  requestControllers,
+  viewportSignatures,
+}: RefreshArcGisLayerOptions) {
+  const source = map.getSource(getArcGisLayerSourceId(layer.id)) as maplibregl.GeoJSONSource | undefined
+  const isLayerVisible = layer.enabled && map.getZoom() >= layer.minZoom
+
+  setArcGisLayerVisibility(map, layer, isLayerVisible ? 'visible' : 'none')
+
+  if (!source) {
+    return
+  }
+
+  if (!isLayerVisible) {
+    requestControllers.get(layer.id)?.abort()
+    requestControllers.delete(layer.id)
+    viewportSignatures.delete(layer.id)
+    source.setData(createEmptyArcGisFeatureCollection())
+    return
+  }
+
+  const bounds = map.getBounds()
+  const viewportSignature = [
+    map.getZoom().toFixed(2),
+    bounds.getWest().toFixed(4),
+    bounds.getSouth().toFixed(4),
+    bounds.getEast().toFixed(4),
+    bounds.getNorth().toFixed(4),
+  ].join(':')
+
+  if (!forceRefresh && viewportSignatures.get(layer.id) === viewportSignature) {
+    return
+  }
+
+  viewportSignatures.set(layer.id, viewportSignature)
+  requestControllers.get(layer.id)?.abort()
+
+  const controller = new AbortController()
+  requestControllers.set(layer.id, controller)
+
+  try {
+    const response = await fetch(
+      buildArcGisQueryUrl(
+        layer.url,
+        {
+          west: bounds.getWest(),
+          south: bounds.getSouth(),
+          east: bounds.getEast(),
+          north: bounds.getNorth(),
+        },
+        layer.maxRecordCount,
+      ),
+      { signal: controller.signal },
+    )
+
+    if (!response.ok) {
+      throw new Error(`ArcGIS data request failed with status ${response.status}.`)
+    }
+
+    const payload = (await response.json()) as ArcGisFeatureCollection & {
+      error?: {
+        message?: string
+      }
+    }
+
+    if (payload.error?.message) {
+      throw new Error(payload.error.message)
+    }
+
+    if (payload.type !== 'FeatureCollection' || !Array.isArray(payload.features)) {
+      throw new Error('ArcGIS layer did not return GeoJSON feature data.')
+    }
+
+    if (!controller.signal.aborted) {
+      source.setData(payload)
+    }
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'AbortError') {
+      return
+    }
+
+    viewportSignatures.delete(layer.id)
+    source.setData(createEmptyArcGisFeatureCollection())
+    console.warn(`Unable to load ArcGIS layer "${layer.title}".`, error)
+  } finally {
+    if (requestControllers.get(layer.id) === controller) {
+      requestControllers.delete(layer.id)
+    }
   }
 }
 
@@ -213,21 +658,43 @@ export function MapView({
   selectionSource,
   refreshTokensByCameraId,
   isFullscreen = false,
+  mapDimensionMode,
   overlay,
   overlayHeight = 0,
   popupSizeMode = 'default',
+  arcGisLayers = [],
+  onToggleMapDimensionMode,
   onSelectCamera,
 }: MapViewProps) {
+  const rootRef = useRef<HTMLDivElement | null>(null)
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
+  const arcGisPopupRef = useRef<maplibregl.Popup | null>(null)
   const popupLayoutsRef = useRef<PopupLayout[]>([])
+  const menuRef = useRef<HTMLDivElement | null>(null)
+  const isMeasuringRef = useRef(false)
+  const arcGisLayersRef = useRef(arcGisLayers)
+  const arcGisRequestControllersRef = useRef(new Map<string, AbortController>())
+  const arcGisViewportSignaturesRef = useRef(new Map<string, string>())
+  const managedArcGisLayersRef = useRef(new Map<string, ArcGisGeometryType>())
   const [isReady, setIsReady] = useState(false)
   const [popupLayouts, setPopupLayouts] = useState<PopupLayout[]>([])
+  const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
+  const [isMeasuring, setIsMeasuring] = useState(false)
+  const [measurementPoints, setMeasurementPoints] = useState<MapCoordinate[]>([])
 
   const cameraCollection = useMemo(() => createFeatureCollection(cameras), [cameras])
   const selectedCollection = useMemo(
     () => createFeatureCollection(selectedCamera ? [selectedCamera] : []),
     [selectedCamera],
+  )
+  const measurementCollection = useMemo(
+    () => createMeasurementFeatureCollection(measurementPoints),
+    [measurementPoints],
+  )
+  const measurementDistance = useMemo(
+    () => getPathDistanceMeters(measurementPoints),
+    [measurementPoints],
   )
   const popupImageSrcByCameraId = useMemo(
     () =>
@@ -264,6 +731,33 @@ export function MapView({
   const selectedCollectionRef = useRef(selectedCollection)
   const viewportPaddingRef = useRef(viewportPadding)
   const onSelectCameraRef = useRef(onSelectCamera)
+  const measurementDistanceLabel = measurementPoints.length
+    ? formatDistanceSummary(measurementDistance)
+    : 'Click the map to place the first point.'
+  const mapDimensionToggleCopy = useMemo(
+    () => getMapDimensionToggleCopy(mapDimensionMode),
+    [mapDimensionMode],
+  )
+  const menuPosition = contextMenu
+    ? (() => {
+        const container = rootRef.current
+
+        if (!container) {
+          return {
+            left: contextMenu.x,
+            top: contextMenu.y,
+          }
+        }
+
+        const maxLeft = Math.max(CONTEXT_MENU_MARGIN, container.clientWidth - CONTEXT_MENU_WIDTH - CONTEXT_MENU_MARGIN)
+        const maxTop = Math.max(CONTEXT_MENU_MARGIN, container.clientHeight - CONTEXT_MENU_HEIGHT - CONTEXT_MENU_MARGIN)
+
+        return {
+          left: clamp(contextMenu.x, CONTEXT_MENU_MARGIN, maxLeft),
+          top: clamp(contextMenu.y, CONTEXT_MENU_MARGIN, maxTop),
+        }
+      })()
+    : null
 
   useEffect(() => {
     cameraCollectionRef.current = cameraCollection
@@ -280,6 +774,14 @@ export function MapView({
   useEffect(() => {
     onSelectCameraRef.current = onSelectCamera
   }, [onSelectCamera])
+
+  useEffect(() => {
+    arcGisLayersRef.current = arcGisLayers
+  }, [arcGisLayers])
+
+  useEffect(() => {
+    isMeasuringRef.current = isMeasuring
+  }, [isMeasuring])
 
   useEffect(() => {
     if (!mapContainerRef.current || mapRef.current) {
@@ -299,9 +801,16 @@ export function MapView({
     mapRef.current = map
     map.scrollZoom.setZoomRate(TRACKPAD_ZOOM_RATE)
     map.scrollZoom.setWheelZoomRate(WHEEL_ZOOM_RATE)
+    map.setMaxPitch(80)
     map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right')
 
     const handleLoad = () => {
+      map.addSource(MAP_TERRAIN_SOURCE_ID, { ...MAP_TERRAIN_SOURCE })
+      map.addSource(MAP_HILLSHADE_SOURCE_ID, { ...MAP_HILLSHADE_SOURCE })
+
+      map.addLayer(MAP_HILLSHADE_LAYER, 'esri-reference-layer')
+      map.setLayoutProperty(MAP_HILLSHADE_LAYER_ID, 'visibility', 'none')
+
       map.addSource('cameras', {
         type: 'geojson',
         data: cameraCollectionRef.current,
@@ -393,7 +902,58 @@ export function MapView({
         },
       })
 
+      map.addSource(MEASUREMENT_SOURCE_ID, {
+        type: 'geojson',
+        data: createMeasurementFeatureCollection([]),
+      })
+
+      map.addLayer({
+        id: 'measurement-path-line',
+        type: 'line',
+        source: MEASUREMENT_SOURCE_ID,
+        filter: ['==', ['geometry-type'], 'LineString'],
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-color': '#ffd166',
+          'line-width': ['interpolate', ['linear'], ['zoom'], 5, 2.5, 9, 4, 13, 5.5],
+          'line-opacity': 0.95,
+          'line-dasharray': [1, 1.25],
+        },
+      })
+
+      map.addLayer({
+        id: 'measurement-path-points-halo',
+        type: 'circle',
+        source: MEASUREMENT_SOURCE_ID,
+        filter: ['==', ['geometry-type'], 'Point'],
+        paint: {
+          'circle-radius': ['interpolate', ['linear'], ['zoom'], 5, 6, 9, 8, 13, 10],
+          'circle-color': 'rgba(255, 209, 102, 0.24)',
+          'circle-stroke-width': 0,
+        },
+      })
+
+      map.addLayer({
+        id: 'measurement-path-points',
+        type: 'circle',
+        source: MEASUREMENT_SOURCE_ID,
+        filter: ['==', ['geometry-type'], 'Point'],
+        paint: {
+          'circle-radius': ['interpolate', ['linear'], ['zoom'], 5, 3.5, 9, 4.5, 13, 6],
+          'circle-color': '#ff7800',
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#fffdf7',
+        },
+      })
+
       map.on('click', 'camera-clusters', async (event) => {
+        if (isMeasuringRef.current) {
+          return
+        }
+
         const feature = event.features?.[0]
         const geometry = feature?.geometry
         const clusterId = Number(feature?.properties?.cluster_id)
@@ -418,11 +978,88 @@ export function MapView({
       })
 
       map.on('click', 'camera-points', (event) => {
+        if (isMeasuringRef.current) {
+          return
+        }
+
         const id = event.features?.[0]?.properties?.id
 
         if (typeof id === 'string') {
           onSelectCameraRef.current(id, 'map')
         }
+      })
+
+      map.on('click', (event) => {
+        setContextMenu(null)
+
+        if (isMeasuringRef.current) {
+          arcGisPopupRef.current?.remove()
+          arcGisPopupRef.current = null
+          setMeasurementPoints((currentPoints) => [...currentPoints, toMapCoordinate(event.lngLat)])
+          return
+        }
+
+        const cameraHit = map.queryRenderedFeatures(event.point, {
+          layers: ['camera-clusters', 'camera-points', 'selected-camera-point'],
+        })
+
+        if (cameraHit.length) {
+          arcGisPopupRef.current?.remove()
+          arcGisPopupRef.current = null
+          return
+        }
+
+        const interactiveArcGisLayerIds = getArcGisInteractiveLayerIds(arcGisLayersRef.current)
+
+        if (!interactiveArcGisLayerIds.length) {
+          arcGisPopupRef.current?.remove()
+          arcGisPopupRef.current = null
+          return
+        }
+
+        const arcGisFeature = map.queryRenderedFeatures(event.point, {
+          layers: interactiveArcGisLayerIds,
+        })[0] as maplibregl.MapGeoJSONFeature | undefined
+
+        if (!arcGisFeature) {
+          arcGisPopupRef.current?.remove()
+          arcGisPopupRef.current = null
+          return
+        }
+
+        const layer = findArcGisLayerByRenderedLayerId(arcGisLayersRef.current, arcGisFeature.layer.id)
+
+        if (!layer) {
+          arcGisPopupRef.current?.remove()
+          arcGisPopupRef.current = null
+          return
+        }
+
+        arcGisPopupRef.current?.remove()
+        arcGisPopupRef.current = new maplibregl.Popup({
+          closeButton: true,
+          closeOnClick: false,
+          maxWidth: '340px',
+        })
+          .setLngLat(event.lngLat)
+          .setHTML(buildArcGisPopupHtml(layer, arcGisFeature))
+          .addTo(map)
+      })
+
+      map.on('contextmenu', (event) => {
+        event.preventDefault()
+        event.originalEvent.preventDefault()
+        event.originalEvent.stopPropagation()
+
+        setContextMenu({
+          coordinate: toMapCoordinate(event.lngLat),
+          x: event.point.x,
+          y: event.point.y,
+        })
+      })
+
+      map.on('movestart', () => {
+        setContextMenu(null)
       })
 
       map.on('mouseenter', 'camera-clusters', () => {
@@ -447,10 +1084,19 @@ export function MapView({
     map.on('load', handleLoad)
 
     return () => {
+      arcGisPopupRef.current?.remove()
+      arcGisPopupRef.current = null
+      arcGisRequestControllersRef.current.forEach((controller) => controller.abort())
+      arcGisRequestControllersRef.current.clear()
+      arcGisViewportSignaturesRef.current.clear()
+      managedArcGisLayersRef.current.clear()
       map.off('load', handleLoad)
       map.remove()
       mapRef.current = null
       setIsReady(false)
+      setContextMenu(null)
+      setIsMeasuring(false)
+      setMeasurementPoints([])
       setPopupLayouts([])
       popupLayoutsRef.current = []
     }
@@ -470,9 +1116,124 @@ export function MapView({
       return
     }
 
+    const map = mapRef.current
+    const nextIs3D = mapDimensionMode === '3d'
+    const nextPitch = nextIs3D ? MAP_3D_PITCH : 0
+
+    if (map.getLayer(MAP_HILLSHADE_LAYER_ID)) {
+      map.setLayoutProperty(MAP_HILLSHADE_LAYER_ID, 'visibility', nextIs3D ? 'visible' : 'none')
+    }
+
+    map.setTerrain(nextIs3D ? MAP_TERRAIN_SPEC : null)
+
+    if (Math.abs(map.getPitch() - nextPitch) > 0.1) {
+      map.easeTo({
+        pitch: nextPitch,
+        duration: 650,
+      })
+    }
+  }, [isReady, mapDimensionMode])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady) {
+      return
+    }
+
     const source = mapRef.current.getSource('selected-camera') as maplibregl.GeoJSONSource | undefined
     source?.setData(selectedCollection)
   }, [isReady, selectedCollection])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady) {
+      return
+    }
+
+    const source = mapRef.current.getSource(MEASUREMENT_SOURCE_ID) as maplibregl.GeoJSONSource | undefined
+    source?.setData(measurementCollection)
+  }, [isReady, measurementCollection])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady) {
+      return
+    }
+
+    arcGisPopupRef.current?.remove()
+    arcGisPopupRef.current = null
+
+    const map = mapRef.current
+    const nextLayerIds = new Set(arcGisLayers.map((layer) => layer.id))
+
+    managedArcGisLayersRef.current.forEach((geometryType, layerId) => {
+      if (nextLayerIds.has(layerId)) {
+        return
+      }
+
+      arcGisRequestControllersRef.current.get(layerId)?.abort()
+      arcGisRequestControllersRef.current.delete(layerId)
+      arcGisViewportSignaturesRef.current.delete(layerId)
+      removeArcGisLayerArtifacts(map, layerId, geometryType)
+      managedArcGisLayersRef.current.delete(layerId)
+    })
+
+    arcGisLayers.forEach((layer) => {
+      managedArcGisLayersRef.current.set(layer.id, layer.geometryType)
+      addArcGisLayerArtifacts(map, layer)
+
+      if ((!layer.labelField?.trim() || !layer.labelsEnabled) && map.getLayer(getArcGisLabelLayerId(layer.id))) {
+        map.removeLayer(getArcGisLabelLayerId(layer.id))
+      }
+    })
+
+    arcGisLayers.forEach((layer) => {
+      void refreshArcGisLayerData({
+        forceRefresh: true,
+        layer,
+        map,
+        requestControllers: arcGisRequestControllersRef.current,
+        viewportSignatures: arcGisViewportSignaturesRef.current,
+      })
+    })
+  }, [arcGisLayers, isReady])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady) {
+      return undefined
+    }
+
+    const map = mapRef.current
+
+    const handleMoveEnd = () => {
+      arcGisLayersRef.current.forEach((layer) => {
+        void refreshArcGisLayerData({
+          forceRefresh: false,
+          layer,
+          map,
+          requestControllers: arcGisRequestControllersRef.current,
+          viewportSignatures: arcGisViewportSignaturesRef.current,
+        })
+      })
+    }
+
+    map.on('moveend', handleMoveEnd)
+
+    return () => {
+      map.off('moveend', handleMoveEnd)
+    }
+  }, [isReady])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady) {
+      return
+    }
+
+    if (isMeasuring) {
+      mapRef.current.doubleClickZoom.disable()
+      return undefined
+    }
+
+    mapRef.current.doubleClickZoom.enable()
+    return undefined
+  }, [isMeasuring, isReady])
 
   useEffect(() => {
     if (!mapRef.current || !isReady) {
@@ -541,8 +1302,100 @@ export function MapView({
     }
   }, [camerasById, isFullscreen, isReady, overlayHeight, popupSizeMode, selectedCamera])
 
+  useEffect(() => {
+    if (!contextMenu) {
+      return undefined
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (menuRef.current?.contains(event.target as Node)) {
+        return
+      }
+
+      setContextMenu(null)
+    }
+
+    window.addEventListener('pointerdown', handlePointerDown)
+
+    return () => {
+      window.removeEventListener('pointerdown', handlePointerDown)
+    }
+  }, [contextMenu])
+
+  useEffect(() => {
+    if (!contextMenu && !isMeasuring) {
+      return undefined
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') {
+        return
+      }
+
+      if (contextMenu) {
+        setContextMenu(null)
+        return
+      }
+
+      setIsMeasuring(false)
+      setMeasurementPoints([])
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [contextMenu, isMeasuring])
+
+  function openExternalMapUrl(urlBuilder: (coordinate: MapCoordinate) => string) {
+    if (!contextMenu) {
+      return
+    }
+
+    window.open(urlBuilder(contextMenu.coordinate), '_blank', 'noopener,noreferrer')
+    setContextMenu(null)
+  }
+
+  function handleCopyCoordinates() {
+    if (!contextMenu) {
+      return
+    }
+
+    if (navigator.clipboard?.writeText) {
+      void navigator.clipboard.writeText(formatCoordinatePair(contextMenu.coordinate)).catch(() => undefined)
+    }
+
+    setContextMenu(null)
+  }
+
+  function startMeasurementFrom(coordinate: MapCoordinate) {
+    setIsMeasuring(true)
+    setMeasurementPoints([coordinate])
+    setContextMenu(null)
+  }
+
+  function handleUndoMeasurementPoint() {
+    setMeasurementPoints((currentPoints) => currentPoints.slice(0, -1))
+  }
+
+  function handleClearMeasurement() {
+    setMeasurementPoints([])
+  }
+
+  function handleStopMeasurement() {
+    setIsMeasuring(false)
+    setMeasurementPoints([])
+    setContextMenu(null)
+  }
+
+  function handleToggleMapDimensionFromMenu() {
+    onToggleMapDimensionMode()
+    setContextMenu(null)
+  }
+
   return (
-    <div className={`${styles.root} ${isFullscreen ? styles.isFullscreen : ''}`.trim()}>
+    <div ref={rootRef} className={`${styles.root} ${isFullscreen ? styles.isFullscreen : ''}`.trim()}>
       <div ref={mapContainerRef} className={styles.mapCanvas} />
 
       {popupLayouts.length ? (
@@ -598,6 +1451,111 @@ export function MapView({
       )}
 
       {overlay}
+
+      {isMeasuring ? (
+        <div className={styles.measureHud}>
+          <div className={styles.measureHudEyebrow}>Path Measure</div>
+          <div className={styles.measureHudValue}>{measurementDistanceLabel}</div>
+          <p className={styles.measureHudText}>
+            {measurementPoints.length > 1
+              ? `Tracking ${measurementPoints.length} points. Click the map to keep extending the path.`
+              : measurementPoints.length === 1
+                ? 'Start point locked. Click the map to add the next point.'
+                : 'Click the map to place the first point.'}
+          </p>
+          <div className={styles.measureHudActions}>
+            <button
+              className={styles.measureHudButton}
+              type="button"
+              disabled={!measurementPoints.length}
+              onClick={handleUndoMeasurementPoint}
+            >
+              Undo
+            </button>
+            <button className={styles.measureHudButton} type="button" onClick={handleClearMeasurement}>
+              Clear
+            </button>
+            <button className={`${styles.measureHudButton} ${styles.measureHudButtonPrimary}`.trim()} type="button" onClick={handleStopMeasurement}>
+              Done
+            </button>
+          </div>
+        </div>
+      ) : null}
+
+      {contextMenu && menuPosition ? (
+        <div
+          ref={menuRef}
+          className={styles.contextMenu}
+          role="menu"
+          aria-label="Map quick actions"
+          style={{
+            left: `${menuPosition.left}px`,
+            top: `${menuPosition.top}px`,
+          }}
+        >
+          <div className={styles.contextMenuHeader}>
+            <span className={styles.contextMenuEyebrow}>Quick Actions</span>
+            <strong>{formatCoordinatePair(contextMenu.coordinate)}</strong>
+          </div>
+
+          <button className={styles.contextMenuAction} type="button" role="menuitem" onClick={handleCopyCoordinates}>
+            <span className={styles.contextMenuActionLabel}>Copy Coordinates</span>
+            <span className={styles.contextMenuActionMeta}>Clipboard-ready lat/lng</span>
+          </button>
+
+          <button
+            className={styles.contextMenuAction}
+            type="button"
+            role="menuitem"
+            onClick={() => openExternalMapUrl(buildGoogleMapsUrl)}
+          >
+            <span className={styles.contextMenuActionLabel}>Open In Google Maps</span>
+            <span className={styles.contextMenuActionMeta}>Launch the clicked point in a new tab</span>
+          </button>
+
+          <button
+            className={styles.contextMenuAction}
+            type="button"
+            role="menuitem"
+            onClick={() => openExternalMapUrl(buildGoogleStreetViewUrl)}
+          >
+            <span className={styles.contextMenuActionLabel}>Open In Street View</span>
+            <span className={styles.contextMenuActionMeta}>Jump straight to the roadside panorama</span>
+          </button>
+
+          <button
+            className={styles.contextMenuAction}
+            type="button"
+            role="menuitem"
+            onClick={handleToggleMapDimensionFromMenu}
+          >
+            <span className={styles.contextMenuActionLabel}>{mapDimensionToggleCopy.contextMenuLabel}</span>
+            <span className={styles.contextMenuActionMeta}>{mapDimensionToggleCopy.contextMenuMeta}</span>
+          </button>
+
+          <button
+            className={styles.contextMenuAction}
+            type="button"
+            role="menuitem"
+            onClick={() => openExternalMapUrl(buildGoogleEarthWebUrl)}
+          >
+            <span className={styles.contextMenuActionLabel}>Open In Google Earth Web 3D</span>
+            <span className={styles.contextMenuActionMeta}>Spin up the 3D globe at this location</span>
+          </button>
+
+          <button
+            className={`${styles.contextMenuAction} ${styles.contextMenuActionAccent}`.trim()}
+            type="button"
+            role="menuitem"
+            onClick={() => startMeasurementFrom(contextMenu.coordinate)}
+          >
+            <span className={styles.contextMenuActionLabel}>
+              {isMeasuring ? 'Restart Measure Here' : 'Measure Path From Here'}
+            </span>
+            <span className={styles.contextMenuActionMeta}>Keep clicking the map to total the route length</span>
+          </button>
+        </div>
+      ) : null}
     </div>
   )
 }

@@ -1,0 +1,298 @@
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(18, 24, 23, 0.92), rgba(10, 15, 14, 0.88));
+  color: #fffdf7;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.24);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.titleBlock {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.eyebrow {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 209, 102, 0.86);
+}
+
+.title {
+  font-size: 0.96rem;
+}
+
+.summaryMeta {
+  font-size: 0.8rem;
+  color: rgba(255, 253, 247, 0.76);
+}
+
+.closeButton {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  color: #fffdf7;
+  background: rgba(255, 255, 255, 0.1);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.body {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0 1rem 1rem;
+}
+
+.note,
+.empty,
+.emptyLegend,
+.url,
+.error {
+  margin: 0;
+}
+
+.note {
+  color: rgba(255, 253, 247, 0.74);
+  font-size: 0.84rem;
+}
+
+.form {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.input,
+.minZoomInput {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  font: inherit;
+}
+
+.input {
+  min-width: 0;
+  padding: 0.82rem 0.92rem;
+}
+
+.input::placeholder {
+  color: rgba(255, 253, 247, 0.44);
+}
+
+.submitButton,
+.removeButton {
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submitButton {
+  padding: 0.82rem 1rem;
+  color: #13211e;
+  background: linear-gradient(180deg, rgba(255, 209, 102, 0.98), rgba(240, 180, 72, 0.96));
+}
+
+.submitButton:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.error {
+  color: #ffb4a2;
+  font-size: 0.82rem;
+}
+
+.legendBlock {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.legendHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.legendHeader strong {
+  font-size: 0.88rem;
+}
+
+.legendHeader span,
+.emptyLegend {
+  font-size: 0.79rem;
+  color: rgba(255, 253, 247, 0.68);
+}
+
+.legendList {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.legendSwatch {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
+  flex: 0 0 auto;
+}
+
+.legendLabelBlock {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.legendTitle {
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.legendMeta {
+  color: rgba(255, 253, 247, 0.68);
+  font-size: 0.76rem;
+}
+
+.list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  gap: 0.72rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.9rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+}
+
+.itemHeader,
+.itemFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.toggleLabel input {
+  margin: 0;
+}
+
+.titleBlock {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.meta {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  color: rgba(255, 253, 247, 0.68);
+  font-size: 0.76rem;
+}
+
+.pill {
+  padding: 0.2rem 0.48rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.minZoomField {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(255, 253, 247, 0.82);
+  font-size: 0.82rem;
+}
+
+.minZoomInput {
+  width: 4.25rem;
+  padding: 0.5rem 0.6rem;
+}
+
+.removeButton {
+  padding: 0.56rem 0.82rem;
+  color: #fffdf7;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.url {
+  overflow-wrap: anywhere;
+  color: rgba(255, 253, 247, 0.58);
+  font-size: 0.75rem;
+}
+
+.empty {
+  color: rgba(255, 253, 247, 0.64);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 767px) {
+  .header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .submitButton,
+  .removeButton,
+  .minZoomField,
+  .minZoomInput {
+    width: 100%;
+  }
+
+  .minZoomField {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

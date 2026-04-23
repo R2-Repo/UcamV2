@@ -301,6 +301,19 @@
   flex-wrap: wrap;
 }
 
+.mapArcGisMenu {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.mapArcGisMenuPanel {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  width: min(29rem, calc(100vw - 1.25rem));
+  z-index: 4;
+}
+
 .mapHeaderControls > :first-child {
   flex: 1 1 46rem;
   min-width: 0;
@@ -356,6 +369,12 @@
 
   .mapHeaderControls {
     align-items: stretch;
+  }
+
+  .mapArcGisMenuPanel {
+    left: 0;
+    right: auto;
+    width: min(29rem, calc(100vw - 1rem));
   }
 
   .mapPopupSizeButton {
