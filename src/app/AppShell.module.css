@@ -262,13 +262,17 @@
 .mapHeaderChrome {
   position: static;
   gap: 0;
-  padding: max(4px, env(safe-area-inset-top, 0px)) 6px 0;
+  padding:
+    max(4px, env(safe-area-inset-top, 0px))
+    max(6px, env(safe-area-inset-right, 0px))
+    0
+    max(6px, env(safe-area-inset-left, 0px));
   transition: none;
   pointer-events: none;
 }
 
 .mapHeaderChrome :global(.header-controls) {
-  width: min(calc(100% - 12px), 1220px);
+  width: calc(100% - 12px);
   max-width: none;
   margin: 0 auto;
   justify-content: flex-start;
@@ -277,6 +281,7 @@
   border-color: rgba(255, 255, 255, 0.16);
   background: linear-gradient(180deg, rgba(16, 24, 23, 0.92), rgba(23, 31, 30, 0.9));
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+  overflow: visible;
   pointer-events: auto;
 }
 
@@ -299,19 +304,43 @@
   gap: 0.65rem;
   width: 100%;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .mapArcGisMenu {
-  position: relative;
+  position: static;
   flex: 0 0 auto;
 }
 
+.mapCameraFovMenu,
+.mapAnalyticsMenu {
+  position: static;
+  flex: 0 0 auto;
+}
+
+.mapCameraFovMenuPanel,
 .mapArcGisMenuPanel {
   position: absolute;
   top: calc(100% + 0.75rem);
   right: 0;
   width: min(29rem, calc(100vw - 1.25rem));
   z-index: 4;
+}
+
+.mapAnalyticsMenuPanel {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  width: min(30rem, calc(100vw - 1.25rem));
+  z-index: 4;
+}
+
+.mapHeaderChrome :global(.app-dropdown > .app-menu) {
+  left: auto;
+  right: 0;
+  width: min(20rem, calc(100vw - 1rem));
+  min-width: min(16rem, calc(100vw - 1rem));
+  max-width: calc(100vw - 1rem);
 }
 
 .mapHeaderControls > :first-child {
@@ -375,6 +404,20 @@
     left: 0;
     right: auto;
     width: min(29rem, calc(100vw - 1rem));
+  }
+
+  .mapCameraFovMenuPanel,
+  .mapAnalyticsMenuPanel {
+    left: 0;
+    right: auto;
+    width: min(30rem, calc(100vw - 1rem));
+  }
+
+  .mapHeaderChrome :global(.app-dropdown > .app-menu) {
+    left: 0;
+    right: auto;
+    width: min(20rem, calc(100vw - 1rem));
+    min-width: 0;
   }
 
   .mapPopupSizeButton {

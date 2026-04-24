@@ -14,15 +14,25 @@ import { useAppStore } from '../features/filters/store'
 import { buildSearchParams, parseSearchParams } from '../features/filters/url-state'
 import { GalleryView } from '../features/gallery/GalleryView'
 import { ArcGisLayerPanel } from '../features/map/ArcGisLayerPanel'
+import { AnalyticsPanel } from '../features/map/AnalyticsPanel'
+import { CameraFovPanel } from '../features/map/CameraFovPanel'
 import {
   DEFAULT_ARCGIS_RESULT_RECORD_COUNT,
   SAMPLE_ARCGIS_LAYER_URL,
+  UDOT_ROUTES_ALRS_LAYER_URL,
   createArcGisLayerId,
   fetchArcGisLayerMetadata,
   getDefaultArcGisLayerMinZoom,
   normalizeArcGisLayerUrl,
   type ArcGisLayerConfig,
 } from '../features/map/arcgis-rest'
+import { analyzeCameras } from '../features/map/camera-analytics'
+import {
+  getCamerasInFovArea,
+  type CameraFovArea,
+  type CameraFovSelectionMode,
+  type CameraFovSummary,
+} from '../features/map/camera-fov-analysis'
 import { useAppData } from '../shared/data/useAppData'
 import { useElementSize } from '../shared/hooks/useElementSize'
 import { IMAGE_REFRESH_INTERVAL_MS } from '../shared/lib/cameras'
@@ -58,7 +68,33 @@ const DEFAULT_ARCGIS_LAYERS: ArcGisLayerConfig[] = [
     labelsEnabled: true,
     isRemovable: false,
   },
+  {
+    id: createArcGisLayerId(UDOT_ROUTES_ALRS_LAYER_URL),
+    title: 'UDOT Routes ALRS',
+    url: UDOT_ROUTES_ALRS_LAYER_URL,
+    enabled: false,
+    geometryType: 'esriGeometryPolyline',
+    minZoom: getDefaultArcGisLayerMinZoom('esriGeometryPolyline'),
+    maxRecordCount: DEFAULT_ARCGIS_RESULT_RECORD_COUNT,
+    labelsEnabled: false,
+    isRemovable: false,
+  },
 ]
+
+const CAMERA_FOV_FORCED_LAYER_IDS = new Set([
+  createArcGisLayerId(SAMPLE_ARCGIS_LAYER_URL),
+  createArcGisLayerId(UDOT_ROUTES_ALRS_LAYER_URL),
+])
+
+function mergeForcedArcGisLayers(layers: ArcGisLayerConfig[], isForced: boolean) {
+  if (!isForced) {
+    return layers
+  }
+
+  return layers.map((layer) =>
+    CAMERA_FOV_FORCED_LAYER_IDS.has(layer.id) ? { ...layer, enabled: true } : layer,
+  )
+}
 
 function getActiveBadges(filters: FilterState, routeLabel: string | null) {
   return [
@@ -96,6 +132,15 @@ export function AppShell() {
   const [arcGisLayerError, setArcGisLayerError] = useState<string | null>(null)
   const [isAddingArcGisLayer, setIsAddingArcGisLayer] = useState(false)
   const [isArcGisMenuOpen, setIsArcGisMenuOpen] = useState(false)
+  const [isAnalyticsMenuOpen, setIsAnalyticsMenuOpen] = useState(false)
+  const [isCameraFovMenuOpen, setIsCameraFovMenuOpen] = useState(false)
+  const [cameraFovSelectionMode, setCameraFovSelectionMode] = useState<CameraFovSelectionMode>('idle')
+  const [cameraFovArea, setCameraFovArea] = useState<CameraFovArea | null>(null)
+  const [cameraFovSummary, setCameraFovSummary] = useState<CameraFovSummary | null>(null)
+  const [cameraFovError, setCameraFovError] = useState<string | null>(null)
+  const [cameraFovRunId, setCameraFovRunId] = useState(0)
+  const [isCameraFovRunning, setIsCameraFovRunning] = useState(false)
+  const [isCameraFovLayersForced, setIsCameraFovLayersForced] = useState(false)
   const [refreshTokensByCameraId, setRefreshTokensByCameraId] = useState<Record<string, number>>({})
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [galleryScrollTop, setGalleryScrollTop] = useState(0)
@@ -107,6 +152,8 @@ export function AppShell() {
   const lastSyncedViewMode = useRef<ViewMode | null>(null)
   const previousGalleryScrollTopRef = useRef(0)
   const arcGisMenuRef = useRef<HTMLDivElement | null>(null)
+  const analyticsMenuRef = useRef<HTMLDivElement | null>(null)
+  const cameraFovMenuRef = useRef<HTMLDivElement | null>(null)
   const { ref: mapOverlayRef, size: mapOverlaySize } = useElementSize<HTMLDivElement>()
 
   const routeLookup = useMemo(() => createRouteSelectors(routes), [routes])
@@ -117,6 +164,15 @@ export function AppShell() {
   const filterOptions = useMemo(
     () => deriveFilterOptions(cameras, routes, routeLookup, filters),
     [cameras, filters, routeLookup, routes],
+  )
+  const cameraAnalytics = useMemo(() => analyzeCameras(filteredCameras), [filteredCameras])
+  const effectiveArcGisLayers = useMemo(
+    () => mergeForcedArcGisLayers(arcGisLayers, isCameraFovLayersForced),
+    [arcGisLayers, isCameraFovLayersForced],
+  )
+  const cameraFovCandidates = useMemo(
+    () => (cameraFovArea ? getCamerasInFovArea(filteredCameras, cameraFovArea) : []),
+    [cameraFovArea, filteredCameras],
   )
   const availableCameraIds = useMemo(() => new Set(cameras.map((camera) => camera.id)), [cameras])
   const filteredCameraIds = useMemo(() => new Set(filteredCameras.map((camera) => camera.id)), [filteredCameras])
@@ -150,8 +206,8 @@ export function AppShell() {
     [mapDimensionMode],
   )
   const activeArcGisLayerCount = useMemo(
-    () => arcGisLayers.filter((layer) => layer.enabled).length,
-    [arcGisLayers],
+    () => effectiveArcGisLayers.filter((layer) => layer.enabled).length,
+    [effectiveArcGisLayers],
   )
 
   const handleClearSelection = useCallback(() => {
@@ -246,6 +302,9 @@ export function AppShell() {
     }
 
     setIsArcGisMenuOpen(false)
+    setIsAnalyticsMenuOpen(false)
+    setIsCameraFovMenuOpen(false)
+    setCameraFovSelectionMode('idle')
   }, [viewMode])
 
   useEffect(() => {
@@ -275,6 +334,62 @@ export function AppShell() {
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isArcGisMenuOpen])
+
+  useEffect(() => {
+    if (!isAnalyticsMenuOpen) {
+      return undefined
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (analyticsMenuRef.current?.contains(event.target as Node)) {
+        return
+      }
+
+      setIsAnalyticsMenuOpen(false)
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsAnalyticsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('pointerdown', handlePointerDown)
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('pointerdown', handlePointerDown)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isAnalyticsMenuOpen])
+
+  useEffect(() => {
+    if (!isCameraFovMenuOpen) {
+      return undefined
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (cameraFovMenuRef.current?.contains(event.target as Node)) {
+        return
+      }
+
+      setIsCameraFovMenuOpen(false)
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsCameraFovMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('pointerdown', handlePointerDown)
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('pointerdown', handlePointerDown)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isCameraFovMenuOpen])
 
   useEffect(() => {
     if (!syncedSelectedCameraId) {
@@ -428,6 +543,105 @@ export function AppShell() {
 
   const handleToggleMapDimensionMode = useCallback(() => {
     setMapDimensionMode((currentMode) => getNextMapDimensionMode(currentMode))
+  }, [])
+
+  const handleToggleAnalyticsMenu = useCallback(() => {
+    setIsAnalyticsMenuOpen((currentValue) => {
+      const nextValue = !currentValue
+
+      if (nextValue) {
+        setIsArcGisMenuOpen(false)
+        setIsCameraFovMenuOpen(false)
+      }
+
+      return nextValue
+    })
+  }, [])
+
+  const handleToggleCameraFovMenu = useCallback(() => {
+    setIsCameraFovMenuOpen((currentValue) => {
+      const nextValue = !currentValue
+
+      if (nextValue) {
+        setIsArcGisMenuOpen(false)
+        setIsAnalyticsMenuOpen(false)
+      }
+
+      return nextValue
+    })
+  }, [])
+
+  const handleToggleArcGisMenu = useCallback(() => {
+    setIsArcGisMenuOpen((currentValue) => {
+      const nextValue = !currentValue
+
+      if (nextValue) {
+        setIsAnalyticsMenuOpen(false)
+        setIsCameraFovMenuOpen(false)
+      }
+
+      return nextValue
+    })
+  }, [])
+
+  const handleCameraFovSelectionModeChange = useCallback(
+    (mode: Extract<CameraFovSelectionMode, 'rectangle' | 'polygon'>) => {
+      setCameraFovSelectionMode((currentMode) => {
+        const nextMode = currentMode === mode ? 'idle' : mode
+
+        if (nextMode !== 'idle') {
+          setCameraFovArea(null)
+          setCameraFovSummary(null)
+          setCameraFovError(null)
+          setIsCameraFovLayersForced(false)
+          setIsCameraFovRunning(false)
+        }
+
+        return nextMode
+      })
+    },
+    [],
+  )
+
+  const handleCameraFovAreaChange = useCallback((area: CameraFovArea | null) => {
+    setCameraFovArea(area)
+    setCameraFovSelectionMode('idle')
+    setCameraFovSummary(null)
+    setCameraFovError(null)
+    setIsCameraFovRunning(false)
+  }, [])
+
+  const handleCameraFovAnalysisComplete = useCallback((summary: CameraFovSummary) => {
+    setCameraFovSummary(summary)
+    setCameraFovError(null)
+    setIsCameraFovRunning(false)
+  }, [])
+
+  const handleCameraFovAnalysisError = useCallback((message: string) => {
+    setCameraFovError(message)
+    setIsCameraFovRunning(false)
+  }, [])
+
+  const handleRunCameraFovAnalysis = useCallback(() => {
+    if (!cameraFovArea) {
+      setCameraFovError('Select a rectangle or polygon area on the map first.')
+      return
+    }
+
+    setMapDimensionMode('3d')
+    setIsCameraFovLayersForced(true)
+    setCameraFovError(null)
+    setIsCameraFovRunning(true)
+    setCameraFovRunId((currentValue) => currentValue + 1)
+  }, [cameraFovArea])
+
+  const handleClearCameraFov = useCallback(() => {
+    setCameraFovSelectionMode('idle')
+    setCameraFovArea(null)
+    setCameraFovSummary(null)
+    setCameraFovError(null)
+    setIsCameraFovRunning(false)
+    setIsCameraFovLayersForced(false)
   }, [])
 
   const handleArcGisLayerInputChange = useCallback(
@@ -589,8 +803,12 @@ export function AppShell() {
               }
             >
               <LazyMapView
-                arcGisLayers={arcGisLayers}
+                arcGisLayers={effectiveArcGisLayers}
                 cameras={filteredCameras}
+                cameraFovAnalysisCameras={cameraFovCandidates}
+                cameraFovAnalysisRunId={cameraFovRunId}
+                cameraFovArea={cameraFovArea}
+                cameraFovAreaSelectionMode={cameraFovSelectionMode}
                 refreshTokensByCameraId={refreshTokensByCameraId}
                 selectedCamera={selectedCamera}
                 selectionSource={selectionSource}
@@ -641,6 +859,63 @@ export function AppShell() {
                             <span>{mapPopupSizeMode === 'large' ? 'Default Popups' : 'Large Popups'}</span>
                           </button>
                           <div
+                            ref={cameraFovMenuRef}
+                            className={styles.mapCameraFovMenu}
+                            data-open={isCameraFovMenuOpen}
+                          >
+                            <button
+                              className={styles.mapPopupSizeButton}
+                              data-active={isCameraFovMenuOpen || Boolean(cameraFovSummary) || isCameraFovRunning}
+                              type="button"
+                              aria-expanded={isCameraFovMenuOpen}
+                              title="Open camera field of view analysis"
+                              onClick={handleToggleCameraFovMenu}
+                            >
+                              <i className="fas fa-binoculars"></i>
+                              <span>FOV Analysis</span>
+                            </button>
+
+                            {isCameraFovMenuOpen ? (
+                              <div className={styles.mapCameraFovMenuPanel}>
+                                <CameraFovPanel
+                                  area={cameraFovArea}
+                                  candidateCameraCount={cameraFovCandidates.length}
+                                  error={cameraFovError}
+                                  isRunning={isCameraFovRunning}
+                                  onClear={handleClearCameraFov}
+                                  onClose={() => setIsCameraFovMenuOpen(false)}
+                                  onRun={handleRunCameraFovAnalysis}
+                                  onSelectionModeChange={handleCameraFovSelectionModeChange}
+                                  selectionMode={cameraFovSelectionMode}
+                                  summary={cameraFovSummary}
+                                />
+                              </div>
+                            ) : null}
+                          </div>
+                          <div
+                            ref={analyticsMenuRef}
+                            className={styles.mapAnalyticsMenu}
+                            data-open={isAnalyticsMenuOpen}
+                          >
+                            <button
+                              className={styles.mapPopupSizeButton}
+                              data-active={isAnalyticsMenuOpen}
+                              type="button"
+                              aria-expanded={isAnalyticsMenuOpen}
+                              title="Open camera analytics"
+                              onClick={handleToggleAnalyticsMenu}
+                            >
+                              <i className="fas fa-chart-column"></i>
+                              <span>Analytics</span>
+                            </button>
+
+                            {isAnalyticsMenuOpen ? (
+                              <div className={styles.mapAnalyticsMenuPanel}>
+                                <AnalyticsPanel analysis={cameraAnalytics} onClose={() => setIsAnalyticsMenuOpen(false)} />
+                              </div>
+                            ) : null}
+                          </div>
+                          <div
                             ref={arcGisMenuRef}
                             className={styles.mapArcGisMenu}
                             data-open={isArcGisMenuOpen}
@@ -651,7 +926,7 @@ export function AppShell() {
                               type="button"
                               aria-expanded={isArcGisMenuOpen}
                               title="Open external ArcGIS layer controls"
-                              onClick={() => setIsArcGisMenuOpen((currentValue) => !currentValue)}
+                              onClick={handleToggleArcGisMenu}
                             >
                               <i className="fas fa-layer-group"></i>
                               <span>{activeArcGisLayerCount ? `Layers (${activeArcGisLayerCount})` : 'Layers'}</span>
@@ -683,6 +958,10 @@ export function AppShell() {
                 mapDimensionMode={mapDimensionMode}
                 overlayHeight={mapOverlaySize.height}
                 popupSizeMode={mapPopupSizeMode}
+                onCameraFovAnalysisComplete={handleCameraFovAnalysisComplete}
+                onCameraFovAnalysisError={handleCameraFovAnalysisError}
+                onCameraFovAreaChange={handleCameraFovAreaChange}
+                onCameraFovSelectionModeChange={setCameraFovSelectionMode}
                 onToggleMapDimensionMode={handleToggleMapDimensionMode}
                 onSelectCamera={handleCameraSelection}
               />

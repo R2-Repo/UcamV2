@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
-import type { FeatureCollection, LineString, Point } from 'geojson'
+import type { Feature, FeatureCollection, GeoJsonProperties, Geometry, LineString, Point } from 'geojson'
 import type { CameraSummary, SelectionSource } from '../../shared/types'
 import { resolveCameraImageUrl } from '../../shared/lib/cameras'
 import { getPrimaryRouteLabel } from '../../shared/lib/routes'
@@ -39,6 +39,9 @@ import {
 import { AUTO_POPUP_MIN_ZOOM, MAX_AUTO_POPUPS, selectPopupLayoutItems } from './popup-selection'
 import {
   buildArcGisQueryUrl,
+  DEFAULT_ARCGIS_RESULT_RECORD_COUNT,
+  SAMPLE_ARCGIS_LAYER_URL,
+  UDOT_ROUTES_ALRS_LAYER_URL,
   createEmptyArcGisFeatureCollection,
   getArcGisLabelLayerId,
   getArcGisLayerColor,
@@ -48,10 +51,23 @@ import {
   type ArcGisGeometryType,
   type ArcGisLayerConfig,
 } from './arcgis-rest'
+import {
+  buildPolygonArea,
+  buildRectangleArea,
+  runCameraFovAnalysis,
+  type CameraFovArea,
+  type CameraFovOverlayProperties,
+  type CameraFovSelectionMode,
+  type CameraFovSummary,
+} from './camera-fov-analysis'
 import styles from './MapView.module.css'
 
 interface MapViewProps {
   cameras: CameraSummary[]
+  cameraFovAnalysisCameras?: CameraSummary[]
+  cameraFovAnalysisRunId?: number
+  cameraFovArea?: CameraFovArea | null
+  cameraFovAreaSelectionMode?: CameraFovSelectionMode
   selectedCamera: CameraSummary | null
   selectionSource: SelectionSource
   refreshTokensByCameraId: Readonly<Record<string, number>>
@@ -61,6 +77,10 @@ interface MapViewProps {
   overlayHeight?: number
   popupSizeMode?: PopupSizeMode
   arcGisLayers?: ArcGisLayerConfig[]
+  onCameraFovAnalysisComplete?: (summary: CameraFovSummary) => void
+  onCameraFovAnalysisError?: (message: string) => void
+  onCameraFovAreaChange?: (area: CameraFovArea | null) => void
+  onCameraFovSelectionModeChange?: (mode: CameraFovSelectionMode) => void
   onToggleMapDimensionMode: () => void
   onSelectCamera: (cameraId: string | null, source: SelectionSource) => void
 }
@@ -73,6 +93,13 @@ type MeasurementFeatureCollection = FeatureCollection<
     index?: number
   }
 >
+type CameraFovDrawFeatureCollection = FeatureCollection<
+  Geometry,
+  {
+    kind: 'area' | 'preview-area' | 'vertex' | 'draft-line'
+  }
+>
+type CameraFovResultFeatureCollection = FeatureCollection<Geometry, CameraFovOverlayProperties>
 
 const CAMERA_FOCUS_ZOOM = 13
 const CAMERA_CLUSTER_MAX_ZOOM = 10
@@ -85,11 +112,26 @@ const ARCGIS_LAYER_INSERT_BEFORE_ID = 'camera-clusters'
 const CONTEXT_MENU_WIDTH = 272
 const CONTEXT_MENU_HEIGHT = 392
 const CONTEXT_MENU_MARGIN = 14
+const CAMERA_FOV_DRAW_SOURCE_ID = 'camera-fov-draw'
+const CAMERA_FOV_RESULT_SOURCE_ID = 'camera-fov-result'
+const CAMERA_FOV_ROADS_URL = UDOT_ROUTES_ALRS_LAYER_URL
+const CAMERA_FOV_MILEPOSTS_URL = SAMPLE_ARCGIS_LAYER_URL
+const CAMERA_FOV_COORDINATE_EPSILON = 0.000001
 
 interface ContextMenuState {
   coordinate: MapCoordinate
   x: number
   y: number
+}
+
+function createEmptyFeatureCollection<
+  TGeometry extends Geometry = Geometry,
+  TProperties extends GeoJsonProperties = GeoJsonProperties,
+>(): FeatureCollection<TGeometry, TProperties> {
+  return {
+    type: 'FeatureCollection',
+    features: [],
+  }
 }
 
 function createFeatureCollection(cameras: CameraSummary[]): CameraFeatureCollection {
@@ -147,6 +189,170 @@ function toMapCoordinate(lngLat: maplibregl.LngLat): MapCoordinate {
     latitude: lngLat.lat,
     longitude: lngLat.lng,
   }
+}
+
+function toLngLatArray(coordinate: MapCoordinate): [number, number] {
+  return [coordinate.longitude, coordinate.latitude]
+}
+
+function areCoordinatesEquivalent(left: MapCoordinate, right: MapCoordinate) {
+  return (
+    Math.abs(left.latitude - right.latitude) <= CAMERA_FOV_COORDINATE_EPSILON &&
+    Math.abs(left.longitude - right.longitude) <= CAMERA_FOV_COORDINATE_EPSILON
+  )
+}
+
+function createCameraFovDrawFeatureCollection({
+  area,
+  draftVertices,
+  pointerCoordinate,
+  selectionMode,
+}: {
+  area: CameraFovArea | null
+  draftVertices: MapCoordinate[]
+  pointerCoordinate: MapCoordinate | null
+  selectionMode: CameraFovSelectionMode
+}): CameraFovDrawFeatureCollection {
+  const features: Array<Feature<Geometry, CameraFovDrawFeatureCollection['features'][number]['properties']>> = []
+
+  if (area) {
+    features.push({
+      ...area.geometry,
+      properties: {
+        kind: 'area',
+      },
+    })
+  }
+
+  if (selectionMode === 'rectangle' && draftVertices.length === 1) {
+    features.push({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: toLngLatArray(draftVertices[0]),
+      },
+      properties: {
+        kind: 'vertex',
+      },
+    })
+
+    if (pointerCoordinate) {
+      const previewArea = buildRectangleArea(draftVertices[0], pointerCoordinate)
+
+      if (previewArea) {
+        features.push({
+          ...previewArea.geometry,
+          properties: {
+            kind: 'preview-area',
+          },
+        })
+      }
+    }
+  }
+
+  if (selectionMode === 'polygon') {
+    draftVertices.forEach((vertex) => {
+      features.push({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: toLngLatArray(vertex),
+        },
+        properties: {
+          kind: 'vertex',
+        },
+      })
+    })
+
+    const previewVertices = pointerCoordinate ? [...draftVertices, pointerCoordinate] : draftVertices
+
+    if (previewVertices.length > 1) {
+      features.push({
+        type: 'Feature',
+        geometry: {
+          type: 'LineString',
+          coordinates: previewVertices.map(toLngLatArray),
+        },
+        properties: {
+          kind: 'draft-line',
+        },
+      })
+    }
+
+    if (previewVertices.length >= 3) {
+      const previewArea = buildPolygonArea(previewVertices)
+
+      if (previewArea) {
+        features.push({
+          ...previewArea.geometry,
+          properties: {
+            kind: 'preview-area',
+          },
+        })
+      }
+    }
+  }
+
+  return {
+    type: 'FeatureCollection',
+    features,
+  }
+}
+
+function getCameraFovDrawInstruction(
+  selectionMode: CameraFovSelectionMode,
+  draftVertices: MapCoordinate[],
+  area: CameraFovArea | null,
+) {
+  if (selectionMode === 'rectangle') {
+    return draftVertices.length
+      ? 'Click the opposite corner to finish the rectangle.'
+      : 'Click the first corner of the analysis rectangle.'
+  }
+
+  if (selectionMode === 'polygon') {
+    return draftVertices.length >= 3
+      ? 'Keep adding vertices or double-click to finish the polygon.'
+      : 'Click at least three vertices, then double-click to finish the polygon.'
+  }
+
+  if (area) {
+    return 'Selection is ready. Run the analysis from the panel or clear and draw a new area.'
+  }
+
+  return 'Choose rectangle or polygon in the panel to start the analysis area.'
+}
+
+async function fetchArcGisFeatureCollection(
+  url: string,
+  bounds: { east: number; north: number; south: number; west: number },
+  maxRecordCount: number,
+  signal: AbortSignal,
+) {
+  const response = await fetch(
+    buildArcGisQueryUrl(url, bounds, maxRecordCount || DEFAULT_ARCGIS_RESULT_RECORD_COUNT),
+    { signal },
+  )
+
+  if (!response.ok) {
+    throw new Error(`ArcGIS data request failed with status ${response.status}.`)
+  }
+
+  const payload = (await response.json()) as ArcGisFeatureCollection & {
+    error?: {
+      message?: string
+    }
+  }
+
+  if (payload.error?.message) {
+    throw new Error(payload.error.message)
+  }
+
+  if (payload.type !== 'FeatureCollection' || !Array.isArray(payload.features)) {
+    throw new Error('ArcGIS layer did not return GeoJSON feature data.')
+  }
+
+  return payload
 }
 
 function clamp(value: number, min: number, max: number) {
@@ -654,6 +860,10 @@ function getFocusPopupItem(map: maplibregl.Map, selectedCamera: CameraSummary | 
 
 export function MapView({
   cameras,
+  cameraFovAnalysisCameras = [],
+  cameraFovAnalysisRunId = 0,
+  cameraFovArea = null,
+  cameraFovAreaSelectionMode = 'idle',
   selectedCamera,
   selectionSource,
   refreshTokensByCameraId,
@@ -663,6 +873,10 @@ export function MapView({
   overlayHeight = 0,
   popupSizeMode = 'default',
   arcGisLayers = [],
+  onCameraFovAnalysisComplete,
+  onCameraFovAnalysisError,
+  onCameraFovAreaChange,
+  onCameraFovSelectionModeChange,
   onToggleMapDimensionMode,
   onSelectCamera,
 }: MapViewProps) {
@@ -677,11 +891,24 @@ export function MapView({
   const arcGisRequestControllersRef = useRef(new Map<string, AbortController>())
   const arcGisViewportSignaturesRef = useRef(new Map<string, string>())
   const managedArcGisLayersRef = useRef(new Map<string, ArcGisGeometryType>())
+  const onCameraFovAreaChangeRef = useRef(onCameraFovAreaChange)
+  const onCameraFovAnalysisCompleteRef = useRef(onCameraFovAnalysisComplete)
+  const onCameraFovAnalysisErrorRef = useRef(onCameraFovAnalysisError)
+  const onCameraFovSelectionModeChangeRef = useRef(onCameraFovSelectionModeChange)
+  const cameraFovSelectionModeRef = useRef<CameraFovSelectionMode>(cameraFovAreaSelectionMode)
+  const cameraFovDraftVerticesRef = useRef<MapCoordinate[]>([])
+  const cameraFovPointerCoordinateRef = useRef<MapCoordinate | null>(null)
+  const cameraFovRunAbortRef = useRef<AbortController | null>(null)
   const [isReady, setIsReady] = useState(false)
   const [popupLayouts, setPopupLayouts] = useState<PopupLayout[]>([])
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   const [isMeasuring, setIsMeasuring] = useState(false)
   const [measurementPoints, setMeasurementPoints] = useState<MapCoordinate[]>([])
+  const [cameraFovDraftVertices, setCameraFovDraftVertices] = useState<MapCoordinate[]>([])
+  const [cameraFovPointerCoordinate, setCameraFovPointerCoordinate] = useState<MapCoordinate | null>(null)
+  const [cameraFovResultCollection, setCameraFovResultCollection] = useState<CameraFovResultFeatureCollection>(
+    createEmptyFeatureCollection<Geometry, CameraFovOverlayProperties>(),
+  )
 
   const cameraCollection = useMemo(() => createFeatureCollection(cameras), [cameras])
   const selectedCollection = useMemo(
@@ -731,9 +958,24 @@ export function MapView({
   const selectedCollectionRef = useRef(selectedCollection)
   const viewportPaddingRef = useRef(viewportPadding)
   const onSelectCameraRef = useRef(onSelectCamera)
+  const isCameraFovDrawing = cameraFovAreaSelectionMode !== 'idle'
   const measurementDistanceLabel = measurementPoints.length
     ? formatDistanceSummary(measurementDistance)
     : 'Click the map to place the first point.'
+  const cameraFovDrawCollection = useMemo(
+    () =>
+      createCameraFovDrawFeatureCollection({
+        area: cameraFovArea,
+        draftVertices: cameraFovDraftVertices,
+        pointerCoordinate: cameraFovPointerCoordinate,
+        selectionMode: cameraFovAreaSelectionMode,
+      }),
+    [cameraFovArea, cameraFovAreaSelectionMode, cameraFovDraftVertices, cameraFovPointerCoordinate],
+  )
+  const cameraFovInstruction = useMemo(
+    () => getCameraFovDrawInstruction(cameraFovAreaSelectionMode, cameraFovDraftVertices, cameraFovArea),
+    [cameraFovArea, cameraFovAreaSelectionMode, cameraFovDraftVertices],
+  )
   const mapDimensionToggleCopy = useMemo(
     () => getMapDimensionToggleCopy(mapDimensionMode),
     [mapDimensionMode],
@@ -776,12 +1018,52 @@ export function MapView({
   }, [onSelectCamera])
 
   useEffect(() => {
+    onCameraFovAreaChangeRef.current = onCameraFovAreaChange
+  }, [onCameraFovAreaChange])
+
+  useEffect(() => {
+    onCameraFovAnalysisCompleteRef.current = onCameraFovAnalysisComplete
+  }, [onCameraFovAnalysisComplete])
+
+  useEffect(() => {
+    onCameraFovAnalysisErrorRef.current = onCameraFovAnalysisError
+  }, [onCameraFovAnalysisError])
+
+  useEffect(() => {
+    onCameraFovSelectionModeChangeRef.current = onCameraFovSelectionModeChange
+  }, [onCameraFovSelectionModeChange])
+
+  useEffect(() => {
     arcGisLayersRef.current = arcGisLayers
   }, [arcGisLayers])
 
   useEffect(() => {
     isMeasuringRef.current = isMeasuring
   }, [isMeasuring])
+
+  useEffect(() => {
+    cameraFovSelectionModeRef.current = cameraFovAreaSelectionMode
+  }, [cameraFovAreaSelectionMode])
+
+  function replaceCameraFovDraftVertices(nextVertices: MapCoordinate[]) {
+    cameraFovDraftVerticesRef.current = nextVertices
+    setCameraFovDraftVertices(nextVertices)
+  }
+
+  function replaceCameraFovPointerCoordinate(nextCoordinate: MapCoordinate | null) {
+    cameraFovPointerCoordinateRef.current = nextCoordinate
+    setCameraFovPointerCoordinate(nextCoordinate)
+  }
+
+  function resetCameraFovDrawingState() {
+    replaceCameraFovDraftVertices([])
+    replaceCameraFovPointerCoordinate(null)
+  }
+
+  function commitCameraFovArea(area: CameraFovArea) {
+    resetCameraFovDrawingState()
+    onCameraFovAreaChangeRef.current?.(area)
+  }
 
   useEffect(() => {
     if (!mapContainerRef.current || mapRef.current) {
@@ -949,8 +1231,208 @@ export function MapView({
         },
       })
 
+      map.addSource(CAMERA_FOV_DRAW_SOURCE_ID, {
+        type: 'geojson',
+        data: createEmptyFeatureCollection(),
+      })
+
+      map.addLayer(
+        {
+          id: 'camera-fov-draw-fill',
+          type: 'fill',
+          source: CAMERA_FOV_DRAW_SOURCE_ID,
+          filter: ['==', ['geometry-type'], 'Polygon'],
+          paint: {
+            'fill-color': [
+              'match',
+              ['get', 'kind'],
+              'preview-area',
+              '#ffd166',
+              '#7cd7d0',
+            ],
+            'fill-opacity': [
+              'match',
+              ['get', 'kind'],
+              'preview-area',
+              0.18,
+              0.08,
+            ],
+            'fill-outline-color': [
+              'match',
+              ['get', 'kind'],
+              'preview-area',
+              '#ffd166',
+              '#7cd7d0',
+            ],
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+
+      map.addLayer(
+        {
+          id: 'camera-fov-draw-line',
+          type: 'line',
+          source: CAMERA_FOV_DRAW_SOURCE_ID,
+          filter: ['==', ['geometry-type'], 'LineString'],
+          layout: {
+            'line-cap': 'round',
+            'line-join': 'round',
+          },
+          paint: {
+            'line-color': '#ffd166',
+            'line-width': ['interpolate', ['linear'], ['zoom'], 6, 2, 10, 3.2, 14, 4.2],
+            'line-opacity': 0.92,
+            'line-dasharray': [1, 1.1],
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+
+      map.addLayer(
+        {
+          id: 'camera-fov-draw-points-halo',
+          type: 'circle',
+          source: CAMERA_FOV_DRAW_SOURCE_ID,
+          filter: ['==', ['geometry-type'], 'Point'],
+          paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 7, 10, 9, 14, 11],
+            'circle-color': 'rgba(255, 209, 102, 0.24)',
+            'circle-stroke-width': 0,
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+
+      map.addLayer(
+        {
+          id: 'camera-fov-draw-points',
+          type: 'circle',
+          source: CAMERA_FOV_DRAW_SOURCE_ID,
+          filter: ['==', ['geometry-type'], 'Point'],
+          paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 3.5, 10, 5, 14, 6.5],
+            'circle-color': '#ffd166',
+            'circle-stroke-width': 1.8,
+            'circle-stroke-color': '#182321',
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+
+      map.addSource(CAMERA_FOV_RESULT_SOURCE_ID, {
+        type: 'geojson',
+        data: createEmptyFeatureCollection(),
+      })
+
+      ;([
+        { mode: 'wide', color: '#6ee7b7', opacity: 0.12 },
+        { mode: 'medium', color: '#fbbf24', opacity: 0.16 },
+        { mode: 'far', color: '#fb923c', opacity: 0.2 },
+      ] satisfies Array<{ color: string; mode: 'wide' | 'medium' | 'far'; opacity: number }>).forEach(
+        ({ mode, color, opacity }) => {
+          map.addLayer(
+            {
+              id: `camera-fov-coverage-${mode}`,
+              type: 'fill',
+              source: CAMERA_FOV_RESULT_SOURCE_ID,
+              filter: [
+                'all',
+                ['==', ['geometry-type'], 'Polygon'],
+                ['==', ['get', 'kind'], 'coverage'],
+                ['==', ['get', 'mode'], mode],
+              ],
+              paint: {
+                'fill-color': color,
+                'fill-opacity': opacity,
+                'fill-outline-color': color,
+              },
+            },
+            ARCGIS_LAYER_INSERT_BEFORE_ID,
+          )
+        },
+      )
+
+      map.addLayer(
+        {
+          id: 'camera-fov-coverage-outline',
+          type: 'line',
+          source: CAMERA_FOV_RESULT_SOURCE_ID,
+          filter: ['all', ['==', ['geometry-type'], 'Polygon'], ['==', ['get', 'kind'], 'coverage']],
+          layout: {
+            'line-cap': 'round',
+            'line-join': 'round',
+          },
+          paint: {
+            'line-color': [
+              'match',
+              ['get', 'mode'],
+              'wide',
+              '#7ef4ca',
+              'medium',
+              '#ffd166',
+              '#ff9f1c',
+            ],
+            'line-width': ['interpolate', ['linear'], ['zoom'], 6, 1, 10, 1.4, 14, 2],
+            'line-opacity': 0.92,
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+
+      map.addLayer(
+        {
+          id: 'camera-fov-blocked-segments',
+          type: 'line',
+          source: CAMERA_FOV_RESULT_SOURCE_ID,
+          filter: ['==', ['get', 'kind'], 'blocked-segment'],
+          layout: {
+            'line-cap': 'round',
+            'line-join': 'round',
+          },
+          paint: {
+            'line-color': '#ff8b7a',
+            'line-width': ['interpolate', ['linear'], ['zoom'], 6, 2.2, 10, 3.2, 14, 4],
+            'line-opacity': 0.94,
+            'line-dasharray': [0.9, 1.1],
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+
+      map.addLayer(
+        {
+          id: 'camera-fov-analyzed-camera-halo',
+          type: 'circle',
+          source: CAMERA_FOV_RESULT_SOURCE_ID,
+          filter: ['==', ['get', 'kind'], 'analyzed-camera'],
+          paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 10, 10, 13, 14, 16],
+            'circle-color': 'rgba(255, 209, 102, 0.22)',
+            'circle-stroke-width': 0,
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+
+      map.addLayer(
+        {
+          id: 'camera-fov-analyzed-camera-points',
+          type: 'circle',
+          source: CAMERA_FOV_RESULT_SOURCE_ID,
+          filter: ['==', ['get', 'kind'], 'analyzed-camera'],
+          paint: {
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 4.5, 10, 6, 14, 7.5],
+            'circle-color': '#ffd166',
+            'circle-stroke-width': 1.8,
+            'circle-stroke-color': '#182321',
+          },
+        },
+        ARCGIS_LAYER_INSERT_BEFORE_ID,
+      )
+
       map.on('click', 'camera-clusters', async (event) => {
-        if (isMeasuringRef.current) {
+        if (isMeasuringRef.current || cameraFovSelectionModeRef.current !== 'idle') {
           return
         }
 
@@ -978,7 +1460,7 @@ export function MapView({
       })
 
       map.on('click', 'camera-points', (event) => {
-        if (isMeasuringRef.current) {
+        if (isMeasuringRef.current || cameraFovSelectionModeRef.current !== 'idle') {
           return
         }
 
@@ -991,6 +1473,45 @@ export function MapView({
 
       map.on('click', (event) => {
         setContextMenu(null)
+
+        if (cameraFovSelectionModeRef.current !== 'idle') {
+          arcGisPopupRef.current?.remove()
+          arcGisPopupRef.current = null
+
+          const clickedCoordinate = toMapCoordinate(event.lngLat)
+
+          if (cameraFovSelectionModeRef.current === 'rectangle') {
+            const startCoordinate = cameraFovDraftVerticesRef.current[0]
+
+            if (!startCoordinate) {
+              replaceCameraFovDraftVertices([clickedCoordinate])
+              replaceCameraFovPointerCoordinate(clickedCoordinate)
+              return
+            }
+
+            const nextArea = buildRectangleArea(startCoordinate, clickedCoordinate)
+
+            if (!nextArea) {
+              onCameraFovAnalysisErrorRef.current?.('Rectangle selection needs two distinct corners.')
+              resetCameraFovDrawingState()
+              return
+            }
+
+            commitCameraFovArea(nextArea)
+            return
+          }
+
+          const currentVertices = cameraFovDraftVerticesRef.current
+          const lastVertex = currentVertices[currentVertices.length - 1]
+
+          if (lastVertex && areCoordinatesEquivalent(lastVertex, clickedCoordinate)) {
+            return
+          }
+
+          replaceCameraFovDraftVertices([...currentVertices, clickedCoordinate])
+          replaceCameraFovPointerCoordinate(clickedCoordinate)
+          return
+        }
 
         if (isMeasuringRef.current) {
           arcGisPopupRef.current?.remove()
@@ -1046,7 +1567,36 @@ export function MapView({
           .addTo(map)
       })
 
+      map.on('dblclick', (event) => {
+        if (cameraFovSelectionModeRef.current !== 'polygon') {
+          return
+        }
+
+        event.preventDefault()
+
+        const polygonArea = buildPolygonArea(cameraFovDraftVerticesRef.current)
+
+        if (!polygonArea) {
+          onCameraFovAnalysisErrorRef.current?.('Polygon selection needs at least three distinct vertices.')
+          return
+        }
+
+        commitCameraFovArea(polygonArea)
+      })
+
+      map.on('mousemove', (event) => {
+        if (cameraFovSelectionModeRef.current === 'idle') {
+          return
+        }
+
+        replaceCameraFovPointerCoordinate(toMapCoordinate(event.lngLat))
+      })
+
       map.on('contextmenu', (event) => {
+        if (cameraFovSelectionModeRef.current !== 'idle') {
+          return
+        }
+
         event.preventDefault()
         event.originalEvent.preventDefault()
         event.originalEvent.stopPropagation()
@@ -1063,18 +1613,34 @@ export function MapView({
       })
 
       map.on('mouseenter', 'camera-clusters', () => {
+        if (cameraFovSelectionModeRef.current !== 'idle') {
+          return
+        }
+
         map.getCanvas().style.cursor = 'pointer'
       })
 
       map.on('mouseenter', 'camera-points', () => {
+        if (cameraFovSelectionModeRef.current !== 'idle') {
+          return
+        }
+
         map.getCanvas().style.cursor = 'pointer'
       })
 
       map.on('mouseleave', 'camera-clusters', () => {
+        if (cameraFovSelectionModeRef.current !== 'idle') {
+          return
+        }
+
         map.getCanvas().style.cursor = ''
       })
 
       map.on('mouseleave', 'camera-points', () => {
+        if (cameraFovSelectionModeRef.current !== 'idle') {
+          return
+        }
+
         map.getCanvas().style.cursor = ''
       })
 
@@ -1086,6 +1652,8 @@ export function MapView({
     return () => {
       arcGisPopupRef.current?.remove()
       arcGisPopupRef.current = null
+      cameraFovRunAbortRef.current?.abort()
+      cameraFovRunAbortRef.current = null
       arcGisRequestControllersRef.current.forEach((controller) => controller.abort())
       arcGisRequestControllersRef.current.clear()
       arcGisViewportSignaturesRef.current.clear()
@@ -1097,6 +1665,7 @@ export function MapView({
       setContextMenu(null)
       setIsMeasuring(false)
       setMeasurementPoints([])
+      resetCameraFovDrawingState()
       setPopupLayouts([])
       popupLayoutsRef.current = []
     }
@@ -1151,6 +1720,24 @@ export function MapView({
     const source = mapRef.current.getSource(MEASUREMENT_SOURCE_ID) as maplibregl.GeoJSONSource | undefined
     source?.setData(measurementCollection)
   }, [isReady, measurementCollection])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady) {
+      return
+    }
+
+    const source = mapRef.current.getSource(CAMERA_FOV_DRAW_SOURCE_ID) as maplibregl.GeoJSONSource | undefined
+    source?.setData(cameraFovDrawCollection)
+  }, [cameraFovDrawCollection, isReady])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady) {
+      return
+    }
+
+    const source = mapRef.current.getSource(CAMERA_FOV_RESULT_SOURCE_ID) as maplibregl.GeoJSONSource | undefined
+    source?.setData(cameraFovResultCollection)
+  }, [cameraFovResultCollection, isReady])
 
   useEffect(() => {
     if (!mapRef.current || !isReady) {
@@ -1226,14 +1813,129 @@ export function MapView({
       return
     }
 
-    if (isMeasuring) {
+    if (isMeasuring || isCameraFovDrawing) {
       mapRef.current.doubleClickZoom.disable()
       return undefined
     }
 
     mapRef.current.doubleClickZoom.enable()
     return undefined
-  }, [isMeasuring, isReady])
+  }, [isCameraFovDrawing, isMeasuring, isReady])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady) {
+      return
+    }
+
+    const canvas = mapRef.current.getCanvas()
+    canvas.style.cursor = isCameraFovDrawing ? 'crosshair' : ''
+
+    return () => {
+      canvas.style.cursor = ''
+    }
+  }, [isCameraFovDrawing, isReady])
+
+  useEffect(() => {
+    if (!isCameraFovDrawing) {
+      resetCameraFovDrawingState()
+      return
+    }
+
+    setContextMenu(null)
+    setIsMeasuring(false)
+    setMeasurementPoints([])
+    setCameraFovResultCollection(createEmptyFeatureCollection<Geometry, CameraFovOverlayProperties>())
+  }, [isCameraFovDrawing])
+
+  useEffect(() => {
+    if (cameraFovArea || isCameraFovDrawing) {
+      return
+    }
+
+    setCameraFovResultCollection(createEmptyFeatureCollection<Geometry, CameraFovOverlayProperties>())
+  }, [cameraFovArea, isCameraFovDrawing])
+
+  useEffect(() => {
+    if (!mapRef.current || !isReady || !cameraFovArea || cameraFovAnalysisRunId <= 0) {
+      return undefined
+    }
+
+    const map = mapRef.current
+    const roadsLayer = arcGisLayers.find((layer) => layer.url === CAMERA_FOV_ROADS_URL)
+    const milepostsLayer = arcGisLayers.find((layer) => layer.url === CAMERA_FOV_MILEPOSTS_URL)
+
+    if (!roadsLayer || !milepostsLayer) {
+      onCameraFovAnalysisErrorRef.current?.('Required public ArcGIS layers are not configured for the FOV analysis.')
+      return undefined
+    }
+
+    cameraFovRunAbortRef.current?.abort()
+
+    const controller = new AbortController()
+    cameraFovRunAbortRef.current = controller
+
+    void (async () => {
+      try {
+        const bounds = {
+          west: cameraFovArea.bounds[0],
+          south: cameraFovArea.bounds[1],
+          east: cameraFovArea.bounds[2],
+          north: cameraFovArea.bounds[3],
+        }
+
+        const [roads, mileposts] = await Promise.all([
+          fetchArcGisFeatureCollection(
+            roadsLayer.url,
+            bounds,
+            roadsLayer.maxRecordCount,
+            controller.signal,
+          ),
+          fetchArcGisFeatureCollection(
+            milepostsLayer.url,
+            bounds,
+            milepostsLayer.maxRecordCount,
+            controller.signal,
+          ),
+        ])
+
+        if (controller.signal.aborted) {
+          return
+        }
+
+        const result = runCameraFovAnalysis({
+          area: cameraFovArea,
+          cameras: cameraFovAnalysisCameras,
+          mileposts,
+          roads,
+          terrainSampler: (coordinate) => map.queryTerrainElevation([coordinate.longitude, coordinate.latitude]),
+        })
+
+        if (controller.signal.aborted) {
+          return
+        }
+
+        setCameraFovResultCollection(result.overlay)
+        onCameraFovAnalysisCompleteRef.current?.(result.summary)
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') {
+          return
+        }
+
+        setCameraFovResultCollection(createEmptyFeatureCollection<Geometry, CameraFovOverlayProperties>())
+        onCameraFovAnalysisErrorRef.current?.(
+          error instanceof Error ? error.message : 'Unable to complete the camera FOV analysis.',
+        )
+      }
+    })()
+
+    return () => {
+      controller.abort()
+
+      if (cameraFovRunAbortRef.current === controller) {
+        cameraFovRunAbortRef.current = null
+      }
+    }
+  }, [arcGisLayers, cameraFovAnalysisCameras, cameraFovAnalysisRunId, cameraFovArea, isReady])
 
   useEffect(() => {
     if (!mapRef.current || !isReady) {
@@ -1323,7 +2025,7 @@ export function MapView({
   }, [contextMenu])
 
   useEffect(() => {
-    if (!contextMenu && !isMeasuring) {
+    if (!contextMenu && !isMeasuring && !isCameraFovDrawing) {
       return undefined
     }
 
@@ -1337,6 +2039,12 @@ export function MapView({
         return
       }
 
+      if (isCameraFovDrawing) {
+        resetCameraFovDrawingState()
+        onCameraFovSelectionModeChangeRef.current?.('idle')
+        return
+      }
+
       setIsMeasuring(false)
       setMeasurementPoints([])
     }
@@ -1346,7 +2054,7 @@ export function MapView({
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [contextMenu, isMeasuring])
+  }, [contextMenu, isCameraFovDrawing, isMeasuring])
 
   function openExternalMapUrl(urlBuilder: (coordinate: MapCoordinate) => string) {
     if (!contextMenu) {
@@ -1479,6 +2187,16 @@ export function MapView({
               Done
             </button>
           </div>
+        </div>
+      ) : null}
+
+      {isCameraFovDrawing ? (
+        <div className={styles.measureHud}>
+          <div className={styles.measureHudEyebrow}>FOV Selection</div>
+          <div className={styles.measureHudValue}>
+            {cameraFovAreaSelectionMode === 'rectangle' ? 'Rectangle' : 'Polygon'}
+          </div>
+          <p className={styles.measureHudText}>{cameraFovInstruction}</p>
         </div>
       ) : null}
 

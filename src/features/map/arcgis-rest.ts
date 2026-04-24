@@ -43,6 +43,8 @@ export type ArcGisFeatureCollection = FeatureCollection<Geometry, GeoJsonPropert
 export const DEFAULT_ARCGIS_RESULT_RECORD_COUNT = 2000
 export const SAMPLE_ARCGIS_LAYER_URL =
   'https://roads.udot.utah.gov/server/rest/services/Public/Mile_Point_Measures_Open_Data/MapServer/0'
+export const UDOT_ROUTES_ALRS_LAYER_URL =
+  'https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/UDOT_Routes_ALRS/FeatureServer/0'
 const ARCGIS_LAYER_COLORS = ['#67d38f', '#6ab3ff', '#ffb55f', '#f7797d', '#7cd7d0', '#d39cff']
 
 const LAYER_URL_PATTERN = /\/(?:FeatureServer|MapServer)\/\d+\/?$/i
