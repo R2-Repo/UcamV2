@@ -312,13 +312,11 @@
   flex: 0 0 auto;
 }
 
-.mapCameraFovMenu,
 .mapAnalyticsMenu {
   position: static;
   flex: 0 0 auto;
 }
 
-.mapCameraFovMenuPanel,
 .mapArcGisMenuPanel {
   position: absolute;
   top: calc(100% + 0.75rem);
@@ -406,7 +404,6 @@
     width: min(29rem, calc(100vw - 1rem));
   }
 
-  .mapCameraFovMenuPanel,
   .mapAnalyticsMenuPanel {
     left: 0;
     right: auto;
