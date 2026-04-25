@@ -60,8 +60,10 @@ interface MapViewProps {
   overlay?: ReactNode
   overlayHeight?: number
   popupSizeMode?: PopupSizeMode
+  autoPopupsEnabled?: boolean
   arcGisLayers?: ArcGisLayerConfig[]
   onToggleMapDimensionMode: () => void
+  onToggleAutoPopups: () => void
   onSelectCamera: (cameraId: string | null, source: SelectionSource) => void
 }
 
@@ -82,9 +84,9 @@ const TRACKPAD_ZOOM_RATE = 1 / 45
 const WHEEL_ZOOM_RATE = 1 / 260
 const MEASUREMENT_SOURCE_ID = 'measurement-path'
 const ARCGIS_LAYER_INSERT_BEFORE_ID = 'camera-clusters'
-const CONTEXT_MENU_WIDTH = 272
-const CONTEXT_MENU_HEIGHT = 392
-const CONTEXT_MENU_MARGIN = 14
+const CONTEXT_MENU_WIDTH = 248
+const CONTEXT_MENU_HEIGHT = 336
+const CONTEXT_MENU_MARGIN = 10
 
 interface ContextMenuState {
   coordinate: MapCoordinate
@@ -662,8 +664,10 @@ export function MapView({
   overlay,
   overlayHeight = 0,
   popupSizeMode = 'default',
+  autoPopupsEnabled = true,
   arcGisLayers = [],
   onToggleMapDimensionMode,
+  onToggleAutoPopups,
   onSelectCamera,
 }: MapViewProps) {
   const rootRef = useRef<HTMLDivElement | null>(null)
@@ -680,6 +684,10 @@ export function MapView({
   const [isReady, setIsReady] = useState(false)
   const [popupLayouts, setPopupLayouts] = useState<PopupLayout[]>([])
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
+  const [contextMenuSize, setContextMenuSize] = useState({
+    width: CONTEXT_MENU_WIDTH,
+    height: CONTEXT_MENU_HEIGHT,
+  })
   const [isMeasuring, setIsMeasuring] = useState(false)
   const [measurementPoints, setMeasurementPoints] = useState<MapCoordinate[]>([])
 
@@ -741,6 +749,8 @@ export function MapView({
   const menuPosition = contextMenu
     ? (() => {
         const container = rootRef.current
+        const menuWidth = contextMenuSize.width
+        const menuHeight = contextMenuSize.height
 
         if (!container) {
           return {
@@ -749,12 +759,28 @@ export function MapView({
           }
         }
 
-        const maxLeft = Math.max(CONTEXT_MENU_MARGIN, container.clientWidth - CONTEXT_MENU_WIDTH - CONTEXT_MENU_MARGIN)
-        const maxTop = Math.max(CONTEXT_MENU_MARGIN, container.clientHeight - CONTEXT_MENU_HEIGHT - CONTEXT_MENU_MARGIN)
+        const maxLeft = Math.max(CONTEXT_MENU_MARGIN, container.clientWidth - menuWidth - CONTEXT_MENU_MARGIN)
+        const maxTop = Math.max(CONTEXT_MENU_MARGIN, container.clientHeight - menuHeight - CONTEXT_MENU_MARGIN)
+        const spaces = {
+          right: container.clientWidth - contextMenu.x - CONTEXT_MENU_MARGIN,
+          left: contextMenu.x - CONTEXT_MENU_MARGIN,
+          bottom: container.clientHeight - contextMenu.y - CONTEXT_MENU_MARGIN,
+          top: contextMenu.y - CONTEXT_MENU_MARGIN,
+        }
+        const canOpenRight = spaces.right >= menuWidth
+        const canOpenLeft = spaces.left >= menuWidth
+        const canOpenBottom = spaces.bottom >= menuHeight
+        const canOpenTop = spaces.top >= menuHeight
+        const left = canOpenRight || (!canOpenLeft && spaces.right >= spaces.left)
+          ? contextMenu.x + CONTEXT_MENU_MARGIN
+          : contextMenu.x - menuWidth - CONTEXT_MENU_MARGIN
+        const top = canOpenBottom || (!canOpenTop && spaces.bottom >= spaces.top)
+          ? contextMenu.y + CONTEXT_MENU_MARGIN
+          : contextMenu.y - menuHeight - CONTEXT_MENU_MARGIN
 
         return {
-          left: clamp(contextMenu.x, CONTEXT_MENU_MARGIN, maxLeft),
-          top: clamp(contextMenu.y, CONTEXT_MENU_MARGIN, maxTop),
+          left: clamp(left, CONTEXT_MENU_MARGIN, maxLeft),
+          top: clamp(top, CONTEXT_MENU_MARGIN, maxTop),
         }
       })()
     : null
@@ -1267,7 +1293,7 @@ export function MapView({
     const updateLayouts = () => {
       const focusItem = getFocusPopupItem(map, selectedCamera)
       const autoPopupCandidates =
-        map.getZoom() >= AUTO_POPUP_MIN_ZOOM ? getRenderedPopupCandidates(map, camerasById) : []
+        autoPopupsEnabled && map.getZoom() >= AUTO_POPUP_MIN_ZOOM ? getRenderedPopupCandidates(map, camerasById) : []
       const items = selectPopupLayoutItems({
         focusItem,
         candidates: autoPopupCandidates,
@@ -1300,7 +1326,7 @@ export function MapView({
       map.off('render', updateLayouts)
       map.off('resize', updateLayouts)
     }
-  }, [camerasById, isFullscreen, isReady, overlayHeight, popupSizeMode, selectedCamera])
+  }, [autoPopupsEnabled, camerasById, isFullscreen, isReady, overlayHeight, popupSizeMode, selectedCamera])
 
   useEffect(() => {
     if (!contextMenu) {
@@ -1319,6 +1345,42 @@ export function MapView({
 
     return () => {
       window.removeEventListener('pointerdown', handlePointerDown)
+    }
+  }, [contextMenu])
+
+  useEffect(() => {
+    if (!contextMenu || !menuRef.current) {
+      setContextMenuSize({
+        width: CONTEXT_MENU_WIDTH,
+        height: CONTEXT_MENU_HEIGHT,
+      })
+      return undefined
+    }
+
+    const updateMenuSize = () => {
+      const menuRect = menuRef.current?.getBoundingClientRect()
+
+      if (!menuRect) {
+        return
+      }
+
+      setContextMenuSize({
+        width: Math.ceil(menuRect.width),
+        height: Math.ceil(menuRect.height),
+      })
+    }
+
+    updateMenuSize()
+
+    if (typeof ResizeObserver === 'undefined') {
+      return undefined
+    }
+
+    const observer = new ResizeObserver(updateMenuSize)
+    observer.observe(menuRef.current)
+
+    return () => {
+      observer.disconnect()
     }
   }, [contextMenu])
 
@@ -1391,6 +1453,11 @@ export function MapView({
 
   function handleToggleMapDimensionFromMenu() {
     onToggleMapDimensionMode()
+    setContextMenu(null)
+  }
+
+  function handleToggleAutoPopupsFromMenu() {
+    onToggleAutoPopups()
     setContextMenu(null)
   }
 
@@ -1531,6 +1598,20 @@ export function MapView({
           >
             <span className={styles.contextMenuActionLabel}>{mapDimensionToggleCopy.contextMenuLabel}</span>
             <span className={styles.contextMenuActionMeta}>{mapDimensionToggleCopy.contextMenuMeta}</span>
+          </button>
+
+          <button
+            className={styles.contextMenuAction}
+            type="button"
+            role="menuitem"
+            onClick={handleToggleAutoPopupsFromMenu}
+          >
+            <span className={styles.contextMenuActionLabel}>
+              {autoPopupsEnabled ? 'Pause Auto Popups' : 'Resume Auto Popups'}
+            </span>
+            <span className={styles.contextMenuActionMeta}>
+              {autoPopupsEnabled ? 'Keep map thumbnails from opening by zoom' : 'Let map thumbnails follow zoom'}
+            </span>
           </button>
 
           <button

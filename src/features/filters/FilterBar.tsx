@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import type { ChangeEvent, MouseEvent } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import type { CSSProperties, ChangeEvent, MouseEvent } from 'react'
 import type { FilterState, FilterOptions, ViewMode } from '../../shared/types'
 
 type DropdownId = 'status' | 'filters' | 'routes' | 'search' | null
@@ -14,6 +14,7 @@ interface FilterBarProps {
   imageSize: number
   showImageSizeControl?: boolean
   showViewToggleButton?: boolean
+  useViewportDropdowns?: boolean
   onFilterChange: (key: keyof FilterState, value: string) => void
   onCopyLink: () => void
   onImageSizeChange: (value: number) => void
@@ -30,6 +31,7 @@ export function FilterBar({
   imageSize,
   showImageSizeControl = true,
   showViewToggleButton = true,
+  useViewportDropdowns = false,
   onFilterChange,
   onCopyLink,
   onImageSizeChange,
@@ -38,7 +40,14 @@ export function FilterBar({
 }: FilterBarProps) {
   const [isSizeControlOpen, setIsSizeControlOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<DropdownId>(null)
+  const [viewportMenuStyle, setViewportMenuStyle] = useState<CSSProperties | undefined>()
   const filterBarRef = useRef<HTMLDivElement | null>(null)
+  const dropdownRefs = useRef<Record<Exclude<DropdownId, null>, HTMLDetailsElement | null>>({
+    status: null,
+    filters: null,
+    routes: null,
+    search: null,
+  })
   const sizeControlContainerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -74,6 +83,55 @@ export function FilterBar({
       document.removeEventListener('keydown', handleKeyDown)
     }
   }, [isSizeControlOpen, openDropdown])
+
+  useLayoutEffect(() => {
+    if (!useViewportDropdowns || !openDropdown) {
+      setViewportMenuStyle(undefined)
+      return undefined
+    }
+
+    const margin = 8
+    const positionOpenMenu = () => {
+      const dropdown = dropdownRefs.current[openDropdown]
+      const menu = dropdown?.querySelector<HTMLElement>(':scope > .app-menu')
+      const trigger = dropdown?.querySelector<HTMLElement>('summary')
+
+      if (!dropdown || !menu || !trigger) {
+        return
+      }
+
+      const triggerRect = trigger.getBoundingClientRect()
+      const menuRect = menu.getBoundingClientRect()
+      const viewportWidth = window.innerWidth
+      const viewportHeight = window.innerHeight
+      const menuWidth = Math.min(menuRect.width || menu.offsetWidth, viewportWidth - margin * 2)
+      const menuHeight = Math.min(menuRect.height || menu.offsetHeight, viewportHeight - margin * 2)
+      const preferredLeft = triggerRect.left + triggerRect.width / 2 - menuWidth / 2
+      const left = Math.min(Math.max(preferredLeft, margin), viewportWidth - menuWidth - margin)
+      const belowTop = triggerRect.bottom + margin
+      const aboveTop = triggerRect.top - menuHeight - margin
+      const top =
+        belowTop + menuHeight <= viewportHeight - margin || aboveTop < margin
+          ? Math.min(belowTop, viewportHeight - menuHeight - margin)
+          : aboveTop
+
+      setViewportMenuStyle({
+        left,
+        maxHeight: viewportHeight - margin * 2,
+        top: Math.max(top, margin),
+        width: menuWidth,
+      })
+    }
+
+    positionOpenMenu()
+    window.addEventListener('resize', positionOpenMenu)
+    window.addEventListener('scroll', positionOpenMenu, true)
+
+    return () => {
+      window.removeEventListener('resize', positionOpenMenu)
+      window.removeEventListener('scroll', positionOpenMenu, true)
+    }
+  }, [openDropdown, useViewportDropdowns])
 
   const toggleDropdown = (dropdownId: Exclude<DropdownId, null>) => (event: MouseEvent<HTMLElement>) => {
     event.preventDefault()
@@ -113,7 +171,14 @@ export function FilterBar({
   return (
     <div ref={filterBarRef} className="app-filterbar">
       <div className="app-filterbar__cluster app-filterbar__cluster--status">
-        <details open={openDropdown === 'status'} className="dropdown app-dropdown">
+        <details
+          ref={(element) => {
+            dropdownRefs.current.status = element
+          }}
+          open={openDropdown === 'status'}
+          className="dropdown app-dropdown"
+          data-viewport-menu={useViewportDropdowns ? 'true' : undefined}
+        >
           <summary
             id="cameraCount"
             className="app-filterbar__control dropdown-toggle button"
@@ -123,7 +188,7 @@ export function FilterBar({
           >
             {filteredCount} Cameras
           </summary>
-          <div className="dropdown-menu app-menu">
+          <div className="dropdown-menu app-menu" style={openDropdown === 'status' ? viewportMenuStyle : undefined}>
             <div className="app-menu-panel">
               <p className="app-inline-note">Showing {filteredCount} of {totalCount} cameras.</p>
               <button className="dropdown-item" type="button" onClick={handleStatusAction(onCopyLink)}>
@@ -146,7 +211,14 @@ export function FilterBar({
       </div>
 
       <div className="app-filterbar__cluster app-filterbar__cluster--filters">
-        <details open={openDropdown === 'filters'} className="dropdown app-dropdown">
+        <details
+          ref={(element) => {
+            dropdownRefs.current.filters = element
+          }}
+          open={openDropdown === 'filters'}
+          className="dropdown app-dropdown"
+          data-viewport-menu={useViewportDropdowns ? 'true' : undefined}
+        >
           <summary
             className="app-filterbar__control app-filterbar__control--icon dropdown-toggle button"
             aria-expanded={openDropdown === 'filters'}
@@ -155,7 +227,7 @@ export function FilterBar({
           >
             <i className="fas fa-filter"></i>
           </summary>
-          <div className="dropdown-menu app-menu">
+          <div className="dropdown-menu app-menu" style={openDropdown === 'filters' ? viewportMenuStyle : undefined}>
             <div className="app-menu-panel">
               <label className="app-field">
                 <span className="app-field-label">Region</span>
@@ -211,7 +283,14 @@ export function FilterBar({
           </div>
         </details>
 
-        <details open={openDropdown === 'routes'} className="dropdown app-dropdown">
+        <details
+          ref={(element) => {
+            dropdownRefs.current.routes = element
+          }}
+          open={openDropdown === 'routes'}
+          className="dropdown app-dropdown"
+          data-viewport-menu={useViewportDropdowns ? 'true' : undefined}
+        >
           <summary
             className="app-filterbar__control app-filterbar__control--icon dropdown-toggle button"
             aria-expanded={openDropdown === 'routes'}
@@ -220,7 +299,7 @@ export function FilterBar({
           >
             <i className="fas fa-road"></i>
           </summary>
-          <div className="dropdown-menu app-menu">
+          <div className="dropdown-menu app-menu" style={openDropdown === 'routes' ? viewportMenuStyle : undefined}>
             <div className="app-menu-panel">
               <p className="app-inline-note">{selectedRouteLabel}</p>
               <label className="app-field">
@@ -238,7 +317,14 @@ export function FilterBar({
           </div>
         </details>
 
-        <details open={openDropdown === 'search'} className="dropdown app-dropdown">
+        <details
+          ref={(element) => {
+            dropdownRefs.current.search = element
+          }}
+          open={openDropdown === 'search'}
+          className="dropdown app-dropdown"
+          data-viewport-menu={useViewportDropdowns ? 'true' : undefined}
+        >
           <summary
             className="app-filterbar__control app-filterbar__control--icon dropdown-toggle button"
             aria-expanded={openDropdown === 'search'}
@@ -247,7 +333,10 @@ export function FilterBar({
           >
             <i className="fas fa-search"></i>
           </summary>
-          <div className="dropdown-menu app-menu app-search-input">
+          <div
+            className="dropdown-menu app-menu app-search-input"
+            style={openDropdown === 'search' ? viewportMenuStyle : undefined}
+          >
             <div className="app-menu-panel">
               <input
                 id="searchInput"

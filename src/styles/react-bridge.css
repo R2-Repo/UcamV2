@@ -16,6 +16,12 @@ details.dropdown[open] > .dropdown-menu {
   visibility: visible;
 }
 
+details.dropdown[data-viewport-menu='true'] > .dropdown-menu {
+  position: fixed;
+  right: auto;
+  z-index: 2300;
+}
+
 .header-chrome {
   position: sticky;
   top: 0;
