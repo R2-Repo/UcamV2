@@ -93,6 +93,7 @@ export function AppShell() {
   const [imageSize, setImageSize] = useState(180)
   const [mapDimensionMode, setMapDimensionMode] = useState<MapDimensionMode>(DEFAULT_MAP_DIMENSION_MODE)
   const [mapPopupSizeMode, setMapPopupSizeMode] = useState<PopupSizeMode>('default')
+  const [areMapAutoPopupsEnabled, setAreMapAutoPopupsEnabled] = useState(true)
   const [arcGisLayers, setArcGisLayers] = useState<ArcGisLayerConfig[]>(DEFAULT_ARCGIS_LAYERS)
   const [arcGisLayerUrl, setArcGisLayerUrl] = useState('')
   const [arcGisLayerError, setArcGisLayerError] = useState<string | null>(null)
@@ -460,6 +461,10 @@ export function AppShell() {
     setMapPopupSizeMode((currentMode) => (currentMode === 'default' ? 'large' : 'default'))
   }, [])
 
+  const handleToggleMapAutoPopups = useCallback(() => {
+    setAreMapAutoPopupsEnabled((currentValue) => !currentValue)
+  }, [])
+
   const handleToggleMapDimensionMode = useCallback(() => {
     setMapDimensionMode((currentMode) => getNextMapDimensionMode(currentMode))
   }, [])
@@ -665,6 +670,7 @@ export function AppShell() {
                             options={filterOptions}
                             showImageSizeControl={false}
                             totalCount={totalCount}
+                            useViewportDropdowns
                             viewMode={viewMode}
                             onCopyLink={handleCopyLink}
                             onFilterChange={handleFilterChange}
@@ -697,6 +703,21 @@ export function AppShell() {
                           >
                             <i className={`fas ${mapPopupSizeMode === 'large' ? 'fa-compress' : 'fa-expand'}`}></i>
                             <span>{mapPopupSizeMode === 'large' ? 'Default Popups' : 'Large Popups'}</span>
+                          </button>
+                          <button
+                            className={styles.mapPopupSizeButton}
+                            data-active={!areMapAutoPopupsEnabled}
+                            type="button"
+                            aria-pressed={!areMapAutoPopupsEnabled}
+                            title={
+                              areMapAutoPopupsEnabled
+                                ? 'Pause automatic map popups'
+                                : 'Resume automatic map popups'
+                            }
+                            onClick={handleToggleMapAutoPopups}
+                          >
+                            <i className={`fas ${areMapAutoPopupsEnabled ? 'fa-eye' : 'fa-eye-slash'}`}></i>
+                            <span>{areMapAutoPopupsEnabled ? 'Auto Popups' : 'Popups Paused'}</span>
                           </button>
                           <div
                             ref={analyticsMenuRef}
@@ -761,10 +782,12 @@ export function AppShell() {
                     </div>
                   </div>
                 }
+                autoPopupsEnabled={areMapAutoPopupsEnabled}
                 mapDimensionMode={mapDimensionMode}
                 overlayHeight={mapOverlaySize.height}
                 popupSizeMode={mapPopupSizeMode}
                 onToggleMapDimensionMode={handleToggleMapDimensionMode}
+                onToggleAutoPopups={handleToggleMapAutoPopups}
                 onSelectCamera={handleCameraSelection}
               />
             </Suspense>

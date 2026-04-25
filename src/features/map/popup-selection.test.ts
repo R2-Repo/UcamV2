@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { CameraSummary } from '../../shared/types'
 import type { PopupLayoutItem } from './popup-layout'
-import { selectPopupLayoutItems } from './popup-selection'
+import { MAX_AUTO_POPUPS, selectPopupLayoutItems } from './popup-selection'
 
 function createCamera(id: string, sortOrder = 0): CameraSummary {
   return {
@@ -74,5 +74,35 @@ describe('popup selection', () => {
     })
 
     expect(items.map((item) => item.camera.id)).toEqual(['focused', 'nearby'])
+  })
+
+  it('defaults the automatic popup limit to ten cameras', () => {
+    const candidates = Array.from({ length: 12 }, (_, index) =>
+      createItem(createCamera(`camera-${index}`, index), 100 + index, 100),
+    )
+
+    const items = selectPopupLayoutItems({
+      candidates,
+      viewportCenter: { x: 100, y: 100 },
+    })
+
+    expect(MAX_AUTO_POPUPS).toBe(10)
+    expect(items).toHaveLength(10)
+  })
+
+  it('prioritizes a manual popup candidate after the focused popup', () => {
+    const focusedCamera = createCamera('focused', 10)
+    const manualCamera = createCamera('manual', 99)
+    const closerCamera = createCamera('closer', 1)
+
+    const items = selectPopupLayoutItems({
+      focusItem: createItem(focusedCamera, 300, 100),
+      pinnedItems: [createItem(manualCamera, 500, 100)],
+      candidates: [createItem(closerCamera, 100, 100)],
+      viewportCenter: { x: 100, y: 100 },
+      maxPopups: 3,
+    })
+
+    expect(items.map((item) => item.camera.id)).toEqual(['focused', 'manual', 'closer'])
   })
 })

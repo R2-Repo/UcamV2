@@ -1,7 +1,7 @@
 import type { PopupLayoutItem } from './popup-layout'
 
 export const AUTO_POPUP_MIN_ZOOM = 10.4
-export const MAX_AUTO_POPUPS = 25
+export const MAX_AUTO_POPUPS = 10
 
 interface Point {
   x: number
@@ -17,11 +17,13 @@ function getDistanceToViewportCenterSquared(point: Point, viewportCenter: Point)
 
 export function selectPopupLayoutItems({
   focusItem = null,
+  pinnedItems = [],
   candidates,
   viewportCenter,
   maxPopups = MAX_AUTO_POPUPS,
 }: {
   focusItem?: PopupLayoutItem | null
+  pinnedItems?: PopupLayoutItem[]
   candidates: PopupLayoutItem[]
   viewportCenter: Point
   maxPopups?: number
@@ -36,6 +38,19 @@ export function selectPopupLayoutItems({
   if (focusItem) {
     items.push(focusItem)
     seenCameraIds.add(focusItem.camera.id)
+  }
+
+  for (const pinnedItem of pinnedItems) {
+    if (items.length >= maxPopups) {
+      break
+    }
+
+    if (seenCameraIds.has(pinnedItem.camera.id)) {
+      continue
+    }
+
+    items.push(pinnedItem)
+    seenCameraIds.add(pinnedItem.camera.id)
   }
 
   const sortedCandidates = [...candidates].sort((firstCandidate, secondCandidate) => {

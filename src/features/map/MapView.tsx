@@ -32,6 +32,7 @@ import {
   buildPopupLayouts,
   createRect,
   popupLayoutsEqual,
+  type PopupLayoutItem,
   type PopupBlockedRect,
   type PopupLayout,
   type PopupSizeMode,
@@ -60,8 +61,10 @@ interface MapViewProps {
   overlay?: ReactNode
   overlayHeight?: number
   popupSizeMode?: PopupSizeMode
+  autoPopupsEnabled?: boolean
   arcGisLayers?: ArcGisLayerConfig[]
   onToggleMapDimensionMode: () => void
+  onToggleAutoPopups: () => void
   onSelectCamera: (cameraId: string | null, source: SelectionSource) => void
 }
 
@@ -82,11 +85,13 @@ const TRACKPAD_ZOOM_RATE = 1 / 45
 const WHEEL_ZOOM_RATE = 1 / 260
 const MEASUREMENT_SOURCE_ID = 'measurement-path'
 const ARCGIS_LAYER_INSERT_BEFORE_ID = 'camera-clusters'
-const CONTEXT_MENU_WIDTH = 272
-const CONTEXT_MENU_HEIGHT = 392
-const CONTEXT_MENU_MARGIN = 14
+const CONTEXT_MENU_WIDTH = 248
+const CONTEXT_MENU_HEIGHT = 336
+const CONTEXT_MENU_MARGIN = 10
 
 interface ContextMenuState {
+  containerHeight: number
+  containerWidth: number
   coordinate: MapCoordinate
   x: number
   y: number
@@ -652,6 +657,27 @@ function getFocusPopupItem(map: maplibregl.Map, selectedCamera: CameraSummary | 
   }
 }
 
+function getManualPopupItem(
+  map: maplibregl.Map,
+  camerasById: ReadonlyMap<string, CameraSummary>,
+  cameraId: string | null,
+) {
+  if (!cameraId) {
+    return null
+  }
+
+  const camera = camerasById.get(cameraId)
+
+  if (!camera) {
+    return null
+  }
+
+  return {
+    camera,
+    point: map.project([camera.longitude, camera.latitude]),
+  }
+}
+
 export function MapView({
   cameras,
   selectedCamera,
@@ -662,11 +688,12 @@ export function MapView({
   overlay,
   overlayHeight = 0,
   popupSizeMode = 'default',
+  autoPopupsEnabled = true,
   arcGisLayers = [],
   onToggleMapDimensionMode,
+  onToggleAutoPopups,
   onSelectCamera,
 }: MapViewProps) {
-  const rootRef = useRef<HTMLDivElement | null>(null)
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   const arcGisPopupRef = useRef<maplibregl.Popup | null>(null)
@@ -677,9 +704,15 @@ export function MapView({
   const arcGisRequestControllersRef = useRef(new Map<string, AbortController>())
   const arcGisViewportSignaturesRef = useRef(new Map<string, string>())
   const managedArcGisLayersRef = useRef(new Map<string, ArcGisGeometryType>())
+  const stableAutoPopupCandidatesRef = useRef<PopupLayoutItem[]>([])
   const [isReady, setIsReady] = useState(false)
   const [popupLayouts, setPopupLayouts] = useState<PopupLayout[]>([])
+  const [manualPopupCameraId, setManualPopupCameraId] = useState<string | null>(null)
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
+  const [contextMenuSize, setContextMenuSize] = useState({
+    width: CONTEXT_MENU_WIDTH,
+    height: CONTEXT_MENU_HEIGHT,
+  })
   const [isMeasuring, setIsMeasuring] = useState(false)
   const [measurementPoints, setMeasurementPoints] = useState<MapCoordinate[]>([])
 
@@ -731,6 +764,8 @@ export function MapView({
   const selectedCollectionRef = useRef(selectedCollection)
   const viewportPaddingRef = useRef(viewportPadding)
   const onSelectCameraRef = useRef(onSelectCamera)
+  const selectedCameraRef = useRef(selectedCamera)
+  const manualPopupCameraIdRef = useRef(manualPopupCameraId)
   const measurementDistanceLabel = measurementPoints.length
     ? formatDistanceSummary(measurementDistance)
     : 'Click the map to place the first point.'
@@ -740,21 +775,30 @@ export function MapView({
   )
   const menuPosition = contextMenu
     ? (() => {
-        const container = rootRef.current
-
-        if (!container) {
-          return {
-            left: contextMenu.x,
-            top: contextMenu.y,
-          }
+        const menuWidth = contextMenuSize.width
+        const menuHeight = contextMenuSize.height
+        const maxLeft = Math.max(CONTEXT_MENU_MARGIN, contextMenu.containerWidth - menuWidth - CONTEXT_MENU_MARGIN)
+        const maxTop = Math.max(CONTEXT_MENU_MARGIN, contextMenu.containerHeight - menuHeight - CONTEXT_MENU_MARGIN)
+        const spaces = {
+          right: contextMenu.containerWidth - contextMenu.x - CONTEXT_MENU_MARGIN,
+          left: contextMenu.x - CONTEXT_MENU_MARGIN,
+          bottom: contextMenu.containerHeight - contextMenu.y - CONTEXT_MENU_MARGIN,
+          top: contextMenu.y - CONTEXT_MENU_MARGIN,
         }
-
-        const maxLeft = Math.max(CONTEXT_MENU_MARGIN, container.clientWidth - CONTEXT_MENU_WIDTH - CONTEXT_MENU_MARGIN)
-        const maxTop = Math.max(CONTEXT_MENU_MARGIN, container.clientHeight - CONTEXT_MENU_HEIGHT - CONTEXT_MENU_MARGIN)
+        const canOpenRight = spaces.right >= menuWidth
+        const canOpenLeft = spaces.left >= menuWidth
+        const canOpenBottom = spaces.bottom >= menuHeight
+        const canOpenTop = spaces.top >= menuHeight
+        const left = canOpenRight || (!canOpenLeft && spaces.right >= spaces.left)
+          ? contextMenu.x + CONTEXT_MENU_MARGIN
+          : contextMenu.x - menuWidth - CONTEXT_MENU_MARGIN
+        const top = canOpenBottom || (!canOpenTop && spaces.bottom >= spaces.top)
+          ? contextMenu.y + CONTEXT_MENU_MARGIN
+          : contextMenu.y - menuHeight - CONTEXT_MENU_MARGIN
 
         return {
-          left: clamp(contextMenu.x, CONTEXT_MENU_MARGIN, maxLeft),
-          top: clamp(contextMenu.y, CONTEXT_MENU_MARGIN, maxTop),
+          left: clamp(left, CONTEXT_MENU_MARGIN, maxLeft),
+          top: clamp(top, CONTEXT_MENU_MARGIN, maxTop),
         }
       })()
     : null
@@ -774,6 +818,14 @@ export function MapView({
   useEffect(() => {
     onSelectCameraRef.current = onSelectCamera
   }, [onSelectCamera])
+
+  useEffect(() => {
+    selectedCameraRef.current = selectedCamera
+  }, [selectedCamera])
+
+  useEffect(() => {
+    manualPopupCameraIdRef.current = manualPopupCameraId
+  }, [manualPopupCameraId])
 
   useEffect(() => {
     arcGisLayersRef.current = arcGisLayers
@@ -985,7 +1037,13 @@ export function MapView({
         const id = event.features?.[0]?.properties?.id
 
         if (typeof id === 'string') {
-          onSelectCameraRef.current(id, 'map')
+          arcGisPopupRef.current?.remove()
+          arcGisPopupRef.current = null
+
+          const isOpenManualPopup = manualPopupCameraIdRef.current === id
+
+          setManualPopupCameraId(isOpenManualPopup ? null : id)
+          onSelectCameraRef.current(isOpenManualPopup ? null : id, isOpenManualPopup ? null : 'map')
         }
       })
 
@@ -1051,7 +1109,10 @@ export function MapView({
         event.originalEvent.preventDefault()
         event.originalEvent.stopPropagation()
 
+        const container = map.getContainer()
         setContextMenu({
+          containerHeight: container.clientHeight,
+          containerWidth: container.clientWidth,
           coordinate: toMapCoordinate(event.lngLat),
           x: event.point.x,
           y: event.point.y,
@@ -1097,8 +1158,10 @@ export function MapView({
       setContextMenu(null)
       setIsMeasuring(false)
       setMeasurementPoints([])
+      setManualPopupCameraId(null)
       setPopupLayouts([])
       popupLayoutsRef.current = []
+      stableAutoPopupCandidatesRef.current = []
     }
   }, [])
 
@@ -1258,19 +1321,40 @@ export function MapView({
   useEffect(() => {
     if (!mapRef.current || !isReady) {
       popupLayoutsRef.current = []
+      stableAutoPopupCandidatesRef.current = []
       setPopupLayouts((currentLayouts) => (currentLayouts.length ? [] : currentLayouts))
       return undefined
     }
 
     const map = mapRef.current
+    let isInteracting = false
+    let shouldRefreshAutoCandidates = true
+
+    const refreshAutoPopupCandidates = () => {
+      const nextCandidates =
+        autoPopupsEnabled && map.getZoom() >= AUTO_POPUP_MIN_ZOOM ? getRenderedPopupCandidates(map, camerasById) : []
+      const manualCameraId = manualPopupCameraIdRef.current
+
+      stableAutoPopupCandidatesRef.current = manualCameraId
+        ? nextCandidates.filter((candidate) => candidate.camera.id !== manualCameraId)
+        : nextCandidates
+      shouldRefreshAutoCandidates = false
+    }
 
     const updateLayouts = () => {
+      if (shouldRefreshAutoCandidates || (!isInteracting && autoPopupsEnabled)) {
+        refreshAutoPopupCandidates()
+      }
+
       const focusItem = getFocusPopupItem(map, selectedCamera)
-      const autoPopupCandidates =
-        map.getZoom() >= AUTO_POPUP_MIN_ZOOM ? getRenderedPopupCandidates(map, camerasById) : []
+      const manualItem =
+        manualPopupCameraId && manualPopupCameraId !== selectedCamera?.id
+          ? getManualPopupItem(map, camerasById, manualPopupCameraId)
+          : null
       const items = selectPopupLayoutItems({
         focusItem,
-        candidates: autoPopupCandidates,
+        pinnedItems: manualItem ? [manualItem] : [],
+        candidates: stableAutoPopupCandidatesRef.current,
         viewportCenter: getViewportCenter(map),
         maxPopups: MAX_AUTO_POPUPS,
       })
@@ -1292,15 +1376,34 @@ export function MapView({
       setPopupLayouts(nextLayouts)
     }
 
+    const handleMoveStart = () => {
+      isInteracting = true
+    }
+
+    const handleMoveEnd = () => {
+      isInteracting = false
+      shouldRefreshAutoCandidates = true
+      updateLayouts()
+    }
+
+    const handleResize = () => {
+      shouldRefreshAutoCandidates = true
+      updateLayouts()
+    }
+
     updateLayouts()
+    map.on('movestart', handleMoveStart)
+    map.on('moveend', handleMoveEnd)
     map.on('render', updateLayouts)
-    map.on('resize', updateLayouts)
+    map.on('resize', handleResize)
 
     return () => {
+      map.off('movestart', handleMoveStart)
+      map.off('moveend', handleMoveEnd)
       map.off('render', updateLayouts)
-      map.off('resize', updateLayouts)
+      map.off('resize', handleResize)
     }
-  }, [camerasById, isFullscreen, isReady, overlayHeight, popupSizeMode, selectedCamera])
+  }, [autoPopupsEnabled, camerasById, isFullscreen, isReady, manualPopupCameraId, overlayHeight, popupSizeMode, selectedCamera])
 
   useEffect(() => {
     if (!contextMenu) {
@@ -1319,6 +1422,42 @@ export function MapView({
 
     return () => {
       window.removeEventListener('pointerdown', handlePointerDown)
+    }
+  }, [contextMenu])
+
+  useEffect(() => {
+    if (!contextMenu || !menuRef.current) {
+      setContextMenuSize({
+        width: CONTEXT_MENU_WIDTH,
+        height: CONTEXT_MENU_HEIGHT,
+      })
+      return undefined
+    }
+
+    const updateMenuSize = () => {
+      const menuRect = menuRef.current?.getBoundingClientRect()
+
+      if (!menuRect) {
+        return
+      }
+
+      setContextMenuSize({
+        width: Math.ceil(menuRect.width),
+        height: Math.ceil(menuRect.height),
+      })
+    }
+
+    updateMenuSize()
+
+    if (typeof ResizeObserver === 'undefined') {
+      return undefined
+    }
+
+    const observer = new ResizeObserver(updateMenuSize)
+    observer.observe(menuRef.current)
+
+    return () => {
+      observer.disconnect()
     }
   }, [contextMenu])
 
@@ -1394,8 +1533,13 @@ export function MapView({
     setContextMenu(null)
   }
 
+  function handleToggleAutoPopupsFromMenu() {
+    onToggleAutoPopups()
+    setContextMenu(null)
+  }
+
   return (
-    <div ref={rootRef} className={`${styles.root} ${isFullscreen ? styles.isFullscreen : ''}`.trim()}>
+    <div className={`${styles.root} ${isFullscreen ? styles.isFullscreen : ''}`.trim()}>
       <div ref={mapContainerRef} className={styles.mapCanvas} />
 
       {popupLayouts.length ? (
@@ -1531,6 +1675,20 @@ export function MapView({
           >
             <span className={styles.contextMenuActionLabel}>{mapDimensionToggleCopy.contextMenuLabel}</span>
             <span className={styles.contextMenuActionMeta}>{mapDimensionToggleCopy.contextMenuMeta}</span>
+          </button>
+
+          <button
+            className={styles.contextMenuAction}
+            type="button"
+            role="menuitem"
+            onClick={handleToggleAutoPopupsFromMenu}
+          >
+            <span className={styles.contextMenuActionLabel}>
+              {autoPopupsEnabled ? 'Pause Auto Popups' : 'Resume Auto Popups'}
+            </span>
+            <span className={styles.contextMenuActionMeta}>
+              {autoPopupsEnabled ? 'Keep map thumbnails from opening by zoom' : 'Let map thumbnails follow zoom'}
+            </span>
           </button>
 
           <button
