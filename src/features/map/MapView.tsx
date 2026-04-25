@@ -32,6 +32,7 @@ import {
   buildPopupLayouts,
   createRect,
   popupLayoutsEqual,
+  type PopupLayoutItem,
   type PopupBlockedRect,
   type PopupLayout,
   type PopupSizeMode,
@@ -656,6 +657,27 @@ function getFocusPopupItem(map: maplibregl.Map, selectedCamera: CameraSummary | 
   }
 }
 
+function getManualPopupItem(
+  map: maplibregl.Map,
+  camerasById: ReadonlyMap<string, CameraSummary>,
+  cameraId: string | null,
+) {
+  if (!cameraId) {
+    return null
+  }
+
+  const camera = camerasById.get(cameraId)
+
+  if (!camera) {
+    return null
+  }
+
+  return {
+    camera,
+    point: map.project([camera.longitude, camera.latitude]),
+  }
+}
+
 export function MapView({
   cameras,
   selectedCamera,
@@ -682,8 +704,10 @@ export function MapView({
   const arcGisRequestControllersRef = useRef(new Map<string, AbortController>())
   const arcGisViewportSignaturesRef = useRef(new Map<string, string>())
   const managedArcGisLayersRef = useRef(new Map<string, ArcGisGeometryType>())
+  const stableAutoPopupCandidatesRef = useRef<PopupLayoutItem[]>([])
   const [isReady, setIsReady] = useState(false)
   const [popupLayouts, setPopupLayouts] = useState<PopupLayout[]>([])
+  const [manualPopupCameraId, setManualPopupCameraId] = useState<string | null>(null)
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   const [contextMenuSize, setContextMenuSize] = useState({
     width: CONTEXT_MENU_WIDTH,
@@ -740,6 +764,8 @@ export function MapView({
   const selectedCollectionRef = useRef(selectedCollection)
   const viewportPaddingRef = useRef(viewportPadding)
   const onSelectCameraRef = useRef(onSelectCamera)
+  const selectedCameraRef = useRef(selectedCamera)
+  const manualPopupCameraIdRef = useRef(manualPopupCameraId)
   const measurementDistanceLabel = measurementPoints.length
     ? formatDistanceSummary(measurementDistance)
     : 'Click the map to place the first point.'
@@ -792,6 +818,14 @@ export function MapView({
   useEffect(() => {
     onSelectCameraRef.current = onSelectCamera
   }, [onSelectCamera])
+
+  useEffect(() => {
+    selectedCameraRef.current = selectedCamera
+  }, [selectedCamera])
+
+  useEffect(() => {
+    manualPopupCameraIdRef.current = manualPopupCameraId
+  }, [manualPopupCameraId])
 
   useEffect(() => {
     arcGisLayersRef.current = arcGisLayers
@@ -1003,7 +1037,13 @@ export function MapView({
         const id = event.features?.[0]?.properties?.id
 
         if (typeof id === 'string') {
-          onSelectCameraRef.current(id, 'map')
+          arcGisPopupRef.current?.remove()
+          arcGisPopupRef.current = null
+
+          const isOpenManualPopup = manualPopupCameraIdRef.current === id
+
+          setManualPopupCameraId(isOpenManualPopup ? null : id)
+          onSelectCameraRef.current(isOpenManualPopup ? null : id, isOpenManualPopup ? null : 'map')
         }
       })
 
@@ -1118,8 +1158,10 @@ export function MapView({
       setContextMenu(null)
       setIsMeasuring(false)
       setMeasurementPoints([])
+      setManualPopupCameraId(null)
       setPopupLayouts([])
       popupLayoutsRef.current = []
+      stableAutoPopupCandidatesRef.current = []
     }
   }, [])
 
@@ -1279,19 +1321,40 @@ export function MapView({
   useEffect(() => {
     if (!mapRef.current || !isReady) {
       popupLayoutsRef.current = []
+      stableAutoPopupCandidatesRef.current = []
       setPopupLayouts((currentLayouts) => (currentLayouts.length ? [] : currentLayouts))
       return undefined
     }
 
     const map = mapRef.current
+    let isInteracting = false
+    let shouldRefreshAutoCandidates = true
+
+    const refreshAutoPopupCandidates = () => {
+      const nextCandidates =
+        autoPopupsEnabled && map.getZoom() >= AUTO_POPUP_MIN_ZOOM ? getRenderedPopupCandidates(map, camerasById) : []
+      const manualCameraId = manualPopupCameraIdRef.current
+
+      stableAutoPopupCandidatesRef.current = manualCameraId
+        ? nextCandidates.filter((candidate) => candidate.camera.id !== manualCameraId)
+        : nextCandidates
+      shouldRefreshAutoCandidates = false
+    }
 
     const updateLayouts = () => {
+      if (shouldRefreshAutoCandidates || (!isInteracting && autoPopupsEnabled)) {
+        refreshAutoPopupCandidates()
+      }
+
       const focusItem = getFocusPopupItem(map, selectedCamera)
-      const autoPopupCandidates =
-        autoPopupsEnabled && map.getZoom() >= AUTO_POPUP_MIN_ZOOM ? getRenderedPopupCandidates(map, camerasById) : []
+      const manualItem =
+        manualPopupCameraId && manualPopupCameraId !== selectedCamera?.id
+          ? getManualPopupItem(map, camerasById, manualPopupCameraId)
+          : null
       const items = selectPopupLayoutItems({
         focusItem,
-        candidates: autoPopupCandidates,
+        pinnedItems: manualItem ? [manualItem] : [],
+        candidates: stableAutoPopupCandidatesRef.current,
         viewportCenter: getViewportCenter(map),
         maxPopups: MAX_AUTO_POPUPS,
       })
@@ -1313,15 +1376,34 @@ export function MapView({
       setPopupLayouts(nextLayouts)
     }
 
+    const handleMoveStart = () => {
+      isInteracting = true
+    }
+
+    const handleMoveEnd = () => {
+      isInteracting = false
+      shouldRefreshAutoCandidates = true
+      updateLayouts()
+    }
+
+    const handleResize = () => {
+      shouldRefreshAutoCandidates = true
+      updateLayouts()
+    }
+
     updateLayouts()
+    map.on('movestart', handleMoveStart)
+    map.on('moveend', handleMoveEnd)
     map.on('render', updateLayouts)
-    map.on('resize', updateLayouts)
+    map.on('resize', handleResize)
 
     return () => {
+      map.off('movestart', handleMoveStart)
+      map.off('moveend', handleMoveEnd)
       map.off('render', updateLayouts)
-      map.off('resize', updateLayouts)
+      map.off('resize', handleResize)
     }
-  }, [autoPopupsEnabled, camerasById, isFullscreen, isReady, overlayHeight, popupSizeMode, selectedCamera])
+  }, [autoPopupsEnabled, camerasById, isFullscreen, isReady, manualPopupCameraId, overlayHeight, popupSizeMode, selectedCamera])
 
   useEffect(() => {
     if (!contextMenu) {
