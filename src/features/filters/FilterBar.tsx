@@ -86,7 +86,6 @@ export function FilterBar({
 
   useLayoutEffect(() => {
     if (!useViewportDropdowns || !openDropdown) {
-      setViewportMenuStyle(undefined)
       return undefined
     }
 
@@ -167,6 +166,8 @@ export function FilterBar({
   const showActionControls = showViewToggleButton || showImageSizeControl
   const viewToggleLabel = viewMode === 'map' ? 'Go Back to Gallery' : 'Open Full Map'
   const viewToggleText = viewMode === 'map' ? 'Go Back to Gallery' : 'Full Map'
+  const getMenuStyle = (dropdownId: Exclude<DropdownId, null>) =>
+    useViewportDropdowns && openDropdown === dropdownId ? viewportMenuStyle : undefined
 
   return (
     <div ref={filterBarRef} className="app-filterbar">
@@ -188,7 +189,7 @@ export function FilterBar({
           >
             {filteredCount} Cameras
           </summary>
-          <div className="dropdown-menu app-menu" style={openDropdown === 'status' ? viewportMenuStyle : undefined}>
+          <div className="dropdown-menu app-menu" style={getMenuStyle('status')}>
             <div className="app-menu-panel">
               <p className="app-inline-note">Showing {filteredCount} of {totalCount} cameras.</p>
               <button className="dropdown-item" type="button" onClick={handleStatusAction(onCopyLink)}>
@@ -227,7 +228,7 @@ export function FilterBar({
           >
             <i className="fas fa-filter"></i>
           </summary>
-          <div className="dropdown-menu app-menu" style={openDropdown === 'filters' ? viewportMenuStyle : undefined}>
+          <div className="dropdown-menu app-menu" style={getMenuStyle('filters')}>
             <div className="app-menu-panel">
               <label className="app-field">
                 <span className="app-field-label">Region</span>
@@ -299,7 +300,7 @@ export function FilterBar({
           >
             <i className="fas fa-road"></i>
           </summary>
-          <div className="dropdown-menu app-menu" style={openDropdown === 'routes' ? viewportMenuStyle : undefined}>
+          <div className="dropdown-menu app-menu" style={getMenuStyle('routes')}>
             <div className="app-menu-panel">
               <p className="app-inline-note">{selectedRouteLabel}</p>
               <label className="app-field">
@@ -335,7 +336,7 @@ export function FilterBar({
           </summary>
           <div
             className="dropdown-menu app-menu app-search-input"
-            style={openDropdown === 'search' ? viewportMenuStyle : undefined}
+            style={getMenuStyle('search')}
           >
             <div className="app-menu-panel">
               <input
