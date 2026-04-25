@@ -89,6 +89,8 @@ const CONTEXT_MENU_HEIGHT = 336
 const CONTEXT_MENU_MARGIN = 10
 
 interface ContextMenuState {
+  containerHeight: number
+  containerWidth: number
   coordinate: MapCoordinate
   x: number
   y: number
@@ -670,7 +672,6 @@ export function MapView({
   onToggleAutoPopups,
   onSelectCamera,
 }: MapViewProps) {
-  const rootRef = useRef<HTMLDivElement | null>(null)
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   const arcGisPopupRef = useRef<maplibregl.Popup | null>(null)
@@ -748,23 +749,14 @@ export function MapView({
   )
   const menuPosition = contextMenu
     ? (() => {
-        const container = rootRef.current
         const menuWidth = contextMenuSize.width
         const menuHeight = contextMenuSize.height
-
-        if (!container) {
-          return {
-            left: contextMenu.x,
-            top: contextMenu.y,
-          }
-        }
-
-        const maxLeft = Math.max(CONTEXT_MENU_MARGIN, container.clientWidth - menuWidth - CONTEXT_MENU_MARGIN)
-        const maxTop = Math.max(CONTEXT_MENU_MARGIN, container.clientHeight - menuHeight - CONTEXT_MENU_MARGIN)
+        const maxLeft = Math.max(CONTEXT_MENU_MARGIN, contextMenu.containerWidth - menuWidth - CONTEXT_MENU_MARGIN)
+        const maxTop = Math.max(CONTEXT_MENU_MARGIN, contextMenu.containerHeight - menuHeight - CONTEXT_MENU_MARGIN)
         const spaces = {
-          right: container.clientWidth - contextMenu.x - CONTEXT_MENU_MARGIN,
+          right: contextMenu.containerWidth - contextMenu.x - CONTEXT_MENU_MARGIN,
           left: contextMenu.x - CONTEXT_MENU_MARGIN,
-          bottom: container.clientHeight - contextMenu.y - CONTEXT_MENU_MARGIN,
+          bottom: contextMenu.containerHeight - contextMenu.y - CONTEXT_MENU_MARGIN,
           top: contextMenu.y - CONTEXT_MENU_MARGIN,
         }
         const canOpenRight = spaces.right >= menuWidth
@@ -1077,7 +1069,10 @@ export function MapView({
         event.originalEvent.preventDefault()
         event.originalEvent.stopPropagation()
 
+        const container = map.getContainer()
         setContextMenu({
+          containerHeight: container.clientHeight,
+          containerWidth: container.clientWidth,
           coordinate: toMapCoordinate(event.lngLat),
           x: event.point.x,
           y: event.point.y,
@@ -1462,7 +1457,7 @@ export function MapView({
   }
 
   return (
-    <div ref={rootRef} className={`${styles.root} ${isFullscreen ? styles.isFullscreen : ''}`.trim()}>
+    <div className={`${styles.root} ${isFullscreen ? styles.isFullscreen : ''}`.trim()}>
       <div ref={mapContainerRef} className={styles.mapCanvas} />
 
       {popupLayouts.length ? (
