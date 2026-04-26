@@ -135,7 +135,7 @@ describe('popup layout stickiness', () => {
       markerX: 120,
       markerY: 160,
       anchorX: previousLayout.left,
-      anchorY: 160,
+      anchorY: previousLayout.top + popupSize.height - popupSize.edgeInset,
       width: popupSize.width,
       height: popupSize.height,
     })
@@ -167,4 +167,4 @@ describe('popup layout stickiness', () => {
     expect(layouts[0]?.left).not.toBe(previousLayout.left)
     expect(layouts[0]?.top).not.toBe(previousLayout.top)
   })
-}
+})
