@@ -13,6 +13,7 @@ import { CameraModal } from '../features/modal/CameraModal'
 import { useAppStore } from '../features/filters/store'
 import { buildSearchParams, parseSearchParams } from '../features/filters/url-state'
 import { GalleryView } from '../features/gallery/GalleryView'
+import { hasActiveGalleryFilters } from '../features/gallery/galleryFilters'
 import { ArcGisLayerPanel } from '../features/map/ArcGisLayerPanel'
 import { AnalyticsPanel } from '../features/map/AnalyticsPanel'
 import {
@@ -109,6 +110,7 @@ export function AppShell() {
   const hasHydratedUrlState = useRef(false)
   const skipNextUrlSync = useRef(false)
   const lastSyncedViewMode = useRef<ViewMode | null>(null)
+  const pendingGalleryReturnScrollTopRef = useRef<number | null>(null)
   const previousGalleryScrollTopRef = useRef(0)
   const arcGisMenuRef = useRef<HTMLDivElement | null>(null)
   const analyticsMenuRef = useRef<HTMLDivElement | null>(null)
@@ -150,6 +152,10 @@ export function AppShell() {
   const activeBadges = useMemo(
     () => getActiveBadges(filters, selectedRouteLabel),
     [filters, selectedRouteLabel],
+  )
+  const shouldShowMiniOverviewMap = useMemo(
+    () => hasActiveGalleryFilters(filters) && filteredCameras.length > 0,
+    [filteredCameras.length, filters],
   )
   const mapDimensionToggleCopy = useMemo(
     () => getMapDimensionToggleCopy(mapDimensionMode),
@@ -360,8 +366,13 @@ export function AppShell() {
     if (viewMode !== 'gallery') {
       setGalleryScrollTop(0)
       setIsGalleryScrollingUp(false)
-      previousGalleryScrollTopRef.current = 0
       return
+    }
+
+    if (pendingGalleryReturnScrollTopRef.current !== null) {
+      const targetScrollTop = pendingGalleryReturnScrollTopRef.current
+      pendingGalleryReturnScrollTopRef.current = null
+      window.scrollTo({ top: targetScrollTop, left: 0, behavior: 'auto' })
     }
 
     const handleScroll = () => {
@@ -399,7 +410,12 @@ export function AppShell() {
 
   const handleViewModeChange = useCallback(
     (nextViewMode: ViewMode) => {
+      if (viewMode === 'gallery' && nextViewMode === 'map') {
+        pendingGalleryReturnScrollTopRef.current = previousGalleryScrollTopRef.current
+      }
+
       if (shouldClearSelectionForViewModeChange(viewMode, nextViewMode)) {
+        pendingGalleryReturnScrollTopRef.current ??= previousGalleryScrollTopRef.current
         handleClearSelection()
       }
 
@@ -450,12 +466,20 @@ export function AppShell() {
 
   const handleOpenMap = useCallback(
     (cameraId: string) => {
+      pendingGalleryReturnScrollTopRef.current = previousGalleryScrollTopRef.current
       setSelectedCamera(cameraId, 'gallery')
       setIsModalOpen(false)
       setViewMode('map')
     },
     [setSelectedCamera, setViewMode],
   )
+
+  const handleOpenMiniOverviewMap = useCallback(() => {
+    pendingGalleryReturnScrollTopRef.current = previousGalleryScrollTopRef.current
+    setSelectedCamera(null, null)
+    setIsModalOpen(false)
+    setViewMode('map')
+  }, [setSelectedCamera, setViewMode])
 
   const handleToggleMapPopupSize = useCallback(() => {
     setMapPopupSizeMode((currentMode) => (currentMode === 'default' ? 'large' : 'default'))
@@ -638,6 +662,8 @@ export function AppShell() {
               imageSize={imageSize}
               refreshTokensByCameraId={refreshTokensByCameraId}
               selectedCameraId={validSelectedCameraId}
+              showMiniOverviewMap={shouldShowMiniOverviewMap}
+              onOpenMiniOverviewMap={handleOpenMiniOverviewMap}
               onSelectCamera={handleGallerySelection}
             />
           </>

@@ -1,20 +1,25 @@
 import type { CameraSummary, SelectionSource } from '../../shared/types'
 import { CameraCard } from './CameraCard'
+import { MiniOverviewMapCard } from './MiniOverviewMapCard'
 
 interface GalleryViewProps {
   cameras: CameraSummary[]
   selectedCameraId: string | null
   imageSize: number
+  showMiniOverviewMap?: boolean
   refreshTokensByCameraId: Readonly<Record<string, number>>
   onSelectCamera: (cameraId: string, source: SelectionSource) => void
+  onOpenMiniOverviewMap: () => void
 }
 
 export function GalleryView({
   cameras,
   selectedCameraId,
   imageSize,
+  showMiniOverviewMap = false,
   refreshTokensByCameraId,
   onSelectCamera,
+  onOpenMiniOverviewMap,
 }: GalleryViewProps) {
   if (!cameras.length) {
     return (
@@ -34,6 +39,10 @@ export function GalleryView({
           gridTemplateColumns: `repeat(auto-fit, minmax(${imageSize}px, 1fr))`,
         }}
       >
+        {showMiniOverviewMap ? (
+          <MiniOverviewMapCard cameras={cameras} onSelect={onOpenMiniOverviewMap} />
+        ) : null}
+
         {cameras.map((camera) => (
           <CameraCard
             key={camera.id}
