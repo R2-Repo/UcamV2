@@ -1378,7 +1378,9 @@ export function MapView({
         width: map.getContainer().clientWidth,
         height: map.getContainer().clientHeight,
         previousLayouts: new Map(popupLayoutsRef.current.map((layout) => [layout.camera.id, layout])),
-        preservePreviousPositions: true,
+        // Keep cards recomputed from marker screen positions every frame. Pinning previous
+        // pixel positions made thumbs lag behind markers while the map panned or zoomed.
+        preservePreviousPositions: false,
         sizeMode: popupSizeMode,
       })
 
