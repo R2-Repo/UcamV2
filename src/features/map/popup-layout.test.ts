@@ -171,6 +171,27 @@ describe('popup layout stickiness', () => {
     expect(layouts[0]?.left).not.toBe(previousLayout.left)
     expect(layouts[0]?.top).not.toBe(previousLayout.top)
   })
+
+  it('locks the previous popup direction while interacting even if another side is collision-free', () => {
+    const camera = createCamera('cam-1')
+    const layouts = buildPopupLayouts({
+      items: [
+        {
+          camera,
+          point: { x: 160, y: 120 },
+        },
+      ],
+      blockedRects: [{ cameraId: null, rect: createRect(180, 70, 140, 100) }],
+      blockedTop: 0,
+      width: 420,
+      height: 260,
+      previousLayouts: new Map([[camera.id, createPreviousLayout(camera, 'right')]]),
+      lockPreviousDirections: true,
+    })
+
+    expect(layouts).toHaveLength(1)
+    expect(layouts[0]?.direction).toBe('right')
+  })
 })
 
 describe('popup connector length', () => {
@@ -190,7 +211,6 @@ describe('popup connector length', () => {
 
   it('keeps the full marker–edge segment when the card is far from the marker (no max clamp)', () => {
     const camera = createCamera('cam-1')
-    const popupSize = getPopupSize('default')
     const previousLayout: PopupLayout = {
       ...createPreviousLayout(camera, 'right'),
       left: 480,
