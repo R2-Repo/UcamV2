@@ -4,6 +4,7 @@ import type {
   StyleSpecification,
   TerrainSpecification,
 } from 'maplibre-gl'
+import { resolveBaseAssetPath } from '../../shared/lib/basePath'
 
 export type MapDimensionMode = '2d' | '3d'
 
@@ -74,7 +75,7 @@ export function getMapDimensionToggleCopy(mode: MapDimensionMode) {
 
 export const DEFAULT_MAP_STYLE: StyleSpecification = {
   version: 8,
-  glyphs: '/map-glyphs/{fontstack}/{range}.pbf',
+  glyphs: resolveBaseAssetPath('map-glyphs/{fontstack}/{range}.pbf'),
   sources: {
     esriImagery: {
       type: 'raster',

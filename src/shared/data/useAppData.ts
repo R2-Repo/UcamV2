@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { createCameraDetailsLookup } from '../lib/modalCamera'
+import { resolveBaseAssetPath } from '../lib/basePath'
 import type { CameraDetails, CameraSummary, CuratedRoute } from '../types'
 
 const MIN_SPLASH_MS = 500
@@ -48,9 +49,9 @@ export function useAppData(): AppDataState {
     const abortController = new AbortController()
 
     Promise.all([
-      fetchJson<CameraSummary[]>('/data/cameras.summary.json', abortController.signal),
-      fetchJson<CameraDetails[]>('/data/cameras.details.json', abortController.signal),
-      fetchJson<CuratedRoute[]>('/data/routes.processed.json', abortController.signal),
+      fetchJson<CameraSummary[]>(resolveBaseAssetPath('data/cameras.summary.json'), abortController.signal),
+      fetchJson<CameraDetails[]>(resolveBaseAssetPath('data/cameras.details.json'), abortController.signal),
+      fetchJson<CuratedRoute[]>(resolveBaseAssetPath('data/routes.processed.json'), abortController.signal),
     ])
       .then(([nextCameras, nextCameraDetails, nextRoutes]) => {
         setCameras(nextCameras)

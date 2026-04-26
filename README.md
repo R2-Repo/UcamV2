@@ -21,3 +21,10 @@ Preview notes:
 - Open the app yourself from the Ports panel by clicking port 4173.
 - `npm run mobile:check` runs a Playwright mobile smoke test against the current preview URL on iPhone 13 and Pixel 7 viewports.
 - The mobile check expects the app preview to already be running on port 4173 and writes artifacts under `test-results/mobile-check`.
+
+## GitHub Pages
+
+- The repo can publish the root React/Vite app to GitHub Pages without moving `legacy/` or other folders.
+- The Pages workflow builds `dist/` and deploys only that output.
+- Before the first publish, enable GitHub Pages in your repository settings and set the source to **GitHub Actions**.
+- If your Pages site is served from `https://<user>.github.io/<repo>/`, the workflow automatically builds the app with the correct `/<repo>/` base path.

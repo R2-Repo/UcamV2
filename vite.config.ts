@@ -8,8 +8,26 @@ const noStoreHeaders = {
   'Surrogate-Control': 'no-store',
 }
 
+function normalizeBasePath(value?: string) {
+  if (!value) {
+    return '/'
+  }
+
+  const trimmed = value.trim()
+
+  if (!trimmed || trimmed === '/') {
+    return '/'
+  }
+
+  const withLeadingSlash = trimmed.startsWith('/') ? trimmed : `/${trimmed}`
+  const withoutTrailingSlash = withLeadingSlash.replace(/\/+$/, '')
+
+  return `${withoutTrailingSlash}/`
+}
+
 // https://vite.dev/config/
 export default defineConfig({
+  base: normalizeBasePath(process.env.PAGES_BASE_PATH),
   plugins: [react()],
   optimizeDeps: {
     entries: ['index.html'],
