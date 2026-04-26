@@ -1139,6 +1139,18 @@ export function MapView({
         map.getCanvas().style.cursor = ''
       })
 
+      // Demo / automation: `localStorage.setItem('ucamDebugMap','1')` before load exposes `window.__ucamMap`
+      // (URL `?debugMap=1` is stripped by AppShell ↔ react-router URL sync, so storage is used for recordings.)
+      if (typeof window !== 'undefined') {
+        try {
+          if (window.localStorage.getItem('ucamDebugMap') === '1') {
+            ;(window as unknown as { __ucamMap?: maplibregl.Map }).__ucamMap = map
+          }
+        } catch {
+          // ignore private mode / blocked storage
+        }
+      }
+
       setIsReady(true)
     }
 
@@ -1152,6 +1164,12 @@ export function MapView({
       arcGisViewportSignaturesRef.current.clear()
       managedArcGisLayersRef.current.clear()
       map.off('load', handleLoad)
+      if (typeof window !== 'undefined') {
+        const exposed = (window as unknown as { __ucamMap?: maplibregl.Map }).__ucamMap
+        if (exposed === map) {
+          delete (window as unknown as { __ucamMap?: maplibregl.Map }).__ucamMap
+        }
+      }
       map.remove()
       mapRef.current = null
       setIsReady(false)
