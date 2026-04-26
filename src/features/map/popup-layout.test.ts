@@ -190,7 +190,6 @@ describe('popup connector length', () => {
 
   it('keeps the full marker–edge segment when the card is far from the marker (no max clamp)', () => {
     const camera = createCamera('cam-1')
-    const popupSize = getPopupSize('default')
     const previousLayout: PopupLayout = {
       ...createPreviousLayout(camera, 'right'),
       left: 480,
