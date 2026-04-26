@@ -418,6 +418,9 @@ export function buildPopupLayouts({
       }
     }
 
-    return []
+    // Legacy Leaflet path: `|| measured[0]` — still show a card if every side collides.
+    const fallback = createPopupLayout(camera, point, viewportRect, candidates[0]!, popupSize)
+    placedRects.push(fallback.rect)
+    return [fallback.layout]
   })
 }
