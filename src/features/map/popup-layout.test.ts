@@ -174,7 +174,7 @@ describe('popup layout stickiness', () => {
 })
 
 describe('popup connector length', () => {
-  it('extends short marker–popup edges to at least 25px along the same direction', () => {
+  it('extends short marker–popup edges to at least 10px along the same direction (legacy MIN_ANCHOR_PX)', () => {
     const camera = createCamera('cam-1')
     const layouts = buildPopupLayouts({
       items: [{ camera, point: { x: 260, y: 200 } }],
@@ -185,10 +185,10 @@ describe('popup connector length', () => {
     })
 
     expect(layouts).toHaveLength(1)
-    expect(connectorLength(layouts[0]!)).toBeGreaterThanOrEqual(25 - 0.01)
+    expect(connectorLength(layouts[0]!)).toBeGreaterThanOrEqual(10 - 0.01)
   })
 
-  it('caps a long marker–anchor segment at 150px along the same direction', () => {
+  it('keeps the full marker–edge segment when the card is far from the marker (no max clamp)', () => {
     const camera = createCamera('cam-1')
     const popupSize = getPopupSize('default')
     const previousLayout: PopupLayout = {
@@ -213,9 +213,9 @@ describe('popup connector length', () => {
       markerX: 80,
       markerY: 160,
     })
-    // Ideal edge anchor would be ~400px away; clamp keeps the line at 150px toward the card.
-    expect(layouts[0]!.anchorX).toBeCloseTo(230, 0)
-    expect(layouts[0]!.anchorY).toBeCloseTo(160, 0)
-    expect(connectorLength(layouts[0]!)).toBeCloseTo(150, 5)
+    // Anchor sits on the left edge of the preserved card, in line with the marker.
+    expect(layouts[0]!.anchorX).toBe(previousLayout.left)
+    expect(layouts[0]!.anchorY).toBeCloseTo(160, 5)
+    expect(connectorLength(layouts[0]!)).toBeCloseTo(400, 5)
   })
 })

@@ -38,11 +38,9 @@ interface PopupConnector {
 }
 
 interface PopupPlacement {
-  clampPenalty: number
   layout: PopupLayout
   rect: Rect
   connector: PopupConnector
-  connectorBounds: Rect
 }
 
 export interface PopupLayoutItem {
@@ -68,10 +66,8 @@ export interface PopupLayout {
 
 const POPUP_MARGIN = 12
 const POSITION_EPSILON = 0.25
-const CONNECTOR_PADDING = 6
-/** Pixel length of the marker–popup connector line (clamped for readability). */
-const CONNECTOR_LENGTH_MIN = 25
-const CONNECTOR_LENGTH_MAX = 150
+/** Matches legacy Leaflet tooltips: keep marker–popup edge at least this many pixels apart. */
+const MIN_ANCHOR_PX = 10
 
 const POPUP_SIZES = {
   default: {
@@ -111,27 +107,31 @@ function rectsIntersect(a: Rect, b: Rect) {
   return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top
 }
 
-function getIntersectionArea(a: Rect, b: Rect) {
-  if (!rectsIntersect(a, b)) {
-    return 0
-  }
-
-  return (
-    (Math.min(a.right, b.right) - Math.max(a.left, b.left)) *
-    (Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top))
-  )
-}
-
-function pointInRect(x: number, y: number, rect: Rect) {
-  return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom
-}
-
+/**
+ * Candidate order mirrors legacy `maps.js` / `modal.js`: top, bottom, left, right,
+ * then shifted top/bottom variants (equivalent to top-left, top-right, etc.).
+ */
 function getPopupCandidates(markerX: number, markerY: number, size: PopupSize): PopupCandidate[] {
   return [
     {
       direction: 'top',
       left: markerX - size.width / 2,
       top: markerY - size.height - size.gap,
+    },
+    {
+      direction: 'bottom',
+      left: markerX - size.width / 2,
+      top: markerY + size.gap,
+    },
+    {
+      direction: 'left',
+      left: markerX - size.width - size.gap,
+      top: markerY - size.height / 2,
+    },
+    {
+      direction: 'right',
+      left: markerX + size.gap,
+      top: markerY - size.height / 2,
     },
     {
       direction: 'top-left',
@@ -142,21 +142,6 @@ function getPopupCandidates(markerX: number, markerY: number, size: PopupSize): 
       direction: 'top-right',
       left: markerX - size.edgeInset,
       top: markerY - size.height - size.gap,
-    },
-    {
-      direction: 'right',
-      left: markerX + size.gap,
-      top: markerY - size.height / 2,
-    },
-    {
-      direction: 'left',
-      left: markerX - size.width - size.gap,
-      top: markerY - size.height / 2,
-    },
-    {
-      direction: 'bottom',
-      left: markerX - size.width / 2,
-      top: markerY + size.gap,
     },
     {
       direction: 'bottom-left',
@@ -171,23 +156,21 @@ function getPopupCandidates(markerX: number, markerY: number, size: PopupSize): 
   ]
 }
 
-function clampConnectorAnchorToLength(
-  markerX: number,
-  markerY: number,
-  idealAnchorX: number,
-  idealAnchorY: number,
-) {
+/** Push the anchor away from the marker along the same ray until segment length ≥ minLen (legacy behavior). */
+function ensureMinAnchorLength(markerX: number, markerY: number, idealAnchorX: number, idealAnchorY: number) {
   const dx = idealAnchorX - markerX
   const dy = idealAnchorY - markerY
   const len = Math.hypot(dx, dy)
 
   if (len <= POSITION_EPSILON) {
-    return { anchorX: markerX, anchorY: markerY + CONNECTOR_LENGTH_MIN }
+    return { anchorX: markerX, anchorY: markerY + MIN_ANCHOR_PX }
   }
 
-  const targetLen = clamp(len, CONNECTOR_LENGTH_MIN, CONNECTOR_LENGTH_MAX)
-  const scale = targetLen / len
+  if (len >= MIN_ANCHOR_PX) {
+    return { anchorX: idealAnchorX, anchorY: idealAnchorY }
+  }
 
+  const scale = MIN_ANCHOR_PX / len
   return {
     anchorX: markerX + dx * scale,
     anchorY: markerY + dy * scale,
@@ -229,293 +212,6 @@ function resolvePopupAnchor(
   }
 }
 
-function createConnectorBounds(connector: PopupConnector) {
-  const left = Math.min(connector.startX, connector.endX) - CONNECTOR_PADDING
-  const top = Math.min(connector.startY, connector.endY) - CONNECTOR_PADDING
-  const right = Math.max(connector.startX, connector.endX) + CONNECTOR_PADDING
-  const bottom = Math.max(connector.startY, connector.endY) + CONNECTOR_PADDING
-
-  return {
-    left,
-    top,
-    right,
-    bottom,
-  }
-}
-
-function orientation(
-  firstX: number,
-  firstY: number,
-  secondX: number,
-  secondY: number,
-  thirdX: number,
-  thirdY: number,
-) {
-  const value = (secondY - firstY) * (thirdX - secondX) - (secondX - firstX) * (thirdY - secondY)
-
-  if (Math.abs(value) <= POSITION_EPSILON) {
-    return 0
-  }
-
-  return value > 0 ? 1 : 2
-}
-
-function pointOnSegment(
-  pointX: number,
-  pointY: number,
-  startX: number,
-  startY: number,
-  endX: number,
-  endY: number,
-) {
-  return (
-    pointX <= Math.max(startX, endX) + POSITION_EPSILON &&
-    pointX >= Math.min(startX, endX) - POSITION_EPSILON &&
-    pointY <= Math.max(startY, endY) + POSITION_EPSILON &&
-    pointY >= Math.min(startY, endY) - POSITION_EPSILON
-  )
-}
-
-function segmentsIntersect(first: PopupConnector, second: PopupConnector) {
-  const firstOrientation = orientation(
-    first.startX,
-    first.startY,
-    first.endX,
-    first.endY,
-    second.startX,
-    second.startY,
-  )
-  const secondOrientation = orientation(
-    first.startX,
-    first.startY,
-    first.endX,
-    first.endY,
-    second.endX,
-    second.endY,
-  )
-  const thirdOrientation = orientation(
-    second.startX,
-    second.startY,
-    second.endX,
-    second.endY,
-    first.startX,
-    first.startY,
-  )
-  const fourthOrientation = orientation(
-    second.startX,
-    second.startY,
-    second.endX,
-    second.endY,
-    first.endX,
-    first.endY,
-  )
-
-  if (firstOrientation !== secondOrientation && thirdOrientation !== fourthOrientation) {
-    return true
-  }
-
-  if (
-    firstOrientation === 0 &&
-    pointOnSegment(second.startX, second.startY, first.startX, first.startY, first.endX, first.endY)
-  ) {
-    return true
-  }
-
-  if (
-    secondOrientation === 0 &&
-    pointOnSegment(second.endX, second.endY, first.startX, first.startY, first.endX, first.endY)
-  ) {
-    return true
-  }
-
-  if (
-    thirdOrientation === 0 &&
-    pointOnSegment(first.startX, first.startY, second.startX, second.startY, second.endX, second.endY)
-  ) {
-    return true
-  }
-
-  if (
-    fourthOrientation === 0 &&
-    pointOnSegment(first.endX, first.endY, second.startX, second.startY, second.endX, second.endY)
-  ) {
-    return true
-  }
-
-  return false
-}
-
-function segmentIntersectsRect(connector: PopupConnector, rect: Rect) {
-  if (
-    pointInRect(connector.startX, connector.startY, rect) ||
-    pointInRect(connector.endX, connector.endY, rect)
-  ) {
-    return true
-  }
-
-  const edges: PopupConnector[] = [
-    { startX: rect.left, startY: rect.top, endX: rect.right, endY: rect.top },
-    { startX: rect.right, startY: rect.top, endX: rect.right, endY: rect.bottom },
-    { startX: rect.right, startY: rect.bottom, endX: rect.left, endY: rect.bottom },
-    { startX: rect.left, startY: rect.bottom, endX: rect.left, endY: rect.top },
-  ]
-
-  return edges.some((edge) => segmentsIntersect(connector, edge))
-}
-
-function hasHardConnectorCollision(
-  connector: PopupConnector,
-  blockedRects: PopupBlockedRect[],
-  placedRects: Rect[],
-  placedConnectors: PopupConnector[],
-  cameraId: string,
-) {
-  if (
-    blockedRects.some(
-      ({ cameraId: blockedCameraId, rect }) => blockedCameraId !== cameraId && segmentIntersectsRect(connector, rect),
-    )
-  ) {
-    return true
-  }
-
-  if (placedRects.some((placedRect) => segmentIntersectsRect(connector, placedRect))) {
-    return true
-  }
-
-  return placedConnectors.some((placedConnector) => segmentsIntersect(connector, placedConnector))
-}
-
-function scoreConnectorCandidate(
-  connector: PopupConnector,
-  connectorBounds: Rect,
-  blockedRects: PopupBlockedRect[],
-  placedRects: Rect[],
-  placedConnectors: PopupConnector[],
-  placedConnectorBounds: Rect[],
-  cameraId: string,
-) {
-  let score = 0
-
-  blockedRects.forEach(({ cameraId: blockedCameraId, rect }) => {
-    if (blockedCameraId === cameraId) {
-      return
-    }
-
-    if (segmentIntersectsRect(connector, rect)) {
-      score += 1500
-      return
-    }
-
-    if (rectsIntersect(connectorBounds, rect)) {
-      score += 260
-    }
-  })
-
-  placedRects.forEach((placedRect) => {
-    if (segmentIntersectsRect(connector, placedRect)) {
-      score += 2100
-      return
-    }
-
-    if (rectsIntersect(connectorBounds, placedRect)) {
-      score += 380
-    }
-  })
-
-  placedConnectors.forEach((placedConnector, index) => {
-    if (segmentsIntersect(connector, placedConnector)) {
-      score += 1650
-      return
-    }
-
-    if (rectsIntersect(connectorBounds, placedConnectorBounds[index]!)) {
-      score += 280
-    }
-  })
-
-  return score
-}
-
-function scoreCandidate(
-  rect: Rect,
-  connector: PopupConnector,
-  connectorBounds: Rect,
-  viewportRect: Rect,
-  blockedRects: PopupBlockedRect[],
-  placedRects: Rect[],
-  placedConnectors: PopupConnector[],
-  placedConnectorBounds: Rect[],
-  clampPenalty: number,
-  cameraId: string,
-) {
-  let score = clampPenalty * 10
-
-  if (rect.left < viewportRect.left) {
-    score += (viewportRect.left - rect.left) * 120
-  }
-
-  if (rect.right > viewportRect.right) {
-    score += (rect.right - viewportRect.right) * 120
-  }
-
-  if (rect.top < viewportRect.top) {
-    score += (viewportRect.top - rect.top) * 160
-  }
-
-  if (rect.bottom > viewportRect.bottom) {
-    score += (rect.bottom - viewportRect.bottom) * 120
-  }
-
-  blockedRects.forEach(({ cameraId: blockedCameraId, rect: blockedRect }) => {
-    if (blockedCameraId === cameraId) {
-      return
-    }
-
-    const overlap = getIntersectionArea(rect, blockedRect)
-
-    if (overlap > 0) {
-      score += overlap * 6 + 900
-    }
-  })
-
-  placedRects.forEach((placedRect) => {
-    const overlap = getIntersectionArea(rect, placedRect)
-
-    if (overlap > 0) {
-      score += overlap * 10 + 1600
-    }
-  })
-
-  score += scoreConnectorCandidate(
-    connector,
-    connectorBounds,
-    blockedRects,
-    placedRects,
-    placedConnectors,
-    placedConnectorBounds,
-    cameraId,
-  )
-
-  return score
-}
-
-function isCollisionFree(
-  rect: Rect,
-  connector: PopupConnector,
-  blockedRects: PopupBlockedRect[],
-  placedRects: Rect[],
-  placedConnectors: PopupConnector[],
-  cameraId: string,
-) {
-  return (
-    !blockedRects.some(
-      ({ cameraId: blockedCameraId, rect: blockedRect }) => blockedCameraId !== cameraId && rectsIntersect(rect, blockedRect),
-    ) &&
-    !placedRects.some((placedRect) => rectsIntersect(rect, placedRect)) &&
-    !hasHardConnectorCollision(connector, blockedRects, placedRects, placedConnectors, cameraId)
-  )
-}
-
 function createPopupLayout(
   camera: CameraSummary,
   point: { x: number; y: number },
@@ -528,7 +224,7 @@ function createPopupLayout(
   const clampedTop = clamp(rawRect.top, viewportRect.top, viewportRect.bottom - size.height)
   const rect = createRect(clampedLeft, clampedTop, size.width, size.height)
   const ideal = resolvePopupAnchor(candidate.direction, rect, point.x, point.y, size.edgeInset)
-  const { anchorX, anchorY } = clampConnectorAnchorToLength(point.x, point.y, ideal.anchorX, ideal.anchorY)
+  const { anchorX, anchorY } = ensureMinAnchorLength(point.x, point.y, ideal.anchorX, ideal.anchorY)
   const connector: PopupConnector = {
     startX: point.x,
     startY: point.y,
@@ -537,7 +233,6 @@ function createPopupLayout(
   }
 
   return {
-    clampPenalty: Math.abs(rawRect.left - clampedLeft) + Math.abs(rawRect.top - clampedTop),
     layout: {
       camera,
       direction: candidate.direction,
@@ -552,7 +247,6 @@ function createPopupLayout(
     } satisfies PopupLayout,
     rect,
     connector,
-    connectorBounds: createConnectorBounds(connector),
   }
 }
 
@@ -567,7 +261,7 @@ function createPopupLayoutFromRect(
   const clampedTop = clamp(previousLayout.top, viewportRect.top, viewportRect.bottom - size.height)
   const rect = createRect(clampedLeft, clampedTop, size.width, size.height)
   const ideal = resolvePopupAnchor(previousLayout.direction, rect, point.x, point.y, size.edgeInset)
-  const { anchorX, anchorY } = clampConnectorAnchorToLength(point.x, point.y, ideal.anchorX, ideal.anchorY)
+  const { anchorX, anchorY } = ensureMinAnchorLength(point.x, point.y, ideal.anchorX, ideal.anchorY)
   const connector: PopupConnector = {
     startX: point.x,
     startY: point.y,
@@ -576,7 +270,6 @@ function createPopupLayoutFromRect(
   }
 
   return {
-    clampPenalty: Math.abs(previousLayout.left - clampedLeft) + Math.abs(previousLayout.top - clampedTop),
     layout: {
       camera,
       direction: previousLayout.direction,
@@ -591,8 +284,20 @@ function createPopupLayoutFromRect(
     } satisfies PopupLayout,
     rect,
     connector,
-    connectorBounds: createConnectorBounds(connector),
   }
+}
+
+function isCollisionFree(rect: Rect, blockedRects: PopupBlockedRect[], placedRects: Rect[], cameraId: string) {
+  if (
+    blockedRects.some(
+      ({ cameraId: blockedCameraId, rect: blockedRect }) =>
+        blockedCameraId !== cameraId && rectsIntersect(rect, blockedRect),
+    )
+  ) {
+    return false
+  }
+
+  return !placedRects.some((placedRect) => rectsIntersect(rect, placedRect))
 }
 
 function almostEqual(a: number, b: number) {
@@ -663,8 +368,6 @@ export function buildPopupLayouts({
   }
 
   const placedRects: Rect[] = []
-  const placedConnectors: PopupConnector[] = []
-  const placedConnectorBounds: Rect[] = []
 
   return items.flatMap(({ camera, point }) => {
     if (
@@ -679,24 +382,20 @@ export function buildPopupLayouts({
     const candidates = getPopupCandidates(point.x, point.y, popupSize)
     const previousLayout = previousLayouts.get(camera.id)
 
+    const tryPlacement = (placement: PopupPlacement): PopupLayout | null => {
+      if (isCollisionFree(placement.rect, blockedRects, placedRects, camera.id)) {
+        placedRects.push(placement.rect)
+        return placement.layout
+      }
+      return null
+    }
+
     if (previousLayout) {
       if (preservePreviousPositions) {
-        const preservedLayout = createPopupLayoutFromRect(camera, point, viewportRect, previousLayout, popupSize)
-
-        if (
-          isCollisionFree(
-            preservedLayout.rect,
-            preservedLayout.connector,
-            blockedRects,
-            placedRects,
-            placedConnectors,
-            camera.id,
-          )
-        ) {
-          placedRects.push(preservedLayout.rect)
-          placedConnectors.push(preservedLayout.connector)
-          placedConnectorBounds.push(preservedLayout.connectorBounds)
-          return [preservedLayout.layout]
+        const preserved = createPopupLayoutFromRect(camera, point, viewportRect, previousLayout, popupSize)
+        const preservedLayout = tryPlacement(preserved)
+        if (preservedLayout) {
+          return [preservedLayout]
         }
       }
 
@@ -704,62 +403,21 @@ export function buildPopupLayouts({
 
       if (stickyCandidate) {
         const stickyLayout = createPopupLayout(camera, point, viewportRect, stickyCandidate, popupSize)
-
-        if (
-          isCollisionFree(
-            stickyLayout.rect,
-            stickyLayout.connector,
-            blockedRects,
-            placedRects,
-            placedConnectors,
-            camera.id,
-          )
-        ) {
-          placedRects.push(stickyLayout.rect)
-          placedConnectors.push(stickyLayout.connector)
-          placedConnectorBounds.push(stickyLayout.connectorBounds)
-          return [stickyLayout.layout]
+        const stickyResult = tryPlacement(stickyLayout)
+        if (stickyResult) {
+          return [stickyResult]
         }
       }
     }
 
-    let bestLayout: PopupLayout | null = null
-    let bestRect: Rect | null = null
-    let bestConnector: PopupConnector | null = null
-    let bestConnectorBounds: Rect | null = null
-    let bestScore = Number.POSITIVE_INFINITY
-
-    for (const [candidateIndex, candidate] of candidates.entries()) {
+    for (const candidate of candidates) {
       const nextLayout = createPopupLayout(camera, point, viewportRect, candidate, popupSize)
-      const score = scoreCandidate(
-        nextLayout.rect,
-        nextLayout.connector,
-        nextLayout.connectorBounds,
-        viewportRect,
-        blockedRects,
-        placedRects,
-        placedConnectors,
-        placedConnectorBounds,
-        nextLayout.clampPenalty + candidateIndex * 24,
-        camera.id,
-      )
-
-      if (score < bestScore) {
-        bestScore = score
-        bestLayout = nextLayout.layout
-        bestRect = nextLayout.rect
-        bestConnector = nextLayout.connector
-        bestConnectorBounds = nextLayout.connectorBounds
+      const chosen = tryPlacement(nextLayout)
+      if (chosen) {
+        return [chosen]
       }
     }
 
-    if (!bestLayout || !bestRect || !bestConnector || !bestConnectorBounds) {
-      return []
-    }
-
-    placedRects.push(bestRect)
-    placedConnectors.push(bestConnector)
-    placedConnectorBounds.push(bestConnectorBounds)
-    return [bestLayout]
+    return []
   })
 }
