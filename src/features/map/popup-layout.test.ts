@@ -23,6 +23,10 @@ function createCamera(id: string): CameraSummary {
   }
 }
 
+function connectorLength(layout: PopupLayout) {
+  return Math.hypot(layout.anchorX - layout.markerX, layout.anchorY - layout.markerY)
+}
+
 function createPreviousLayout(camera: CameraSummary, direction: PopupLayout['direction']): PopupLayout {
   const popupSize = getPopupSize('default')
 
@@ -166,5 +170,52 @@ describe('popup layout stickiness', () => {
     expect(layouts).toHaveLength(1)
     expect(layouts[0]?.left).not.toBe(previousLayout.left)
     expect(layouts[0]?.top).not.toBe(previousLayout.top)
+  })
+})
+
+describe('popup connector length', () => {
+  it('extends short marker–popup edges to at least 25px along the same direction', () => {
+    const camera = createCamera('cam-1')
+    const layouts = buildPopupLayouts({
+      items: [{ camera, point: { x: 260, y: 200 } }],
+      blockedRects: [],
+      blockedTop: 0,
+      width: 520,
+      height: 320,
+    })
+
+    expect(layouts).toHaveLength(1)
+    expect(connectorLength(layouts[0]!)).toBeGreaterThanOrEqual(25 - 0.01)
+  })
+
+  it('caps a long marker–anchor segment at 150px along the same direction', () => {
+    const camera = createCamera('cam-1')
+    const popupSize = getPopupSize('default')
+    const previousLayout: PopupLayout = {
+      ...createPreviousLayout(camera, 'right'),
+      left: 480,
+      top: 120,
+    }
+    const layouts = buildPopupLayouts({
+      items: [{ camera, point: { x: 80, y: 160 } }],
+      blockedRects: [],
+      blockedTop: 0,
+      width: 640,
+      height: 360,
+      previousLayouts: new Map([[camera.id, previousLayout]]),
+      preservePreviousPositions: true,
+    })
+
+    expect(layouts).toHaveLength(1)
+    expect(layouts[0]).toMatchObject({
+      left: previousLayout.left,
+      top: previousLayout.top,
+      markerX: 80,
+      markerY: 160,
+    })
+    // Ideal edge anchor would be ~400px away; clamp keeps the line at 150px toward the card.
+    expect(layouts[0]!.anchorX).toBeCloseTo(230, 0)
+    expect(layouts[0]!.anchorY).toBeCloseTo(160, 0)
+    expect(connectorLength(layouts[0]!)).toBeCloseTo(150, 5)
   })
 })

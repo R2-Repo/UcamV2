@@ -69,6 +69,9 @@ export interface PopupLayout {
 const POPUP_MARGIN = 12
 const POSITION_EPSILON = 0.25
 const CONNECTOR_PADDING = 6
+/** Pixel length of the marker–popup connector line (clamped for readability). */
+const CONNECTOR_LENGTH_MIN = 25
+const CONNECTOR_LENGTH_MAX = 150
 
 const POPUP_SIZES = {
   default: {
@@ -166,6 +169,29 @@ function getPopupCandidates(markerX: number, markerY: number, size: PopupSize): 
       top: markerY + size.gap,
     },
   ]
+}
+
+function clampConnectorAnchorToLength(
+  markerX: number,
+  markerY: number,
+  idealAnchorX: number,
+  idealAnchorY: number,
+) {
+  const dx = idealAnchorX - markerX
+  const dy = idealAnchorY - markerY
+  const len = Math.hypot(dx, dy)
+
+  if (len <= POSITION_EPSILON) {
+    return { anchorX: markerX, anchorY: markerY + CONNECTOR_LENGTH_MIN }
+  }
+
+  const targetLen = clamp(len, CONNECTOR_LENGTH_MIN, CONNECTOR_LENGTH_MAX)
+  const scale = targetLen / len
+
+  return {
+    anchorX: markerX + dx * scale,
+    anchorY: markerY + dy * scale,
+  }
 }
 
 function resolvePopupAnchor(
@@ -501,7 +527,8 @@ function createPopupLayout(
   const clampedLeft = clamp(rawRect.left, viewportRect.left, viewportRect.right - size.width)
   const clampedTop = clamp(rawRect.top, viewportRect.top, viewportRect.bottom - size.height)
   const rect = createRect(clampedLeft, clampedTop, size.width, size.height)
-  const { anchorX, anchorY } = resolvePopupAnchor(candidate.direction, rect, point.x, point.y, size.edgeInset)
+  const ideal = resolvePopupAnchor(candidate.direction, rect, point.x, point.y, size.edgeInset)
+  const { anchorX, anchorY } = clampConnectorAnchorToLength(point.x, point.y, ideal.anchorX, ideal.anchorY)
   const connector: PopupConnector = {
     startX: point.x,
     startY: point.y,
@@ -539,7 +566,8 @@ function createPopupLayoutFromRect(
   const clampedLeft = clamp(previousLayout.left, viewportRect.left, viewportRect.right - size.width)
   const clampedTop = clamp(previousLayout.top, viewportRect.top, viewportRect.bottom - size.height)
   const rect = createRect(clampedLeft, clampedTop, size.width, size.height)
-  const { anchorX, anchorY } = resolvePopupAnchor(previousLayout.direction, rect, point.x, point.y, size.edgeInset)
+  const ideal = resolvePopupAnchor(previousLayout.direction, rect, point.x, point.y, size.edgeInset)
+  const { anchorX, anchorY } = clampConnectorAnchorToLength(point.x, point.y, ideal.anchorX, ideal.anchorY)
   const connector: PopupConnector = {
     startX: point.x,
     startY: point.y,
