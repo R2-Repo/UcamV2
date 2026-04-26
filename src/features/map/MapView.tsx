@@ -1484,19 +1484,6 @@ export function MapView({
       return undefined
     }
 
-    if (popupLayouts.some((layout) => layout.camera.id === activePopupImageCameraId)) {
-      return undefined
-    }
-
-    setActivePopupImageCameraId(null)
-    return undefined
-  }, [activePopupImageCameraId, popupLayouts])
-
-  useEffect(() => {
-    if (!activePopupImageCameraId) {
-      return undefined
-    }
-
     const clearActivePopupImage = () => {
       setActivePopupImageCameraId(null)
     }
