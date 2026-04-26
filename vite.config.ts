@@ -11,6 +11,9 @@ const noStoreHeaders = {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  optimizeDeps: {
+    entries: ['index.html'],
+  },
   server: {
     host: '0.0.0.0',
     port: 4173,
