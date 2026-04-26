@@ -49,8 +49,13 @@
     <script>
       (async () => {
         const status = document.getElementById('status')
-        const nextUrl = new URL('/', window.location.origin)
+        const fallbackLink = document.getElementById('fallbackLink')
+        const currentPath = window.location.pathname
+        const previewPath = currentPath.replace(/\/reset-preview\.html$/, '/') || '/'
+        const nextUrl = new URL(previewPath, window.location.origin)
         nextUrl.searchParams.set('v', String(Date.now()))
+
+        fallbackLink.setAttribute('href', nextUrl.pathname)
 
         try {
           if ('serviceWorker' in navigator) {
