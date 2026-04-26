@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
+import { type PointerEvent as ReactPointerEvent, type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { FeatureCollection, LineString, Point } from 'geojson'
@@ -88,6 +88,7 @@ const ARCGIS_LAYER_INSERT_BEFORE_ID = 'camera-clusters'
 const CONTEXT_MENU_WIDTH = 248
 const CONTEXT_MENU_HEIGHT = 336
 const CONTEXT_MENU_MARGIN = 10
+const POPUP_IMAGE_PRESS_SCALE = 2
 
 interface ContextMenuState {
   containerHeight: number
@@ -646,6 +647,42 @@ function getViewportCenter(map: maplibregl.Map) {
   }
 }
 
+function panScaledPopupIntoView(map: maplibregl.Map, popupElement: HTMLElement, scale: number) {
+  if (scale <= 1) {
+    return
+  }
+
+  const popupRect = popupElement.getBoundingClientRect()
+  const mapRect = map.getContainer().getBoundingClientRect()
+  const centerX = popupRect.left + popupRect.width / 2
+  const centerY = popupRect.top + popupRect.height / 2
+  const scaledWidth = popupRect.width * scale
+  const scaledHeight = popupRect.height * scale
+  const scaledLeft = centerX - scaledWidth / 2
+  const scaledTop = centerY - scaledHeight / 2
+  const scaledRight = centerX + scaledWidth / 2
+  const scaledBottom = centerY + scaledHeight / 2
+
+  let dx = 0
+  let dy = 0
+
+  if (scaledLeft < mapRect.left) {
+    dx = scaledLeft - mapRect.left
+  } else if (scaledRight > mapRect.right) {
+    dx = scaledRight - mapRect.right
+  }
+
+  if (scaledTop < mapRect.top) {
+    dy = scaledTop - mapRect.top
+  } else if (scaledBottom > mapRect.bottom) {
+    dy = scaledBottom - mapRect.bottom
+  }
+
+  if (dx || dy) {
+    map.panBy([dx, dy], { animate: false })
+  }
+}
+
 function getFocusPopupItem(map: maplibregl.Map, selectedCamera: CameraSummary | null) {
   if (!selectedCamera) {
     return null
@@ -707,6 +744,7 @@ export function MapView({
   const stableAutoPopupCandidatesRef = useRef<PopupLayoutItem[]>([])
   const [isReady, setIsReady] = useState(false)
   const [popupLayouts, setPopupLayouts] = useState<PopupLayout[]>([])
+  const [activePopupImageCameraId, setActivePopupImageCameraId] = useState<string | null>(null)
   const [manualPopupCameraId, setManualPopupCameraId] = useState<string | null>(null)
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   const [contextMenuSize, setContextMenuSize] = useState({
@@ -1341,6 +1379,7 @@ export function MapView({
       popupLayoutsRef.current = []
       stableAutoPopupCandidatesRef.current = []
       setPopupLayouts((currentLayouts) => (currentLayouts.length ? [] : currentLayouts))
+      setActivePopupImageCameraId(null)
       return undefined
     }
 
@@ -1396,9 +1435,10 @@ export function MapView({
         width: map.getContainer().clientWidth,
         height: map.getContainer().clientHeight,
         previousLayouts: new Map(popupLayoutsRef.current.map((layout) => [layout.camera.id, layout])),
-        // Keep cards recomputed from marker screen positions every frame. Pinning previous
-        // pixel positions made thumbs lag behind markers while the map panned or zoomed.
         preservePreviousPositions: false,
+        // Match legacy Leaflet tooltips while the map is moving: keep the chosen side stable,
+        // then let collision resolution re-run once the interaction settles.
+        lockPreviousDirections: isInteracting,
         sizeMode: popupSizeMode,
       })
 
@@ -1438,6 +1478,39 @@ export function MapView({
       map.off('resize', handleResize)
     }
   }, [autoPopupsEnabled, camerasById, isFullscreen, isReady, manualPopupCameraId, overlayHeight, popupSizeMode, selectedCamera])
+
+  useEffect(() => {
+    if (!activePopupImageCameraId) {
+      return undefined
+    }
+
+    if (popupLayouts.some((layout) => layout.camera.id === activePopupImageCameraId)) {
+      return undefined
+    }
+
+    setActivePopupImageCameraId(null)
+    return undefined
+  }, [activePopupImageCameraId, popupLayouts])
+
+  useEffect(() => {
+    if (!activePopupImageCameraId) {
+      return undefined
+    }
+
+    const clearActivePopupImage = () => {
+      setActivePopupImageCameraId(null)
+    }
+
+    window.addEventListener('pointerup', clearActivePopupImage)
+    window.addEventListener('pointercancel', clearActivePopupImage)
+    window.addEventListener('blur', clearActivePopupImage)
+
+    return () => {
+      window.removeEventListener('pointerup', clearActivePopupImage)
+      window.removeEventListener('pointercancel', clearActivePopupImage)
+      window.removeEventListener('blur', clearActivePopupImage)
+    }
+  }, [activePopupImageCameraId])
 
   useEffect(() => {
     if (!contextMenu) {
@@ -1572,12 +1645,36 @@ export function MapView({
     setContextMenu(null)
   }
 
+  function handlePopupImagePointerDown(cameraId: string, event: ReactPointerEvent<HTMLImageElement>) {
+    if (event.button !== 0) {
+      return
+    }
+
+    event.stopPropagation()
+    event.currentTarget.setPointerCapture?.(event.pointerId)
+    setActivePopupImageCameraId(cameraId)
+
+    if (mapRef.current && event.currentTarget.parentElement) {
+      panScaledPopupIntoView(mapRef.current, event.currentTarget.parentElement, POPUP_IMAGE_PRESS_SCALE)
+    }
+  }
+
+  function handlePopupImagePointerEnd(event: ReactPointerEvent<HTMLImageElement>) {
+    event.stopPropagation()
+
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId)
+    }
+
+    setActivePopupImageCameraId(null)
+  }
+
   return (
     <div className={`${styles.root} ${isFullscreen ? styles.isFullscreen : ''}`.trim()}>
       <div ref={mapContainerRef} className={styles.mapCanvas} />
 
       {popupLayouts.length ? (
-        <div className={styles.popupLayer} aria-hidden="true">
+        <div className={styles.popupLayer}>
           <svg className={styles.popupConnectorLayer} width="100%" height="100%" preserveAspectRatio="none">
             {popupLayouts.map((layout) => {
               const isFocusedPopup = selectedCamera?.id === layout.camera.id
@@ -1597,11 +1694,12 @@ export function MapView({
 
           {popupLayouts.map((layout) => {
             const isFocusedPopup = selectedCamera?.id === layout.camera.id
+            const isActivePopupImage = activePopupImageCameraId === layout.camera.id
 
             return (
               <div
                 key={layout.camera.id}
-                className={`${styles.popupThumb} ${isFocusedPopup ? styles.popupThumbFocused : ''}`.trim()}
+                className={`${styles.popupThumb} ${isFocusedPopup ? styles.popupThumbFocused : ''} ${isActivePopupImage ? styles.popupThumbActive : ''}`.trim()}
                 data-popup-size={popupSizeMode}
                 style={{
                   transform: `translate3d(${layout.left}px, ${layout.top}px, 0)`,
@@ -1612,7 +1710,11 @@ export function MapView({
                 <img
                   alt=""
                   decoding="async"
+                  draggable="false"
                   loading={isFocusedPopup ? 'eager' : 'lazy'}
+                  onPointerCancel={handlePopupImagePointerEnd}
+                  onPointerDown={(event) => handlePopupImagePointerDown(layout.camera.id, event)}
+                  onPointerUp={handlePopupImagePointerEnd}
                   src={popupImageSrcByCameraId.get(layout.camera.id) ?? layout.camera.imageUrl}
                 />
               </div>

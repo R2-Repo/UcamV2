@@ -335,6 +335,7 @@ export function buildPopupLayouts({
   height,
   previousLayouts = new Map<string, PopupLayout>(),
   preservePreviousPositions = false,
+  lockPreviousDirections = false,
   sizeMode = 'default',
 }: {
   items: PopupLayoutItem[]
@@ -344,6 +345,7 @@ export function buildPopupLayouts({
   height: number
   previousLayouts?: ReadonlyMap<string, PopupLayout>
   preservePreviousPositions?: boolean
+  lockPreviousDirections?: boolean
   sizeMode?: PopupSizeMode
 }) {
   if (!width || !height) {
@@ -403,6 +405,10 @@ export function buildPopupLayouts({
 
       if (stickyCandidate) {
         const stickyLayout = createPopupLayout(camera, point, viewportRect, stickyCandidate, popupSize)
+        if (lockPreviousDirections) {
+          placedRects.push(stickyLayout.rect)
+          return [stickyLayout.layout]
+        }
         const stickyResult = tryPlacement(stickyLayout)
         if (stickyResult) {
           return [stickyResult]
