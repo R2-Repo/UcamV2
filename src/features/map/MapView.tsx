@@ -1342,6 +1342,11 @@ export function MapView({
     }
 
     const updateLayouts = () => {
+      if (!autoPopupsEnabled) {
+        stableAutoPopupCandidatesRef.current = []
+        shouldRefreshAutoCandidates = false
+      }
+
       if (shouldRefreshAutoCandidates || (!isInteracting && autoPopupsEnabled)) {
         refreshAutoPopupCandidates()
       }
@@ -1351,10 +1356,18 @@ export function MapView({
         manualPopupCameraId && manualPopupCameraId !== selectedCamera?.id
           ? getManualPopupItem(map, camerasById, manualPopupCameraId)
           : null
+      const autoCandidates = autoPopupsEnabled && isInteracting
+        ? stableAutoPopupCandidatesRef.current.map(({ camera }) => ({
+            camera,
+            point: map.project([camera.longitude, camera.latitude]),
+          }))
+        : autoPopupsEnabled
+          ? stableAutoPopupCandidatesRef.current
+          : []
       const items = selectPopupLayoutItems({
         focusItem,
         pinnedItems: manualItem ? [manualItem] : [],
-        candidates: stableAutoPopupCandidatesRef.current,
+        candidates: autoCandidates,
         viewportCenter: getViewportCenter(map),
         maxPopups: MAX_AUTO_POPUPS,
       })
@@ -1365,6 +1378,7 @@ export function MapView({
         width: map.getContainer().clientWidth,
         height: map.getContainer().clientHeight,
         previousLayouts: new Map(popupLayoutsRef.current.map((layout) => [layout.camera.id, layout])),
+        preservePreviousPositions: true,
         sizeMode: popupSizeMode,
       })
 

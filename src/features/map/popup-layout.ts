@@ -529,6 +529,44 @@ function createPopupLayout(
   }
 }
 
+function createPopupLayoutFromRect(
+  camera: CameraSummary,
+  point: { x: number; y: number },
+  viewportRect: Rect,
+  previousLayout: PopupLayout,
+  size: PopupSize,
+): PopupPlacement {
+  const clampedLeft = clamp(previousLayout.left, viewportRect.left, viewportRect.right - size.width)
+  const clampedTop = clamp(previousLayout.top, viewportRect.top, viewportRect.bottom - size.height)
+  const rect = createRect(clampedLeft, clampedTop, size.width, size.height)
+  const { anchorX, anchorY } = resolvePopupAnchor(previousLayout.direction, rect, point.x, point.y, size.edgeInset)
+  const connector: PopupConnector = {
+    startX: point.x,
+    startY: point.y,
+    endX: anchorX,
+    endY: anchorY,
+  }
+
+  return {
+    clampPenalty: Math.abs(previousLayout.left - clampedLeft) + Math.abs(previousLayout.top - clampedTop),
+    layout: {
+      camera,
+      direction: previousLayout.direction,
+      left: rect.left,
+      top: rect.top,
+      width: size.width,
+      height: size.height,
+      markerX: point.x,
+      markerY: point.y,
+      anchorX,
+      anchorY,
+    } satisfies PopupLayout,
+    rect,
+    connector,
+    connectorBounds: createConnectorBounds(connector),
+  }
+}
+
 function almostEqual(a: number, b: number) {
   return Math.abs(a - b) <= POSITION_EPSILON
 }
@@ -563,6 +601,7 @@ export function buildPopupLayouts({
   width,
   height,
   previousLayouts = new Map<string, PopupLayout>(),
+  preservePreviousPositions = false,
   sizeMode = 'default',
 }: {
   items: PopupLayoutItem[]
@@ -571,6 +610,7 @@ export function buildPopupLayouts({
   width: number
   height: number
   previousLayouts?: ReadonlyMap<string, PopupLayout>
+  preservePreviousPositions?: boolean
   sizeMode?: PopupSizeMode
 }) {
   if (!width || !height) {
@@ -612,6 +652,26 @@ export function buildPopupLayouts({
     const previousLayout = previousLayouts.get(camera.id)
 
     if (previousLayout) {
+      if (preservePreviousPositions) {
+        const preservedLayout = createPopupLayoutFromRect(camera, point, viewportRect, previousLayout, popupSize)
+
+        if (
+          isCollisionFree(
+            preservedLayout.rect,
+            preservedLayout.connector,
+            blockedRects,
+            placedRects,
+            placedConnectors,
+            camera.id,
+          )
+        ) {
+          placedRects.push(preservedLayout.rect)
+          placedConnectors.push(preservedLayout.connector)
+          placedConnectorBounds.push(preservedLayout.connectorBounds)
+          return [preservedLayout.layout]
+        }
+      }
+
       const stickyCandidate = candidates.find((candidate) => candidate.direction === previousLayout.direction)
 
       if (stickyCandidate) {
