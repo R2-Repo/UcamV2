@@ -104,4 +104,67 @@ describe('popup layout stickiness', () => {
       height: popupSize.height,
     })
   })
-})
+
+  it('preserves the previous popup card position while updating the live marker connector', () => {
+    const camera = createCamera('cam-1')
+    const popupSize = getPopupSize('default')
+    const previousLayout: PopupLayout = {
+      ...createPreviousLayout(camera, 'right'),
+      left: 220,
+      top: 70,
+    }
+    const layouts = buildPopupLayouts({
+      items: [
+        {
+          camera,
+          point: { x: 120, y: 160 },
+        },
+      ],
+      blockedRects: [],
+      blockedTop: 0,
+      width: 520,
+      height: 320,
+      previousLayouts: new Map([[camera.id, previousLayout]]),
+      preservePreviousPositions: true,
+    })
+
+    expect(layouts).toHaveLength(1)
+    expect(layouts[0]).toMatchObject({
+      left: previousLayout.left,
+      top: previousLayout.top,
+      markerX: 120,
+      markerY: 160,
+      anchorX: previousLayout.left,
+      anchorY: 160,
+      width: popupSize.width,
+      height: popupSize.height,
+    })
+  })
+
+  it('reflows during interaction when preserving the previous card would collide', () => {
+    const camera = createCamera('cam-1')
+    const previousLayout: PopupLayout = {
+      ...createPreviousLayout(camera, 'right'),
+      left: 220,
+      top: 70,
+    }
+    const layouts = buildPopupLayouts({
+      items: [
+        {
+          camera,
+          point: { x: 120, y: 160 },
+        },
+      ],
+      blockedRects: [{ cameraId: null, rect: createRect(210, 60, 170, 120) }],
+      blockedTop: 0,
+      width: 520,
+      height: 320,
+      previousLayouts: new Map([[camera.id, previousLayout]]),
+      preservePreviousPositions: true,
+    })
+
+    expect(layouts).toHaveLength(1)
+    expect(layouts[0]?.left).not.toBe(previousLayout.left)
+    expect(layouts[0]?.top).not.toBe(previousLayout.top)
+  })
+}
