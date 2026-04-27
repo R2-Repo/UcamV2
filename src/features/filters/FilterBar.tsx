@@ -1,6 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties, ChangeEvent, MouseEvent } from 'react'
 import type { FilterState, FilterOptions, ViewMode } from '../../shared/types'
+import { getCustomRouteLabel, hasCustomRouteSegments } from './customRoute'
 
 type DropdownId = 'status' | 'filters' | 'routes' | 'search' | null
 type AutoClosingSelectKey = 'region' | 'county' | 'city' | 'maintenance' | 'routeId'
@@ -14,8 +15,10 @@ interface FilterBarProps {
   imageSize: number
   showImageSizeControl?: boolean
   showViewToggleButton?: boolean
+  showCustomRouteButton?: boolean
   useViewportDropdowns?: boolean
   onFilterChange: (key: keyof FilterState, value: string) => void
+  onOpenCustomRouteBuilder?: () => void
   onCopyLink: () => void
   onImageSizeChange: (value: number) => void
   onReset: () => void
@@ -31,8 +34,10 @@ export function FilterBar({
   imageSize,
   showImageSizeControl = true,
   showViewToggleButton = true,
+  showCustomRouteButton = false,
   useViewportDropdowns = false,
   onFilterChange,
+  onOpenCustomRouteBuilder,
   onCopyLink,
   onImageSizeChange,
   onReset,
@@ -161,8 +166,13 @@ export function FilterBar({
     setIsSizeControlOpen((isOpen) => !isOpen)
   }
 
-  const selectedRouteLabel =
-    options.routes.find((route) => route.id === filters.routeId)?.displayName ?? 'All routes'
+  const selectedRouteLabel = useMemo(() => {
+    if (hasCustomRouteSegments(filters.customRouteSegments)) {
+      return getCustomRouteLabel(filters.customRouteSegments)
+    }
+
+    return options.routes.find((route) => route.id === filters.routeId)?.displayName ?? 'All routes'
+  }, [filters.customRouteSegments, filters.routeId, options.routes])
   const showActionControls = showViewToggleButton || showImageSizeControl
   const viewToggleLabel = viewMode === 'map' ? 'Go Back to Gallery' : 'Open Full Map'
   const viewToggleText = viewMode === 'map' ? 'Go Back to Gallery' : 'Full Map'
@@ -314,6 +324,11 @@ export function FilterBar({
                   ))}
                 </select>
               </label>
+              {showCustomRouteButton ? (
+                <button className="dropdown-item" type="button" onClick={handleStatusAction(() => onOpenCustomRouteBuilder?.())}>
+                  <i className="fas fa-route"></i> {hasCustomRouteSegments(filters.customRouteSegments) ? 'Edit Custom Route' : 'Build Custom Route'}
+                </button>
+              ) : null}
             </div>
           </div>
         </details>

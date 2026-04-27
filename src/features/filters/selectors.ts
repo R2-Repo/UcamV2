@@ -1,4 +1,5 @@
 import type { CameraSummary, CuratedRoute, FilterOptions, FilterState } from '../../shared/types'
+import { createCustomRoute } from './customRoute'
 import { cameraMatchesRoute, createRouteLookup, getRouteSortValue } from '../../shared/lib/routes'
 
 function uniqueSorted(values: Array<string | null>) {
@@ -34,7 +35,9 @@ function compareByRoute(left: CameraSummary, right: CameraSummary, route: Curate
 }
 
 function matchesCamera(camera: CameraSummary, filters: FilterState, routeLookup: Map<string, CuratedRoute>) {
-  const route = filters.routeId ? routeLookup.get(filters.routeId) ?? null : null
+  const route =
+    createCustomRoute(filters.customRouteSegments) ??
+    (filters.routeId ? routeLookup.get(filters.routeId) ?? null : null)
   const query = filters.searchQuery.trim().toLowerCase()
 
   if (filters.region && camera.region !== filters.region) {
@@ -69,7 +72,9 @@ export function filterCameras(
   routeLookup: Map<string, CuratedRoute>,
   filters: FilterState,
 ) {
-  const selectedRoute = filters.routeId ? routeLookup.get(filters.routeId) ?? null : null
+  const selectedRoute =
+    createCustomRoute(filters.customRouteSegments) ??
+    (filters.routeId ? routeLookup.get(filters.routeId) ?? null : null)
   const filtered = cameras.filter((camera) => matchesCamera(camera, filters, routeLookup))
 
   return filtered.toSorted((left, right) =>
@@ -80,7 +85,7 @@ export function filterCameras(
 function withFilterRemoved(filters: FilterState, key: keyof FilterState): FilterState {
   return {
     ...filters,
-    [key]: '',
+    [key]: key === 'customRouteSegments' ? [] : '',
   }
 }
 

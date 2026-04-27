@@ -90,6 +90,7 @@ export interface FilterState {
   city: string
   maintenance: string
   routeId: string
+  customRouteSegments: RouteSegment[]
 }
 
 export interface FilterOptions {

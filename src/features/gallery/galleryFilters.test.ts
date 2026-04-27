@@ -11,6 +11,7 @@ describe('hasActiveGalleryFilters', () => {
         city: '',
         maintenance: '',
         routeId: '',
+        customRouteSegments: [],
       }),
     ).toBe(false)
   })
@@ -24,6 +25,7 @@ describe('hasActiveGalleryFilters', () => {
         city: '',
         maintenance: 'Salt Lake',
         routeId: '',
+        customRouteSegments: [],
       }),
     ).toBe(true)
 
@@ -35,6 +37,7 @@ describe('hasActiveGalleryFilters', () => {
         city: '',
         maintenance: '',
         routeId: '',
+        customRouteSegments: [],
       }),
     ).toBe(true)
   })

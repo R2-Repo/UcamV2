@@ -8,6 +8,7 @@ export const defaultFilters: FilterState = {
   city: '',
   maintenance: '',
   routeId: '',
+  customRouteSegments: [],
 }
 
 interface AppStore {
@@ -15,7 +16,7 @@ interface AppStore {
   viewMode: ViewMode
   selectedCameraId: string | null
   selectionSource: SelectionSource
-  setFilter: (key: keyof FilterState, value: string) => void
+  setFilter: <K extends keyof FilterState>(key: K, value: FilterState[K]) => void
   resetFilters: () => void
   setViewMode: (viewMode: ViewMode) => void
   setSelectedCamera: (selectedCameraId: string | null, selectionSource: SelectionSource) => void
@@ -28,12 +29,24 @@ export const useAppStore = create<AppStore>((set) => ({
   selectedCameraId: null,
   selectionSource: null,
   setFilter: (key, value) =>
-    set((state) => ({
-      filters: {
+    set((state) => {
+      const nextFilters = {
         ...state.filters,
         [key]: value,
-      },
-    })),
+      } as FilterState
+
+      if (key === 'routeId' && typeof value === 'string' && value) {
+        nextFilters.customRouteSegments = []
+      }
+
+      if (key === 'customRouteSegments' && Array.isArray(value) && value.length) {
+        nextFilters.routeId = ''
+      }
+
+      return {
+        filters: nextFilters,
+      }
+    }),
   resetFilters: () =>
     set({
       filters: { ...defaultFilters },
