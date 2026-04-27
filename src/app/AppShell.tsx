@@ -2,12 +2,19 @@ import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } fro
 import clsx from 'clsx'
 import { useSearchParams } from 'react-router-dom'
 import { FilterBar } from '../features/filters/FilterBar'
+import { CustomRouteBuilderPanel } from '../features/filters/CustomRouteBuilderPanel'
 import {
   resolveValidSelectedCameraId,
   shouldClearSelectionForViewModeChange,
   shouldOpenGalleryModalFromSelection,
   shouldPersistSelectedCamera,
 } from '../features/filters/selection-contract'
+import {
+  cloneRouteSegments,
+  createEmptyCustomRouteSegment,
+  getCustomRouteLabel,
+  hasCustomRouteSegments,
+} from '../features/filters/customRoute'
 import { createRouteSelectors, deriveFilterOptions, filterCameras } from '../features/filters/selectors'
 import { CameraModal } from '../features/modal/CameraModal'
 import { useAppStore } from '../features/filters/store'
@@ -29,7 +36,7 @@ import { analyzeCameras } from '../features/map/camera-analytics'
 import { useAppData } from '../shared/data/useAppData'
 import { useElementSize } from '../shared/hooks/useElementSize'
 import { IMAGE_REFRESH_INTERVAL_MS } from '../shared/lib/cameras'
-import type { FilterState, SelectionSource, ViewMode } from '../shared/types'
+import type { FilterState, RouteSegment, SelectionSource, ViewMode } from '../shared/types'
 import type { PopupSizeMode } from '../features/map/popup-layout'
 import {
   DEFAULT_MAP_DIMENSION_MODE,
@@ -115,15 +122,28 @@ export function AppShell() {
   const arcGisMenuRef = useRef<HTMLDivElement | null>(null)
   const analyticsMenuRef = useRef<HTMLDivElement | null>(null)
   const { ref: mapOverlayRef, size: mapOverlaySize } = useElementSize<HTMLDivElement>()
+  const [isCustomRouteBuilderOpen, setIsCustomRouteBuilderOpen] = useState(false)
+  const [draftCustomRouteSegments, setDraftCustomRouteSegments] = useState<RouteSegment[]>([])
 
   const routeLookup = useMemo(() => createRouteSelectors(routes), [routes])
+  const effectiveFilters = useMemo(
+    () =>
+      isCustomRouteBuilderOpen
+        ? {
+            ...filters,
+            customRouteSegments: draftCustomRouteSegments,
+            routeId: hasCustomRouteSegments(draftCustomRouteSegments) ? '' : filters.routeId,
+          }
+        : filters,
+    [draftCustomRouteSegments, filters, isCustomRouteBuilderOpen],
+  )
   const filteredCameras = useMemo(
-    () => filterCameras(cameras, routeLookup, filters),
-    [cameras, filters, routeLookup],
+    () => filterCameras(cameras, routeLookup, effectiveFilters),
+    [cameras, effectiveFilters, routeLookup],
   )
   const filterOptions = useMemo(
-    () => deriveFilterOptions(cameras, routes, routeLookup, filters),
-    [cameras, filters, routeLookup, routes],
+    () => deriveFilterOptions(cameras, routes, routeLookup, effectiveFilters),
+    [cameras, effectiveFilters, routeLookup, routes],
   )
   const cameraAnalytics = useMemo(() => analyzeCameras(filteredCameras), [filteredCameras])
   const availableCameraIds = useMemo(() => new Set(cameras.map((camera) => camera.id)), [cameras])
@@ -146,16 +166,19 @@ export function AppShell() {
     [filteredCameras, validSelectedCameraId],
   )
   const selectedRouteLabel = useMemo(
-    () => routes.find((route) => route.id === filters.routeId)?.displayName ?? null,
-    [filters.routeId, routes],
+    () =>
+      hasCustomRouteSegments(effectiveFilters.customRouteSegments)
+        ? getCustomRouteLabel(effectiveFilters.customRouteSegments)
+        : routes.find((route) => route.id === effectiveFilters.routeId)?.displayName ?? null,
+    [effectiveFilters.customRouteSegments, effectiveFilters.routeId, routes],
   )
   const activeBadges = useMemo(
-    () => getActiveBadges(filters, selectedRouteLabel),
-    [filters, selectedRouteLabel],
+    () => getActiveBadges(effectiveFilters, selectedRouteLabel),
+    [effectiveFilters, selectedRouteLabel],
   )
   const shouldShowMiniOverviewMap = useMemo(
-    () => hasActiveGalleryFilters(filters) && filteredCameras.length > 0,
-    [filteredCameras.length, filters],
+    () => hasActiveGalleryFilters(effectiveFilters) && filteredCameras.length > 0,
+    [effectiveFilters, filteredCameras.length],
   )
   const mapDimensionToggleCopy = useMemo(
     () => getMapDimensionToggleCopy(mapDimensionMode),
@@ -170,6 +193,10 @@ export function AppShell() {
     setSelectedCamera(null, null)
     setIsModalOpen(false)
   }, [setSelectedCamera])
+
+  useEffect(() => {
+    setDraftCustomRouteSegments(cloneRouteSegments(filters.customRouteSegments))
+  }, [filters.customRouteSegments])
 
   useEffect(() => {
     const incoming = searchParams.toString()
@@ -259,6 +286,8 @@ export function AppShell() {
 
     setIsArcGisMenuOpen(false)
     setIsAnalyticsMenuOpen(false)
+    setIsCustomRouteBuilderOpen(false)
+    setDraftCustomRouteSegments([])
   }, [viewMode])
 
   useEffect(() => {
@@ -408,6 +437,12 @@ export function AppShell() {
     [setFilter],
   )
 
+  const handleResetFilters = useCallback(() => {
+    resetFilters()
+    setIsCustomRouteBuilderOpen(false)
+    setDraftCustomRouteSegments([])
+  }, [resetFilters])
+
   const handleViewModeChange = useCallback(
     (nextViewMode: ViewMode) => {
       if (viewMode === 'gallery' && nextViewMode === 'map') {
@@ -480,6 +515,28 @@ export function AppShell() {
     setIsModalOpen(false)
     setViewMode('map')
   }, [setSelectedCamera, setViewMode])
+
+  const handleOpenCustomRouteBuilder = useCallback(() => {
+    setDraftCustomRouteSegments(
+      filters.customRouteSegments.length
+        ? cloneRouteSegments(filters.customRouteSegments)
+        : [createEmptyCustomRouteSegment()],
+    )
+    setIsCustomRouteBuilderOpen(true)
+    setIsArcGisMenuOpen(false)
+    setIsAnalyticsMenuOpen(false)
+  }, [filters.customRouteSegments])
+
+  const handleCloseCustomRouteBuilder = useCallback(() => {
+    setIsCustomRouteBuilderOpen(false)
+    setDraftCustomRouteSegments([])
+  }, [])
+
+  const handleSaveCustomRouteBuilder = useCallback((segments: RouteSegment[]) => {
+    setFilter('customRouteSegments', cloneRouteSegments(segments))
+    setIsCustomRouteBuilderOpen(false)
+    setDraftCustomRouteSegments([])
+  }, [setFilter])
 
   const handleToggleMapPopupSize = useCallback(() => {
     setMapPopupSizeMode((currentMode) => (currentMode === 'default' ? 'large' : 'default'))
@@ -631,7 +688,7 @@ export function AppShell() {
                   ))}
                 </div>
                 <div className="action-buttons">
-                  <button className="reset-button" type="button" title="Reset Filters" onClick={resetFilters}>
+                  <button className="reset-button" type="button" title="Reset Filters" onClick={handleResetFilters}>
                     <i className="fas fa-undo"></i>
                   </button>
                   <button className="reset-button" type="button" title="Copy Link" onClick={() => handleCopyLink()}>
@@ -651,7 +708,7 @@ export function AppShell() {
                   onCopyLink={handleCopyLink}
                   onFilterChange={handleFilterChange}
                   onImageSizeChange={setImageSize}
-                  onReset={resetFilters}
+                  onReset={handleResetFilters}
                   onViewModeChange={handleViewModeChange}
                 />
               </div>
@@ -690,18 +747,20 @@ export function AppShell() {
                       <div className="header-controls fade-in">
                         <div className={styles.mapHeaderControls}>
                           <FilterBar
-                            filters={filters}
+                            filters={effectiveFilters}
                             filteredCount={filteredCount}
                             imageSize={imageSize}
                             options={filterOptions}
                             showImageSizeControl={false}
+                            showCustomRouteButton
                             totalCount={totalCount}
                             useViewportDropdowns
                             viewMode={viewMode}
                             onCopyLink={handleCopyLink}
                             onFilterChange={handleFilterChange}
                             onImageSizeChange={setImageSize}
-                            onReset={resetFilters}
+                            onOpenCustomRouteBuilder={handleOpenCustomRouteBuilder}
+                            onReset={handleResetFilters}
                             onViewModeChange={handleViewModeChange}
                           />
                           <button
@@ -803,6 +862,18 @@ export function AppShell() {
                               </div>
                             ) : null}
                           </div>
+                          {isCustomRouteBuilderOpen ? (
+                            <div className={styles.mapCustomRouteBuilderPanel}>
+                              <CustomRouteBuilderPanel
+                                segments={draftCustomRouteSegments}
+                                cameraCount={filteredCount}
+                                totalCount={totalCount}
+                                onChange={setDraftCustomRouteSegments}
+                                onClose={handleCloseCustomRouteBuilder}
+                                onSave={handleSaveCustomRouteBuilder}
+                              />
+                            </div>
+                          ) : null}
                         </div>
                       </div>
                     </div>

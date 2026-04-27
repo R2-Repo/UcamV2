@@ -1,4 +1,5 @@
 import type { FilterState, UrlState } from '../../shared/types'
+import { parseCustomRouteSegments, serializeCustomRouteSegments } from './customRoute'
 
 export function parseSearchParams(searchParams: URLSearchParams): UrlState {
   const filters: Partial<FilterState> = {}
@@ -25,6 +26,10 @@ export function parseSearchParams(searchParams: URLSearchParams): UrlState {
 
   if (searchParams.has('route')) {
     filters.routeId = searchParams.get('route') ?? ''
+  }
+
+  if (searchParams.has('multiRoute')) {
+    filters.customRouteSegments = parseCustomRouteSegments(searchParams.get('multiRoute'))
   }
 
   return {
@@ -71,6 +76,12 @@ export function buildSearchParams({
 
   if (filters.routeId) {
     searchParams.set('route', filters.routeId)
+  }
+
+  const serializedCustomRoute = serializeCustomRouteSegments(filters.customRouteSegments)
+
+  if (serializedCustomRoute) {
+    searchParams.set('multiRoute', serializedCustomRoute)
   }
 
   if (selectedCameraId) {

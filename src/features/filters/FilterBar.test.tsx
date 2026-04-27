@@ -24,6 +24,7 @@ function renderFilterBar(filterOverrides: Partial<FilterState> = {}) {
   const onImageSizeChange = vi.fn()
   const onReset = vi.fn()
   const onViewModeChange = vi.fn()
+  const onOpenCustomRouteBuilder = vi.fn()
 
   render(
     <FilterBar
@@ -36,7 +37,9 @@ function renderFilterBar(filterOverrides: Partial<FilterState> = {}) {
       onFilterChange={onFilterChange}
       onCopyLink={onCopyLink}
       onImageSizeChange={onImageSizeChange}
+      onOpenCustomRouteBuilder={onOpenCustomRouteBuilder}
       onReset={onReset}
+      showCustomRouteButton
       onViewModeChange={onViewModeChange}
     />, 
   )
@@ -44,6 +47,7 @@ function renderFilterBar(filterOverrides: Partial<FilterState> = {}) {
   return {
     onFilterChange,
     onCopyLink,
+    onOpenCustomRouteBuilder,
   }
 }
 
@@ -137,5 +141,15 @@ describe('FilterBar', () => {
     renderFilterBar()
 
     expect(screen.queryByRole('button', { name: /refresh images/i })).not.toBeInTheDocument()
+  })
+
+  it('opens the custom route builder from the routes menu', () => {
+    const { onOpenCustomRouteBuilder } = renderFilterBar()
+    const routesTrigger = screen.getByLabelText('Routes')
+
+    fireEvent.click(routesTrigger)
+    fireEvent.click(screen.getByRole('button', { name: /build custom route/i }))
+
+    expect(onOpenCustomRouteBuilder).toHaveBeenCalledTimes(1)
   })
 })

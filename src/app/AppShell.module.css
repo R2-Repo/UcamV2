@@ -333,6 +333,13 @@
   z-index: 4;
 }
 
+.mapCustomRouteBuilderPanel {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 0;
+  z-index: 4;
+}
+
 .mapHeaderControls > :first-child {
   flex: 1 1 46rem;
   min-width: 0;
@@ -401,6 +408,12 @@
     left: 0;
     right: auto;
     width: min(30rem, calc(100vw - 1rem));
+  }
+
+  .mapCustomRouteBuilderPanel {
+    left: 0;
+    right: 0;
+    width: auto;
   }
 
   .mapPopupSizeButton {
