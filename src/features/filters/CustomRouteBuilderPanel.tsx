@@ -141,7 +141,7 @@ export function CustomRouteBuilderPanel({
 
             return (
               <article
-                key={`${index}-${segment.routeKey}-${segment.mpMin}-${segment.mpMax}-${segment.sortOrder}`}
+                key={index}
                 className={styles.segmentCard}
                 role="listitem"
               >
