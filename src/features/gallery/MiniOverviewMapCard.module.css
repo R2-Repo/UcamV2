@@ -1,0 +1,54 @@
+.button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mapFrame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.22), transparent 38%),
+    linear-gradient(180deg, rgba(16, 25, 24, 0.92), rgba(18, 22, 21, 0.98));
+}
+
+.mapCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.65rem 0.75rem 0.7rem;
+  background: linear-gradient(180deg, rgba(7, 12, 13, 0), rgba(7, 12, 13, 0.82));
+  color: #fffdf7;
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 247, 228, 0.82);
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.meta {
+  font-size: 0.74rem;
+  color: rgba(255, 253, 247, 0.8);
+}
