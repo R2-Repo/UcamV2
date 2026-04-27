@@ -34,7 +34,7 @@
   pointer-events: none;
 }
 
-.kicker {
+.eyebrow {
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -42,8 +42,13 @@
   color: rgba(255, 247, 228, 0.82);
 }
 
-.overlay strong {
+.title {
   font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.15;
+}
+
+.meta {
+  font-size: 0.74rem;
+  color: rgba(255, 253, 247, 0.8);
 }
